@@ -154,7 +154,7 @@ Zweitbetreuer: Prof. Wilhelm Walter, Fakultät DM
 % Titelblatt START
 %\maketitle
 %\addcontentsline{toc}{chapter}{Titelblatt}
-\includepdf[pages={1}]{../Bilder/deckblatt.pdf}
+%\includepdf[pages={1}]{Includes/deckblatt.pdf}
 % Titelblatt ENDE
 
 
@@ -171,7 +171,7 @@ Zweitbetreuer: Prof. Wilhelm Walter, Fakultät DM
 \renewcommand*{\chapterpagestyle}{empty}
 \chapter*{Abstract}%
 %\addcontentsline{toc}{chapter}{Abstract}
-Diese Arbeit zeigt, wie eine Implementierung der Half-Edge Datenstruktur f"ur das Handling von 3D Mesh Daten umgesetzt werden kann. Die Implementierung des vorgestellten Konzeptes erfolgte in \CSS und ist in die Echtzeit-3D Engine "`Fusee"' der Hochschule Furtwangen integriert. Geometrie Daten k"onnen mit Hilfe der Datenstruktur im Speicher gehalten und manipuliert werden. Im Kern dieser Thesis wird "uberp"uft wie sich LINQ Abfragen in der Datenstruktur realisieren lassen, ob sie  zur Laufzeit Auswirkungen auf die Performance des Systems haben. Ein Ausblick er"ortert wie LINQ die zuk"unftige Umsetzung von Transformationsalgorithmen im Fusee Projekt beeinflussen k"onnte. Die Implementierung von \LFGS bietet Iteratoren als Schnittstellen mit welchen sich neue komplexe Transformationen realisieren lassen. Es ist angedacht, das Projekt zuk"unftig als Datenstruktur f"ur einen Mesh Editor auf Basis der Fusee Engine einzusetzen. Der Sourcecode der Arbeit ist auf GitHub unter der MIT Lizenz frei zug"anglich.
+ABSTRACT TBD HIER.
 \clearpage
 \endgroup
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -191,7 +191,7 @@ Diese Arbeit zeigt, wie eine Implementierung der Half-Edge Datenstruktur f"ur da
 \renewcommand*{\chapterpagestyle}{empty}
 \chapter*{Eidesstattliche Erkl"arung}%
 %\addcontentsline{toc}{chapter}{Eidesstattliche Erkl"arung}
-Ich erkläre hiermit an Eides statt, dass ich die vorliegende Bachelorthesis selbständig und ohne 
+Ich erkläre hiermit an Eides statt, dass ich die vorliegende Masterthesis selbständig und ohne 
 unzulässige fremde Hilfe angefertigt habe. Alle verwendeten Quellen und Hilfsmittel die sowohl zum schreiben dieser Arbeit als auch zum Entwickeln des dazugeh"origen Sourcecodes benutzt wurden, habe ich angegeben.
 
 \vspace*{3cm}
@@ -215,12 +215,11 @@ unzulässige fremde Hilfe angefertigt habe. Alle verwendeten Quellen und Hilfsmi
 \newpage
 \thispagestyle{empty}
 \vspace*{8cm}
-\includegraphics[width=\linewidth]{../Bilder/Logo}
+%\includegraphics[width=\linewidth]{Bilder/Logo}
 \vspace*{1cm}
 \begin{quote}
-"`Focused, hard work is the real key to success. Keep your eyes on the goal, and just keep taking the next step towards completing it. If you aren't sure which way to do something, do it both ways and see which works better."'
-\end{quote} - John Carmack, co-founder of idSoftware
-%\captionof{figure}{Diese Illustration zeigt die Verbindung der data records an einem beliebigen Polygon durch Pfeilverbindungen.}\label{pic:polyConnections}
+"Hier steht ein wichtiges Zitat zur Entstehung dieser Arbeit."
+\end{quote} - TBD.
 \vspace*{5cm}
 \\Kontakt:\\
 Dominik Steffen (Matr.-Nr.: 233675)\\
@@ -319,7 +318,7 @@ dominik.steffen@hs-furtwangen.de, dominik.steffen@gmail.com\\
 % Bilbiographie START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nocite{*}
-\bibliography{Citavi}
+%\bibliography{Citavi}
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -331,19 +330,6 @@ dominik.steffen@hs-furtwangen.de, dominik.steffen@gmail.com\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter*{UML Diagramme}
 \addcontentsline{toc}{chapter}{UML Diagramme}
-Die hier angeh"angten UML Diagramme wurden w"ahrend dieser Arbeit entwickelt und stellen die Basis der Implementierung dar. Diese Diagramme wurden vor der tatsächlichen Entwicklung der betreffenden Funktionen geschrieben und können kleine Unterschiede zum tatsächlichen Code aufweisen. \newpage
-
-\includegraphics[width=\linewidth]{../UML/Klassendiagramm}
-%\includepdf[pages={1}, pagecommand={}]{../UML/Klassendiagramm}
-\captionof{figure}{Klassendiagramm: Dieses UML Diagramm beschreibt die Implementierung des Projektes.}\label{uml:klassendiagramm}
-\newpage
-%\includepdf[pages={1}, pagecommand={}]{../UML/Activity-VertexIncHE}
-\includegraphics[width=\linewidth]{../UML/act-VertexIncHE}
-\captionof{figure}{Aktivit"atsdiagramm: Der Iterator zum Finden von eingehenden Half-Edges an einem Vertex.}\label{uml:vertinche}
-\newpage
-%\includepdf[pages={1}, pagecommand={}]{../UML/Activity-CalcVertexNormals}
-\includegraphics[width=\linewidth]{../UML/act-CalcVertexNormals}
-\captionof{figure}{Aktivit"atsdiagramm: Die Methode zum Berechnen von Vertex Normalen}\label{uml:vertnc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % UML ENDE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
