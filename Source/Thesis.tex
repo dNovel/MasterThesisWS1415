@@ -1,0 +1,350 @@
+% !!!SUCHE NACH IMPORTANT ZUM CHECKEN!!!
+
+\documentclass[pagesize, paper=a4, fontsize=12pt,titlepage=true, headings=small, headnosepline, abstractoff, liststotoc, nochapterprefix, plainheadsepline, twoside]{scrreprt}
+\usepackage[a4paper, left=40mm, right=30mm, top=20mm, bottom=30mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{cite} % Paket fuer die Zitation
+% \usepackage{natbib} % Erweitertes paket für Zitate.
+%\usepackage{sourcesanspro}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+% Bilder Settings
+\usepackage{graphicx}
+\usepackage [singlelinecheck=false] {caption}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{scrpage2}
+\usepackage [singlelinecheck=false] {caption}
+\usepackage{pdfpages}
+
+% Paket fuer das anzeigen von Sourcecode
+\usepackage{listings}
+% Setze die Programmiersprache auf CSharp
+\lstset{language=[Sharp]C} 
+
+% Festlegung Art der Zitierung - Havardmethode: Abkuerzung Autor + Jahr
+\bibliographystyle{alphadin}
+%plain
+
+% Festlegen der Sprache
+\selectlanguage{ngerman}
+
+% Settings fuer den Sourcecode START
+\definecolor{mywhite}{rgb}{1,1,1}
+\definecolor{mygreen}{rgb}{0,0.4,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mykeywordgray}{rgb}{0.2,0.2,0.2}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{bggray}{rgb}{0.97,0.97,0.97}
+\definecolor{titlegray}{rgb}{0.4,0.4,0.4}
+
+% Farbe für die Überschriften
+\addtokomafont{sectioning}{\color{titlegray}\rmfamily}
+
+
+\lstset{
+backgroundcolor=\color{mywhite},  % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+basicstyle=\small, % the size of the fonts that are used for the code
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+breaklines=true,                 % sets automatic line breaking
+captionpos=b,                    % sets the caption-position to bottom
+commentstyle=\small\color{black},    % comment style
+deletekeywords={...},            % if you want to delete keywords from the given language
+escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+frame=single,                    % adds a frame around the code
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+keywordstyle=\color{mykeywordgray}\bfseries,       % keyword style
+language=[Sharp]C,                 % the language of the code
+morekeywords={*,Select,where,select,Write, from, in, orderby, IEnumerable, Where, OrderBy, FindIndex, List, Count, Insert, Remove},            % if you want to add more keywords to the set
+numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbersep=10pt,                   % how far the line-numbers are from the code
+numberstyle=\color{mykeywordgray}, % the style that is used for the line-numbers
+rulecolor=\color{titlegray},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{black},     % string literal style
+tabsize=2,                       % sets default tabsize to 2 spaces
+title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+captionpos=t,
+aboveskip=1\baselineskip,		% Platz über dem quellcode block
+belowskip=1\baselineskip,			% Platz unter dem quellcode block
+%morecomment=[il]{///}
+}
+% Settings fuer den Sourcecode ENDE
+
+% Listings
+\renewcommand{\lstlistlistingname}{Verzeichnis der Sourcecode Beispiele}
+\renewcommand{\lstlistingname}{Sourcecode Beispiele}
+
+% Autoren
+\author{
+Dominik Steffen \and
+Erstbetreuer: Prof. Christoph Müller, Fakultät DM \and
+Zweitbetreuer: Prof. Wilhelm Walter, Fakultät DM
+}
+
+
+% Titel
+\title{LINQ for Geometry}
+\subtitle{Implementierung der Half-Edge Datenstruktur zum Handling dreidimensionaler Meshes in einer Echtzeit-3D Engine insbesondere durch den Einsatz von LINQ und Lambda Ausdrücken in Microsofts \CS}
+%\subtitle{Implementierung der Half-Edge Datenstruktur zu Manipulation und Handling dreidimensionaler Meshes insbesondere durch den Einsatz von LINQ und LAMBA Ausdrücken in Microsofts \CS}
+\parindent 0pt
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Commands START - Makros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% C# makro OHNE space nach dem logo
+\newcommand{\CS}{C\texttt{\#}}
+% C# makro MIT space nach dem logo
+\newcommand{\CSS}{C\texttt{\# }}
+% C++ Logo
+\newcommand{\CPP}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\bf +}}
+% LINQ For Geometry
+\newcommand{\LFG}{LINQ For Geometry}
+% LINQ For Geometry mit Space
+\newcommand{\LFGS}{LINQ For Geometry }
+% LINQ mit spaces links und rechts
+\newcommand{\LQ}{ LINQ }
+% Generic zeichen <T>
+\newcommand{\GT}{\textless T\textgreater}
+\newcommand{\GTS}{\textless T\textgreater\space}
+% Lambda Zeichen in C#
+\newcommand{\LAM}{ =\textgreater\space}
+% HES
+\newcommand{\HES}{Half-Edge Datenstruktur }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Commands ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Unterstrichene Kapitelüberschriften START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*{\ORIGchapterheadendvskip}{}%
+\let\ORIGchapterheadendvskip=\chapterheadendvskip
+\renewcommand*{\chapterheadendvskip}{%
+\ORIGchapterheadendvskip
+{%
+\setlength{\parskip}{0pt}%
+\noindent\rule[3\baselineskip]{\linewidth}{1pt}\par
+}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Unterstrichene Kapitelüberschriften ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\makeindex
+\onehalfspacing
+%\setuptoc{toc}{numbered}
+
+\begin{document}
+% Titelblatt START
+%\maketitle
+%\addcontentsline{toc}{chapter}{Titelblatt}
+\includepdf[pages={1}]{../Bilder/deckblatt.pdf}
+% Titelblatt ENDE
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Abstract START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\begingroup
+\newpage
+\pagestyle{empty}
+\renewcommand*{\chapterpagestyle}{empty}
+\chapter*{Abstract}%
+%\addcontentsline{toc}{chapter}{Abstract}
+Diese Arbeit zeigt, wie eine Implementierung der Half-Edge Datenstruktur f"ur das Handling von 3D Mesh Daten umgesetzt werden kann. Die Implementierung des vorgestellten Konzeptes erfolgte in \CSS und ist in die Echtzeit-3D Engine "`Fusee"' der Hochschule Furtwangen integriert. Geometrie Daten k"onnen mit Hilfe der Datenstruktur im Speicher gehalten und manipuliert werden. Im Kern dieser Thesis wird "uberp"uft wie sich LINQ Abfragen in der Datenstruktur realisieren lassen, ob sie  zur Laufzeit Auswirkungen auf die Performance des Systems haben. Ein Ausblick er"ortert wie LINQ die zuk"unftige Umsetzung von Transformationsalgorithmen im Fusee Projekt beeinflussen k"onnte. Die Implementierung von \LFGS bietet Iteratoren als Schnittstellen mit welchen sich neue komplexe Transformationen realisieren lassen. Es ist angedacht, das Projekt zuk"unftig als Datenstruktur f"ur einen Mesh Editor auf Basis der Fusee Engine einzusetzen. Der Sourcecode der Arbeit ist auf GitHub unter der MIT Lizenz frei zug"anglich.
+\clearpage
+\endgroup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Abstract ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Versicherung START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\begingroup
+\pagestyle{empty}
+\newpage
+\renewcommand*{\chapterpagestyle}{empty}
+\chapter*{Eidesstattliche Erkl"arung}%
+%\addcontentsline{toc}{chapter}{Eidesstattliche Erkl"arung}
+Ich erkläre hiermit an Eides statt, dass ich die vorliegende Bachelorthesis selbständig und ohne 
+unzulässige fremde Hilfe angefertigt habe. Alle verwendeten Quellen und Hilfsmittel die sowohl zum schreiben dieser Arbeit als auch zum Entwickeln des dazugeh"origen Sourcecodes benutzt wurden, habe ich angegeben.
+
+\vspace*{3cm}
+\hspace*{\fill}\begin{tabular}{@{}l@{}}\hline
+\makebox[9cm]{Dominik Steffen, K"ussaberg den \today}
+\end{tabular}
+\clearpage
+\endgroup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Versicherung ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Logo START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\begingroup
+\newpage
+\thispagestyle{empty}
+\vspace*{8cm}
+\includegraphics[width=\linewidth]{../Bilder/Logo}
+\vspace*{1cm}
+\begin{quote}
+"`Focused, hard work is the real key to success. Keep your eyes on the goal, and just keep taking the next step towards completing it. If you aren't sure which way to do something, do it both ways and see which works better."'
+\end{quote} - John Carmack, co-founder of idSoftware
+%\captionof{figure}{Diese Illustration zeigt die Verbindung der data records an einem beliebigen Polygon durch Pfeilverbindungen.}\label{pic:polyConnections}
+\vspace*{5cm}
+\\Kontakt:\\
+Dominik Steffen (Matr.-Nr.: 233675)\\
+Hochschule Furtwangen\\
+E-Mail:\\
+dominik.steffen@hs-furtwangen.de, dominik.steffen@gmail.com\\
+\endgroup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Logo START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+% Inhaltsverzeichnis START
+\begingroup
+	\clearpage
+	\pagestyle{empty}
+	%\addcontentsline{toc}{chapter}{Inhaltsverzeichnis} 
+	\tableofcontents
+	\clearpage
+\endgroup
+% Inhaltsverzeichnis ENDE
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inhalt START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Passe Seitenzahlen wieder an START
+\renewcommand*{\chapterpagestyle}{plain}
+\pagestyle{plain}
+\setcounter{page}{0}
+% Passe Seitenzahlen wieder an ENDE
+
+%%%%%%
+%	Einführung / Einleitung START
+%%%%%%
+
+%%%%%%
+%	Einführung / Einleitung ENDE
+%%%%%%
+
+
+%%%%%%
+%	Hauptteil START
+%%%%%%
+
+%%%%%%
+%	Hauptteil ENDE
+%%%%%%
+
+
+%%%%%%
+%	Schluss START
+%%%%%%
+
+%%%%%%
+%	Schluss ENDE
+%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inhalt ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part*{Anhang}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Source Code Verzeichnis START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstlistoflistings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Source Code Verzeichnis ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tabellen Verzeichnis START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listoftables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tabellen Verzeichnis ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abbildungsverzeichnis START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listoffigures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abbildungsverzeichnis ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bilbiographie START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nocite{*}
+\bibliography{Citavi}
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bilbiographie ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% UML START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{UML Diagramme}
+\addcontentsline{toc}{chapter}{UML Diagramme}
+Die hier angeh"angten UML Diagramme wurden w"ahrend dieser Arbeit entwickelt und stellen die Basis der Implementierung dar. Diese Diagramme wurden vor der tatsächlichen Entwicklung der betreffenden Funktionen geschrieben und können kleine Unterschiede zum tatsächlichen Code aufweisen. \newpage
+
+\includegraphics[width=\linewidth]{../UML/Klassendiagramm}
+%\includepdf[pages={1}, pagecommand={}]{../UML/Klassendiagramm}
+\captionof{figure}{Klassendiagramm: Dieses UML Diagramm beschreibt die Implementierung des Projektes.}\label{uml:klassendiagramm}
+\newpage
+%\includepdf[pages={1}, pagecommand={}]{../UML/Activity-VertexIncHE}
+\includegraphics[width=\linewidth]{../UML/act-VertexIncHE}
+\captionof{figure}{Aktivit"atsdiagramm: Der Iterator zum Finden von eingehenden Half-Edges an einem Vertex.}\label{uml:vertinche}
+\newpage
+%\includepdf[pages={1}, pagecommand={}]{../UML/Activity-CalcVertexNormals}
+\includegraphics[width=\linewidth]{../UML/act-CalcVertexNormals}
+\captionof{figure}{Aktivit"atsdiagramm: Die Methode zum Berechnen von Vertex Normalen}\label{uml:vertnc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% UML ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
