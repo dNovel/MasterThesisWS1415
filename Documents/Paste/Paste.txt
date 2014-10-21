@@ -1,0 +1,62 @@
+Thesis 2014/2015:
+
+Stichworte und Informations-Paste.
+
+- Verschränkung von Code und Content
+- Übertragen von 3D Szenen Graphen auf Projekt Strukturen in FUSEE
+- Export aus Cinema 4D in Fusee Strukturen
+- Umsetzung von Baum Strukturen in FUSEE Szenen
+- Aufbau von (einfachen) FUSEE Szenen aus Cinema 4D heraus.
+- Model View Controller Pattern (entfernt)
+- Trennung von Struktur und Präsentation (Aus Design Tips im Web Design) URL: http://toscho.de/2009/trennung-inhalt-layout/
+- Modularität, im Bezug auf die Wiederverwertbarkeit von Code Bausteinen. (Herunter gebrochen auf Klassen)
+- Trennung von Game Engine (Unterbau) zum Developer Interface Editor
+  - Sony Level Editor welcher Open Source ist
+    * Unterstützt aktuell leider nur Direct X
+- Welche Ansprüche werden an Entwickler gestellt?
+  - Scripting? (Code in C4d anbringen? Erstmal wohl eher nicht)
+  - Design?
+  - Selbst Programmierer?
+- Trennung nach Level Editor und Entwickler IDE
+  - Wie kann man IDE definieren?
+  - Ab wann ist etwas ein Level Editor?
+  - Was sind Developer Tools?
+- Wie kann man diese Tools klassifizieren?
+  - Hierzu sollte ein Vergleich angestellt werden
+  - Eine Einordnung muss erfolgen
+  - Dazu muss ein spezielles "Raster" erzeugt werden.
+- Welche Engines werden betrachtet?
+  - Unreal Engine 4
+    * Hierzu ist der Source Code vorhanden
+    * Die Engines ist ein an der Hochschule Lizenziert
+    * Eventuell findet sich im Code etwas?
+    * Auf welchen Technologien basiert das System? XML?
+  - Unity
+    * falls möglich
+    * setzt auf Mono Develop / Xamarin
+  - Android SDK
+    * Bietet eine XML Code verschränkung auf Java Basis
+    * Designer arbeiten in WYSIWYG Editoren
+    * Programmierer können UI Elemente als Code und XML hinterlegen
+  - Qt Framework
+    * Falls nützlich
+  - Cryengine
+    * Falls nützlich
+- Tool Development (diese Richtung könnte vielversprechend sein)
+  - Hier könnten verschiedene Ansätze betrachtet werden
+- Eventuell kann man mit Game Developern sprechen
+  - Am besten eventuell mit Designern sprechen
+    * Vielleicht mal mit Ankathrin Müller oder Julian Jorda oder Stephanie Braun etc. sprechen.
+    * Überlegungen anstellen wir so etwas minimiert werden kann
+
+Linksammlung.
+
+Übersichten:
+Sony Level Editor         https://github.com/SonyWWS/LevelEditor
+Cryengine                 http://cryengine.com/
+Unreal Engine 4           https://www.unrealengine.com/
+Unity 3D                  http://unity3d.com/
+
+
+Artikel Foren Posts etc:
+http://www.gamedev.net/page/resources/_/technical/apis-and-tools/level-creation-concerns-with-unity-r3325
