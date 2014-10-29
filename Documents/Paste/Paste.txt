@@ -2,6 +2,66 @@ Thesis 2014/2015:
 
 Stichworte und Informations-Paste.
 
+
+### Oktober 29.2014 ###
+- Game Authoring als neues Stichwort neben Tool Development
+- Ein Zentraler Entwicklungsprozess während bzw. vor der Produktion
+- Prämisse (Ziel der Arbeit)
+  * Grafisches Werkzeug für Designer
+  * IDE für Entwickler
+  * Beide bleiben in ihrer bekannten Welt
+  * Arbeiten trotzdem zusammen an einem Projekt
+  * Projekt wird durch das Projekt selbst verwaltet
+- Ein Prozess wird entwickelt
+  * Konzeptionell
+  * Später auch in der Implementierung
+- Was soll erreicht werden?
+  * Designer kann in 3D Modellierungssoftware beginnen ein Projekt aufzusetzen
+  * Developer können das in einer IDE
+  * Nicht vorgegeben wer anfängt und das Projekt aufzieht
+  * Einstieg jederzeit mit dem eigenen Tool (IDE / 3D Software) möglich
+  * Entwickler müssen nicht mit Modeller Tools arbeiten müssen
+- Anwendungsfälle
+  * Verschiedener Engines dann auch untersuchen
+  * Bedeutet: Was möchte man als Designer tun? Als Entwickler?
+    # Statische Objekte (Level)
+    # Interaktive Objekte
+    # Etwas kontrollieren (Steuern)
+    # Irgendwas hinterlegen (Objekte etc.) dann instanziieren
+- Hierarchien
+  * Von Wurzel Objekt Zugriff auf Parameter des Baumes
+  * 2D Systeme machen es vor - Code schachteln?
+  * Das 2D System auf 3D Szenen übertragen
+  * Hier das Abhängigkeitssystem von WPF ähnlichen Systemen anwenden und untersuchen
+  * View -> Group -> Textfield -> Button -> Presentation etc.
+- XPresso
+  * Könnte zum Verschalten von Eigenschaften benutzt werden
+  * Oberobjekte reichen etwas nach außen bzw. unten weiter.
+  * Können vom Entwickler angesprochen werden
+- Partial Classes für die Code Generierung
+  * Round Trip vermeiden (herumgeparse zwischen verschiedenen Sprachen und Systemen)
+  * Klassen auf zwei Dateien aufteilen
+  * Partial Methoden als weitere Hilfe um keine großen Mengen von unnützem Code zu erzeugen
+  * Klasse wird dann vom Exporter generiert.
+  * Entwickler erweitert die Klasse für sich um Funktionen
+  * Compiler Trick (mechanisch)
+- Export
+  * Was findet statt beim Export?
+  * Was wird genau erzeugt?
+  * Solution wird geupdated
+  * Projekt Struktur muss bestehen bleiben und beachtet werden
+    # Asset Ordner, Src Ordner, DLLs etc.
+  * Applikationsklasse als oberste Ebene bzw. als Einstiegspunkt
+  * Wenn kein Projekt vorhanden ist muss eines generiert werden
+  * Bei Update einer Solution
+    # Assets behalten
+    # Solution neu schreiben (?)
+  * Für weiteres (erstmal nicht?)
+    # Mehrere Szenen in ein Projekt integrieren
+    # Im Ausblick eventuell ansprechen
+    # Wie gehen Devs und Designer damit um?
+
+### Oktober 28.2014 ###
 - Verschränkung von Code und Content
 - Übertragen von 3D Szenen Graphen auf Projekt Strukturen in FUSEE
 - Export aus Cinema 4D in Fusee Strukturen
