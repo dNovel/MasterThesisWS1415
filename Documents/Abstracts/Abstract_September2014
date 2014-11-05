@@ -1,0 +1,10 @@
+Master-Thesis Abstract
+Dominik Steffen, Juni 2014, Hochschule Furtwangen
+Betreuer: Prof. C. Müller, Fakultät DM
+Zweitbetreuer: Prof. W. Taube, Fakultät DM
+
+Wie kann eine Zusammenführung von Code und Content-Creation/Gestaltung bewerkstelligt werden um es den Entwicklern und Game-Designern bei der Erstellung einer Applikation zu erleichtern beide Welten zu kombinieren? Dies soll am Beispiel einer Applikation für Cinema4D und FUSEE gezeigt werden. Um ein geeignetes Konzept zu erarbeiten werden zunächst verschiedene Frameworks und GameEngines untersucht.
+
+Während der Arbeit soll ein Zusammenspiel von grafischer Repräsentation und Code von Cinema4D (von Maxon) und FUSEE (Furtwangen Simulation and Entertainment Engine) entstehen. In Cinema4D soll es möglich sein verschiedene “Code Elemente” an die Objekte einer 3D Szene zu heften und so die Szene in Cinema4D von Designern/Content-Designern bearbeitbar zu machen. Nicht-Programmierer sollen also in der Lage sein, Objekte zu verschalten und sie mit Tags (Markierungen, Daten) und Ähnlichem auszustatten so dass im Code von Programmierern auf sie zugegriffen werden kann.
+Zuerst soll untersucht werden, wie andere Engines und Frameworks dieses Problem lösen. Der Fokus liegt hier auf den Game-Engines. Anhand der daraus gewonnenen Erkenntnisse soll ein Theoretisches Konzept für die Verbindung von FUSEE und Cinema 4D erstellt werden. Dieses Konzept ist dann in einem dritten Schritt umzusetzen. Als Beispiel sei hier die Zusammenarbeit im Android SDK von 2D User Interfaces und der Codebase dargestellt. Designer können bzgl. Android ein 2D UI im XML Format (oder direkt mit Grafischen Tools) erstellen. Dieses UI kann vom Programmierer über verschiedene Möglichkeiten angesprochen werden um z.B. an den Input aus den vom Designer angelegten Textfeldern zu gelangen.
+Da sich 2D und 3D Szenengraphen hier sehr ähnlich sind, sollte es möglich sein ein ähnliches Konzept anzuwenden. So bestehen beide Szenengraphen meist aus einer Baumstruktur und können so auf verschiedenste Weisen, z.B. mit Hilfe von XML oder Ähnlichen Strukturen repräsentiert werden.

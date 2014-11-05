@@ -1,0 +1,14 @@
+Master-Thesis Abstract
+Dominik Steffen, November 2014, Hochschule Furtwangen
+Betreuer: Prof. C. Müller, Fakultät DM
+Zweitbetreuer: Prof. W. Taube, Fakultät DM
+
+Splitting Game Development for the good
+
+
+
+
+
+Arbeitsprozesse in heutigen Game Engines verlangen von Entwicklern meist das erlernen neuer Tools und das während eines meist zeitlich sehr beschränkten Projektes. Es wäre für Entwickler einfacher sich mit den bekannten Tools zu beschäftigen und mit diesen großartige Ergebnisse zu erreichen. Designer müssen sich oft in unbekannte Editoren und SDKs einarbeiten während Entwickler sich in Grafische Editoren einarbeiten müssen um ihren Code an der richtigen Stelle des Projekts zu platzieren.
+Diese Arbeit baut eine Brücke zwischen beiden Welten. Durch die Konzeption und Umsetzung eines Software Tools wird eine Trennung der Abhängigkeiten in einem Projekt erreicht. Mit Hilfe eines Plugins ist es möglich, dass Designer oder Entwickler jederzeit in die Entwicklung eines Projektes einsteigen.Es wird ermöglicht mit Cinema 4D und einer IDE wie VS2013 an einem Projekt mit der FUSEE Engine zu arbeiten ohne die bereits bekannte Welt zu verlassen. Ein Projekt managed sich durch die Nutzung des entstandenen Plugins selbst.
+Das zuerst Konzeptionell visualisierte Tool wurde während dieser Arbeit umgesetzt und bietet ausreichende Basisfunktionalität um ein Projekt zu erstellen. Hierzu wurden verschiedene Konzepte betrachetet und andere Game Engines auf Workflow und Anwendbarkeit untersucht. Es wurden einige Kernkonzepte erkannt und für eine Implementierung in FUSEE analysiert und weiter entwickelt.
