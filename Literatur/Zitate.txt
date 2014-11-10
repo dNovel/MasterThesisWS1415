@@ -1,0 +1,8 @@
+[Wihlidal]
+Introduction(S. xvii): "Developers are required to learn ..."
+
+[Wihlidal]
+Chapter 1(S. 3): Definition for Tool.
+
+[Wihlidal]
+Chapter 1(S. 3): Definition for Toolset.

@@ -1,9 +1,31 @@
-Thesis 2014/2015:
+###Thesis 2014/2015:
 
-Stichworte und Informations-Paste.
+#Stichworte und Informations-Paste.
 
+##November 10.2014
+- Kategorisierung von Engines an Hand einer Kategorien "Map".
+  * UE4
+  * Unity
+  * etc.
+  * Die Map könnte wie folgt aufgebaut werden (Kriterien)
+    * Editor based
+    * Code based (Plugins etc)
+    * IDE integriert oder frei
+    * All in one package oder tool set
+    * Open Source oder kommerziell
+- Use Cases
+  * Stelle ein System auf um Use Cases abzubilden
+  * Kurze analyse der Stakeholder im Team
+- Setze Prozessstruktur visuell um
+    * Grafik
+      * Interpretation der Funktion anhand einer Illustration
+    * Kurze Beschreibung der Anwendung
+      * Textuelle Beschreibung der Abläufe
+- Partial Classes
+  * Ansehen, verstehen
+  * Beispiel aufsetzen
 
-### Oktober 29.2014 ###
+##Oktober 29.2014
 - Game Authoring als neues Stichwort neben Tool Development
 - Ein Zentraler Entwicklungsprozess während bzw. vor der Produktion
 - Prämisse (Ziel der Arbeit)
@@ -24,10 +46,10 @@ Stichworte und Informations-Paste.
 - Anwendungsfälle
   * Verschiedener Engines dann auch untersuchen
   * Bedeutet: Was möchte man als Designer tun? Als Entwickler?
-    # Statische Objekte (Level)
-    # Interaktive Objekte
-    # Etwas kontrollieren (Steuern)
-    # Irgendwas hinterlegen (Objekte etc.) dann instanziieren
+    * Statische Objekte (Level)
+    * Interaktive Objekte
+    * Etwas kontrollieren (Steuern)
+    * Irgendwas hinterlegen (Objekte etc.) dann instanziieren
 - Hierarchien
   * Von Wurzel Objekt Zugriff auf Parameter des Baumes
   * 2D Systeme machen es vor - Code schachteln?
@@ -50,18 +72,18 @@ Stichworte und Informations-Paste.
   * Was wird genau erzeugt?
   * Solution wird geupdated
   * Projekt Struktur muss bestehen bleiben und beachtet werden
-    # Asset Ordner, Src Ordner, DLLs etc.
+    * Asset Ordner, Src Ordner, DLLs etc.
   * Applikationsklasse als oberste Ebene bzw. als Einstiegspunkt
   * Wenn kein Projekt vorhanden ist muss eines generiert werden
   * Bei Update einer Solution
-    # Assets behalten
-    # Solution neu schreiben (?)
+    * Assets behalten
+    * Solution neu schreiben (?)
   * Für weiteres (erstmal nicht?)
-    # Mehrere Szenen in ein Projekt integrieren
-    # Im Ausblick eventuell ansprechen
-    # Wie gehen Devs und Designer damit um?
+    * Mehrere Szenen in ein Projekt integrieren
+    * Im Ausblick eventuell ansprechen
+    * Wie gehen Devs und Designer damit um?
 
-### Oktober 28.2014 ###
+''#Oktober 28.2014
 - Verschränkung von Code und Content
 - Übertragen von 3D Szenen Graphen auf Projekt Strukturen in FUSEE
 - Export aus Cinema 4D in Fusee Strukturen
@@ -72,7 +94,7 @@ Stichworte und Informations-Paste.
 - Modularität, im Bezug auf die Wiederverwertbarkeit von Code Bausteinen. (Herunter gebrochen auf Klassen)
 - Trennung von Game Engine (Unterbau) zum Developer Interface Editor
   * Sony Level Editor welcher Open Source ist
-    # Unterstützt aktuell leider nur Direct X
+    * Unterstützt aktuell leider nur Direct X
 - Welche Ansprüche werden an Entwickler gestellt?
   * Scripting? (Code in C4d anbringen? Erstmal wohl eher nicht)
   * Design?
@@ -87,27 +109,27 @@ Stichworte und Informations-Paste.
   * Dazu muss ein spezielles "Raster" erzeugt werden.
 - Welche Engines werden betrachtet?
   * Unreal Engine 4
-    # Hierzu ist der Source Code vorhanden.
-    # Die Engines ist an der Hochschule Lizenziert.
-    # Eventuell findet sich im Code etwas?
-    # Auf welchen Technologien basiert das System? XML?
+    * Hierzu ist der Source Code vorhanden.
+    * Die Engines ist an der Hochschule Lizenziert.
+    * Eventuell findet sich im Code etwas?
+    * Auf welchen Technologien basiert das System? XML?
   * Unity
-    # falls möglich?
-    # setzt auf Mono Develop / Xamarin.
+    * falls möglich?
+    * setzt auf Mono Develop / Xamarin.
   * Android SDK
-    # Bietet eine XML Code verschränkung auf Java Basis.
-    # Designer arbeiten in WYSIWYG Editoren.
-    # Programmierer können UI Elemente als Code und XML hinterlegen.
+    * Bietet eine XML Code verschränkung auf Java Basis.
+    * Designer arbeiten in WYSIWYG Editoren.
+    * Programmierer können UI Elemente als Code und XML hinterlegen.
   * Qt Framework
-    # Falls nützlich.
+    * Falls nützlich.
   * Cryengine
-    # Falls nützlich.
+    * Falls nützlich.
 - Tool Development (diese Richtung könnte vielversprechend sein)
   * Hier könnten verschiedene Ansätze betrachtet werden.
 - Eventuell kann man mit Game Developern sprechen welche Möglichkeiten geboten sein sollen.
   * Am besten eventuell mit Designern sprechen
-    # Vielleicht mal mit Ankathrin Müller oder Julian Jorda oder Stephanie Braun etc. sprechen.
-    # Überlegungen anstellen wie so etwas minimiert werden kann?
+    * Vielleicht mal mit Ankathrin Müller oder Julian Jorda oder Stephanie Braun etc. sprechen.
+    * Überlegungen anstellen wie so etwas minimiert werden kann?
 - Erstellen eines Konzeptes für eine Software
   * Wie kann man verschiedene Dinge in c4d koppeln?
   * Was für ein Softwarekonstrukt muss man dafür schreiben?
@@ -115,18 +137,18 @@ Stichworte und Informations-Paste.
   * Wird in Fusee ein Format gezogen oder wird ein Projekt (VS13 etc.) erstellt?
   * Müssen GameObject Klassen etc geschaffen werden?
   * Ähnlich Unity Szenen "starten".
-    # Aus VS13 die Szene starten. Zusammengebaut wurde sie in C4d.
-    # Die Szene enthält verschiedene Klassen die an Objekten hängen? Vice versa.
-    # Die Szene wird immer in C4d editiert und nur nach "Fusee" konvertiert.
-    # Eventuell müsste hier ein Container geschaffen werden? (Zum Transport)
+    * Aus VS13 die Szene starten. Zusammengebaut wurde sie in C4d.
+    * Die Szene enthält verschiedene Klassen die an Objekten hängen? Vice versa.
+    * Die Szene wird immer in C4d editiert und nur nach "Fusee" konvertiert.
+    * Eventuell müsste hier ein Container geschaffen werden? (Zum Transport)
       * Oder Klassen müssten einfach in C4d keine oder nur wenig Funktion bieten?
 
 
-Brennende Fragen.
+#Brennende Fragen.
 
-### Aktuell ###
+##Aktuell
 
-### Oktober 28.2014 ###
+##Oktober 28.2014
 - Was genau ist das Ziel der Arbeit?
   - Was genau soll dabei heraus kommen?
   - Muss ein System entworfen werden?
@@ -138,7 +160,7 @@ Brennende Fragen.
   - Sie orientiert sich an Modulen der Arbeit.
 
 
-Linksammlung.
+#Linksammlung.
 
 Übersichten:
 Sony Level Editor         https://github.com/SonyWWS/LevelEditor
@@ -147,5 +169,5 @@ Unreal Engine 4           https://www.unrealengine.com/
 Unity 3D                  http://unity3d.com/
 
 
-Artikel Foren Posts etc:
+#Artikel Foren Posts etc:
 http://www.gamedev.net/page/resources/_/technical/apis-and-tools/level-creation-concerns-with-unity-r3325
