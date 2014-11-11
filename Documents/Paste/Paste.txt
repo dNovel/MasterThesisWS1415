@@ -2,6 +2,46 @@
 
 #Stichworte und Informations-Paste.
 
+##November 12.2014
+TBD.
+
+##November 11.2014
+- Kategorien um die Engines einzusortieren
+  * Editor pflicht / nicht enthalten
+  * IDE frei wählbar? Vorgegeben?
+  * Frei oder Kostenpflichtig
+  * Programmiersprache/Scriptsprache proprietär (eigen, nur dort nutzbar) oder allgemein nutzbar
+  * Platform-Builds (Desktop, Mobile, Browser, Konsolen)
+  * Entwickeln auf allen Systemen? OS?
+  * Middleware Support? Bereits integriert? (Enlighten, Havok)
+- Use Cases abbilden
+  * Text Beschreibung der einzelnen Use Cases
+    * Jeden Use Case kurz abbilden
+  * Projekt bezogen
+    * Projekt anlegen
+    * Projekt öffnen
+    * Projekt speichern
+    * Projekt bauen
+  * In Projekt einsteigen
+    * Projekt clonen etc.
+  * Gleichzeitig an Projekt arbeiten
+    * Model Datei importieren
+    * Gleichzeitig an einem Objekt arbeiten
+- Stakeholder analyse intern
+  * Hierzu das Buch "Wilidahl" betrachten
+- Der Prozess muss abgebildet werden
+  * Hierzu sind die Use Cases und die visualisierung
+    der Systemarchitektur nötig
+- Systemarchitektur visualisieren
+  * Welche Programme und Systeme sind beteiligt
+  * Wie kann man neue Systeme dort integrieren
+  * Alles auf Basis von Fusee und C4d betrachten
+  * Generator für Projekt Dateien
+    * Extern oder integriert?
+  * Xpresso Schaltungen
+  * Partial Classes in .NET
+
+
 ##November 10.2014
 - Kategorisierung von Engines an Hand einer Kategorien "Map".
   * UE4
