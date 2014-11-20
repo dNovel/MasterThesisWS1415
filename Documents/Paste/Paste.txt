@@ -2,8 +2,82 @@
 
 #Stichworte und Informations-Paste.
 
-##November 12.2014
-TBD.
+TBD:
+- Partial Classes
+- Use Cases in grafische repräsentation übersetzen
+- Kategorisierung von Engines an Hand einer Map
+
+#Brennende Fragen.
+
+##Aktuell
+
+- In wie weit soll hier noch etwas Theoretisch untersucht werden?
+  * Zu jeder Engine Use Cases etc?
+- Sollen Anforderungen etc. formuliert werden?
+-
+
+##November 21.2014
+- Stakeholder analyse intern
+  * Bei den Stakeholdern handelt es sich in erster Linie um Mitglieder des Teams welche durch die entwicklung des Tools u.ä. direkt betroffen sind.
+  * Hierzu gehören in erster Linie
+    * Artists
+    * Engineers
+    * Designers
+
+##November 20.2014
+- Akteure während der Entwicklung die mit der Engine und den Tools direkt in Berührung kommen.
+  * Artist
+    * Animator
+    * World Builders
+  * Engineer
+    * Tools
+    * Graphics
+    * Network
+    * AI
+    * Sound
+  * Designer
+    * Level
+    * Scripter
+    * UI
+  * QA Tester
+- Allgemeine Anwendungsfälle die häufig vorkommen
+  * Projekt anlegen
+  * Projekt verändern (Durch hinzufügen von Assets oder Funktionalität)
+  * Projekt speichern
+  * Projekt öffnen
+  * Projekt bauen
+-Getrennt nach Akteuren
+  * Artist
+    * Assets erstellen
+    * Assets exportieren
+    * Szenen bearbeiten
+    * Szenen speichern
+    * Szenen anlegen
+  * Engineer
+    * Code hinzufügen
+    * Assets ansprechen
+    * Tools erweitern
+    * Szenen bearbeiten
+  * Designer
+    * Assets verändern
+    * Szenen anlegen
+    * Szenen verändern
+    * Szenen speichern
+- Subjekte (Systeme)
+  * Engine / Codebase
+    * Libraries
+    * Middleware
+    * Build System
+  * IDE
+    * Code bearbeitung
+  * Asset Software
+    * Bildbearbeitung
+    * Modeling-Software
+    * 3D-Verarbeitungssoftware
+  * Projekt Handler
+    * Hier in der Thesis die Software welche das Zusammenspiel der einzelnen Komponenten managed.
+
+
 
 ##November 11.2014
 - Kategorien um die Engines einzusortieren
@@ -123,7 +197,7 @@ TBD.
     * Im Ausblick eventuell ansprechen
     * Wie gehen Devs und Designer damit um?
 
-''#Oktober 28.2014
+##Oktober 28.2014
 - Verschränkung von Code und Content
 - Übertragen von 3D Szenen Graphen auf Projekt Strukturen in FUSEE
 - Export aus Cinema 4D in Fusee Strukturen
@@ -184,21 +258,6 @@ TBD.
       * Oder Klassen müssten einfach in C4d keine oder nur wenig Funktion bieten?
 
 
-#Brennende Fragen.
-
-##Aktuell
-
-##Oktober 28.2014
-- Was genau ist das Ziel der Arbeit?
-  - Was genau soll dabei heraus kommen?
-  - Muss ein System entworfen werden?
-    * Ein System mit XML oder Fusee Format, dass es möglich macht die Dinge zu kombinieren?
-- Wie sollen andere Software Systeme untersucht werden?
-  - Source Code ist rar und kostet viel Zeit zur einarbeitung.
-- Ein Forschungsstand ist schwierig auszumachen.
-  - Literatur kann nicht direkt auf das Theman bezogen werden.
-  - Sie orientiert sich an Modulen der Arbeit.
-
 
 #Linksammlung.
 
@@ -208,6 +267,7 @@ Cryengine                 http://cryengine.com/
 Unreal Engine 4           https://www.unrealengine.com/
 Unity 3D                  http://unity3d.com/
 
+Web sequence diagrams     https://www.websequencediagrams.com
 
 #Artikel Foren Posts etc:
 http://www.gamedev.net/page/resources/_/technical/apis-and-tools/level-creation-concerns-with-unity-r3325
