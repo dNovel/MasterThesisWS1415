@@ -1,0 +1,32 @@
+# Use Cases für den Artist
+
+
+#Artist Software
+
+## Asset erstellen
+Der Artist erstellt ein Asset in seiner gewohnten Software. Normalerweise handelt es sich hier um 3D Modelle oder 2D Texturen. Texturen werden in das 3D Programm importiert und in die Modelle integriert.
+
+## Asset exportieren
+Ein Modell wird vom Artist exportiert und in der Projekstruktur gespeichert. Dieses verorten in der Projektstrutkur übernimmt der ProjectHandler. Das Asset wird in die Solution Dateien integriert.
+
+## Szene erstellen
+Eine Szene wird über das Interface der 3D Applikation erstellt und in der Projektstruktur über den ProjectHandler verortet.
+
+## Szene bearbeiten
+Eine bereits bestehende Szene kan vom Artist bearbeitet werden.
+
+## Szene speichern
+Eine Szene wird vom Artist gespeichert und steht danach anderen zur Bearbeitung zur Verfügung.
+
+
+# Engine
+Diese Use Cases werden vom ProjectHandler verarbeiten und betreffen den Artist nicht direkt. Sie werden intern behandelt.
+
+## Szene erstellen
+Eine neue Szene wird durch den ProjectHandler angelegt. Verschiedene Verknüpfungen innerhalb der Engine müssen angelegt werden. Die Szene muss in die Projektstruktur integriert werden.
+
+## Szene bearbeiten
+Eine bereits bestehende Szene muss geupdatet werden. Die Änderungen müssen allen anderen Nutzern zur Verfügung stehen.
+
+## Szene speichern
+Änderungen an einer Szene werden gespeichert und allen anderen Nutzern zur Verfügung gestellt.

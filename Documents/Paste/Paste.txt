@@ -2,19 +2,44 @@
 
 #Stichworte und Informations-Paste.
 
-TBD:
-- Partial Classes
-- Use Cases in grafische repräsentation übersetzen
-- Kategorisierung von Engines an Hand einer Map
+##Brennende Fragen
 
-#Brennende Fragen.
 
 ##Aktuell
-
 - In wie weit soll hier noch etwas Theoretisch untersucht werden?
   * Zu jeder Engine Use Cases etc?
 - Sollen Anforderungen etc. formuliert werden?
--
+
+##November 26.2014
+- Kategorisierung von Engines an Hand einer Map
+  * Kategoriern für die Map
+    * Editor gebunden
+      * Bezogen auf world, Level Editor
+    * IDE gebunden
+    * Lizenz
+      * Frei
+      * Kostenpflichtig
+    * Programmiersprache/Scriptsprache
+      * Eigenentwickelte Sprachen
+      * Allgemeine Sprachen
+    * Platform-Builds
+      * Desktop
+      * Mobile
+      * Konsolen
+      * Browser
+    * Betriebsysteme für die Entwicklung
+      * Dieser Punkt ist losgelöst von den Builds zu betrachten, da einige Engines einen Build nach Linux etc. unterstützen jedoch dort keine Entwicklungsumgebung bereit stellen.
+    * Middleware Support
+      * Welcher Support für Middleware ist gegeben?
+      * Kann eigene Middelware eingefügt werden?
+    * Erweiterbarkeit der Engine um eigene Software
+      * Ist die Codebase einsehbar?
+      * Ist die Codebase manipulierbar?
+
+- Partial Classes
+  * Angesehen/gelesen, scheint nützlich
+  * Handelt sich um einen Compiler Vorgang
+  * Generiert keinen neuen Code in dem Sinne, dass es einfach mehrere Anlaufstellen für das einbringen von eigenem Code bietet.
 
 ##November 21.2014
 - Stakeholder analyse intern
@@ -22,7 +47,8 @@ TBD:
   * Hierzu gehören in erster Linie
     * Artists
     * Engineers
-    * Designers
+    * Designer
+  * Das bedeutet, diese Gruppen müssen bei der entwicklung eines Tools beachtet werden. Am besten wäre eine Rücksprache mit diesen Teammitgliedern und anschliessend eine analyse der Bedürfnisse für die jeweiligen Aufgabengebiete. Hierzu würde es sich empfehlen ein Gespräch zu führen und weiterhin einen praktischen Besuch am Arbeitsplatz zu vereinbaren.
 
 ##November 20.2014
 - Akteure während der Entwicklung die mit der Engine und den Tools direkt in Berührung kommen.
@@ -42,7 +68,7 @@ TBD:
   * QA Tester
 - Allgemeine Anwendungsfälle die häufig vorkommen
   * Projekt anlegen
-  * Projekt verändern (Durch hinzufügen von Assets oder Funktionalität)
+  * Projekt bearbeiten (Durch hinzufügen von Assets oder Funktionalität)
   * Projekt speichern
   * Projekt öffnen
   * Projekt bauen
