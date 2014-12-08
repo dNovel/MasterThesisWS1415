@@ -3,14 +3,69 @@
 #Stichworte und Informations-Paste.
 
 ##Brennende Fragen
-
+- Datentypen für die Arbeit in C4d
+  * Müssen Dateien beim Export konvertiert werden?
+  * Brauchen wir einen extra Exporter?
+- Muss ein Full Engine support bestehen oder reicht eine Projektstruktur welche die Binarys der Engine referenziert aus?
+- Plugin oder Client Server Prinzip?
+  * Hat das Plugin alle Funktionalität oder reicht es nur weiter an eine Tool Application?
 
 ##Aktuell
 - In wie weit soll hier noch etwas Theoretisch untersucht werden?
   * Zu jeder Engine Use Cases etc?
 - Sollen Anforderungen etc. formuliert werden?
 
-##November 26.2014
+## Stichworte / Keywords
+- Keywords
+  * Game Authoring / Production
+  * System Design / for Games
+  * Game Tool Development
+  * Game Engine
+  * Plugins for Cinema 4D
+  * Game Asset Management
+  * Version Control
+
+- Extended Keywords
+  * Game Development
+  * Modelling Tool
+  * IDE
+  * Client Server Architecture
+  * C#
+  * .NET
+  * Cinema 4D
+  * Fusee Engine
+
+## Phasen der Entwicklung des Tools
+Nach Wihlidal.
+
+- Planung
+  * Eine Software soll es ermöglichen, dass Artists, Designer und Developer an ein und dem selben Projekt arbeiten können ohne die gewohnte Arbeitsumgebung (3D-Modellierungssoftware, IDE) zu verlassen und etwas komplett neues (Level-Editor) zu erlernen.
+  * Die komplette Entwicklung und der Entwurf bedienen sich der FUSEE Engine.
+  * Ziel ist es in Cinema 4D ein FUSEE Projekt anzulegen, zu speichern und es zu öffnen (In Form einer Szene, Level, Welt.). Weiterhin müssen "Assets" ins Spiel integriert werden können die von Artists, Designern und Entwicklern bearbeitet werden können.
+  * Das Projekt sollte aus C4D heraus gebaut werden können.
+
+  * Hier könnte man einen Hinweis auf die Entwicklungsmethoden von id Software geben. Möglicherweise wäre eine Erwähnung der Pre-Rage Zeiten sinnvoll.
+
+- Analyse
+  * Eine Stakeholderanalyse schafft klarheit, welche Parteien mit dem zu erstellenden Tool arbeiten müssen.
+  * Die Game Engines sollten Kategorisiert werden. Hierzu ist ein "Gitternetz" aufzustellen.
+  * Verschiedene Game Engines müssen darauf untersucht werden, wie die Arbeitsschritte in diesen zu erledigen sind. Jede Untersuchung sollte dokumentiert werden.
+  * Es ist zuerst zu analysieren, welche Schritte für welche Art der Arbeit notwendig sind. Hierzu werden Usecases der verschiedenen Rollen und Aufgaben erstellt.
+
+- Design
+  * Aufgrund der erstellten Use Cases wird ein System Design erstellt.
+  * Das Systemdesing sollte Roundtrips vermeiden
+    * Hierzu können Partial Classes untersucht werden.
+  * Es soll möglichst wenig "geparsed" oder "konvertiert" werden
+  * Dateien sollen Version Control kompatibel bleiben (wenig bis keine Binarys)
+  * Das Projekt muss Strukturiert sein
+  * Eine Fusee Solution soll gehandelt werden können
+
+- Implementierung
+  * Die Software wird auf basis der FUSEE Engine und Cinema4D R16 erstellt.
+
+
+##November 2014
 - Kategorisierung von Engines an Hand einer Map
   * Kategoriern für die Map
     * Editor gebunden

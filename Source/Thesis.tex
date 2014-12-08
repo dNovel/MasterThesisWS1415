@@ -262,13 +262,68 @@ dominik.steffen@hs-furtwangen.de, dominik.steffen@gmail.com\\
 \chapter{Anforderungen, Ziele und eine Fragestellung}
 
 \section{Entwicklungsprozesse in Games}
+\subsection{Projektmanagement Modelle}
+% Warhorse Scrum, Waterfall, etc.
+\subsection{Tool Developing anstelle von kaufen} % Titel verbessern
+
 \subsection{Mitglieder eines Entwicklerteams}
+\subsubsection{Artists}
 \subsubsection{Designer}
 \subsubsection{Entwickler}
+\subsection{Weitere für diese Arbeit nicht relevante}
+
+\section{Stakeholderanalyse intern}
+Warum wieso, wie führt uns das an das Thema heran
 
 \section{Ein Arbeitsprozess wird entwickelt}
-\subsection{Game Authoring}
+\subsection{Game Authoring / Game Development}
+Was ist das, was beschreibt es, wieso ist es hier relevant?
 \subsection{Tool Development}
+Nach Wihlidal ... Warum wurde oben geklärt, hier den Prozess erläutern.
+Möglichkeiten vorstellen.
+Beispiele geben.
+
+\subsection{Planung}
+\begin{itemize}
+\item Eine Software soll es ermöglichen, dass Artists, Designer und Developer an ein und dem selben Projekt arbeiten können ohne die gewohnte Arbeitsumgebung (3D-Modellierungssoftware, IDE) zu verlassen und etwas komplett neues (Level-Editor) zu erlernen.
+\item Die komplette Entwicklung und der Entwurf bedienen sich der FUSEE Engine.
+\item Ziel ist es in Cinema 4D ein FUSEE Projekt anzulegen, zu speichern und es zu öffnen (In Form einer Szene, Level, Welt.). Weiterhin müssen "Assets" ins Spiel integriert werden können die von Artists, Designern und Entwicklern bearbeitet werden können.
+\item Das Projekt sollte aus C4D heraus gebaut werden können.
+\end{itemize}
+%Hier könnte man einen Hinweis auf die Entwicklungsmethoden von id Software geben. Möglicherweise wäre eine Erwähnung der Pre-Rage Zeiten sinnvoll.
+
+\subsection{Analyse}
+\begin{itemize}
+\item Eine Stakeholderanalyse schafft klarheit, welche Parteien mit dem zu erstellenden Tool arbeiten müssen.
+\item Die Game Engines sollten Kategorisiert werden. Hierzu ist ein "Gitternetz" aufzustellen.
+\item Verschiedene Game Engines müssen darauf untersucht werden, wie die Arbeitsschritte in diesen zu erledigen sind. Jede Untersuchung sollte dokumentiert werden.
+\item Es ist zuerst zu analysieren, welche Schritte für welche Art der Arbeit notwendig sind. Hierzu werden Usecases der verschiedenen Rollen und Aufgaben erstellt.
+\end{itemize}
+
+\subsection{Design}
+\begin{itemize}
+\item Aufgrund der erstellten Use Cases wird ein System Design erstellt.
+\item Das Systemdesing sollte Roundtrips vermeiden
+\item Hierzu können Partial Classes untersucht werden.
+\item Es soll möglichst wenig "geparsed" oder "konvertiert" werden
+\item Dateien sollen Version Control kompatibel bleiben (wenig bis keine Binarys)
+\item Das Projekt muss Strukturiert sein
+\item Eine Fusee Solution soll gehandelt werden können
+\end{itemize}
+
+\subsection{Implementierung}
+\begin{itemize}
+\item Die Software wird auf basis der FUSEE Engine und Cinema4D R16 erstellt.
+\end{itemize}
+
+\subsubsection{Asset Pipeline und Feedback}
+SEHR KRITISCHE MARKE! Das Asset aus dem Editor in die Engine bekommen, die Darstellung etc kontrollieren.
+Zeitkritisch beim export etc.
+Carter Seite 6 und folgende.
+%Begriffserklärung eines Asset, genaue Definitionen anmerken.
+
+\subsubsection{Die Struktur von Game Assets}
+Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen aus Assets und mehr.
 \subsection{Warum eine Trennung von Code und Content?}
 %%%%%%
 %	Einführung / Einleitung ENDE
@@ -280,7 +335,7 @@ dominik.steffen@hs-furtwangen.de, dominik.steffen@gmail.com\\
 \chapter{Entwicklung eines Konzeptes}
 
 \section{Use Cases der verschiedenen Entwickler}
-\subsection{Stakeholderanalyse intern}
+\subsection{Was möchten Artists?}
 \subsection{Was möchten Designer?}
 \subsection{Was möchten Entwickler?}
 
@@ -301,9 +356,12 @@ dominik.steffen@hs-furtwangen.de, dominik.steffen@gmail.com\\
 \subsection{Prozesse in Game Engines und einem Framework}
 \subsection{Unreal Engine 4}
 \subsection{Unity 3D}
-\subsection{Android SDK}
+\subsection{idTech X}
+\subsection{Weitere}
 
 \section{Konzeptentwurf}
+\subsection{Systemdesign für ein Plugin}
+\subsection{Systemdesign für einen Project-Handler}
 \subsection{Entfernen von Abhängigkeiten}
 \subsection{Zeitersparnis durch bekannte Tools}
 \subsection{Warum Fusee und Cinema 4D?}
@@ -313,6 +371,9 @@ dominik.steffen@hs-furtwangen.de, dominik.steffen@gmail.com\\
 \subsubsection{Uniplug}
 \subsection{Fusee}
 \subsubsection{Der Fusee Szenengraph}
+Das Fusee Level, Welt wie auch immer es hier bezeichnet werden sollte. Eine Basis wird gebraucht. Hierzu eine Zentrale anlaufstelle, ein Spiele “Kernel”? Irgend etwas dass im Zentrum steht.
+Alles andere muss auf Level etc aufgeteilt werden und bis zum einzelnen Asset heruntergebrochen werden.
+
 
 \section{Das eigentliche Plugin}
 \subsection{Visualisierung der Systemarchitektur}
