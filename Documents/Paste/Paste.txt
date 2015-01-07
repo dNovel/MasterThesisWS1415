@@ -5,15 +5,17 @@
 ##Brennende Fragen
 - Datentypen für die Arbeit in C4d
   * Müssen Dateien beim Export konvertiert werden?
+    * Im speziellen Model Dateien. Oder können hier vorhandene Converter verwendet werden. ( Speziell im Blick auf das veränderte SceneGraph etc.)
   * Brauchen wir einen extra Exporter?
 - Muss ein Full Engine support bestehen oder reicht eine Projektstruktur welche die Binarys der Engine referenziert aus?
+  * Hier drauf basiert die Location der Integration des Systems.
 - Plugin oder Client Server Prinzip?
-  * Hat das Plugin alle Funktionalität oder reicht es nur weiter an eine Tool Application?
+  * Hat das Plugin alle Funktionalität oder reicht es nur weiter an eine Tool Application die sozusagen als Hintergrund Applikation läuft und die um weitere Funktionalität erweitert werden kann. (Sprachen Engine Updates etc.)
 
 ##Aktuell
 - In wie weit soll hier noch etwas Theoretisch untersucht werden?
-  * Zu jeder Engine Use Cases etc?
-- Sollen Anforderungen etc. formuliert werden?
+  * Zu jeder Engine Use Cases für alltägliche Arbeiten?
+- Soll ein Anforderungsprofil (Teil eines Lasten/Pflichtenheftes) erstellt werden?
 
 ## Stichworte / Keywords
 - Keywords
@@ -41,33 +43,39 @@ Nach Wihlidal.
 - Planung
   * Eine Software soll es ermöglichen, dass Artists, Designer und Developer an ein und dem selben Projekt arbeiten können ohne die gewohnte Arbeitsumgebung (3D-Modellierungssoftware, IDE) zu verlassen und etwas komplett neues (Level-Editor) zu erlernen.
   * Die komplette Entwicklung und der Entwurf bedienen sich der FUSEE Engine.
-  * Ziel ist es in Cinema 4D ein FUSEE Projekt anzulegen, zu speichern und es zu öffnen (In Form einer Szene, Level, Welt.). Weiterhin müssen "Assets" ins Spiel integriert werden können die von Artists, Designern und Entwicklern bearbeitet werden können.
+  * Ziel ist es in Cinema 4D ein FUSEE Projekt anzulegen, zu speichern und es zu öffnen (In Form einer Szene, Level, Welt.). Weiterhin müssen "Assets" ins Spiel integriert werden können die von Artists, Designern und Entwicklern bearbeitet werden können. Source Code soll angehängt werden können.
+
   * Das Projekt sollte aus C4D heraus gebaut werden können.
 
   * Hier könnte man einen Hinweis auf die Entwicklungsmethoden von id Software geben. Möglicherweise wäre eine Erwähnung der Pre-Rage Zeiten sinnvoll.
 
-- Analyse
+- Analyse (Januar 2015, befindet sich die Arbeit hier)
   * Eine Stakeholderanalyse schafft klarheit, welche Parteien mit dem zu erstellenden Tool arbeiten müssen.
   * Die Game Engines sollten Kategorisiert werden. Hierzu ist ein "Gitternetz" aufzustellen.
   * Verschiedene Game Engines müssen darauf untersucht werden, wie die Arbeitsschritte in diesen zu erledigen sind. Jede Untersuchung sollte dokumentiert werden.
   * Es ist zuerst zu analysieren, welche Schritte für welche Art der Arbeit notwendig sind. Hierzu werden Usecases der verschiedenen Rollen und Aufgaben erstellt.
 
-- Design
+- Design (Januar 2015, läuft teilweise parallel zur Analyse)
   * Aufgrund der erstellten Use Cases wird ein System Design erstellt.
   * Das Systemdesing sollte Roundtrips vermeiden
     * Hierzu können Partial Classes untersucht werden.
   * Es soll möglichst wenig "geparsed" oder "konvertiert" werden
   * Dateien sollen Version Control kompatibel bleiben (wenig bis keine Binarys)
   * Das Projekt muss Strukturiert sein
-  * Eine Fusee Solution soll gehandelt werden können
+    * Hier ist eine Struktur erstellt und entwickelt werden.
+  * Eine Fusee Solution soll verwendet werden können um ein Projekt in C4d zu bearbeiten.
 
 - Implementierung
-  * Die Software wird auf basis der FUSEE Engine und Cinema4D R16 erstellt.
+  * Die Software wird auf Basis der FUSEE Engine und Cinema4D R16 erstellt.
+
+##Content 2015
+##Januar 2015
 
 
-##November 2014
+#Content 2014
+##Dezember 2014
 - Kategorisierung von Engines an Hand einer Map
-  * Kategoriern für die Map
+  * Kategorien für die Map
     * Editor gebunden
       * Bezogen auf world, Level Editor
     * IDE gebunden
@@ -342,13 +350,21 @@ Nach Wihlidal.
 
 #Linksammlung.
 
-Übersichten:
-Sony Level Editor         https://github.com/SonyWWS/LevelEditor
-Cryengine                 http://cryengine.com/
-Unreal Engine 4           https://www.unrealengine.com/
-Unity 3D                  http://unity3d.com/
+###Übersichten:
 
-Web sequence diagrams     https://www.websequencediagrams.com
+  * Sony Level Editor         https://github.com/SonyWWS/LevelEditor
+
+  * Cryengine                 http://cryengine.com/
+
+  * Unreal Engine 4           https://www.unrealengine.com/
+
+  * Unity 3D                  http://unity3d.com/
+
+Web sequence diagrams
+  * https://www.websequencediagrams.com
 
 #Artikel Foren Posts etc:
-http://www.gamedev.net/page/resources/_/technical/apis-and-tools/level-creation-concerns-with-unity-r3325
+* http://www.gamedev.net/page/resources/_/technical/apis-and-tools/level-creation-concerns-with-unity-r3325
+
+#Literatursammlung
+Siehe Bibtex Sammlung

@@ -1,0 +1,93 @@
+# Analyse von Game Engines
+
+## Kategorisierungen
+* Editor gebunden
+  * Bezogen auf world, Level Editor
+* IDE gebunden
+* Lizenz
+  * Frei
+  * Kostenpflichtig
+* Programmiersprache/Scriptsprache
+  * Eigenentwickelte Sprachen
+  * Allgemeine Sprachen
+* Platform-Builds
+  * Desktop
+  * Mobile
+  * Konsolen
+  * Browser
+* Betriebsysteme für die Entwicklung
+  * Dieser Punkt ist losgelöst von den Builds zu betrachten, da einige Engines einen Build nach Linux etc. unterstützen jedoch dort keine Entwicklungsumgebung bereit stellen.
+* Erweiterbarkeit der Engine um eigene Software
+  * Ist die Codebase einsehbar?
+  * Ist die Codebase manipulierbar?
+
+
+## Die verschiedenen Engines
+
+### Unreal Engine
+* Editor gebunden
+  * Die Unreal Engine ist an den "Unreal Editor" gebunden. Die Projekte müssen dort bearbeitet werden. (Level erstellen, Verbindungen aufbauen, Asset import, etc.)
+* IDE gebunden
+  * Die IDE für Unreal Engine sind Visual Studio 2013 und auf Mac OSX wird XCode verwendet um Projekte zu kompilieren.
+* Lizenz
+  * Frei
+    * Unreal Engine ist für den Education Sektor kostenfrei zu beziehen. (Eine Gebühr fällt bei kommerzieller Nutzung an).
+  * Kostenpflichtig
+    * Eine Lizenz der Engine wird über ein Abomodell verwaltet und kostet 19Euro im Monat.
+* Programmiersprache
+  * Als Programmiersprachen kommen C++ und Blueprint (eine Eigenentwicklung von Epic) zum Einsatz. Xamarin arbeitet aktuell an einer C# Umsetzung.
+* Unterstützte Platformen
+  * Es werden alle gängigen Platformen unterstützt.
+  * Hierzu zählen:
+    * Windows PC
+    * Linux
+    * Mac
+    * iOS
+    * Android
+    * XBox One
+    * Playstation 4 (inkl. Projekt Morpheus)
+* Unterstütze Entwickler Platformen
+  * Windows PC
+  * Linux (in Entwicklung, nicht stabil)
+  * Mac OSX
+* Verfügbarer Source Code
+  * Source Code ist während eines Abonnements der Engine auf GitHub verfügbar.
+
+### Unity 3D
+* Editor gebunden
+  * Unity ist and den Unity Editor gebunden.
+* IDE gebunden
+  * Die IDE kann selbst gewählt werden (z.B. Visual Studio). Vollen Suppport bietet aber nur die mitgelieferte Mono Develop (Xamarin Studio) Version.
+* Lizenz
+  * Frei
+    * Unity kann kostenlos heruntergeladen werden.
+  * Kostenpflichtig
+    * Für die kommerzielle Nutzung und das freischalten aller Features ist eine gekaufte Lizenz nötig.
+* Programmiersprache
+  * Unity unterstützt die Entwicklung in C#, Javascript und Boo (eine Eigenentwicklung)
+* Unterstützte Platformen
+  * Unity unterstützt alle gängigen Platformen
+  * Hierzu zählen:
+    * iOS
+    * Android
+    * Windows Phone 8
+    * Black Berry 10
+    * Windows
+    * Windows Store
+    * Mac OSX
+    * Linux
+    * Web Player
+    * Playstation 3
+    * Playstation 4
+    * Playstation Vita
+    * Playstation Mobile
+    * XBox One
+    * XBox 360
+    * Wii U
+* Unterstütze Entwickler Platformen
+  * Windows
+  * Mac OSX
+* Verfügbarer Source Code
+  * Der Src Code ist nicht verfügbar.
+
+### Weitere?
