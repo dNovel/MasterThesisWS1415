@@ -7,10 +7,10 @@
   * Müssen Dateien beim Export konvertiert werden?
     * Im speziellen Model Dateien. Oder können hier vorhandene Converter verwendet werden. ( Speziell im Blick auf das veränderte SceneGraph etc.)
   * Brauchen wir einen extra Exporter?
-- Muss ein Full Engine support bestehen oder reicht eine Projektstruktur welche die Binarys der Engine referenziert aus?
+- Muss ein Full Engine support bestehen oder reicht eine Projektstruktur welche die Binarys der Engine referenziert aus? (sinnvoll wäre ein eigenes projekt innerhalb der engine meine ich)
   * Hier drauf basiert die Location der Integration des Systems.
 - Plugin oder Client Server Prinzip?
-  * Hat das Plugin alle Funktionalität oder reicht es nur weiter an eine Tool Application die sozusagen als Hintergrund Applikation läuft und die um weitere Funktionalität erweitert werden kann. (Sprachen Engine Updates etc.)
+  * Hat das Plugin alle Funktionalität oder reicht es nur weiter an eine Tool Application die sozusagen als Hintergrund Applikation läuft und die um weitere Funktionalität erweitert werden kann. (Sprachen Engine Updates etc.) Es wäre einfacher das Plugin so "dumm" wie möglich zu halten um die eigentliche funktionalität in einem externen programm unter zu bringen so dass auch andere davon provitieren könnten.
 
 ##Aktuell
 - In wie weit soll hier noch etwas Theoretisch untersucht werden?
@@ -70,6 +70,7 @@ Nach Wihlidal.
 
 ##Content 2015
 ##Januar 2015
+###Programmierung
 
 
 #Content 2014
@@ -77,7 +78,7 @@ Nach Wihlidal.
 - Kategorisierung von Engines an Hand einer Map
   * Kategorien für die Map
     * Editor gebunden
-      * Bezogen auf world, Level Editor
+      * Bezogen auf World, Level Editor
     * IDE gebunden
     * Lizenz
       * Frei
