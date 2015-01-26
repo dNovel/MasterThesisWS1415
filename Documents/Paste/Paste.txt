@@ -71,13 +71,13 @@ Nach Wihlidal.
 ##Content 2015
 ##Januar 2015
 ###Programmierung
-Siehe Handschriftliches.
+Siehe Handschriftliche Entwürfe etc.
 
 
 #Content 2014
 ##Dezember 2014
 - Kategorisierung von Engines
-  * Kategorien für die Map (Map umsetzbar?) 
+  * Kategorien für die Map (Map umsetzbar?)
     * Editor gebunden
       * Bezogen auf World, Level Editor
     * IDE gebunden
