@@ -3,6 +3,7 @@
 #Stichworte und Informations-Paste.
 
 ##Brennende Fragen
+- Öffnen und speichern des C4D Projektes über ein Plugin im export und import Menu, oder über Plugins.
 - Datentypen für die Arbeit in C4d
   * Müssen Dateien beim Export konvertiert werden?
     * Im speziellen Model Dateien. Oder können hier vorhandene Converter verwendet werden. ( Speziell im Blick auf das veränderte SceneGraph etc.)
