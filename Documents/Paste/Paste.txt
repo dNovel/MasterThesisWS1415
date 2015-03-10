@@ -2,23 +2,47 @@
 
 #Stichworte und Informations-Paste.
 
-##Brennende Fragen
-- Öffnen und speichern des C4D Projektes über ein Plugin im export und import Menu, oder über Plugins.
-- Datentypen für die Arbeit in C4d
-  * Müssen Dateien beim Export konvertiert werden?
+##Wichtige Fragen (letzte Aktualisierung 09.03.2015)
+- Öffnen und speichern des C4D Projektes über ein Plugin im Export und Import Menu, oder über Plugins.
+- Dateitypen und Datentypen
+  * Sollen Dateien während der Benutzung in das Fusee Dateiformat konvertiert werden?
     * Im speziellen Model Dateien. Oder können hier vorhandene Converter verwendet werden. ( Speziell im Blick auf das veränderte SceneGraph etc.)
-  * Brauchen wir einen extra Exporter?
-- Muss ein Full Engine support bestehen oder reicht eine Projektstruktur welche die Binarys der Engine referenziert aus? (sinnvoll wäre ein eigenes projekt innerhalb der engine meine ich)
+    * Gibt es zum neuen Scenegraph etc. schon eine Dokumentation?
+- Im Moment benutzt das Projekt nur die Lib Version von Fusee.
+  * Muss ein Projekt existieren, dass Änderungen an der Engine erlaubt?
   * Hier drauf basiert die Location der Integration des Systems.
-- Plugin oder Client Server Prinzip?
-  * Hat das Plugin alle Funktionalität oder reicht es nur weiter an eine Tool Application die sozusagen als Hintergrund Applikation läuft und die um weitere Funktionalität erweitert werden kann. (Sprachen Engine Updates etc.) Es wäre einfacher das Plugin so "dumm" wie möglich zu halten um die eigentliche funktionalität in einem externen programm unter zu bringen so dass auch andere davon provitieren könnten.
+  * Das Projekt läuft aktuell nur auf Windows.
+- API Aufbau
+  * Aktuell existiert Funktionalität in der FAT API.
+  * Das Cinema 4D Plugin ruft diese Funktionalität nur auf.
+  * So kann jedes Programm, welches eine C# Bibliothek nutzen kann, auf das Projekt zugreifen
+- Ich habe eine Software Requirements Analyse angefertigt.
+  * Die Analyse wird bald möglichst in Diagramme umgesetzt.
 
-##Aktuell
-- In wie weit soll hier noch etwas Theoretisch untersucht werden?
+##Probleme
+- Cinema 4D API
+  * Problem, dass die Unterstützung als Tag Plugin nicht funktioniert.
+    * Die Calls gehen ins leere oder werden zweimal aufgerufen (Anhängen eines Tags wird zweimal aufgerufen.)
+  * Debuggen ist ein Problem
+    * Kann nicht während dem Laden des Plugins Debuggen?
+- In wie weit soll noch etwas theoretisch untersucht werden?
   * Zu jeder Engine Use Cases für alltägliche Arbeiten?
-- Soll ein Anforderungsprofil (Teil eines Lasten/Pflichtenheftes) erstellt werden?
+    * Eine grobe Analyse habe ich angefertigt. Zum schreiben würde ich die Tools in aktuellen Versionen noch einmal genauer untersuchen.
+  * Designer interviewen? (Hätte nur Zugang zu anderen Kommilitonen und einem Indie Entwickler. Evtl. mit Team.)
+    * Online Umfrage halte ich für kaum nötig, da ich die Zielgruppe kaum treffen würde.
+  * Aktuelle Entwicklungen einbeziehen? GDC15 Ende Feb./Anfang März etc.
 
-## Stichworte / Keywords
+##Aktuelle Aufgaben
+- Arbeiten am Code.
+  * Implementieren der Funktionalitäten
+  * Schreiben des C4d Plugin
+    * Problem bei der Funktionalität des Tag Plugins lösen
+    * Eventuell einbinden als Command Plugin wenn alles nichts hilft.
+- Kontinuierliches Updaten der Gliederung im Detailbereich
+- Ende März beginnen mit Text Produktion
+
+
+##Stichworte / Keywords zur Beschreibung der Arbeit
 - Keywords
   * Game Authoring / Production
   * System Design / for Games
