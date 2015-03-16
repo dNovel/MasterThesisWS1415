@@ -2,22 +2,28 @@
 
 #Stichworte und Informations-Paste.
 
-##Wichtige Fragen (letzte Aktualisierung 09.03.2015)
-- Öffnen und speichern des C4D Projektes über ein Plugin im Export und Import Menu, oder über Plugins.
-- Dateitypen und Datentypen
-  * Sollen Dateien während der Benutzung in das Fusee Dateiformat konvertiert werden?
-    * Im speziellen Model Dateien. Oder können hier vorhandene Converter verwendet werden. ( Speziell im Blick auf das veränderte SceneGraph etc.)
-    * Gibt es zum neuen Scenegraph etc. schon eine Dokumentation?
-- Im Moment benutzt das Projekt nur die Lib Version von Fusee.
-  * Muss ein Projekt existieren, dass Änderungen an der Engine erlaubt?
-  * Hier drauf basiert die Location der Integration des Systems.
-  * Das Projekt läuft aktuell nur auf Windows.
-- API Aufbau
-  * Aktuell existiert Funktionalität in der FAT API.
-  * Das Cinema 4D Plugin ruft diese Funktionalität nur auf.
-  * So kann jedes Programm, welches eine C# Bibliothek nutzen kann, auf das Projekt zugreifen
-- Ich habe eine Software Requirements Analyse angefertigt.
-  * Die Analyse wird bald möglichst in Diagramme umgesetzt.
+##Gedanken
+- C# Klassen Annotations
+  * zur Laufzeit Infos holen dann generieren von Daten?
+- Dynamisch ohne Resource Files das UI gestalten
+- Debuggen mit Mixed Mode
+  * Von Native aus als Einstiegspunkt
+- Doppelte Plugin Instanzen nummerieren und mal mit dem Adresscall vergleichen
+  * Eventuell wird die Referenz zerstört und dann wieder angelegt von C4D aus
+- SceneNode System von Fusee verstehen
+  * Export muss in C4d angestoßen werden
+  * Export am besten immer beim Speichern und nach bestimmten Aktionen!!! (Wichtig in der Theorie dann beim Schreiben, Wieso warum und so.)
+    * z.B. neues Skript anlegen
+    * Asset erstellen etc.
+- Ein Projekt ist eine Datei
+  * Das bedeutet, dass eine Szene praktisch ein Fusee Projekt ist.
+    * Nochmal irgendwie durchdenken und aufzeigen ob das so geht oder ob das ein Problem sein könnte
+    * Ansonsten kann auch jede Szene ein Projekt einfach öffnen über ein Plugin und könnte das Projekt dann im Speicher vorhalten?
+    * So könnte ein Projekt geöffnet werden und eine C4d Szene könnte auch einfach nur ein Asset oder ein Level etc. sein? -> Wäre super.
+
+
+##Wichtige Fragen (letzte Aktualisierung 16.03.2015)
+
 
 ##Probleme
 - Cinema 4D API
@@ -31,16 +37,34 @@
   * Designer interviewen? (Hätte nur Zugang zu anderen Kommilitonen und einem Indie Entwickler. Evtl. mit Team.)
     * Online Umfrage halte ich für kaum nötig, da ich die Zielgruppe kaum treffen würde.
   * Aktuelle Entwicklungen einbeziehen? GDC15 Ende Feb./Anfang März etc.
+    * Neue Engines, Unity5 usw. betrachten. Workflows etc. nochmal ansprechen mit Julian und Anki vll?
 
 ##Aktuelle Aufgaben
+- Das Paper von Springer in der Bib runterladen.
 - Arbeiten am Code.
   * Implementieren der Funktionalitäten
   * Schreiben des C4d Plugin
     * Problem bei der Funktionalität des Tag Plugins lösen
     * Eventuell einbinden als Command Plugin wenn alles nichts hilft.
 - Kontinuierliches Updaten der Gliederung im Detailbereich
-- Ende März beginnen mit Text Produktion
+- Ende März / Mitte April beginnen mit Text Produktion
 
+##Abgeklärt
+- Öffnen und speichern des C4D Projektes über ein Plugin im Export und Import Menu, oder über Plugins. -> So wie es eben geht.
+- Dateitypen und Datentypen -> .fus als Szene könnte dann exportiert werden
+  * Sollen Dateien während der Benutzung in das Fusee Dateiformat konvertiert werden?
+    * Im speziellen Model Dateien. Oder können hier vorhandene Converter verwendet werden. ( Speziell im Blick auf das veränderte SceneGraph etc.)
+    * Gibt es zum neuen Scenegraph etc. schon eine Dokumentation?
+- Im Moment benutzt das Projekt nur die Lib Version von Fusee.
+  * Muss ein Projekt existieren, dass Änderungen an der Engine erlaubt?
+  * Hier drauf basiert die Location der Integration des Systems.
+  * Das Projekt läuft aktuell nur auf Windows.
+- API Aufbau
+  * Aktuell existiert Funktionalität in der FAT API.
+  * Das Cinema 4D Plugin ruft diese Funktionalität nur auf.
+  * So kann jedes Programm, welches eine C# Bibliothek nutzen kann, auf das Projekt zugreifen
+- Ich habe eine Software Requirements Analyse angefertigt.
+  * Die Analyse wird bald möglichst in Diagramme umgesetzt.
 
 ##Stichworte / Keywords zur Beschreibung der Arbeit
 - Keywords
