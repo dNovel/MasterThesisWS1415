@@ -1,0 +1,13 @@
+// C4D-StringResource
+// Identifier	Text
+
+STRINGTABLE
+  {
+    IDS_RESDIALOG		"RES Based Dialog";
+	IDS_PHONG           "Phong Choice";	
+	IDS_CUBE            "Cube Choice";
+	IDS_SPHERE          "Sphere Choice";
+	IDS_GRADIENT        "Gradient Choice";
+  }
+
+

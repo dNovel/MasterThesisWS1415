@@ -1,0 +1,23 @@
+// C4D-DialogResource
+
+DIALOGSTRINGS IDS_RESDIALOG
+  {
+    DIALOG_TITLE   "Res Based Dialog";
+	TEXTGROUP      "Text Group";
+	BUTTONGROUP    "Button Group"; 
+	CHKGROUP       "Checkbox Group";  
+	HELLO_WORLD    "Hello World!";
+	MY_BUTTON       "Button Text";
+    MY_CHECKBOX	   "CheckBox Text";
+	MY_NUMARROWS   "NumArrows Text";
+	
+	MY_COMBOBUTTON       "Select One";
+	FIRST_CHILD          "FC";
+	SECOND_CHILD         "SC";
+    FIRST_CHILD_TEXT     "First Choice";
+    SECOND_CHILD_TEXT    "Second Choice";
+
+	MY_SEPARATOR          "Separator";
+	
+  }
+

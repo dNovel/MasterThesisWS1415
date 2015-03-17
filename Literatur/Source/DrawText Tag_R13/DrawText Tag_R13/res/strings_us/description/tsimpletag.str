@@ -1,0 +1,13 @@
+STRINGTABLE Tsimpletag
+{
+	tsimpletag	         "Draw Tag";
+
+	MYBOX                "Enabled";
+	POLYHUDX             "PolygonsHUD PositionX";
+	POLYHUDY             "PolygonsHUD PositionY";
+
+	POINTHUDX             "PointsHUD PositionX";
+	POINTHUDY             "PointsHUD PositionY";
+
+
+}

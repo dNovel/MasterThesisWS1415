@@ -1,0 +1,12 @@
+STRINGTABLE Tquicksteps
+{
+	tquicksteps	     "Quick Steps Tag";
+	MY_CHKBOX        "Enable AutoKey mode";
+	NUMofGUIS        "Number of Steps";  
+	NUMofKEYS        "Bake Nth";
+	BTN_BAKE_KEYS    "Bake PSR Frames";
+	BTN_BAKE_STEPS   "Bake PSR Steps";
+	BTN_DELETE_KEYS  "Delete PSR Keys";		
+	MYTEXT           "Add Footstep Objects Here";
+	DELETE_TEXT      "   Delete keys here";
+}

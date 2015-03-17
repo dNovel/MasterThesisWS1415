@@ -1,0 +1,9 @@
+// C4D-StringResource
+// Identifier	Text
+
+STRINGTABLE
+{
+	// change from here to customize
+	IDS_SIMPLETAG			"Draw Text Tag";		
+    
+}

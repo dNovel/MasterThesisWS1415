@@ -23,7 +23,8 @@
 
 
 ##Wichtige Fragen (letzte Aktualisierung 16.03.2015)
-
+- Fusee Exporter in externe Lib auslagern oder den Code kopieren?
+  * Eventuell kurz absprechen.
 
 ##Probleme
 - Cinema 4D API
