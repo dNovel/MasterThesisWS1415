@@ -25,6 +25,8 @@
 ##Wichtige Fragen (letzte Aktualisierung 16.03.2015)
 - Fusee Exporter in externe Lib auslagern oder den Code kopieren?
   * Eventuell kurz absprechen.
+- Die Exportfunktion verwendet Datentypen von Cinema 4D um die Szene zu konvertieren.
+  * Hier muss eine Lösung gefunden werden die der Zeit angemessen ist.
 
 ##Probleme
 - Cinema 4D API
