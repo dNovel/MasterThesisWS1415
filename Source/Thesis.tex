@@ -21,14 +21,16 @@
 \usepackage{scrpage2}
 \usepackage [singlelinecheck=false] {caption}
 \usepackage{pdfpages}
+%\usepackage{harvard}
+\usepackage{natbib}
 
 % Paket fuer das anzeigen von Sourcecode
 \usepackage{listings}
 % Setze die Programmiersprache auf CSharp
 \lstset{language=[Sharp]C} 
 
-% Festlegung Art der Zitierung - Havardmethode: Abkuerzung Autor + Jahr
-\bibliographystyle{plain}
+% Festlegung Art der Zitierung -NatDin für Deutschland: Abkuerzung Autor + Jahr
+\bibliographystyle{natdin}
 %plain
 
 % Festlegen der Sprache
@@ -46,6 +48,8 @@
 % Farbe für die Überschriften
 \addtokomafont{sectioning}{\color{titlegray}\rmfamily}
 
+% URL Style
+\urlstyle{rm}
 
 \lstset{
 backgroundcolor=\color{mywhite},  % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
@@ -261,25 +265,47 @@ dominik.steffen@hs-furtwangen.de, dominik.steffen@gmail.com\\
 %%%%%%
 \chapter{Anforderungen, Ziele und eine Fragestellung}
 
+\section{Anforderung}
+\section{Ziele}
+\section{Fragestellung}
+
 \section{Entwicklungsprozesse in Interaktiver 3D Software und Games}
 \subsection{Projektmanagement Modelle}
 % Warhorse Scrum, Waterfall, etc.
+Um große Projekte wie Computergames oder Interaktive Software zu entwickeln, bedarf es meist einer detaillierten Planung und einer exakten Rollenverteilung im Entwicklerteam. Es existieren verschiedene Methoden des Projektmanagement auf welche hier kurz im Zusammenhang mit der Arbeit eingegangen werden soll. Einige der Projektmanagement Modelle wirken auf die Arbeitsweise der Teammitglieder aus. Daher wird diese Arbeit hier keinen Umfassenden Überblick über Projektmangament Methoden geben, sondern nur solche Ansprechen die sich direkt oder indirekt stark auf das Tool Development auswirken.
 \subsubsection{Agile Modelle vs. klassische Modelle}
+Viele Entwickler (Ubisoft, siehe \citet{MKG:Schmitz2014}) setzen heute auf moderne Modelle zum Entwickeln von Software. Die so genannten agilen Modelle (wie Beispielsweise Scrum,  Extreme Programming und Feature Driven Development) ermöglichen meist das schnelle (agile) reagieren auf plötzlich auftauchende schwierige Situationen. Klassische Modelle (Wasserfallmodell, Spiralmodell) haben hier meist Probleme durch ungleich höhere Bürokratie und Komplexität und benötigen ein Zeitaufwändigeres re-iterieren im Falle von Updates und Umstrukturierungen in Folge von unvorhergesehenen Ereignissen und Problemen. 
 \subsubsection{Scrum}
-\subsubsection{Wasserfall}
+Der Scrum Prozess tauchte das erste mal in der Veröffentlichung “The New New Product Development Game” von Hirotaka Takeuchi and Ikujiro Nonaka 1986 auf - damals nicht unbedingt in der Software- sondern der allgemeinen Produktentwicklung eingesetzt. Seitdem hat sich das Modell weiter entwickelt und erfreut sich bei innovativen Softareprojekten im Games und Indie-Games Bereich (auch und meist wohl auch vor allem im Tool Development) sehr großer Beliebtheit. Die Entwickler CCP und Warhorse Studios hatten hierzu eigene Videos und Artikel veröffentlicht, siehe \citet{CCP:ScrumAndAgile2009}, \citet{WH:Scrum_2013}, \citet{WH:Scrum_Video_2013}.
+
+Ein Scrum Entwicklerteam ist mit folgenden Rollen besetzt:
+\begin{itemize}
+\item Product Owner
+\item Entwicklungsteam
+\item Scrum Master
+\end{itemize}
+
+Bei diesen Rollen handelt es sich um das interne Scrum Team - das Entwicklungsteam des Produktes. Scrum kann innerhalb eines Projektes und Teams beliebig heruntergebrochen werden, bis die gewünschte größe eines Entwicklerteams erreicht wird. Externe Rollen wie Stakeholder etc. verlagern sich somit auf andere interne Projektleiter oder Teammitglieder. Aus diesem Grund ist das Model gut für die Entwicklung von Development Tools und Toolkits geeignet. Mit Hilfe des Models, können benötigte Toolkits während einer Projektlaufzeit schnell und effizient entwickelt werden ohne dass ein schwerfälliger Bürokratischer Prozess die Entwicklung blockiert. Somit ergänzt sich dieser Prozess gut mit dem doch eher agilen entwickeln von Developement Tools während der Projektlaufzeit - denn in den seltensten Fällen wurde vor dem Beginn des Projekts daran gedacht alle nötigen Tools bereitzustellen. Oftmals ergeben sich auch während der Entwicklung neue Herausforderungen für das Team welche nach neuen Tools verlangen.
 
 \subsection{Internes Tool Developing anstatt Tool licencing} % Titel verbessern
+Internes Tool Development ist ein wichtiger Aspekt im Team eines Games und Software Entwicklerteams. Erich Bethke berichtet in Game Development and Production davon, dass Michael Abrash ihm einst mitteilte, “dass 50\% der Entwickler Arbeit bei idSoftware in das Tool Development fliesse.” Vgl. \citet[Seite 44]{Bethke2003}. Nun ist das bereits eine Weile her, allerdings hat sich an der Relevanz des Themas kaum etwas getan. Sony hat für den Release der Playstation 4 ein Development Kit \footnote{Interview mit dem SNSystems Team \citet{DVLP:Freeman_2014}} für die internen Entwickler Studios  erstellen lassen, welches bereits während der Planung und Entwicklung der Konsole entwickelt wurde. Sony hat diese Prozedur perfektioniert und lässt die eigenen Tools sogar in einem eigens dafür gegründeten Unternehmen für die eigenen Studios erstellen \footnote{SNSystems \url{http://www.snsystems.com/}}. Sony hat im Herbst 2014 den für Playstation 3 Spiele eigens entwickelten Welt Editor “Level Editor” als Open Source Software veröffentlicht \footnote{\cite{GS:Sony_LE_2014}}
 
 \section{Mitglieder eines Entwicklerteams}
+Hier gibt diese Arbeit einen kurzen Überblick über die gängigsten Mitglieder eines Entwicklerteams. Grob können Mitglieder in die folgenden drei Gruppen aufgeteilt werden - Artists, Designer, Engineer. Jede Gruppe arbeitet hierbei jedoch interdisziplinär mit den anderen zusammen, kümmert sich aber doch um die ganz eigenen Bestandteile eines Produktes. Es ist jedoch durchaus so, dass jede Gruppe ihre eigenen Tools und Methoden verwendet. Dieser Ansatz wird in der Konzeptionierung dieser Arbeit aufgegriffen und weiter verfolgt.
+
 \subsection{Artists}
 % Animator
 % World Builders
+Artists sind in einem Games Projekt für jegliche repräsentation der Spiellogik nach Außen zuständig. Hierbei handelt es sich um Modelle, Texturen, User Interfaces und weitere Oberflächen.
 \subsection{Designer}
+Designer (Gamedesigner) arbeiten eng mit Artists und Engineers zusammen. Sie schreiben oft Skripte und kleine Implementierungen oder verbessern Grafiken oder Spielfunktionen. Sie verwenden Assets aus der Designabteilung und fügen diese mit Skripten zusammen.
 % Level
 % Scripter
 % UI
 \subsection{Engineer}
+Engineers / Ingenieure arbeiten meist am Kern der Applikation und schrieben den Source Code für die Anwendung, Engine, Netzwerkfunktionen, KI, und Tools. Diese Entwickler arbeiten hauptsächlich in einer IDE \footnote{Integrated Developement Environment} wie Visual Studio (auf welches sich das zu dieser Arbeit konzeptionierte Tool bezieht) oder XCode \footnote{X-Code ist nur für MacOSX erhältlich}. Der in der IDE geschriebene Code wird dann von den Engineers selbst oder von Game Designer in der Engine verwendet. Hierbei kann sich das Tätigkeitsfeld ausweiten bis hin zur Entwicklung von Gamelogic \footnote{Logik des Spiels, ermöglicht das interagieren etc. mit und in der Software}.
 % Tools
+Diese Arbeit bezieht sich auf den Bereich des Tool Development. Hierbei entwickelt ein kleines Team - meist während oder vor der eigentlichen Arbeit an einem Projekt die Tools für die restlichen Entwickler des Projektes. Diese Tool Palette kann von Textureditoren bis hin zu kompletten Welteditoren fast alles vorstellbare enthalten. Verschiedene Studios haben eigene Tool Developer Teams, welche sich nur um diesen Bereich des Produktes kümmern. Diese Teams betreuen auch meist den Modding Support für ein fertiges veröffentlichtes Produkt. Beispiele für Modding Tools sind z.B. das RedKit von CDProject Red für das Spiel The Witcher 1 und 2, der LevelEditor von Sony der in einer Open Source Version vorliegt oder das Creation Kit von Bethesda Softworks welches einen Modding Support für die Spiele der The Elder Scrolls Reihe bereit stellt.
 % Graphics
 % Network
 % AI
@@ -454,6 +480,7 @@ Alles andere muss auf Level etc aufgeteilt werden und bis zum einzelnen Asset he
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nocite{*}
 \bibliography{Bibtex/VerzeichnisBuecher}
+\bibliographystyle{natdin}
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
