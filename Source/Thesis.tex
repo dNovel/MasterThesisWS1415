@@ -2,13 +2,15 @@
 \usepackage[a4paper, left=40mm, right=30mm, top=20mm, bottom=30mm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+\usepackage[babel,german=guillemets]{csquotes}
+\usepackage[backend=biber, style=authortitle-icomp]{biblatex}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{makeidx}
 \usepackage{setspace}
 \usepackage{color}
-\usepackage{cite} % Paket fuer die Zitation
+%\usepackage{cite} % Paket fuer die Zitation
 % \usepackage{natbib} % Erweitertes paket für Zitate.
 %\usepackage{sourcesanspro}
 \usepackage[T1]{fontenc}
@@ -21,8 +23,7 @@
 \usepackage{scrpage2}
 \usepackage [singlelinecheck=false] {caption}
 \usepackage{pdfpages}
-%\usepackage{harvard}
-\usepackage{natbib}
+
 
 % Paket fuer das anzeigen von Sourcecode
 \usepackage{listings}
@@ -30,7 +31,8 @@
 \lstset{language=[Sharp]C} 
 
 % Festlegung Art der Zitierung -NatDin für Deutschland: Abkuerzung Autor + Jahr
-\bibliographystyle{natdin}
+%\bibliographystyle{jurabib}
+\addbibresource{Bibtex/VerzeichnisBuecher.bib}
 %plain
 
 % Festlegen der Sprache
@@ -274,9 +276,9 @@ dominik.steffen@hs-furtwangen.de, dominik.steffen@gmail.com\\
 % Warhorse Scrum, Waterfall, etc.
 Um große Projekte wie Computergames oder Interaktive Software zu entwickeln, bedarf es meist einer detaillierten Planung und einer exakten Rollenverteilung im Entwicklerteam. Es existieren verschiedene Methoden des Projektmanagement auf welche hier kurz im Zusammenhang mit der Arbeit eingegangen werden soll. Einige der Projektmanagement Modelle wirken auf die Arbeitsweise der Teammitglieder aus. Daher wird diese Arbeit hier keinen Umfassenden Überblick über Projektmangament Methoden geben, sondern nur solche Ansprechen die sich direkt oder indirekt stark auf das Tool Development auswirken.
 \subsubsection{Agile Modelle vs. klassische Modelle}
-Viele Entwickler (Ubisoft, siehe \citet{MKG:Schmitz2014}) setzen heute auf moderne Modelle zum Entwickeln von Software. Die so genannten agilen Modelle (wie Beispielsweise Scrum,  Extreme Programming und Feature Driven Development) ermöglichen meist das schnelle (agile) reagieren auf plötzlich auftauchende schwierige Situationen. Klassische Modelle (Wasserfallmodell, Spiralmodell) haben hier meist Probleme durch ungleich höhere Bürokratie und Komplexität und benötigen ein Zeitaufwändigeres re-iterieren im Falle von Updates und Umstrukturierungen in Folge von unvorhergesehenen Ereignissen und Problemen. 
+Viele Entwickler (Ubisoft, siehe \cite{MKG:Schmitz2014}) setzen heute auf moderne Modelle zum Entwickeln von Software. Die so genannten agilen Modelle (wie Beispielsweise Scrum,  Extreme Programming und Feature Driven Development) ermöglichen meist das schnelle (agile) reagieren auf plötzlich auftauchende schwierige Situationen. Klassische Modelle (Wasserfallmodell, Spiralmodell) haben hier meist Probleme durch ungleich höhere Bürokratie und Komplexität und benötigen ein Zeitaufwändigeres re-iterieren im Falle von Updates und Umstrukturierungen in Folge von unvorhergesehenen Ereignissen und Problemen. 
 \subsubsection{Scrum}
-Der Scrum Prozess tauchte das erste mal in der Veröffentlichung “The New New Product Development Game” von Hirotaka Takeuchi and Ikujiro Nonaka 1986 auf - damals nicht unbedingt in der Software- sondern der allgemeinen Produktentwicklung eingesetzt. Seitdem hat sich das Modell weiter entwickelt und erfreut sich bei innovativen Softareprojekten im Games und Indie-Games Bereich (auch und meist wohl auch vor allem im Tool Development) sehr großer Beliebtheit. Die Entwickler CCP und Warhorse Studios hatten hierzu eigene Videos und Artikel veröffentlicht, siehe \citet{CCP:ScrumAndAgile2009}, \citet{WH:Scrum_2013}, \citet{WH:Scrum_Video_2013}.
+Der Scrum Prozess tauchte das erste mal in der Veröffentlichung “The New New Product Development Game” von Hirotaka Takeuchi and Ikujiro Nonaka 1986 auf - damals nicht unbedingt in der Software- sondern der allgemeinen Produktentwicklung eingesetzt. Seitdem hat sich das Modell weiter entwickelt und erfreut sich bei innovativen Softareprojekten im Games und Indie-Games Bereich (auch und meist wohl auch vor allem im Tool Development) sehr großer Beliebtheit. Die Entwickler CCP und Warhorse Studios hatten hierzu eigene Videos und Artikel veröffentlicht, siehe \cite{CCP:ScrumAndAgile2009}, \cite{WH:Scrum2013}, \cite{WH:ScrumVideo2013}.
 
 Ein Scrum Entwicklerteam ist mit folgenden Rollen besetzt:
 \begin{itemize}
@@ -288,7 +290,7 @@ Ein Scrum Entwicklerteam ist mit folgenden Rollen besetzt:
 Bei diesen Rollen handelt es sich um das interne Scrum Team - das Entwicklungsteam des Produktes. Scrum kann innerhalb eines Projektes und Teams beliebig heruntergebrochen werden, bis die gewünschte größe eines Entwicklerteams erreicht wird. Externe Rollen wie Stakeholder etc. verlagern sich somit auf andere interne Projektleiter oder Teammitglieder. Aus diesem Grund ist das Model gut für die Entwicklung von Development Tools und Toolkits geeignet. Mit Hilfe des Models, können benötigte Toolkits während einer Projektlaufzeit schnell und effizient entwickelt werden ohne dass ein schwerfälliger Bürokratischer Prozess die Entwicklung blockiert. Somit ergänzt sich dieser Prozess gut mit dem doch eher agilen entwickeln von Developement Tools während der Projektlaufzeit - denn in den seltensten Fällen wurde vor dem Beginn des Projekts daran gedacht alle nötigen Tools bereitzustellen. Oftmals ergeben sich auch während der Entwicklung neue Herausforderungen für das Team welche nach neuen Tools verlangen.
 
 \subsection{Internes Tool Developing anstatt Tool licencing} % Titel verbessern
-Internes Tool Development ist ein wichtiger Aspekt im Team eines Games und Software Entwicklerteams. Erich Bethke berichtet in Game Development and Production davon, dass Michael Abrash ihm einst mitteilte, “dass 50\% der Entwickler Arbeit bei idSoftware in das Tool Development fliesse.” Vgl. \citet[Seite 44]{Bethke2003}. Nun ist das bereits eine Weile her, allerdings hat sich an der Relevanz des Themas kaum etwas getan. Sony hat für den Release der Playstation 4 ein Development Kit \footnote{Interview mit dem SNSystems Team \citet{DVLP:Freeman_2014}} für die internen Entwickler Studios  erstellen lassen, welches bereits während der Planung und Entwicklung der Konsole entwickelt wurde. Sony hat diese Prozedur perfektioniert und lässt die eigenen Tools sogar in einem eigens dafür gegründeten Unternehmen für die eigenen Studios erstellen \footnote{SNSystems \url{http://www.snsystems.com/}}. Sony hat im Herbst 2014 den für Playstation 3 Spiele eigens entwickelten Welt Editor “Level Editor” als Open Source Software veröffentlicht \footnote{\cite{GS:Sony_LE_2014}}
+Internes Tool Development ist ein wichtiger Aspekt im Team eines Games und Software Entwicklerteams. Erich Bethke berichtet in Game Development and Production davon, dass Michael Abrash ihm einst mitteilte, “dass 50\% der Entwickler Arbeit bei idSoftware in das Tool Development fliesse.”\footfullcite[S. 44]{Bethke2003}. Nun ist das bereits eine Weile her, allerdings hat sich an der Relevanz des Themas kaum etwas getan. Sony hat für den Release der Playstation 4 ein Development Kit \footfullcite{Interview mit dem SNSystems Team \footfullcite{DVLP:Freeman2014}} für die internen Entwickler Studios  erstellen lassen, welches bereits während der Planung und Entwicklung der Konsole entwickelt wurde. Sony hat diese Prozedur perfektioniert und lässt die eigenen Tools sogar in einem eigens dafür gegründeten Unternehmen für die eigenen Studios erstellen \footnote{SNSystems \url{http://www.snsystems.com/}}. Sony hat im Herbst 2014 den für Playstation 3 Spiele eigens entwickelten Welt Editor “Level Editor” als Open Source Software veröffentlicht \footfullcite{GS:SonyLE2014}
 
 \section{Mitglieder eines Entwicklerteams}
 Hier gibt diese Arbeit einen kurzen Überblick über die gängigsten Mitglieder eines Entwicklerteams. Grob können Mitglieder in die folgenden drei Gruppen aufgeteilt werden - Artists, Designer, Engineer. Jede Gruppe arbeitet hierbei jedoch interdisziplinär mit den anderen zusammen, kümmert sich aber doch um die ganz eigenen Bestandteile eines Produktes. Es ist jedoch durchaus so, dass jede Gruppe ihre eigenen Tools und Methoden verwendet. Dieser Ansatz wird in der Konzeptionierung dieser Arbeit aufgegriffen und weiter verfolgt.
@@ -479,9 +481,8 @@ Alles andere muss auf Level etc aufgeteilt werden und bis zum einzelnen Asset he
 % Bilbiographie START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nocite{*}
-\bibliography{Bibtex/VerzeichnisBuecher}
-\bibliographystyle{natdin}
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\printbibliography
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bilbiographie ENDE
