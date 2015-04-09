@@ -270,11 +270,25 @@ dominik.steffen@gmail.com\\
 %	Einführung / Einleitung START
 %%%%%%
 \chapter{Anforderungen, Ziele und eine Fragestellung}
+Arbeitsprozesse in heutigen Game Engines verlangen von Entwicklern meist das erlernen neuer Toolsets und dies während eines meist sehr eingeschhränkten Projekt Zeitraums. Es wäre für Entwickler einfacher sich mit den bereits bekannten Tools zu beschäftigen und mit diesen großartige Ergebnisse zu erreichen.
 
-\section{Anforderung}
-\section{Ziele}
-\section{Fragestellung}
+\section{Motivation}
+Diese Arbeit beschäftigt sich nun mit der Frage ob es möglich ist ein Tool zu konzipieren welches auf der Basis eines bereits bestehenden Modeling Editors (hier Cinema 4D von Maxon \footfullcite{MaxonC4d2014}) das erstellen einer “fertigen”\footnote{Build fähige Version einer im Fusee Szenenformat abgespeicherten 3D Szene.} Szene für die 3D Engine Fusee ermöglicht. Hierbei wird nach der Konzeption versucht die Basis Funktionalität in Visual Studio mit Hilfe von \CSS Code und der nach \CSS gewrappten Cinema 4D API zu implementieren. Die gewrappte Cinema 4D API basiert auf einem ehemaligen Projekt der Hochschule Furtwangen. Dieses wird als Grundlage für die hier angedachte Implementierung genutzt und bietet einen geringen Umfang an Basisfunktionalität. So bietet es die Möglichkeit grundsätzlich Plugins für Cinema 4D in der Programmiersprache \CSS zu schreiben. Von Haus aus ermöglicht Maxon das schreiben von Plugins nur in C++, Python und Coffee (einer von Maxon selbst entwickelten Skriptsprache). Der Vollständigkeit halber sei gesagt, dass Maxon für C++ noch das Framework Melange anbietet welches es ermöglicht Cinema 4D Dateien ohne eine Cinema 4D installation zu erstellen, zu speichern und zu laden. Sollte eine Installation vorhanden sein kann das Plugin auch Szenen rendern.
 
+Szenen in Cinema 4D werden grundsätzlich als eine Art Baum gespeichert und zur weiteren Verarbeitung im Speicher gehalten. Die hier konzipierte Software möchte diese Tatsache nutzen um eine Cinema 4D Szene in eine Szene des Fusee Szenen Formats (.fus) umzuwandeln. Eine “.fus” Datei ist ebenfalls in einer Baumartigen Struktur gespeichert. Dieses Prinzip der Szenendarstellung ist bereits aus verschiedenen Frameworks und Softwareprojekten für 2D Darstellung bekannt. So benutzten 
+
+\section{Ziele der Implementierung}
+Die während dieser Arbeit implementierte Software hat das Ziel eine Basis für die Verwendung von Cinema 4D als Game Engine Editor aufzubauen. Es werden grundlegende Funktionen in Form einer \CSS Bibliothek entwickelt welche es ermöglichen sollen das Projekt in Zukungt auch für andere 3D Modeling Software anzupassen. Diese Arbeit zielt nicht darauf ab ein komplettes Tool für die Entwicklung von Spielen in der Fusee Engine zu erschaffen, sondern versucht eine art Grundstein für weitere Forschung und Entwicklung in den Bereich des Game Authoring Toolkit Developments zu legen. Das Kernziel ist das erstellen eines Konzeptes und die erläuterung der einzelnen Module eines solchen Systems. Verschiedene bereits bestehende Tools und Game Engines werden zu vergleichen herangezogen und wurden im Laufe dieser Arbeit untersucht und getestet.
+\section{Verwendete Software}
+\begin{itemize}
+\item Microsoft Visual Studio 2010, \newline verwendet als Entwicklungsumgebung f"ur das Softwareprojekt.
+\item Die Erweiterung ReSharper in Version 7.1 f"ur Visual Studio 2010 \url{http://www.jetbrains.com/resharper}
+\item Umlet \url{http://www.umlet.com/} \newline Ein kostenloses Tool um UML Diagramme zu erstellen.
+\item GitHub und die GitShell \url{www.github.com} \newline Verwendet als Versionskontrollsystem und als Distributionswerkzeug für den Sourcecode.
+\item TexWorks \url{www.tug.org/texworks/} \newline Zum Schreiben dieser Arbeit.
+\end{itemize}
+
+\chapter{Grundlegendes}
 \section{Entwicklungsprozesse in Interaktiver 3D Software und Games}
 Um einen Entwicklungsprozess abzubilden und Tools für Entwickler, sogenannte Developer Tools, zu entwickeln bedarf es einer gewissen Organisation. Im Bereich der modernen Spieleentwicklung in kleinen bis mittleren Unternehmen (seltener bei großen AAA Produktionen \footnote{Allgemein: Hochqualitative Spiele Software mit großem Entwicklungsbudget und einer Breiten Zielgruppe. Vgl. \cite{GamasutraAAA2005} }) wird hierfür ein agiles Modell zur Softwareentwicklung eingesetzt. Hier soll ein kurzer Überblick über aktuelle Modelle entstehen. Diese Modelle ermöglichen zum einen das schnelle Entwickeln von Tools während der knappen Entwicklungszeit eines Spiele Produkts und zum anderen unterstützen sie die Arbeit von kleinen Teams, in welchen meist Tool Developement betrieben wird,  innerhalb eines großen Entwicklerteams um so gezielt plötzlich auftauchende Aufgaben ohne lange Planung und viel Bürokratie lösen zu können. Damit ist ein fortschreiten des gesamten Projektablaufs gesichert und Entwickler können ihre Zeit hauptsächlich für die Entwicklung der Tools investieren.
 \subsection{Projektmanagement Modelle}
@@ -328,23 +342,36 @@ Engineers / Ingenieure arbeiten meist am Kern der Applikation und schrieben den 
 Diese Arbeit bezieht sich auf den Bereich des Tool Development. Hierbei entwickelt ein kleines Team - meist während oder vor der eigentlichen Arbeit an einem Projekt die Tools für die restlichen Entwickler des Projektes. Diese Tool Palette kann von Textureditoren bis hin zu kompletten Welteditoren fast alles vorstellbare enthalten. Verschiedene Studios haben eigene Tool Developer Teams, welche sich nur um diesen Bereich des Produktes kümmern. Diese Teams betreuen auch meist den Modding Support für ein fertiges veröffentlichtes Produkt. Beispiele für Modding Tools sind z.B. das RedKit von CDProject Red für das Spiel The Witcher 1 und 2, der LevelEditor von Sony der in einer Open Source Version vorliegt oder das Creation Kit von Bethesda Softworks welches einen Modding Support für die Spiele der The Elder Scrolls Reihe bereit stellt.
 \subsection{Weitere für diese Arbeit nicht relevante}
 \subsubsection{Computer-Grahics Engineer}
+Computer Graphics Engineers beschäftigen sich mit dem erstellen des Codes für die grafische Repräsentation der Engine.
 
 \subsubsection{Network Engineer}
 
 \subsubsection{Artificial Intelligence Engineer}
 
 \subsubsection{Sound Engineer}
+Fusee bietet während der erstellung dieser Arbeit nur ein rudimentäres Soundsystem an. Aus diesen Gründen geht diese Arbeit nicht weiter auf das Sound Engineering ein.
 
 \section{Stakeholderanalyse intern}
-Das bedeutet, diese Gruppen müssen bei der entwicklung eines Tools beachtet werden. Am besten wäre eine Rücksprache mit diesen Teammitgliedern und anschliessend eine analyse der Bedürfnisse für die jeweiligen Aufgabengebiete. Hierzu würde es sich empfehlen ein Gespräch zu führen und weiterhin einen praktischen Besuch am Arbeitsplatz zu vereinbaren.
+Um herauszufinden, welche Entwicklergruppen eines Teams von neuen Development Tools im Bezug auf Fusee betroffen wären, wurde eine Analyse durchgeführt, um die Stakeholder innerhalb des Teams abzubilden. In der Praxis wäre für die Konzeption bzw. das Systemdesign eines neuen Tools der Besuch der betroffenen internen Stakeholder am Arbeitsplatz und das beobachten der jeweils verrichteten Aufgaben sehr aufschlussreich. Durch diese Erkenntnisse könnten Probleme im Arbeitsablauf frühzeitig identifiziert und behoben und besonders wichtige Features rechtzeitig vor Beginn der Implementierung geplant werden.
+
+Eine Bedürfnisabalyse und eine allgemeine Analyse der Aufgabengebiete der jeweiligen Entwickler sollte in das System Design bzw. das Requirements Engineering ebenfalls mit einfließen.
 
 \section{Ein Arbeitsprozess wird entwickelt}
 \subsection{Game Authoring / Game Development}
 Was ist das, was beschreibt es, wieso ist es hier relevant?
+Game Development beschreibt allgemein das entwickeln einer Interaktiven Software, meist eines Spiels. Hierbei spielt es keine Rolle ob die Software der puren Unterhaltung dient oder sich dem Genre des Serious Games zuordnen lässt. Die Produktionsabläufe ähneln sich stark. Im Gegensatz zum Tool Development hat das Game Development meist den Auftrag am Ende ein für den Consumer zugängliches Produkt zu schaffen. Das Tool Development beschäftigt sich in erster Linie mit dem Erstellen der Werkzeuge welche benötigt werden um das Consumerprodukt zu entwickeln.
+
+% TODO Chandler2006 zitieren.
+
 \subsection{Tool Development}
 % Nach Wihlidal ... Warum wurde oben geklärt, hier den Prozess erläutern.
 % Möglichkeiten vorstellen.
 % Beispiele geben.
+Nach Wihlidals Auffasung \parencite{Wihlidal2006} unterscheidet sich die Planung eines Projektes zur Erstellung eines Developer Tools nicht sehr von der Planung zur allgemeinen Entwicklung von Software. Es gelten hier vier Planungsphasen die den Projektablauf kennzeichnen. Es wird zuerst eine Planung des Tools durchgeführt. Hier wird der Umfang des Tools festgelegt und es werden Bedingungen zum Funktionsumfang formuliert.
+
+Die zweite Phase beschreibt eine Bedarfsanalyse der von der neuen Software betroffenen Teammitglieder. Es werden Arbeitsabläufe skizziert und mit den Beteiligten durchgesprochen. Je nach Komplexität und Relevanz des Projekts wird Software anderer Hersteller oder anderer Arbeitsbereiche ebenfalls analysiert und das Ergebnis zur Gesamtanalyse hinzugezogen.
+
+Daraufhin folgt die Designphase in welcher das Entwicklerteam des neuen Tools das Requirements Engineering abschliesst und mit dem Software-/Systemdesign beginnt. Hier wird das Produkt in Form von UML Diagrammen und veranschaulichungen entwickelt. Die tatsächliche Implementierung folgt als letzte Phase des Projektablaufs.
 
 \subsection{Planung}
 \begin{itemize}
