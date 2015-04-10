@@ -309,10 +309,10 @@ Ein Scrum Entwicklerteam ist mit folgenden Rollen besetzt:
 Bei diesen Rollen handelt es sich um das interne Scrum Team - das Entwicklungsteam des Produktes. Scrum kann innerhalb eines Projektes und Teams beliebig heruntergebrochen werden, bis die gewünschte größe eines Entwicklerteams erreicht wird. Externe Rollen wie Stakeholder etc. verlagern sich somit auf andere interne Projektleiter oder Teammitglieder. Aus diesem Grund ist das Model gut für die Entwicklung von Development Tools und Toolkits geeignet. Mit Hilfe des Models, können benötigte Toolkits während einer Projektlaufzeit schnell und effizient entwickelt werden ohne dass ein schwerfälliger Bürokratischer Prozess die Entwicklung blockiert. Somit ergänzt sich dieser Prozess gut mit dem doch eher agilen entwickeln von Developement Tools während der Projektlaufzeit - denn in den seltensten Fällen wurde vor dem Beginn des Projekts daran gedacht alle nötigen Tools bereitzustellen. Oftmals ergeben sich auch während der Entwicklung neue Herausforderungen für das Team welche nach neuen Tools verlangen.
 
 \subsection{Internes Tool Developing anstatt Tool licencing} % Titel verbessern
-Internes Tool Development ist ein wichtiger Aspekt im Team eines Games und Software Entwicklerteams. Erich Bethke berichtet in Game Development and Production davon, dass Michael Abrash \footnote{Ehemals idSoftware, ehemals Valve VR, aktuell Oculus VR Chief Scientist} ihm einst mitteilte, “dass 50\% der Entwickler Arbeit bei idSoftware in das Tool Development fliesse.”\footfullcite{Bethke2003}. Nun ist das bereits eine Weile her, allerdings hat sich an der Relevanz des Themas kaum etwas getan. Sony hat für den Release der Playstation 4 ein Development Kit \footfullcite{DVLP:Freeman2014} für die internen Entwickler Studios  erstellen lassen, welches bereits während der Planung und Entwicklung der Konsole entwickelt wurde. Sony hat diese Prozedur perfektioniert und lässt die eigenen Tools sogar in einem eigens dafür gegründeten Unternehmen für die eigenen Studios erstellen \footnote{SNSystems \url{http://www.snsystems.com/}}. Sony hat im Herbst 2014 den für Playstation 3 Spiele eigens entwickelten Welt Editor “Level Editor”\footfullcite{GS:SonyLE2014} als Open Source Software veröffentlicht und für Jedermann auf GitHub verfügbar gemacht. Der Editor kommt ohne Enginezug aus und lässt sich somit für verschiedenste Projekte der Sony Studios anpassen. Verschiedene Entwickler haben darauf ihre eigenen Tool Kits und Editoren auf dem von Sony bereitgestellten ATF Framework erstellt um Spiele wie Naughty Dogs Uncharted\footfullcite{NaughtyDog2007}, Guerilla Games’ Killzone Serie\footfullcite{GuerillaGames2004} oder Quantic Dreams Beyond:Two Souls\footfullcite{QuanticDream2013} zu erstellen. Diese Tatsache zeigt, dass selbst in großen Studios immernoch bedarf nach einfach und schnell zu erweiternden Frameworks und Editoren besteht. Das ATF Framework bzw. der “Level Editor” von Sony waren auch teil der Inspiration zu dieser Arbeit.
+Internes Tool Development ist ein wichtiger Aspekt im Team eines Games und Software Entwicklerteams. Erich Bethke berichtet in Game Development and Production davon, dass Michael Abrash \footnote{Ehemals idSoftware, ehemals Valve VR, aktuell Oculus VR Chief Scientist} ihm einst mitteilte, “dass 50\% der Entwickler Arbeit bei idSoftware in das Tool Development fliesse.”\footfullcite{Bethke2003}. Nun ist das bereits eine Weile her, allerdings hat sich an der Relevanz des Themas kaum etwas getan. Sony hat für den Release der Playstation 4 ein Development Kit \footfullcite{DVLP:Freeman2014} für die internen Entwickler Studios  erstellen lassen, welches bereits während der Planung und Entwicklung der Konsole entwickelt wurde. Sony hat diese Prozedur perfektioniert und lässt die eigenen Tools sogar in einem eigens dafür gegründeten Unternehmen für die eigenen Studios erstellen \footnote{SNSystems \url{http://www.snsystems.com/}}. Sony hat im Herbst 2014 den für Playstation 3 Spiele eigens entwickelten Welt Editor “Level Editor”\footfullcite{GS:SonyLE2014} als Open Source Software veröffentlicht und für Jedermann auf GitHub verfügbar gemacht. Der Editor kommt ohne Enginezug aus und lässt sich somit für verschiedenste Projekte der Sony Studios anpassen. Verschiedene Entwickler haben darauf ihre eigenen Tool Kits und Editoren auf dem von Sony bereitgestellten ATF Framework erstellt um Spiele wie Naughty Dogs Uncharted\footfullcite{NaughtyDog2007}, Guerilla Games’ Killzone Serie\footfullcite{GuerillaGames2004} oder Quantic Dreams Beyond:Two Souls\footfullcite{QuanticDream2013} zu erstellen. Diese Tatsache zeigt, dass selbst in großen Studios immernoch bedarf nach einfach und schnell zu erweiternden Frameworks und Editoren besteht. Das ATF Framework bzw. der “Level Editor” von Sony waren auch ein Anlass diese Arbeit 
 
 \section{Mitglieder eines Entwicklerteams}
-Hier gibt diese Arbeit einen kurzen Überblick über die gängigsten Mitglieder eines Entwicklerteams. Grob können Mitglieder in die folgenden drei Gruppen aufgeteilt werden - Artists, Designer, Engineer. Jede Gruppe arbeitet hierbei jedoch interdisziplinär mit den anderen zusammen, kümmert sich aber doch um die ganz eigenen Bestandteile eines Produktes. Es ist jedoch durchaus so, dass jede Gruppe ihre eigenen Tools und Methoden verwendet. Dieser Ansatz wird in der Konzeptionierung dieser Arbeit aufgegriffen und weiter verfolgt.
+Hier gibt diese Arbeit einen kurzen Überblick über die gängigsten Mitglieder eines Entwicklerteams. Grob können Mitglieder in die folgenden drei Gruppen aufgeteilt werden - Artists, Designer, Engineer. Jede Gruppe arbeitet hierbei interdisziplinär mit den anderen zusammen, kümmert sich aber doch um die ganz eigenen Bestandteile eines Produktes. Es ist jedoch durchaus so, dass jede Gruppe ihre eigenen Tools und Methoden verwendet. Dieser Ansatz wird in der Konzeptionierung dieser Arbeit aufgegriffen und weiter verfolgt.
 
 Bei der Bezeichnung und Aufteilung der verschiedenen Teammitglieder in Fachbereiche orientiert sich diese Arbeit am Werk von \autocite{Chandler2006} in welchem er die Produktionsprozesse eines Spiels sowohl in designtechnischer Weise als auch aus technischer Sicht beschreibt.
 
@@ -374,36 +374,31 @@ Die zweite Phase beschreibt eine Bedarfsanalyse der von der neuen Software betro
 Daraufhin folgt die Designphase in welcher das Entwicklerteam des neuen Tools das Requirements Engineering abschliesst und mit dem Software-/Systemdesign beginnt. Hier wird das Produkt in Form von UML Diagrammen und veranschaulichungen entwickelt. Die tatsächliche Implementierung folgt als letzte Phase des Projektablaufs.
 
 \subsection{Planung}
+Es folgt die Planungsphase des Tools. Hier wird zuerst eine Requirementsanalyse \footnote{dt. Anforderungsmanagement} durchgeführt. Mit ihr sollen alle wichtigen Kerneigenschaften der Software identifiziert und niedergeschrieben werden. Ein an diese Arbeit angehängtes Designdokument führt diese Requirementsanalyse weiter aus. Die Anforderungsanalyse ist in einer solchen Situation, in welcher ein Produkt unter Zeitdruck für den Produktivbetrieb entwickelt wird, ein wichtiger Bestandteil der Projektplanung. Ein Tool, welches nicht den Anforderungen der Teammitglieder entpsricht kann nicht im Betrieb eingesetzt werden und verzögert im schlimmsten Fall die weitere Entwicklung des gesamten großen Softwareprojektes.
+
+\subsubsection{Requirements Analyse}
 \begin{itemize}
 \item Eine Software soll es ermöglichen, dass Artists, Designer und Developer an ein und dem selben Projekt arbeiten können ohne die gewohnte Arbeitsumgebung (3D-Modellierungssoftware, IDE) zu verlassen und etwas komplett neues (Level-Editor) zu erlernen.
-\item Die komplette Entwicklung und der Entwurf bedienen sich der FUSEE Engine.
-\item Ziel ist es in Cinema 4D ein FUSEE Projekt anzulegen, zu speichern und es zu öffnen (In Form einer Szene, Level, Welt.). Weiterhin müssen "Assets" ins Spiel integriert werden können die von Artists, Designern und Entwicklern bearbeitet werden können.
-\item Das Projekt sollte aus C4D heraus gebaut werden können.
-\end{itemize}
+\item Das Produkt muss auf Basis der FUSEE Engine entstehen
+\item Ziel ist es in Cinema 4D ein FUSEE Projekt anzulegen, zu speichern und es zu öffnen
+\item "Assets" sollen ins Spiel integriert werden können die von Artists, Designern und Entwicklern bearbeitet werden können.
+\item Das FUSEE \CSS Projekt sollte aus C4D heraus gebaut werden können.
 %Hier könnte man einen Hinweis auf die Entwicklungsmethoden von id Software geben. Möglicherweise wäre eine Erwähnung der Pre-Rage Zeiten sinnvoll.
-
-\subsection{Analyse}
-\begin{itemize}
-\item Eine Stakeholderanalyse schafft klarheit, welche Parteien mit dem zu erstellenden Tool arbeiten müssen.
-\item Die Game Engines sollten Kategorisiert werden. Hierzu ist ein "Gitternetz" aufzustellen.
-\item Verschiedene Game Engines müssen darauf untersucht werden, wie die Arbeitsschritte in diesen zu erledigen sind. Jede Untersuchung sollte dokumentiert werden.
-\item Es ist zuerst zu analysieren, welche Schritte für welche Art der Arbeit notwendig sind. Hierzu werden Usecases der verschiedenen Rollen und Aufgaben erstellt.
+\item Eine Stakeholderanalyse schafft klarheit, welche Parteien des Teams mit dem zu erstellenden Tool arbeiten müssen.
+\item Es ist zu analysieren, welche Schritte für welche Art der Arbeit des Teams notwendig sind. Hierzu werden Usecases der verschiedenen Rollen und Aufgaben erstellt.
 \end{itemize}
+\subsubsection{Requirements Dokumentation}
 
-\subsection{Design}
-\begin{itemize}
-\item Aufgrund der erstellten Use Cases wird ein System Design erstellt.
-\item Das Systemdesing sollte Roundtrips vermeiden
-\item Hierzu können Partial Classes untersucht werden.
-\item Es soll möglichst wenig "geparsed" oder "konvertiert" werden
-\item Dateien sollen Version Control kompatibel bleiben (wenig bis keine Binarys)
-\item Das Projekt muss Strukturiert sein
-\item Eine Fusee Solution soll gehandelt werden können
-\end{itemize}
+\subsection{System Design / System Modeling}
+Anschließend an die Analyse folgt das System Modeling in welchem die Anforderungen des Programs zu einem Softwareprodukt modeliert werden. Oft bedient sich das Entwicklerteam hierbei Notationen wie UML \footnote{Unified Modeling Language} in Diagramm und Schrift Form. Das System Design ist ein kritischer Punkt. Hier müssen die Anforderungen des Kunden genau in die geplante Entwicklung des Systems übernommen werden. Oftmals arbeitet das System Design 
+
+\subsection{Abgleich des System Designs mit den Anforderungen}
+% TODO
 
 \subsection{Implementierung}
+Die Implementierung ist der letzte Schritt
 \begin{itemize}
-\item Die Software wird auf basis der FUSEE Engine und Cinema4D R16 erstellt.
+\item Die Software wird auf Basis der FUSEE Engine und Cinema4D R16 erstellt.
 \end{itemize}
 
 \subsubsection{Asset Pipeline und Feedback}
@@ -412,7 +407,8 @@ Zeitkritisch beim export etc.
 Carter Seite 6 und folgende.
 %Begriffserklärung eines Asset, genaue Definitionen anmerken.
 
-\subsubsection{Die Struktur von Game Assets}
+\section{Die Struktur von Game Assets}
+% TODO
 Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen aus Assets und mehr.
 \subsection{Warum eine Trennung von Code und Content?}
 %%%%%%
@@ -458,6 +454,14 @@ Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen a
 \subsection{Entfernen von Abhängigkeiten}
 \subsection{Zeitersparnis durch bekannte Tools}
 \subsection{Warum Fusee und Cinema 4D?}
+
+\begin{itemize}
+\item Aufgrund der erstellten Use Cases und der Analysephasewird ein System Design erstellt. Meist eine UML basierte Darstellung.
+\item Es soll möglichst wenig "geparsed" oder "konvertiert" werden
+\item Dateien sollen Version Control kompatibel bleiben (wenig bis keine Binarys)
+\item Das Projekt muss Strukturiert sein
+\item Eine Fusee Solution soll gehandelt werden können
+\end{itemize}
 
 % Implementierung
 \section{Die Implementierung}
