@@ -2091,25 +2091,27 @@
     <bcf:datasource type="file" datatype="bibtex">Biblatex/VerzeichnisBuecher.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">MaxonC4d2014</bcf:citekey>
-    <bcf:citekey order="2">GamasutraAAA2005</bcf:citekey>
-    <bcf:citekey order="3">MKG:Schmitz2014</bcf:citekey>
-    <bcf:citekey order="4">CCP:ScrumAndAgile2009</bcf:citekey>
-    <bcf:citekey order="5">WH:Scrum2013</bcf:citekey>
-    <bcf:citekey order="6">WH:ScrumVideo2013</bcf:citekey>
-    <bcf:citekey order="7">Bethke2003</bcf:citekey>
-    <bcf:citekey order="8">DVLP:Freeman2014</bcf:citekey>
-    <bcf:citekey order="9">GS:SonyLE2014</bcf:citekey>
-    <bcf:citekey order="10">NaughtyDog2007</bcf:citekey>
-    <bcf:citekey order="11">GuerillaGames2004</bcf:citekey>
-    <bcf:citekey order="12">QuanticDream2013</bcf:citekey>
-    <bcf:citekey order="13">Chandler2006</bcf:citekey>
-    <bcf:citekey order="14">MaxonC4d2014</bcf:citekey>
-    <bcf:citekey order="15">AutodeskMax2014</bcf:citekey>
-    <bcf:citekey order="16">FoundryModo2014</bcf:citekey>
-    <bcf:citekey order="17">Blender2015</bcf:citekey>
-    <bcf:citekey order="18">AutodeskScale2014</bcf:citekey>
-    <bcf:citekey order="19">Wihlidal2006</bcf:citekey>
+    <bcf:citekey order="1">FutureTrendsGAT:2012</bcf:citekey>
+    <bcf:citekey order="2">MaxonC4d2014</bcf:citekey>
+    <bcf:citekey order="3">GamasutraAAA2005</bcf:citekey>
+    <bcf:citekey order="4">MKG:Schmitz2014</bcf:citekey>
+    <bcf:citekey order="5">CCP:ScrumAndAgile2009</bcf:citekey>
+    <bcf:citekey order="6">WH:Scrum2013</bcf:citekey>
+    <bcf:citekey order="7">WH:ScrumVideo2013</bcf:citekey>
+    <bcf:citekey order="8">Bethke2003</bcf:citekey>
+    <bcf:citekey order="9">DVLP:Freeman2014</bcf:citekey>
+    <bcf:citekey order="10">GS:SonyLE2014</bcf:citekey>
+    <bcf:citekey order="11">NaughtyDog2007</bcf:citekey>
+    <bcf:citekey order="12">GuerillaGames2004</bcf:citekey>
+    <bcf:citekey order="13">QuanticDream2013</bcf:citekey>
+    <bcf:citekey order="14">Chandler2006</bcf:citekey>
+    <bcf:citekey order="15">MaxonC4d2014</bcf:citekey>
+    <bcf:citekey order="16">AutodeskMax2014</bcf:citekey>
+    <bcf:citekey order="17">FoundryModo2014</bcf:citekey>
+    <bcf:citekey order="18">Blender2015</bcf:citekey>
+    <bcf:citekey order="19">AutodeskScale2014</bcf:citekey>
+    <bcf:citekey order="20">Wihlidal2006</bcf:citekey>
+    <bcf:citekey order="21">MaxonC4d2014</bcf:citekey>
     <bcf:citekey order="0">*</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="apa" type="entry" sortscheme="apa">
