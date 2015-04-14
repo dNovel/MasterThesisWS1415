@@ -525,11 +525,94 @@ Das folgende Schaubild erläutert die Verwendung der API. Es ist in der Tat som 
 \end{figure}
 
 Das hier dargestellte Minimalbeispiel in C++ Code zeigt ein einfaches minimalistisches Plugin welches beim Ausführen nur eine Ausgabe auf der Konsole von Cinema 4D erzeugt.
-\lstinputlisting[language=C++]{Code/minimalbeispielPlugin.h}
+\lstinputlisting[language=C++, caption = Einfaches Cinema 4D Plugin in der Programmiersprache C++]{Code/minimalbeispielPlugin.h}
+Das hier dargestellte Code Beispiel wird im nächsten Abschnitt relevant. Es folgt ein Überblick über das Uniplug Projekt welches das Schreiben von Cinema 4D Plugins in \CSS ermöglicht. Die oben gezeigte  Codestruktur wird dann noch einmal als \CSS Version erläutert.
 
 \subsection{Uniplug}
+Bei Uniplug handelt es sich um ein Teil des Projektes FUSEE der Hochschule Furtwangen. Uniplug bietet die möglichkeit Cinema 4D Plugins in \CSS zu schreiben. Hierfür bedient es sich eines Interface Compilers SWIG\footnote{\url{http://www.swig.org/}}. Das gesamte Uniplug Projekt ist ein Open Source Projekt und steht im GitHub Repository unter \url{https://github.com/FUSEEProjectTeam/Fusee} innerhalb des Fusee Projekts zum Download bereit. Das Uniplug Projekt stand bereits vor dieser Arbeit zur Verfügung. Allerdings hatte es nich den nötigen Umfang und das Projekt wurde während der Arbeit um wichtige Funktionen zur Entwicklung von Plugins erweitert.
 \subsubsection{Wrapping von C++ Code nach \CSS mit SWIG}
+Um aus dem C++ Code der Cinema 4D API aufrufbaren \CSS Code zu erzeugen sind verschiedene Schritte notwendig. Ein SWIG Projekt welches im Uniplug Projekt verfügbar ist enthält eine C4dApi.i (interface) Datei. Diese Datei kümmert sich um das Wrappen des nativen C++ Codes nach \CS. Verschiedene Eintragungen die für das Erweitern des Uniplug Projektes vorgenommen wurden, werden im nächsten Abschnitt genauer erläutert.
+
+Das hier abgebildete Schaubild zeigt den Ablauf des Wrapping-Vorgangs. Hierbei sind folgende Schritte zu erkennen:
+\begin{itemize}
+\item Erstellen des *.i Files und inkludieren der gewünschten nativen Code Dateien.
+\item Überschreiben und/oder erweitern von nativen Code Dateien.
+\item Kompilieren des SWIG Projektes.
+\end{itemize}
+
+% TODO
+\begin{figure}[ht]
+	\centering
+%  \includegraphics[width=\linewidth]{Bilder/SWIG_Wrapping_v1.jpg}
+	\caption{Wrapping Vorgang der Cinema 4D API von C++ nach \CS}
+	\label{C4D API Schaubild}
+\end{figure}
+
 \subsubsection{Erweiterung des Uniplug Codes für Plugins vom Typ TagPlugin}
+Um das Projekt auf den Aktuellen Stand zu bringen und das schreiben des Plugins zu ermöglichen musste zuerst das Uniplug Projekt erweitert werden. Auch hier wurde mit iterativen Methoden gearbeitet. Falls Probleme mit verschiedene Abhängigkeiten im C4D Api Code erkannt wurden, wurde zunächst geprüft, welche SWIG Dateien im \CSS API Code nicht vorhanden sind. Diese Dateien wurden dann inkludiert und es wurde versucht das SWIG Projekt zu bauen und die nun neu generierten und gewrappten \CSS Code Bestandteile im Plugin Code zu verwenden. In manchen Fällen war es nun nötig den nativen Code der API Dateien zu erweitern oder zu überschreiben. Bei der Implementierung des Cinema 4D Plugin Typs “TagPlugin” waren besondere Änderungen im API Code nötig. Hier sollen diese kurz aufgezeigt und erläutert werden.
+\\
+\begin{lstlisting}[language=C++, caption = Einbinden des Maxon Cinema 4D C++ Datentyps TagPlugin in die \CSS API von Uniplug]
+#include "c4d_tagdata.h"
+#include "c4d_tagplugin.h"
+
+// "c4d_tagdata.h"
+//%include "c4d_tagdata.h";
+%feature("director") TagDataM;
+%csmethodmodifiers TagDataM::TagDataM "private";
+%typemap(cscode) TagDataM %{
+	public TagDataM(bool memOwn) : this(C4dApiPINVOKE.new_TagDataM(), memOwn) {
+    SwigDirectorConnect();
+  }
+%}
+%include "c4d_tagdata.h";
+%include "TagDataM.h";
+
+// "c4d_tagplugin.h"
+//%include "c4d_tagplugin.h";
+%feature("director") TagPlugin;
+%csmethodmodifiers TagPlugin::TagPlugin "private";
+%typemap(cscode) TagPlugin %{
+  public TagPlugin(bool memOwn) : this(C4dApiPINVOKE.new_TagPlugin(), memOwn) {
+    SwigDirectorConnect();
+  }
+%}
+%include "c4d_tagplugin.h";
+\end{lstlisting}
+
+Um den Datentyp TagData korrekt im \CSS Code zu verwenden, waren noch weitere Anpassungen im Code notwendig. Die Methode Message() des TagData ElternTyps NodeData musste Überschrieben werden im das Message System in \CSS nutzen zu können. Dies wurde nötig durch die Verwendung eines Void Pointers seitens Maxons in der Parameterliste der Message Funktion im C++ Code der API. SWIG kann an dieser Stelle durch den nicht auf einen Datentypen festgelegten Void Pointer des Datentyps der Parameterliste keine zufriedenstellende Wrappingfunktion bereit stellen. Das folgende Codebeispiel der Message() Funktion verdeutlicht den Fix im C++ Code des Uniplug Native Projektes.
+
+Die Message() Funktion ist Teil des Nachrichtensystems innerhalb von Cinema4D. Viele Elemente des Programs und selbst geschrieben Plugins kommunizieren über dieses Messagesystem miteinander. Nachrichten von Cinema4D werden meist als Konstante Integer Variablen übergeben und können so in if else oder switch case Anweisungen vom Plugin Entwickler identifiziert und verarbeitet werden.
+
+\begin{lstlisting}[language=C++, caption = Überschreiben der Message Funktion des TagData Datenty<ps.]
+Bool TagDataM::Message(GeListNode *node, Int32 type, void *data)
+{
+	switch (type)
+	{
+	case MSG_EDIT:
+
+		break;
+	case MSG_GETCUSTOMICON:
+		break;
+	case COLORSYSTEM_HSVTAB:
+		break;
+	case MSG_DOCUMENTINFO:
+		{
+			DocumentInfoData* did = (DocumentInfoData*)data;
+			return MessageDocumentInfo(node, did);
+		}
+		break;
+	case MSG_DESCRIPTION_GETINLINEOBJECT:
+		break;
+	case DRAW_PARAMETER_OGL_PRIMITIVERESTARTINDEX:
+		break;
+	}
+
+	return true;
+}
+\end{lstlisting}
+
+Hier ist ersichtlich, dass die Funktion Message einen Void Pointer in der Parameterliste enthält. Dieser Voidpointer wird während der Funktion in andere Datentypen gecastet. Für die Wandlung der Message Funktion für die TagData Klasse war es von nöten ein Object des Typs DocumentInfoData zu erhalten. Aus diesem Grund, wird das Objekt dieses Typs bei einer bestimmten empfangenen Message ID zurück gegeben.
+
 \subsubsection{Probleme}
 Erst entwicklung von Uniplug erweitern bevor mit dem Plugin gearbeitet werden kann. Probleme durch das Wrappen und die fehlende Möglichkeit zu debuggen.
 
