@@ -276,14 +276,16 @@ dominik.steffen@gmail.com\\
 %	Einführung / Einleitung START
 %%%%%%
 \chapter{Anforderungen und Ziele}
-Arbeitsprozesse in heutigen Game Engines verlangen von Entwicklern meist das erlernen neuer Toolsets und dies während eines meist sehr eingeschhränkten Projekt Zeitraums. Es wäre für Entwickler einfacher sich mit den bereits bekannten Tools zu beschäftigen und mit diesen großartige Ergebnisse zu erreichen. Authoring Tools ermöglichen  also auch Teammitgliedern ohne weiteres tiefegend technisches Verständnis für die Programmierung von Spielen, an Projekten in der Entwicklung mitzuarbeiten. Dieser Ansicht ist auch F. Mehm. Sein Team veröffentlichte einen Überblick (\fullcite{FutureTrendsGAT:2012}) über Game Authoring Tools in der Gegenwart und in der Zukunft. 
+Arbeitsprozesse in heutigen Game Engines verlangen von Entwicklern meist das erlernen neuer Toolsets und dies während eines Zeitlich knapp bemessenen Projekt Zeitraums. Es wäre für Entwickler einfacher sich mit den bereits bekannten Tools zu beschäftigen und mit solchen großartige Ergebnisse zu erreichen. Authoring Tools ermöglichen  also auch Teammitgliedern ohne weiteres tiefegend technisches Verständnis für die Programmierung von Spielen, an Projekten in der Entwicklung mitzuarbeiten. Dieser Ansicht ist auch F. Mehm. Sein Team veröffentlichte einen Überblick (\fullcite{FutureTrendsGAT:2012}) über Game Authoring Tools in der Gegenwart und in der Zukunft. 
 
 \begin{quote}
 It [Developing “Authoring Tools”, Anmerkung des Autors] is successful due to several factors: it allows non-technical users to work on projects that would otherwise be out of their reach (due to lack of expertise, especially concerning programming languages); it can bring struc-ture into unstructured domains (such as game development) and it can speed up de-velopment by streamlining and automating common tasks. \cite {FutureTrendsGAT:2012}
 \end{quote}
 
 \section{Motivation}
-Diese Arbeit beschäftigt sich nun mit der Frage ob es möglich ist ein Tool zu konzipieren welches auf der Basis eines bereits bestehenden Modeling Editors (hier Cinema 4D von Maxon \footfullcite{MaxonC4d2014}) das Erstellen einer “fertigen”\footnote{Build fähige Version einer im Fusee Szenenformat abgespeicherten 3D Szene.} Szene für die 3D Engine Fusee\footnote{FUSEE (Furtwangen Simulationd and Entertainment Engine - \url{http://www.fusee3d.org})} ermöglicht. Dazu wird der gesamte Weg der Entstehung eines Authoring Tools Betrachtet. Verschiedene Projektmanagement Modelle zur internen Software Entwicklung werden geprüft und ein rudimentäres Requirements Engineering wird durchgeführt und somit ein Softwarekonzept entwickelt. Nach der Konzeption wird versucht die Basis Funktionalität in Visual Studio mit Hilfe von \CSS Code und der nach \CSS gewrappten\footnote{Eine Software welche von einem anderen Stück software umgeben wird.} Cinema 4D API als Programmunabhängige Softwarebibliothek zu implementieren. Die gewrappte Cinema 4D API basiert auf einem ehemaligen Projekt der Hochschule Furtwangen. Dieses wird als Grundlage für die hier angedachte Implementierung genutzt und bietet einen geringen Umfang an Basisfunktionalität. So bietet es die Möglichkeit grundsätzlich Plugins für Cinema 4D in der Programmiersprache \CSS zu schreiben. Von Haus aus ermöglicht Maxon das Entwickeln von Plugins nur in C++, Python und Coffee (einer von Maxon selbst entwickelten Skriptsprache). Der Vollständigkeit halber sei gesagt, dass Maxon für C++ noch das Framework Melange anbietet welches es ermöglicht Cinema 4D Dateien ohne eine Cinema 4D installation zu erstellen, zu speichern und zu laden. Sollte eine Installation vorhanden sein kann ein Melange Plugin auch Szenen rendern. vgl. Maxon Cinema 4D Developer Dokumentation unter \url{https://developers.maxon.net/}.
+Authoring Tools sind ein wichtiger Bestandteil professioneller und semiprofessioneller Entwickler Teams von interaktiver Software. Mit einer gesteigerten Produktivität durch einfach verständliche aber mächte Tools kann ein Projekt in kürzeren Zeiträumen umgesetzt werden. Authoring Tools verbreiten sich selbst auf dem Consumer Markt. Sei es hier durch so genannte Mod Kits (Tools die Entwickler zur Erweiterung durch Fans für ihre veröffentlichten Spiele bereitstellen) oder durch Game Engines die auf User Generated Content setzten wie die V-Play Game Engine siehe [\fullcite{MakingGamesM03Y2015-VPlay}]. Hier beschreibt die Making Games in der Ausgabe 03/2015 die Nutzung der V-Play Engine um einerseits Interaktive Software wie Spiele für den Markt zu entwickeln, als auch die Möglichkeit das Tool dazu zu verwenden User-Generated Content zu erzeugen und Software so längerfristig durch Kundenbindung am Markt zu etablieren.
+
+Diese Arbeit beschäftigt sich rein mit dem professionellen und internen Bereich des Authoring Tool Development und mit der Frage ob es möglich ist ein Tool zu konzipieren welches auf der Basis eines bereits bestehenden Modeling Editors (hier Cinema 4D von Maxon \footfullcite{MaxonC4d2014}) das Erstellen einer “fertigen”\footnote{Build fähige Version einer im Fusee Szenenformat abgespeicherten 3D Szene.} Szene für die 3D Engine Fusee\footnote{FUSEE (Furtwangen Simulationd and Entertainment Engine - \url{http://www.fusee3d.org})} ermöglicht. Dazu wird der gesamte Weg der Entstehung eines Authoring Tools Betrachtet. Verschiedene Projektmanagement Modelle zur internen Software Entwicklung werden geprüft und ein rudimentäres Requirements Engineering wird durchgeführt und somit ein Softwarekonzept entwickelt. Nach der Konzeption wird versucht die Basis Funktionalität in Visual Studio mit Hilfe von \CSS Code und der nach \CSS gewrappten\footnote{Eine Software welche von einem anderen Stück software umgeben wird.} Cinema 4D API als Programmunabhängige Softwarebibliothek zu implementieren. Die gewrappte Cinema 4D API basiert auf einem ehemaligen Projekt der Hochschule Furtwangen. Dieses wird als Grundlage für die hier angedachte Implementierung genutzt und bietet einen geringen Umfang an Basisfunktionalität. So bietet es die Möglichkeit grundsätzlich Plugins für Cinema 4D in der Programmiersprache \CSS zu schreiben. Von Haus aus ermöglicht Maxon das Entwickeln von Plugins nur in C++, Python und Coffee (einer von Maxon selbst entwickelten Skriptsprache). Der Vollständigkeit halber sei gesagt, dass Maxon für C++ noch das Framework Melange anbietet welches es ermöglicht Cinema 4D Dateien ohne eine Cinema 4D installation zu erstellen, zu speichern und zu laden. Sollte eine Installation vorhanden sein kann ein Melange Plugin auch Szenen rendern. vgl. Maxon Cinema 4D Developer Dokumentation unter \url{https://developers.maxon.net/}.
 
 Szenen in Cinema 4D werden grundsätzlich in einer Art Baumstruktur gespeichert und zur weiteren Verarbeitung im Speicher gehalten. Die hier konzipierte Software möchte diese Tatsache nutzen um Szenen aus einem Modeling Editor (Cinema 4D) in eine Szene des Fusee Szenen Formats (.fus) umzuwandeln. Eine “.fus” Datei ist ebenfalls in einer Baumartigen Struktur gespeichert. Dieses Prinzip der Szenendarstellung ist bereits aus verschiedenen Frameworks und Softwareprojekten für 2D Darstellung bekannt. Das ist zum einen der Übersichtlichkeit als auch verschiedenen Algorithmischen Operationen auf den Daten der Szene geschuldet. In Baumstrukturen organisierte Interfaces werden außerdem bei der Entwicklung des User Interfaces für das Mobile Betriebssystem Android verwendet.
 
@@ -300,7 +302,7 @@ Die während dieser Arbeit implementierte Software hat das Ziel eine Basis für 
 \item Adobe Acrobat Reader in der Version 2015.007.20033. Frei herunterzuladen unter \url{https://get2.adobe.com/reader/}
 \end{itemize}
 
-\chapter{Grundlegendes}
+\chapter{Produktionsprozess: Projektplanung und Analyse}
 \section{Entwicklungsprozesse in Interaktiver 3D Software und Games}
 Um einen Entwicklungsprozess abzubilden und Tools für Entwickler, sogenannte Authoring Tools oder Developer Tools, zu entwickeln bedarf es einer gewissen Organisation. Im Bereich der modernen Spieleentwicklung in kleinen bis mittleren Unternehmen (seltener bei großen AAA Produktionen \footnote{Allgemein: Hochqualitative Spiele Software mit großem Entwicklungsbudget und einer Breiten Zielgruppe. Vgl. \cite{GamasutraAAA2005} }) wird hierfür ein agiles Modell zur Softwareentwicklung eingesetzt. Hier soll ein kurzer Überblick über aktuelle Modelle entstehen. Diese Modelle ermöglichen zum einen das schnelle Entwickeln von Tools während der knappen Entwicklungszeit eines Spiele Produkts und zum anderen unterstützen sie die Arbeit von kleinen Teams, in welchen meist Tool Developement betrieben wird,  innerhalb eines großen Entwicklerteams um so gezielt plötzlich auftauchende Aufgaben ohne lange Planung und viel Bürokratie lösen zu können. Damit ist ein fortschreiten des gesamten Projektablaufs gesichert und Entwickler können ihre Zeit hauptsächlich für die Entwicklung der Tools investieren.
 \subsection{Projektmanagement Modelle}
@@ -451,18 +453,6 @@ Vor der Implementierung muss immer auch geprüft werden ob das geplante System a
 \subsubsection{Implementierung}
 %TODO: Erweitern. Mit Quellen.
 Die Implementierung ist der praktische Schritt des ganzen Prozesses. Während der Implementierung wird das Tool entwickelt, auf Fehler geprüft eventuell auch durch einen iterativen Entwicklungsprozess erweitert.
-
-\section{Game Assets, Asset Pipelines und Asset Management Tools}
-% TODO
-% Begriffserklärung eines Asset, genaue Definitionen anmerken.
-Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen aus Assets und mehr.
-\subsection{Asset Pipeline und Feedback}
-SEHR KRITISCHE MARKE! Das Asset aus dem Editor in die Engine bekommen, die Darstellung etc kontrollieren.
-Zeitkritisch beim export etc.
-Carter Seite 6 und folgende.
-\subsection{Asset Pipelines in Fusee}
-\subsection{Asset Management in Fusee}
-\subsection{Warum eine Trennung von Code und Content?}
 % Evtl. hier was zu MVC oder so. Vll auch einfach wegen der interdsiziplinarität der Entwickler, die Sachen bestehen ja aus mehr als nur Bildern oder nur Code sie sind ein Verbund.
 
 %%%%%%
@@ -509,6 +499,18 @@ Carter Seite 6 und folgende.
 \subsection{Entfernen von Abhängigkeiten}
 \subsection{Zeitersparnis durch bekannte Tools}
 \subsection{Warum Fusee und Cinema 4D?}
+
+\section{Game Assets, Asset Pipelines und Asset Management Tools}
+% TODO
+% Begriffserklärung eines Asset, genaue Definitionen anmerken.
+Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen aus Assets und mehr.
+\subsection{Asset Pipeline und Feedback}
+SEHR KRITISCHE MARKE! Das Asset aus dem Editor in die Engine bekommen, die Darstellung etc kontrollieren.
+Zeitkritisch beim export etc.
+Carter Seite 6 und folgende.
+\subsection{Asset Pipelines in Fusee}
+\subsection{Asset Management in Fusee}
+\subsection{Warum eine Trennung von Code und Content?}
 
 \begin{itemize}
 \item Aufgrund der erstellten Use Cases und der Analysephasewird ein System Design erstellt. Meist eine UML basierte Darstellung.
@@ -580,11 +582,11 @@ Um aus dem C++ Code der Cinema 4D API aufrufbaren \CSS Code zu erzeugen sind ver
 
 Das hier abgebildete Schaubild zeigt den Ablauf des Wrapping-Vorgangs. Hierbei sind folgende Schritte zu erkennen:
 \begin{itemize}
-\item Erstellen des *.i Files und inkludieren der gewünschten nativen Code Dateien.
-\item Erweitern von nativen Code Dateien um eigenen Nativen Code
-\item Überschreiben von nativen Code Dateien durch eigenen Nativen Code
-\item Kompilieren des SWIG Projektes.
-\item Verwenden des kompilierten SWIG Codes.
+\item Erstellen des *.i Files und dortiges inkludieren der gewünschten nativen Code Dateien.
+\item Erweitern von nativen Code Dateien um eigenen Nativen Code (nicht Zwangsweise nötig)
+\item Überschreiben von nativen Code Dateien durch eigenen Nativen Code (nicht Zwangsweise nötig)
+\item Kompilieren des SWIG Projektes durch Aufruf des Compilers.
+\item Verwenden des kompilierten SWIG Codes in eigenen Projekten.
 \end{itemize}
 
 Die grauen Flächen im Diagramm beschreiben Aktionen in welche der Entwickler aktiv eingreifen muss. Das Interface File mit den gewünschten Dateien muss manuell geschrieben werden. Das erweitern oder überschreiben von Code muss ebenfalls manuell erfolgen. Der Aufruf des SWIG Compilers verläuft parallel zum Prozess des Erweiterns weil für eine Funktionsfähige wandlung des Codes keine Erweiterungen nötig sind. Es muss nur im Problemfall eingegriffen werden. Meist zeigt sich aber, dass in besonders komplexen Fällen, wie des wrappings der Cinema 4D API, doch recht häufig eingegriffen werden muss. Das Überschreiben (manuell) von Klassen und Methoden ist ein Optionaler Fall und wurde zum besseren Erkennen blau eingefärbt.
