@@ -179,9 +179,10 @@ Zweitbetreuer: Prof. Dr. Wolfgang Taube, Fakultät DM
 \renewcommand*{\chapterpagestyle}{empty}
 \chapter*{Abstract}%
 %\addcontentsline{toc}{chapter}{Abstract}
-Arbeitsprozesse in heutigen Game Engines verlangen von Entwicklern meist das erlernen neuer Toolsets und das während eines meist sehr eingeschhränkten Projekt Zeitraums. Es wäre für Entwickler einfacher sich mit den bereits bekannten Tools zu beschäftigen und mit diesen großartige Ergebnisse zu erreichen. Designer müssen sich oft in unbekannte Editoren und SDKs einarbeiten während Entwickler sich in Grafische Editoren einarbeiten sollen um ihren Code an der richtigen Stelle des Projekts einzubinden.
-Diese Arbeit baut eine Brücke zwischen beiden Welten. Durch die Konzeption und Umsetzung eines Software Tools und Entwicklungsprozesses wird eine Trennung der Abhängigkeiten in einem Projekt erreicht. Mit Hilfe eines Plugins ist es möglich, dass Designer oder Entwickler jederzeit mit ihren eigenen Tools in die Entwicklung eines Projektes einsteigen. Es wird ermöglicht mit Cinema 4D und einer IDE wie VS2013 an einem Projekt mit der FUSEE Engine zu arbeiten ohne die bereits bekannte Welt zu verlassen. Ein FUSEE Projektstruktur "managed" sich durch die Nutzung des entstandenen Cinema 4D Plugins und den generierten Visual Studio Solution Dateien selbst.
-Das zuerst konzeptionell entworfene Tool wurde während dieser Arbeit umgesetzt und bietet ausreichende Basisfunktionalität um ein Projekt als Entwickler als auch als Artist zu erstellen und zu bearbeiten. Hierzu wurden verschiedene Konzepte betrachetet und andere GameEngines auf Workflow und Anwendbarkeit untersucht. Es wurden einige Kernkonzepte erkannt und für eine Implementierung in FUSEE Uniplug analysiert und weiter entwickelt.
+Arbeitsprozesse in heutigen Game Engines verlangen von Entwicklern meist das erlernen neuer Toolsets und das während eines Zeitlich knapp bemessenen Projekt Zeitraums. Es wäre für Entwickler einfacher sich mit den bereits bekannten Tools, wie Modeling Editoren, zu beschäftigen und mit diesen großartige Ergebnisse zu erreichen. Designer müssen sich oft in unbekannte Editoren und SDKs einarbeiten während Entwickler sich in Grafische Editoren einarbeiten sollen um ihren Code an der richtigen Stelle des Projekts einzubinden.
+Diese Arbeit baut eine Brücke zwischen beiden Welten. Durch die Konzeption eines Software Tools und Entwicklungsprozesses zum erstellen von Game Authoring Tools, wird gezeigt wie mit verschiedenen Frameworks bestehende Software erweitert werden kann um sie als Authoring Tool zu benutzen. Mit Hilfe eines Cinema 4D Plugins ist es möglich, dass Designer oder Entwickler jederzeit mit ihren eigenen Tools in die Entwicklung eines Projektes einsteigen. Das während der Arbeit entstandene Plugin bietet grundlegenden Funktionen um an einem Projekt mit der FUSEE Engine zu arbeiten. Ein FUSEE Projekt "managed" sich durch die Nutzung des entstandenen Cinema 4D Plugins und den generierten Visual Studio Solution Dateien aus Sicht des Plugin Nutzers selbst.
+Das zuerst konzeptionell entworfene Tool wurde während dieser Arbeit als Prototyp umgesetzt und bietet ausreichende Funktionalität um ein Projekt als Entwickler als auch als Artist zu erstellen und zu bearbeiten. Hierzu wurden verschiedene Konzepte betrachtet und andere GameEngines auf Workflow und Anwendbarkeit untersucht. Das \CSS Plugin Projekt FUSEE Uniplug wurde analysiert und in seinem Funktionsumfang erweitert. Das Ergebnis dieser Arbeit ist eine grundlegende Software Bibliothek in \CSS die nicht nur für Cinema 4D eingesetzt werden könnte.
+
 \clearpage
 \endgroup
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -274,7 +275,7 @@ dominik.steffen@gmail.com\\
 %	Einführung / Einleitung START
 %%%%%%
 \chapter{Anforderungen, Ziele und eine Fragestellung}
-Arbeitsprozesse in heutigen Game Engines verlangen von Entwicklern meist das erlernen neuer Toolsets und dies während eines meist sehr eingeschhränkten Projekt Zeitraums. Es wäre für Entwickler einfacher sich mit den bereits bekannten Tools zu beschäftigen und mit diesen großartige Ergebnisse zu erreichen. Authoring Tools ermöglichen  also auch Teammitgliedern ohne weiteres tiefegend technisches Verständnis für die Programmierung von Spielen, an Projekten in der Entwicklung mitzuarbeiten.
+Arbeitsprozesse in heutigen Game Engines verlangen von Entwicklern meist das erlernen neuer Toolsets und dies während eines meist sehr eingeschhränkten Projekt Zeitraums. Es wäre für Entwickler einfacher sich mit den bereits bekannten Tools zu beschäftigen und mit diesen großartige Ergebnisse zu erreichen. Authoring Tools ermöglichen  also auch Teammitgliedern ohne weiteres tiefegend technisches Verständnis für die Programmierung von Spielen, an Projekten in der Entwicklung mitzuarbeiten. Dieser Ansicht ist auch F. Mehm. Sein Team veröffentlichte einen Überblick (\fullcite{FutureTrendsGAT:2012}) über Game Authoring Tools in der Gegenwart und in der Zukunft. 
 
 \begin{quote}
 It [Developing “Authoring Tools”, Anmerkung des Autors] is successful due to several factors: it allows non-technical users to work on projects that would otherwise be out of their reach (due to lack of expertise, especially concerning programming languages); it can bring struc-ture into unstructured domains (such as game development) and it can speed up de-velopment by streamlining and automating common tasks. \cite {FutureTrendsGAT:2012}
@@ -405,7 +406,7 @@ Es ist aber in der Tat so, dass Tool Development auch auf dem Consumer Markt ank
 
 % TODO Chandler2006 zitieren.
 
-\subsection{Tool Development}
+\subsection{Tool Development - der organisatorische Ablauf}
 % Nach Wihlidal ... Warum wurde oben geklärt, hier den Prozess erläutern.
 % Möglichkeiten vorstellen.
 % Beispiele geben.
@@ -413,9 +414,9 @@ Nach Wihlidals Auffasung \parencite{Wihlidal2006} unterscheidet sich die Planung
 
 Die zweite Phase beschreibt eine Bedarfsanalyse der Stakeholder. Es werden Arbeitsabläufe skizziert und mit den Beteiligten durchgesprochen. Je nach Komplexität und Relevanz des Projekts wird Software anderer Hersteller oder anderer Arbeitsbereiche ebenfalls analysiert und das Ergebnis zur Gesamtanalyse hinzugezogen. So könnte eventuell der Einsatz einer Drittanbieter Software in gewissen Situationen vorteilhafter sein als eine komplette interne Neuentwicklung. Diese Entscheidung ist aber sehr Situationsabhängig.
 
-Daraufhin folgt die Designphase in welcher das Entwicklerteam des neuen Tools das Requirements Engineering abschliesst und mit dem Software-/Systemdesign beginnt. Hier wird das Produkt in Form von UML Diagrammen und Veranschaulichungen entwickelt. Die tatsächliche Implementierung folgt als letzte Phase des Projektablaufs. Während der Implementierung kann durch das agile Scrum System immer wieder iterativ an den Features des Tools gearbeitet werden.
+Daraufhin folgt die Designphase in welcher das Entwicklerteam des neuen Tools das Requirements Engineering abschliesst und mit dem Software-/Systemdesign beginnt. Hier wird das Produkt in Form von UML Diagrammen und Veranschaulichungen entwickelt. Die tatsächliche Implementierung folgt als letzte Phase des Projektablaufs. Während der Implementierung kann aufgrund der Verwendung des agilen Scrum Systems immer wieder iterativ an den Features des Tools gearbeitet werden und vor allem schnell auf Hindernisse und Wünsche der Stakeholder reagiert werden.
 
-Im folgenden Abschnitt wird noch etwas genauer auf die jeweiligen Schritte der Entwicklung eingegangen.
+Im folgenden Abschnitt wird noch etwas genauer auf die jeweiligen Schritte der organisatorischen Planung eingegangen.
 
 \subsubsection{Planung}
 Es folgt die Planungsphase des Tools. Hier wird zuerst eine Requirementsanalyse \footnote{dt. Anforderungsmanagement} durchgeführt. Mit ihr sollen alle wichtigen Kerneigenschaften der Software identifiziert und niedergeschrieben werden. Ein an diese Arbeit angehängtes Designdokument führt diese Requirementsanalyse weiter aus. Die Anforderungsanalyse ist in einer solchen Situation, in welcher ein Produkt unter Zeitdruck für den Produktivbetrieb entwickelt wird, ein wichtiger Bestandteil der Projektplanung. Ein Tool, welches nicht den Anforderungen der Teammitglieder entpsricht kann nicht im Betrieb eingesetzt werden und verzögert im schlimmsten Fall die weitere Entwicklung des gesamten großen Softwareprojektes.
@@ -449,10 +450,14 @@ Zeitkritisch beim export etc.
 Carter Seite 6 und folgende.
 %Begriffserklärung eines Asset, genaue Definitionen anmerken.
 
-\section{Die Struktur von Game Assets}
+\section{Game Assets, Asset Pipelines und Asset Management Tools}
 % TODO
 Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen aus Assets und mehr.
+\subsection{Asset Pipelines in Fusee}
+\subsection{Asset Management in Fusee}
 \subsection{Warum eine Trennung von Code und Content?}
+% Evtl. hier was zu MVC oder so. Vll auch einfach wegen der interdsiziplinarität der Entwickler, die Sachen bestehen ja aus mehr als nur Bildern oder nur Code sie sind ein Verbund.
+
 %%%%%%
 %	Einführung / Einleitung ENDE
 %%%%%%
@@ -469,6 +474,11 @@ Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen a
 \subsection{Was möchten Entwickler?}
 
 % Analyse
+\subsection{Prozess bezogen}
+\subsubsection{Gleichzeitig an Projekt arbeiten}
+\subsubsection{Model Datei importieren}
+\subsubsection{Gleichzeitig an einem Objekt arbeiten}
+
 \subsection{Projekt bezogen}
 \subsubsection{Projekt anlegen}
 \subsubsection{Projekt öffnen}
@@ -477,19 +487,15 @@ Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen a
 \subsubsection{In Projekt einsteigen}
 \subsubsection{Projekt clonen etc.}
 
-\subsection{Prozess bezogen}
-\subsubsection{Gleichzeitig an Projekt arbeiten}
-\subsubsection{Model Datei importieren}
-\subsubsection{Gleichzeitig an einem Objekt arbeiten}
-
+% Analyse von “konkurrenz” Softwar. Alternativer Software. Wie wird es aktuell gemacht?
 \section{Aktuelle Engines und deren Arbeitsprozesse}
-\subsection{Prozesse in Game Engines und einem Framework}
+\subsection{Prozesse in Game Engines und/oder Frameworks}
 \subsection{Unreal Engine 4}
 \subsection{Unity 3D}
 \subsection{idTech X}
 \subsection{Weitere}
 
-% Design
+% System Design des Tools
 \section{Konzeptentwurf}
 \subsection{Systemdesign für ein Plugin}
 \subsection{Systemdesign für einen Project-Handler}
@@ -499,18 +505,29 @@ Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen a
 
 \begin{itemize}
 \item Aufgrund der erstellten Use Cases und der Analysephasewird ein System Design erstellt. Meist eine UML basierte Darstellung.
-\item Es soll möglichst wenig "geparsed" oder "konvertiert" werden
+\item Es soll möglichst wenig geparsed oder konvertiert werden
 \item Dateien sollen Version Control kompatibel bleiben (wenig bis keine Binarys)
 \item Das Projekt muss Strukturiert sein
 \item Eine Fusee Solution soll gehandelt werden können
 \end{itemize}
 
 % Implementierung
-\section{Die Implementierung}
-Das Projekt “Fusee Authoring Toolkit” basiert auf mehreren Software Projekten. Ein Teil dieser Projekte wurde an der Hochschule Furtwangen entwickelt. Ein anderer Teil stammt von externen Entwicklen. Dieser Abschnitt gibt einen Überblick über die verwendeten Softwarebestandteile des Toolkits und ihrer Einbindung.
+\section{Der Weg der Cinema 4D C++ API bis zur Verwendung dieser im Projekt}
+\subsection{In der Implementierung verwendete Softwareprojekte / Ausgangssituation}
+Das Projekt “Fusee Authoring Toolkit” \footnote{Der Name der zu dieser Arbeit zugehörigen Softwarebibliothek} basiert auf mehreren Software Projekten. Ein Teil dieser Projekte wurde an der Hochschule Furtwangen entwickelt. Ein anderer Teil stammt von externen Entwicklen und gehört zu proprietärer Software. Dieser Abschnitt gibt einen Überblick über die verwendeten Softwarebestandteile und ihrer Einbindung in der Implementierung zur Zeit dieser Arbeit.
+\\
+\\
+Verwendet wurden:
+\begin{itemize}
+\item FUSEE Math Bibliothek, eine von Fusee unabhängige Sammlung in \CSS geschriebener Mathematischer Funktionen und Datentypen
+\item Uniplug, ein in Fusee beinhaltetes Projekt zum schreiben von Plugins in \CSS für Cinema 4D
+\item Die FUSEE Engine, eine Interaktive Simulations Engine zur Darstellung zweidimensionaler und dreidimensionaler Szenen
+\item Die Maxon Cinema 4D API
+\item Verschiedene Windows Bibliotheken aus dem .NET Universum
+\end{itemize}
 
 \subsection{Cinema 4D Plugin API und SDK}
-Cinema 4D \autocite{MaxonC4d2014} ist ein kommerzielles proprietäres Produkt des Unternehmens MAXON Computer GmbH und steht nicht als Open Source Projekt zur Verfügung. Maxon stellt für die Entwicklung von Plugins\footnote{Plugins in C4D - Erweiterungen für die Software Cinema 4D und deren Funktionen} eine API\footnote{Application Programming Interface, z. Dt. Programmierschnittstelle} bereit. Bei dieser API handelt es sich um eine Bibliothek aus C++ Code. Dieser Code kann in Form von Header Files in die eigene Applikation integriert werden. Durch diese C++ Headerfiles ergibt sich eine Schnittstelle zu interenen Methoden in der Cinema 4D Software. Die tatsächlichen Methoden können mit der API nicht eingesehen werden, es handelt sich hier lediglich um Header Files ohne den Code der tatsächlichen Implementierung. Das C++ SDK wird bei einer Installation von Cinema 4D automatisch mitinstalliert. Auf einem Windows PC findet sich das SDK und die dazugehörigen Visual Studio Solution Dateien unter folgendem Pfad ausgehend vom Installations Ordner der 64Bit\footnote{Cinema 4D liegt seit der Version R15 nur noch als 64 Bit Version vor und benötigt laut \url{http://www.maxon.net/?id=311}(Maxon C4D System Requirements) ein 64 Bit System}: {“Cinema 4D/plugins/cinema4dsdk”}
+Cinema 4D R16 \autocite{MaxonC4d2014} ist ein kommerzielles proprietäres Produkt des Unternehmens MAXON Computer GmbH und steht nicht als Open Source Projekt zur Verfügung. Maxon stellt für die Entwicklung von Plugins\footnote{Plugins in C4D - Erweiterungen für die Software Cinema 4D und deren Funktionen} eine API\footnote{Application Programming Interface, z. Dt. Programmierschnittstelle} bereit. Bei dieser API handelt es sich um eine Bibliothek aus C++ Code. Dieser Code kann in Form von Header Files in die eigene Applikation integriert werden. Durch diese C++ Headerfiles ergibt sich eine Schnittstelle zu interenen Methoden in der Cinema 4D Software. Die tatsächlichen Methoden können mit der API nicht eingesehen werden, es handelt sich hier lediglich um Header Files ohne den Code der tatsächlichen Implementierung. Das C++ SDK wird bei einer Installation von Cinema 4D automatisch mitinstalliert. Auf einem Windows PC findet sich das SDK und die dazugehörigen Visual Studio Solution Dateien unter folgendem Pfad ausgehend vom Installations Ordner der 64Bit\footnote{Cinema 4D liegt seit der Version R15 nur noch als 64 Bit Version vor und benötigt laut \url{http://www.maxon.net/?id=311}(Maxon C4D System Requirements) ein 64 Bit System}: {“Cinema 4D/plugins/cinema4dsdk”}
 \\
 \\
 Maxon stellt jegliche SDKs und Beispiele auf seinem GitHub Account unter der Apache License Version 2.0, January 2004\footnote{Apache Licence 2.0 \url{https://github.com/PluginCafe/cinema4d_cpp_sdk/blob/master/LICENSE}} zur freien Verfügung \url{https://github.com/PluginCafe}. Das C++ SDK ist unter dieser Adresse einsehbar: \url{https://github.com/PluginCafe/cinema4d_cpp_sdk}
@@ -529,27 +546,46 @@ Das hier dargestellte Minimalbeispiel in C++ Code zeigt ein einfaches minimalist
 Das hier dargestellte Code Beispiel wird im nächsten Abschnitt relevant. Es folgt ein Überblick über das Uniplug Projekt welches das Schreiben von Cinema 4D Plugins in \CSS ermöglicht. Die oben gezeigte  Codestruktur wird dann noch einmal als \CSS Version erläutert.
 
 \subsection{Uniplug}
-Bei Uniplug handelt es sich um ein Teil des Projektes FUSEE der Hochschule Furtwangen. Uniplug bietet die möglichkeit Cinema 4D Plugins in \CSS zu schreiben. Hierfür bedient es sich eines Interface Compilers SWIG\footnote{\url{http://www.swig.org/}}. Das gesamte Uniplug Projekt ist ein Open Source Projekt und steht im GitHub Repository unter \url{https://github.com/FUSEEProjectTeam/Fusee} innerhalb des Fusee Projekts zum Download bereit. Das Uniplug Projekt stand bereits vor dieser Arbeit zur Verfügung. Allerdings hatte es nich den nötigen Umfang und das Projekt wurde während der Arbeit um wichtige Funktionen zur Entwicklung von Plugins erweitert.
+Bei Uniplug handelt es sich um ein Teil des Projektes FUSEE der Hochschule Furtwangen. Uniplug bietet die möglichkeit Cinema 4D Plugins in \CSS zu schreiben. Hierfür bedient es sich eines Interface Compilers SWIG [\fullcite{SWIG2015}]. Das gesamte Uniplug Projekt ist ein Open Source Projekt und steht auf GitHub Repository unter \url{https://github.com/FUSEEProjectTeam/Fusee} innerhalb des Fusee Projekts zum Download bereit. Das Uniplug Projekt stand bereits vor dieser Arbeit zur Verfügung. Allerdings hatte es nich den nötigen Umfang und das Projekt wurde während der Arbeit um wichtige Funktionen zur Entwicklung von Plugins erweitert.
+
+\subsubsection{Was ist SWIG?}
+Bei SWIG handelt es sich um einen SoftWare Interface Generator. Swig unterstützt Entwickler dabei, eine Codebase aus z.B. einer nativen Programmiersprache wie C++ in eine managed Programmiersprache wie z.B. \CSS zu “übersetzen”. Hierbei handelt es sich allerdings nicht wirklich um einen übersetzungs bzw. Compilevorgang. Vielmehr unterstützt Swig den Entwickler durch das generieren spezifischer Interface Files welche die Aufrufe (calls) einer “externen” Software an den “gewarppten” Teil der Software weiterleiten. Die Ausgangssoftware wird also immernoch benötigt (im Falle von Uniplug) und auch verwendet (das Cinema 4D API Framework).
+
+Diese kurze und knappe Beschreibung von SWIG beschreibt ddie Möglichkeiten des Tools kurz und knapp:
+\begin{quote}
+SWIG is an interface compiler that connects programs written in C and C++ with scripting languages such as Perl, Python, Ruby, and Tcl. It works by taking the declarations found in C/C++ header files and using them to generate the wrapper code that scripting languages need to access the underlying C/C++ code. In addition, SWIG provides a variety of customization features that let you tailor the wrapping process to suit your application.
+
+Auszug aus: - \fullcite{SWIGIntroduction2015}
+\end{quote}
+
+Eine Vollständige Dokumentation des SWIG Projektes findet sich unter folgender Adresse: \url{http://www.swig.org/Doc3.0/index.html} geprüft, letzter Stand der Erreichbarkeit 15.04.2015.
+
+Swig wird bereits erfolgreich in vielen Projekten eingesetzt. Unter anderem finden sich in der Liste das bekannte Version Control System Subversion, die 3D Engine Ogre bzw. PyOgre und die große Image Processing Bibliothek OpenCV. Die offizielle Liste der SWIG Nutzer findet sich unter \url{http://www.swig.org/projects.html} - geprüft am 15.04.2015.
+
 \subsubsection{Wrapping von C++ Code nach \CSS mit SWIG}
-Um aus dem C++ Code der Cinema 4D API aufrufbaren \CSS Code zu erzeugen sind verschiedene Schritte notwendig. Ein SWIG Projekt welches im Uniplug Projekt verfügbar ist enthält eine C4dApi.i (interface) Datei. Diese Datei kümmert sich um das Wrappen des nativen C++ Codes nach \CS. Verschiedene Eintragungen die für das Erweitern des Uniplug Projektes vorgenommen wurden, werden im nächsten Abschnitt genauer erläutert.
+
+
+Um aus dem C++ Code der Cinema 4D API aufrufbaren \CSS Code zu erzeugen sind verschiedene Schritte notwendig. Ein SWIG Projekt welches im Uniplug Projekt verfügbar ist enthält eine C4dApi.i (interface) Datei. Diese Datei kümmert sich um das Wrappen des nativen C++ Codes nach \CS. Der eigentliche Wrapping Vorgang wird über ein SWIG make script aufgerufen welches während des Build Vorgangs des Projektes angestoßen wird. Dieser Vorgang muss bei der eigentlichen Pluginentwicklung nicht bei jedem Build durchgeführt werden. Es genügt, die API erneut zu wrappen wenn Veränderungen am API Code seitens Maxon oder des Benutzers vorgenommen wurden. Änderungen durch den Benutzer schliessen auch das erweitern der API Funktionalität mit ein. Das Uniplug Projekt ist zum Zeitpunkt dieser Arbeit weit von einem Vollständigen Wrapping der Cinema 4D API entfernt. Aus diesem Grund, ist noch relativ häufig die Erweiterung des API Projektes nötig. Verschiedene Eintragungen die für das Erweitern des Uniplug Projektes vorgenommen wurden, werden im nächsten Abschnitt genauer erläutert. Hierzu gehören einfache Inklusionen von Source Files, aber auch komplexe overrides von bereits bestehenden C++ Funktionen.
 
 Das hier abgebildete Schaubild zeigt den Ablauf des Wrapping-Vorgangs. Hierbei sind folgende Schritte zu erkennen:
 \begin{itemize}
 \item Erstellen des *.i Files und inkludieren der gewünschten nativen Code Dateien.
-\item Überschreiben und/oder erweitern von nativen Code Dateien.
+\item Erweitern von nativen Code Dateien um eigenen Nativen Code
+\item Überschreiben von nativen Code Dateien durch eigenen Nativen Code
 \item Kompilieren des SWIG Projektes.
+\item Verwenden des kompilierten SWIG Codes.
 \end{itemize}
 
-% TODO
+Die grauen Flächen im Diagramm beschreiben Aktionen in welche der Entwickler aktiv eingreifen muss. Das Interface File mit den gewünschten Dateien muss manuell geschrieben werden. Das erweitern oder überschreiben von Code muss ebenfalls manuell erfolgen. Der Aufruf des SWIG Compilers verläuft parallel zum Prozess des Erweiterns weil für eine Funktionsfähige wandlung des Codes keine Erweiterungen nötig sind. Es muss nur im Problemfall eingegriffen werden. Meist zeigt sich aber, dass in besonders komplexen Fällen, wie des wrappings der Cinema 4D API, doch recht häufig eingegriffen werden muss. Das Überschreiben (manuell) von Klassen und Methoden ist ein Optionaler Fall und wurde zum besseren Erkennen blau eingefärbt.
 \begin{figure}[ht]
 	\centering
-%  \includegraphics[width=\linewidth]{Bilder/SWIG_Wrapping_v1.jpg}
+	\includegraphics[width=\linewidth]{Bilder/swig_wrapping_csharp.jpg}
 	\caption{Wrapping Vorgang der Cinema 4D API von C++ nach \CS}
-	\label{C4D API Schaubild}
+	\label{SWIG wrapping Vorgang}
 \end{figure}
 
 \subsubsection{Erweiterung des Uniplug Codes für Plugins vom Typ TagPlugin}
-Um das Projekt auf den Aktuellen Stand zu bringen und das schreiben des Plugins zu ermöglichen musste zuerst das Uniplug Projekt erweitert werden. Auch hier wurde mit iterativen Methoden gearbeitet. Falls Probleme mit verschiedene Abhängigkeiten im C4D Api Code erkannt wurden, wurde zunächst geprüft, welche SWIG Dateien im \CSS API Code nicht vorhanden sind. Diese Dateien wurden dann inkludiert und es wurde versucht das SWIG Projekt zu bauen und die nun neu generierten und gewrappten \CSS Code Bestandteile im Plugin Code zu verwenden. In manchen Fällen war es nun nötig den nativen Code der API Dateien zu erweitern oder zu überschreiben. Bei der Implementierung des Cinema 4D Plugin Typs “TagPlugin” waren besondere Änderungen im API Code nötig. Hier sollen diese kurz aufgezeigt und erläutert werden.
+Um das Projekt auf den Aktuellen Stand zu bringen und das schreiben des Plugins zu ermöglichen musste zuerst das Uniplug Projekt erweitert werden. Auch hier wurde mit iterativen Methoden gearbeitet. Falls Probleme mit verschiedene gewrappten Cinema 4D API Methoden auftragen, wurde zunächst geprüft, welche “pseudo” SWIG Dateien diese Probleme verursachten und welche Cinema 4D Api Funktionen aus diesem Grund in der \CSS API Code nicht vorhanden sind. Diese fehlenden Dateien wurden dann inkludiert und es wurde versucht das SWIG Projekt zu bauen. Sollte es bei diesem Schritt zu Problemen kommen, mussten die API Dateien genauer analysiert werden. In manchen Fällen war es nun nötig den nativen Code der API Dateien zu erweitern oder zu überschreiben. Bei der Implementierung des Cinema 4D Plugin Typs “TagPlugin” waren besondere Änderungen im API Code nötig. Hier sollen die Problematik und die Lösung dieser aufgezeigt und erläutert werden.
 \\
 \begin{lstlisting}[language=C++, caption = Einbinden des Maxon Cinema 4D C++ Datentyps TagPlugin in die \CSS API von Uniplug]
 #include "c4d_tagdata.h"
@@ -579,10 +615,11 @@ Um das Projekt auf den Aktuellen Stand zu bringen und das schreiben des Plugins 
 %include "c4d_tagplugin.h";
 \end{lstlisting}
 
-Um den Datentyp TagData korrekt im \CSS Code zu verwenden, waren noch weitere Anpassungen im Code notwendig. Die Methode Message() des TagData ElternTyps NodeData musste Überschrieben werden im das Message System in \CSS nutzen zu können. Dies wurde nötig durch die Verwendung eines Void Pointers seitens Maxons in der Parameterliste der Message Funktion im C++ Code der API. SWIG kann an dieser Stelle durch den nicht auf einen Datentypen festgelegten Void Pointer des Datentyps der Parameterliste keine zufriedenstellende Wrappingfunktion bereit stellen. Das folgende Codebeispiel der Message() Funktion verdeutlicht den Fix im C++ Code des Uniplug Native Projektes.
+Um den Datentyp TagData korrekt im \CSS Code zu verwenden, waren noch weitere Anpassungen im Code notwendig. Die Methode Message() des TagData ElternTyps NodeData musste Überschrieben werden um das Message System in \CSS nutzen zu können. Dies wurde nötig durch die Verwendung eines Void Pointers seitens Maxons in der Parameterliste der Message Funktion im C++ Code der API. SWIG kann an dieser Stelle durch den nicht auf einen Datentypen festgelegten Void Pointer des Datentyps der Parameterliste keine zufriedenstellende Wrappingfunktion bereit stellen. Das folgende Codebeispiel der Message() Funktion verdeutlicht den Fix im C++ Code des Uniplug Native Projektes.
 
-Die Message() Funktion ist Teil des Nachrichtensystems innerhalb von Cinema4D. Viele Elemente des Programs und selbst geschrieben Plugins kommunizieren über dieses Messagesystem miteinander. Nachrichten von Cinema4D werden meist als Konstante Integer Variablen übergeben und können so in if else oder switch case Anweisungen vom Plugin Entwickler identifiziert und verarbeitet werden.
+Die Message() Funktion ist Teil eines Nachrichtensystems innerhalb von Cinema4D. Viele Elemente des Programs und selbst geschrieben Plugins kommunizieren über dieses Messagesystem miteinander. Hierbei werden Messages über einen Broadcast versandt. Dieser Broadcast sendet in einer Parameterliste einen ID Code. IdCodes von Cinema 4D werden meist als Konstante (mit define angelegte) Integer Variablen übergeben und können so in if else oder switch case Anweisungen vom Plugin Entwickler identifiziert und verarbeitet werden.
 
+Im folgenden Code Beispiel sind einige dieser konstanten int codes dargestellt. Bei dem hier abgebildeten Code handelt es sich um die überschrieben Message Funktion, welche die Verwendung des Systems für Plugins in \CSS erst möglich macht. Der Voidpointer der Parameterliste wird während des Aufrufs der Funktion in andere Datentypen gecastet. Für die Wandlung der Message Funktion für die TagData Klasse war es von nöten ein Object des Typs DocumentInfoData zu erhalten. Aus diesem Grund, wird das Objekt dieses Typs bei einer bestimmten empfangenen Message ID zurück gegeben.
 \begin{lstlisting}[language=C++, caption = Überschreiben der Message Funktion des TagData Datenty<ps.]
 Bool TagDataM::Message(GeListNode *node, Int32 type, void *data)
 {
@@ -611,10 +648,7 @@ Bool TagDataM::Message(GeListNode *node, Int32 type, void *data)
 }
 \end{lstlisting}
 
-Hier ist ersichtlich, dass die Funktion Message einen Void Pointer in der Parameterliste enthält. Dieser Voidpointer wird während der Funktion in andere Datentypen gecastet. Für die Wandlung der Message Funktion für die TagData Klasse war es von nöten ein Object des Typs DocumentInfoData zu erhalten. Aus diesem Grund, wird das Objekt dieses Typs bei einer bestimmten empfangenen Message ID zurück gegeben.
-
-\subsubsection{Probleme}
-Erst entwicklung von Uniplug erweitern bevor mit dem Plugin gearbeitet werden kann. Probleme durch das Wrappen und die fehlende Möglichkeit zu debuggen.
+Durch die eingeschränkte  Möglichkeit nur bis zum call des Debugging API Codes debuggen zu können (Hierzu mehr im Kapitel Probleme und Herausforderungen), war die Lösung des Problems nicht wie meistens in mit SWIG gewrappten Codebasen durch einen einfachen \%typemap\footnote{Das mappen eines Datentyps der Eingangssprache auf einen anderen Datentyp der Ausgangssprache} sondern nur durch die Nachimplementierung der oben dargestellten switch case Anweisung zu bewerkstelligen. 
 
 \subsection{Fusee}
 \subsubsection{Der Fusee Szenengraph}
@@ -629,10 +663,14 @@ Kette aufzeigen von Cinema4D nach Fusee Authoring Toolkit.
 \subsection{Generieren eines Fusee Projektes}
 Ablauf erklären.
 \subsection{Code Generation und die Vermeidung von Roundtrips (nicht so ganz roundtrips, generierung um generierung etc.)}
-\subsection{XPresso Schaltungen - Programmieren ohne Programmieren}
-Ein Ausblick auf die Zukunft. Eventuell hier den Artikel anführen welcher über Visuelle Programmierung berichtet hat.
 \subsection{Partial Classes in .NET}
 Sind bis jetzt noch nicht verwendet worden.
+\subsection{XPresso Schaltungen - Visual Programming / Programmieren ohne Programmieren}
+% TODO: Hierzu gab es ein Paper auf welches ich gut verweisen könnte. Eventuell auch auf den Sony Editor welcher so eine Node basierte Programmierung bieten kann etc.
+Ein Ausblick auf die Zukunft. Eventuell hier den Artikel anführen welcher über Visuelle Programmierung berichtet hat.
+
+\subsubsection{Probleme und Herausforderungen während der Entwicklung}
+% TODO: Erst Entwicklung von Uniplug erweitern bevor mit dem Plugin gearbeitet werden kann. Probleme durch das Wrappen und die fehlende Möglichkeit zu debuggen.
 
 %%%%%%
 %	Hauptteil ENDE
@@ -683,14 +721,6 @@ Sind bis jetzt noch nicht verwendet worden.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Requirements START
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\includepdf[pages = 1-4]{Includes/SoftwareRequirementsSpecification.pdf}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Requirements ENDE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % UML START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter*{UML Diagramme}
@@ -710,5 +740,12 @@ Sind bis jetzt noch nicht verwendet worden.
 % Bilbiographie ENDE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Requirements START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\includepdf[pages = 1-4]{Includes/SoftwareRequirementsSpecification.pdf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Requirements ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
