@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>260</x>
+      <y>660</y>
+      <w>390</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>FuseeATMessagePlugin
+
+--
++ override CoreMessage(id : int, bc : BaseContainer) : Bool
++ override GetTimer() : int </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>360</x>
+      <y>530</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>C4dAPI.MessageData
+--
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>570</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>740</x>
+      <y>620</y>
+      <w>400</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>FuseeATCommandPlugin
+
+--
+- PL_PLUGINID = 1035056 : int
+- fuseeAT : FuseeAuthoringToolsC4D
+- commandUi : CmdUiDialog
+
+--
++ FatProjectLoaderPlugin() : base(false) { }
++ override Execute(BaseDocument doc) : Bool 
++ override Message(int type, SWIGTYPE_p_void data) : Bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>840</x>
+      <y>490</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>C4dAPI.CommandData
+--
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>920</x>
+      <y>530</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>420</x>
+      <y>140</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>C4dAPI.TagData
+--
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>250</x>
+      <y>260</y>
+      <w>560</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>FuseeATTagPlugin
+
+--
+- fuseeAuthoringTools : FuseeAuthoringToolsC4D 
+
+--
++ override Init(node : GeListNode) : Bool
++ override MessageDocumentInfo(node : GeListNode, data : DocumentInfoData) : Bool
++ override Message(node : GeListNode, type : int, data : Object) : Bool
+- GetObjectName(node : GeListNode) : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>180</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>860</x>
+      <y>260</y>
+      <w>450</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>GUIPlugin
+
+--
+- FilePathTextId : int;
+- ProjectNameTextId : int;
+
+--
++ override InitValues() : Bool
++ override CreateLayout() : Bool
++ override Message(BaseContainer msg, BaseContainer result) : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>990</x>
+      <y>140</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>C4dAPI.GeDialog
+--
+
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1070</x>
+      <y>180</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>220</x>
+      <y>70</y>
+      <w>1120</w>
+      <h>770</h>
+    </coordinates>
+    <panel_attributes>Cinema4D Plugin
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
