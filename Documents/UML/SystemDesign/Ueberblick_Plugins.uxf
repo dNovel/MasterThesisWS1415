@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>870</x>
+      <y>380</y>
+      <w>140</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>MessagePlugin
+halign=center
+valign=center
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1100</x>
+      <y>380</y>
+      <w>140</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>TagPlugin
+halign=center
+valign=center
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>640</x>
+      <y>380</y>
+      <w>140</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>CommandPlugin
+halign=center
+valign=center
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>420</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1000</x>
+      <y>420</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>620</x>
+      <y>310</y>
+      <w>660</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Plugin Sammlung zur Anbindung des
+Fusee Authoring Frameworks an das Cinema4D Plugin System.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>390</x>
+      <y>360</y>
+      <w>150</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Fusee Authoring Tool
+Framework
+halign=center
+valign=center
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>400</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>680</x>
+      <y>470</y>
+      <w>130</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>
+Kuemmert sich um das öffnen, verwalten und speichern von Fusee Projekten. Gesteuert per Dialog.
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>910</x>
+      <y>470</y>
+      <w>130</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>
+Steuert die Kommunikation zwischen den beiden anderen Plugins.
+
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1140</x>
+      <y>470</y>
+      <w>130</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>
+Ist für die Asset Verwaltung und das anfügen von Code an Assets verantwortlich.
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

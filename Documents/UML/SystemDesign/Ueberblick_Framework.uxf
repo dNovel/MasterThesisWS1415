@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>470</x>
+      <y>540</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>FAT Build Manager
+halign=center
+valign=center
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>470</x>
+      <y>260</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>FAT Project Manager
+halign=center
+valign=center
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>470</x>
+      <y>400</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>FAT File Manager
+halign=center
+valign=center
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>810</x>
+      <y>400</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Fusee Authoring Tools C4D
+halign=center
+valign=center
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>300</y>
+      <w>150</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0;90.0;120.0;130.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>430</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>470</y>
+      <w>150</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;120.0;90.0;120.0;90.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>400</x>
+      <y>190</y>
+      <w>670</w>
+      <h>500</h>
+    </coordinates>
+    <panel_attributes>Fusee Authoring Tool Framework
+bg=white
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1110</x>
+      <y>400</y>
+      <w>150</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Plugin für 3D
+Software
+halign=center
+valign=center
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>440</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>300</x>
+      <y>280</y>
+      <w>180</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Erforderlich für die verwaltung des gesamten Fusee Projekts zur Laufzeit der Arbeit im Editor.
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>300</x>
+      <y>430</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Verantwortlich für I/O Operation auf Datei Ebene. (Klassen, Assets, etc.)
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>300</x>
+      <y>590</y>
+      <w>180</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Verantwortlich für Builds des Projekts aus dem Editor heraus - ohne IDE.
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>870</x>
+      <y>480</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>
+Schnittstelle zum Framework für die Plugins.
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

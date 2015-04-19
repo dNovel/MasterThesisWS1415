@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.1">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>606</x>
+      <y>126</y>
+      <w>282</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+&lt;&lt;interface&gt;&gt;
+FuseeATBase
+
+--
++ CreateProject(slnName : String , pName : String , pPath : String ) :  Bool
++ SaveProject() :  Bool
++ OpenProject(pName : String , pPath : String) :  Bool
++ CreateNewClass(pName : String) :  Bool
++ CreateNewFile(fname : String, fpath : String) :  Bool
++ BuildProject() :  Bool
++ ExportToFus() :  Bool
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>270</x>
+      <y>294</y>
+      <w>174</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>EngineProject
+
+--
++ PathToSolutionFolder : String
++ PathToProjectFolder : String
++ NameOfCSharpProject : String
++ PathToCSharpProjectFile : String
++ ProjectSolutionName : String
++ ProjectState : ProjectState
+--
++ GetPathToProjectFolder() : String
++ GetPathToProjectSource() : String
++ GetProjectFileName() : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>342</x>
+      <y>192</y>
+      <w>102</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+ProjectState
+--
+Clean
+Dirty
+Corrupt
+Closed
+
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>474</x>
+      <y>180</y>
+      <w>102</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+ToolState
+--
+Ok
+Error
+Warning
+
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>606</x>
+      <y>300</y>
+      <w>282</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>FuseeATCinema4D
+
+--
+- projectManager : FuseeProjectManager
+--
++ CreateProject(slnName : String , pName : String , pPath : String ) :  Bool
++ SaveProject() :  Bool
++ OpenProject(pName : String , pPath : String) :  Bool
++ CreateNewClass(pName : String) :  Bool
++ CreateNewFile(fname : String, fpath : String) :  Bool
++ BuildProject() :  Bool
++ ExportToFus() :  Bool
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>270</x>
+      <y>540</y>
+      <w>468</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>FuseeATProjectManager
+
+--
+- projectGenerator : ProjectGenerator
+- engineProject : EngineProject
+- fileManager : FuseeFileManager
+- buildManager : FuseeATBuildManager
+--
+
++ CreateProject(slnName : String, pName : String, pPath : String) : ToolState
++ ToolState SaveProject() : ToolState
++ ToolState OpenProject(pName : String, pPath : String) : ToolState
++ ToolState BuildProject(ep : EngineProject) : ToolState
++ ToolState CreateClass(className : String) : ToolState
++ ToolState AddCodeComponent(assetName : String, codeFileName : String, codeFilePath : String, assetID : String) : ToolState
++ ToolState ExportSceneToFus() : ToolState
+- GenerateHash(h1 : String, h2 : String) : String
+- ToolState SerializeToXML(p : EngineProject) : ToolState
+- DeserializeFromXML(pName : String, pathToXML : String) : EngineProject
+- SerializeAssetRelationToXML(acr : ACRelationData , hash : String) : ToolState
+- DeserializeAssetRelationFromXML(Name : String, hash : String) : ACRelationData
+- DoesProjectExist(pName : String, pPath : String) : Bool
+- GenerateCsProjName(pName : String) : String
+- CreateProjectSettings() : Bool
++ SetProjectDirty()
++ SetProjectClean()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>972</x>
+      <y>534</y>
+      <w>270</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>FuseeATFileManager
+
+--
+
+- projectManager : FuseeProjectManager
+- csprojfile : List&lt;String&gt;
+- csProjPath : String
+--
+
++ CreateCSharpClass(String className, String pName) : ToolState
++ CreateNewCSharpClass(cName : String, pPath : String, pName : String) : ToolState
+- LoadCSProj(String pName, String path) : ToolState
+- WriteCSProj() : ToolState
+- InsertClassToProject(String fName) : ToolState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>972</x>
+      <y>714</y>
+      <w>192</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;static&gt;&gt;
+FuseeATBuildManager
+
+--
++ BuildSolution(ep : EngineProject) : ToolState
++ BuildProject() : ToolState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>738</x>
+      <y>234</y>
+      <w>18</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>492</x>
+      <y>252</y>
+      <w>174</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;480.0;10.0;20.0;270.0;20.0;270.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>492</y>
+      <w>534</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;80.0;10.0;20.0;870.0;20.0;870.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>234</y>
+      <w>120</w>
+      <h>318</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>150.0;100.0;150.0;10.0;10.0;10.0;10.0;430.0;180.0;430.0;180.0;510.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>534</x>
+      <y>516</y>
+      <w>486</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;40.0;10.0;10.0;420.0;10.0;420.0;290.0;790.0;290.0;790.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>318</x>
+      <y>156</y>
+      <w>60</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;230.0;10.0;20.0;80.0;20.0;80.0;60.0</additional_attributes>
+  </element>
+</diagram>
