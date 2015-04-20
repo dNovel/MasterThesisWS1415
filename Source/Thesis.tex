@@ -572,6 +572,14 @@ Es folgt eine Auflistung der Tasks die den normalen Arbeitsablauf eines Artists 
 \item Szene speichern
 \end{itemize}
 
+Die Übersicht \ref{UseCaseArtist} beschreibt die Einbindung des Artist in das System und skizziert seine Use Cases in Verbindung mit den Modulen des gesamten Systems auf.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{Bilder/UseCase_Artist.png}
+	\caption{Überblick über die Use Cases eines Artist.}
+	\label{UseCaseArtist}
+\end{figure}
+
 Es folgt eine Requirementstechnische betrachtung der einzelnen Tasks und das herausarbeiten der jeweils wichtigen Merkmale.
 
 \subsubsection{Asset erstellen}
@@ -601,6 +609,14 @@ Diese Auflistung beschreibt die Tasks und Lösungwege des Engineer.
 \item Szene bearbeiten
 \item Szene speichern
 \end{itemize}
+
+Die Übersicht \ref{UseCaseEngineer} skizziert die Verwebung des Engineer mit seinen Use Cases und dem System.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{Bilder/UseCase_Engineer.png}
+	\caption{Überblick über die Use Cases eines Engineer.}
+	\label{UseCaseEngineer}
+\end{figure}
 
 Der Engineer beschäftigt sich mit einem programmierlastigeren Aspekt des Projektes. Zu seinen Aufgaben gehört die Verwaltung des Projekts und das Verwenden der vom Artist erstellten Assets.
 
@@ -694,61 +710,104 @@ Unity kann Builds für die folgenden Plattformen erzeugen:
 
 Als Entwicklerplattformen unterstützt Unity Windows und Mac OSX. Der Sourcecode der Engine ist nur in einer Enterprise Version erhalten. Zum Erhalt dieser müssen gesonderte Verhandlungen mit Unity Technologies aufgenommen werden. Aus diesen Gründen wird die kostenfreie “free” Version für die Analyse in dieser Arbeit zu Grunde gelegt.
 
-
-\subsection{idTech X}
-\subsection{Weitere}
-
 % System Design des Tools
 \section{Systemdesign}
 \subsection{Warum Fusee und Cinema 4D?}
+% TODO: Heute hier.
+Für diese Arbeit wurden die beiden Applikationen FUSEE\footnote{Furtwangen University Simulation and Entertainment Engine} und Cinema 4 [\autocite{MaxonC4d2014}] aus verschiedenen Gründen als Ausgangsbasis für die Forschung ausgewählt. Bei der FUSEE Engine handelt es sich um eine von der Hochschule Furtwangen eigens Entwickelte 3D Engine unter der Leitung von Herrn Prof. C. Müller der Fakultät DM. Sie wird meist durch Projekte, Abschlussarbeiten und Arbeitsgruppen weiter entwickelt. Bei der Engine handelt es sich um eine 3D Engine deren Quellcode komplett Open Source ist. Das komplette Projekt inklusive seiner Abhängigkeiten ist von GitHub\footnote{https://github.com/FUSEEProjectTeam/Fusee} zu beziehen - was eine Integration des hier in dieser Arbeit angedachten Projektes einfacher gestaltet. Weiterhin wurde das Uniplug Projekt in die Fusee Engine integriert und nutzt deren Formate, Strukturen und einen Teil der Codebase. Hierbei handelt es sich um verschiedene Mathematik Bibliotheken und Tools wie den FUSEE Project Generator.
+
+Der 3D Modeling Editor Cinema 4D steht kostenfrei für Studierende der Hochschule Furtwangen zur verfügung und bietet eine relativ gut dokumentiert API. Weiterhin ist das Projekt Uniplug auf die Verwendung mit Cinema 4D hin konzipiert und unterstützt zum Zeitpunkt der Erstellung dieser Arbeit noch keine weitere Software. Ein großer Teil der Cinema 4D C++ API war bereits in das Uniplug Tool integriert bzw. von C++ nach \CSS konvertiert / gewrapped. So konnte relativ Problemlos mit der Arbeit begonnen werden.
+\\
+\\
+\textbf{Hinweis:} Alle hier verwendeten Diagramme finden sich im Anhang in einer größeren, höher aufgelösten Version im Format Din A4.
 
 \subsection{Systemdesign für das Toolkit}
+Das Fusee Authoring Toolkit (kurz FuseeAT), in der folgenden Abbildung \ref{FuseeATSystemÜberblick} in grün dargestellt, ist das Kernsystem dieses Konzeptes. Es handelt sich hierbei um eine Sammlung von Funktionen in Form einer \CSS SoftwareBibliothek die es ermöglichen soll einen Editor\footnote{Modeling Editor, Welt Editor, in Zukunft  möglicherweise auch dem Sony “Level Editor”} in ein Game Authoring Tool für die Erstellung von Interaktiven Welten zu transformieren.
+
+Die grau hinterlegten Bestandteile der Abbildung \ref{FuseeATSystemÜberblick} beschreiben Systeme welche in das Projekt mit einbezogen wurden, an deren Code jedoch nichts verändert wurde. Der “Fusee Project Generator” wurde zwar aus seiner ursprünglichen Form, einer als .Exe gebauten \CSS Anwendung, in ein neues \CSS Projekt innerhalb des FuseeAT verlagert. Das Projekt ist jetzt als Bibliothek zum Einbinden in \CSS Projekte verfügbar. An seiner Funktionsweise hat sich aber nichts getan. Die drei dargestellten Akteure verdeutlichen die getrennten Welten der jeweiligen Positionen während des Entwicklungsprozesses eines Interaktiven Software Produktes, z.B. eines Spiels und ihrer Sichtweise auf dieses Projekt.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\linewidth]{Bilder/Ueberblick_System.jpg}
 	\caption{Überblick über die Systemarchitektur}
-	\label{System Überblick}
+	\label{FuseeATSystemÜberblick}
 \end{figure}
+Das gelb hinterlegte FUSEE Projekt beschreibt ein normales Engine Projekt. Im unterschied zu den aktuell meisten FUSEE Projekten verwendet es allerdings für den verlauf dieser Arbeit einen Binary Build der Engine. Dies hat den Vorteil, dass nicht der komplette Engine Code während der Arbeit für ein einziges Projekt mitgetragen werden muss. Der Engine Code direkt, wird während dieser Arbeit nicht erweitert, sie beschränkt sich lediglich auf die erweiterung des Uniplug Projektes welches hier im Plugin Cinema 4D Uniplug in \CSS Container dargestellt ist.
+
+Damit das System erfolgreich arbeiten kann ist es nötig, von Cinema 4D verschiedene Information an das FuseeAT weiterzureichen. So muss im Plugin zu Cinema 4D ein Fusee Projekt geöffnet werden. Dies kann über einen UI Dialog geschehen, der die vom Benutzer eingetragenen Informationen über den Projektort auf der Festplatte des Nutzers dann an das FuseeAT weiterleitet. Somit kann das FuseeAT dann die komplette Steuerung des Projektes übernehmen und Cinema4D stellt nur eine Benutzerschnittstelle zur Interaktion dar. Somit wäre jegliche Funktionalität des FuseeAT in das eigentliche Authoring Framework ausgelagert und somit vom Programm Cinema 4D (oder anderen) abgekoppelt und unabhängig. Das Cinema 4D Plugin, in der Abbildung \ref{FuseeATSystemÜberblick} ebenfalls in grün dargestellt, stellt also nur die Schnittstelle des FuseeAT zur Software Cinema 4D dar und dient in diesem Fall als Kommunikatorensystem zwischen den verschiedenen Architekturen C++ und \CS.
+
 
 \subsection{Systemdesign für ein Tool Framework}
-Lorem Ipsum ...
+Die folgende Abbildung \ref{FrameworkÜberblick} zeigt das Design für das FuseeAT im Überblick. Der grau hinterlegte Container steht für die mit Hilfe des Uniplug Projektes zu entwickelnde Cinema 4D API Benutzer Schnittstelle. Das FuseeAT kann in vier Bereiche aufgeteilt werden. Zuerst einmal wäre hier das Schnittstellen Modul des FuseeAT für die Kommunikation mit einem Plugin das Außerhalb des Systems verankert ist. Dieses FuseeAT Modul nimmt jegliche Calls (z. Dt. Aufrufe) entgegen und wandelt sie in Operationen des FuseeAT um. Hierzu verwendet weitere Module. Zu den Modulen gehören:
+\begin{itemize}
+\item FuseeAT Projekt Manager
+\item FuseeAT File I/O Manager
+\item FuseeAT Build Manager
+\end{itemize}
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\linewidth]{Bilder/Ueberblick_Framework.jpg}
 	\caption{Überblick über das Fusee Authoring Toolkit Framework}
-	\label{Framework Überblick}
+	\label{FrameworkÜberblick}
 \end{figure}
 
-Lorem Ipsum ...
+Diese Module teilen sich die Aufgaben des FuseeAT. Der Projekt Manager behandelt hierbei jegliche Aufgaben die im Zusammenhang mit der Verwaltung, zur Laufzeit,  eines FuseeAT (bzw. Fusee Engine) Projektes stehen.
+Das Modul FuseeAT File Manager ist ein Modul welches sich um jegliche I/O (kurz für Input Output) Operationen kümmert. Hier werden Tasks auf Betriebssystem Dateiebene erledigt. Dazu gehört beispielsweise das Erstellen und das Speichern von Dateien. Dieses Modul kann weiterhin für das anlegen von \CSS Klassen im Bereich der Programmierung zuständig sein und somit die Verbindung zwischen Assets und Code herstellen können.
+Der FuseeAT Build Manager ermöglicht das Bauen eines \CSS Projektes durch Verwenden des von Microsoft bereitgestellten MSBuild\footnote{\url{https://msdn.microsoft.com/en-us/library/0k6kkbsd.aspx}} Systems. Er kümmert sich um Ausgabeverzeichnisse und weitere Optionen die während eines Buildprozesses Angaben des Benutzers benötigen. Der Buildprozess könnte durch die Plugin Kommunikation direkt aus Cinema 4D heraus angestoßen werden um das Fusee \CSS Projekt zu erstellen.
+
+Das Klassendiagramm in Abbildung \ref{FuseeATKlassendiagramm} beschreibt in einer Detaillierteren Variante das FuseeAT. Die einzelnen Module sind hier in Klassen aufgeteilt und ein Teil der benötigten Methoden ist enthalten. Das Interface FuseeATBase (hier in Gelb hinterlegt) bildet die Ausgangsposition. Es bietet dem Cinema 4D Plugin System die Möglichkeit mit dem FuseeAT zu kommunizieren. Das FuseeAT wurde so designed, dass es Softwareunabhängig implementiert werden kann. FuseeATCinema4D implementiert dieses Interface und verteilt die Aufgaben weiter an den ProjektManager. Dieses Modul kommuniziert selbst mit dem FileManager und dem BuildManager um die gewünschten Operationen zur Laufzeit zu erledigen. Das FuseeATCinema4D Modul erhält Rückmeldungen über die return Werte der aufgerufenen Funktionen und kann somit dem Plugincode Rückmeldung über den Erfolg einer Aktion geben. Somit ist es möglich einem Benutzer in gewisser Weise ein Feedback zu seiner gerade ausgeführten Operation zu geben. Bei diesen Operationen könnte es sich z.B. um das Anlegen einer Datei, oder das Öffnen eines Projektes handeln.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\linewidth]{Bilder/Klassendiagramm_FuseeAT.jpg}
 	\caption{Klassendiagramm für das Fusee Authoring Toolkit}
-	\label{Fusee Authoring Toolkit Klassendiagramm}
+	\label{FuseeATKlassendiagramm}
 \end{figure}
+Das Klassendiagramm \ref{FuseeATKlassendiagramm} zeig bereits die Kompositionen der einzelnen Klassen auf. Die beiden Enumerations ProjectState und ToolState (in Orange hinterlegt) dienen dazu die Integrität eines EngineProjektes zu jeder Zeit zu gewährleisten. Sie werden als return Werte der Schnittstellen Funktionen nach Außen eingesetzt und können somit einen möglichen Entwickler, welcher das FuseeAT erweitern möchte, darüber Informieren ob eine Aktion erfolgreich war oder nicht. Der Entwickler kann dann entscheiden, wie er mit der gewonnenen Information umgehen möchte. In manchen Situationen würde es Sinn machen auf diese Information, evtl. mit einen Rollback oder Ähnlichem zu reagieren. Hier sei angemerkt, dass sich mit dem vormals erwähnten ATF Framework von Sony ein solches Do und Undo System in \CSS realisieren ließe. Es bietet laut Dokumentation ein solches System zur Integration an.
+
 
 \subsection{Systemdesign für ein Plugin System}
-Lorem Ipsum ...
+Die Abbildung \ref{ÜberblickPluginArchitektur} bietet einen Überblick über das Design des Uniplug Teil des Projektes. Damit verschiedene Funktionen in Cinema 4D angeboten werden können, benötigt das gesamte System verschiedene Arten von Plugin Typen. Das CommandPlugin designed zum öffnen, bauen und speichern eines Projektes. Es wird vom Benutzer durch den Aufruf eines Dialogs im Cinema 4D Plugin Menü gesteuert.
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\linewidth]{Bilder/Ueberblick_Plugins.jpg}
 	\caption{Überblick über die Pluginarchitektur}
-	\label{Überblick über die Plugin Architektur}
+	\label{ÜberblickPluginArchitektur}
 \end{figure}
 
-Lorem Ipsum ...
+Das TagPlugin kümmert sich um die Zuordnung von Assets. Es ermöglicht es in Cinema 4D so genannte Tags, welche Informationen in verschiedenen Formen speichern können, an ein 3D Objekt zu heften (in Form eines Icons im Szenengraphen) und so eine Verbindung zwischen Code und Content herzustellen.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=\linewidth]{Bilder/Klassendiagramm_Plugin.jpg}
 	\caption{Klassendiagramm der Plugin Architektur}
-	\label{Cinema4D Plugin Architektur für das FuseeAT Framework}
+	\label{KlassendiagrammPluginArchitektur}
 \end{figure}
+Das MessagePlugin ist ein Hilfsplugin und implementiert keine Funktionalität sondern unterstützt die per Nachrichtensystem gesteuerte Kommunikation innerhalb von Cinema 4D. Durch dieses Plugin können Nachrichten des CommandPlugin an das TagPlugin und umgekehrt versandt werden. Die Nachrichten werden dann in den jeweiligen Plugins geparsed (sie bestehen aus einer Integer ID und einem Datenanteil\footnote{Von der Cinema 4D API festegelegt.}) und weiter verarbeitet. 
+Das hier angeführte Klassendiagramm \ref{KlassendiagrammPluginArchitektur} zeigt die für jedes Plugin benötigten API Funktionen. Diese Funktionen müssen im Plugin Code als überschriebene Funktionen implementiert werden. Die Klasse GUIPlugin implementiert ein UserInterface um ein FUSEE Projekt von Cinema 4D aus über einen Grafischen UI Dialog zu laden.
 
-\subsection{Entfernen von Abhängigkeiten}
+
+%\subsection{Entfernen von Abhängigkeiten}
+%TODO: Was war hier nochmal genau gemeint? Muss ich in den Unterlagen nachsehen.
 
 \subsection{Zeitersparnis durch bekannte Tools}
+Um nicht jegliche Funktionen neu implementieren zu müssen, wurde vor dem Beginn der Implementierung geprüft welche Funktionalitäten bereits in der FUSEE Engine gegeben sind. Durch die offene Struktur der Engine konnte bereits früher schon Code wiederverwendet werden. Diese Synergien der bereits vorhandenen Systemen sollten auch in zukünftigen Entwicklungen genutzt werden um, Zeit und Ressourcen zu sparen.
+
 \subsubsection{Fusee Project Generator}
+%TODO: Kurz erklären was er kann etc.
+Der Fusee Project Generator ist ein Projekt das bereits vom ersten FUSEE Entwicklerteam angestoßen wurde. Es  handelt sich hierbei um ein Bibliotheksmodul welches es ermöglicht, ein neues \CSS Projekt in einerhalb einer FUSEE Solution anzulegen. Im Rahmen dieser Arbeit wurde der FUSEE Projekt Generator lediglich neu innerhalb des Uniplug Projektes verdrahtet. Davor war der Generator noch eine eigenständige Konsolen .Exe Anwendung. Aktuell können mehrere Projekte mit ein und dem selben Engine Binary Build gebaut und verdrahtet werden. Die folgende Abbildung \ref{FUSEEBinaryProjektStruktur} zeigt die Struktur eines solchen Fusee Projektes.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth/2]{Bilder/FUSEEBinaryProjekt.jpg}
+	\caption{FUSEE Binary Projekt Struktur}
+	\label{FUSEEBinaryProjektStruktur}
+\end{figure}
+ Die Solution Datei beinhalted die zwei Projekte “Simple” und “TestProjekt”. Diese Projekte beherbergen in den Referenzen jeweils die Binary Bibliotheken der FUSEE Engine. Das Projekt TestProjekt wurde mit dem FUSEE Generator angelegt. Hierfür benötigt der Generatur nur den gewünschten Namen des Projekts und den Pfad zum Fusee Binary Projekt auf der Festplatte des Benutzers.
+
+
+
 \subsubsection{Fusee .fus Exporter}
+%TODO: Kurz erklären was er kann etc. und ob er reingeommen wird. Da muss ich noch etwas abwarten.
+Hier noch abwarten.
 
 \section{Asset Management und Asset Pipeline in der FUSEE Engine}
 % TODO % Begriffserklärung eines Asset, genaue Definitionen anmerken.
@@ -807,7 +866,15 @@ Das hier dargestellte Minimalbeispiel in C++ Code zeigt ein einfaches minimalist
 Das hier dargestellte Code Beispiel wird im nächsten Abschnitt relevant. Es folgt ein Überblick über das Uniplug Projekt welches das Schreiben von Cinema 4D Plugins in \CSS ermöglicht. Die oben gezeigte  Codestruktur wird dann noch einmal als \CSS Version erläutert.
 
 \subsection{Uniplug}
-Bei Uniplug handelt es sich um ein Teil des Projektes FUSEE der Hochschule Furtwangen. Uniplug bietet die möglichkeit Cinema 4D Plugins in \CSS zu schreiben. Hierfür bedient es sich eines Interface Compilers SWIG [\fullcite{SWIG2015}]. Das gesamte Uniplug Projekt ist ein Open Source Projekt und steht auf GitHub Repository unter \url{https://github.com/FUSEEProjectTeam/Fusee} innerhalb des Fusee Projekts zum Download bereit. Das Uniplug Projekt stand bereits vor dieser Arbeit zur Verfügung. Allerdings hatte es nich den nötigen Umfang und das Projekt wurde während der Arbeit um wichtige Funktionen zur Entwicklung von Plugins erweitert.
+Bei Uniplug handelt es sich um ein Teil des Projektes FUSEE der Hochschule Furtwangen. Uniplug bietet die möglichkeit Cinema 4D Plugins in \CSS zu schreiben. Hierfür bedient es sich eines Interface Compilers SWIG [\fullcite{SWIG2015}]. Das gesamte Uniplug Projekt ist ein Open Source Projekt und steht auf GitHub Repository unter \url{https://github.com/FUSEEProjectTeam/Fusee} innerhalb des Fusee Projekts zum Download bereit. Das Uniplug Projekt stand bereits vor dieser Arbeit zur Verfügung. Allerdings hatte es nich den nötigen Umfang und das Projekt wurde während der Arbeit um wichtige Funktionen zur Entwicklung von Plugins erweitert. Folgende in Abbildung \ref{UniPlugVSStruktur} dargestellten Module sind Bestandteil des Uniplug Systems.
+
+\begin{figure}[ht]
+	\centering
+  \includegraphics[width=\linewidth / 2]{Bilder/UniplugVSStruktur.JPG}
+	\caption{Die Uniplug Projektstruktur in VisualStudio}
+	\label{UniPlugVSStruktur}
+\end{figure}
+Die im Unterordner Tools aufgeführten Projekte sind das Kernelement dieser Arbeit. Es handelt sich dort um das FuseeAT. Das Plugin für die Cinema 4D Anbindung ist im Unterordner “Example Plugins” verortet und wird hier als “Game Authoring” bezeichnet. Es enthält jeglichen Plugin Code für diese Arbeit. Die Projektstruktur des UniPlug Projektes wurde während dieser Arbeit und dem Einfügen der neuen Funktionen weiter optimiert.
 
 \subsubsection{Was ist SWIG?}
 Bei SWIG handelt es sich um einen SoftWare Interface Generator. Swig unterstützt Entwickler dabei, eine Codebase aus z.B. einer nativen Programmiersprache wie C++ in eine managed Programmiersprache wie z.B. \CSS zu “übersetzen”. Hierbei handelt es sich allerdings nicht wirklich um einen übersetzungs bzw. Compilevorgang. Vielmehr unterstützt Swig den Entwickler durch das generieren spezifischer Interface Files welche die Aufrufe (calls) einer “externen” Software an den “gewarppten” Teil der Software weiterleiten. Die Ausgangssoftware wird also immernoch benötigt (im Falle von Uniplug) und auch verwendet (das Cinema 4D API Framework).
@@ -826,7 +893,16 @@ Swig wird bereits erfolgreich in vielen Projekten eingesetzt. Unter anderem find
 \subsubsection{Wrapping von C++ Code nach \CSS mit SWIG}
 
 
-Um aus dem C++ Code der Cinema 4D API aufrufbaren \CSS Code zu erzeugen sind verschiedene Schritte notwendig. Ein SWIG Projekt welches im Uniplug Projekt verfügbar ist enthält eine C4dApi.i (interface) Datei. Diese Datei kümmert sich um das Wrappen des nativen C++ Codes nach \CS. Der eigentliche Wrapping Vorgang wird über ein SWIG make script aufgerufen welches während des Build Vorgangs des Projektes angestoßen wird. Dieser Vorgang muss bei der eigentlichen Pluginentwicklung nicht bei jedem Build durchgeführt werden. Es genügt, die API erneut zu wrappen wenn Veränderungen am API Code seitens Maxon oder des Benutzers vorgenommen wurden. Änderungen durch den Benutzer schliessen auch das erweitern der API Funktionalität mit ein. Das Uniplug Projekt ist zum Zeitpunkt dieser Arbeit weit von einem Vollständigen Wrapping der Cinema 4D API entfernt. Aus diesem Grund, ist noch relativ häufig die Erweiterung des API Projektes nötig. Verschiedene Eintragungen die für das Erweitern des Uniplug Projektes vorgenommen wurden, werden im nächsten Abschnitt genauer erläutert. Hierzu gehören einfache Inklusionen von Source Files, aber auch komplexe overrides von bereits bestehenden C++ Funktionen.
+Um aus dem C++ Code der Cinema 4D API aufrufbaren \CSS Code zu erzeugen sind verschiedene Schritte notwendig. Ein SWIG Projekt welches wie in Abbildung \ref{SWIGUniplug} im Uniplug Projekt verfügbar ist enthält eine C4dApi.i (interface) Datei.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth/2]{Bilder/ProjektstrukturSwig.JPG}
+	\caption{SWIG im Uniplug Projekt (ManagedPlugIn) markiert durch blaue Selektion.}
+	\label{SWIGUniplug}
+\end{figure}
+
+ Diese Datei kümmert sich um das Wrappen des nativen C++ Codes nach \CS. Der eigentliche Wrapping Vorgang wird über ein SWIG make script aufgerufen welches während des Build Vorgangs des Projektes angestoßen wird. Dieser Vorgang muss bei der eigentlichen Pluginentwicklung nicht bei jedem Build durchgeführt werden. Es genügt, die API erneut zu wrappen wenn Veränderungen am API Code seitens Maxon oder des Benutzers vorgenommen wurden. Änderungen durch den Benutzer schliessen auch das erweitern der API Funktionalität mit ein. Das Uniplug Projekt ist zum Zeitpunkt dieser Arbeit weit von einem Vollständigen Wrapping der Cinema 4D API entfernt. Aus diesem Grund, ist noch relativ häufig die Erweiterung des API Projektes nötig. Verschiedene Eintragungen die für das Erweitern des Uniplug Projektes vorgenommen wurden, werden im nächsten Abschnitt genauer erläutert. Hierzu gehören einfache Inklusionen von Source Files, aber auch komplexe overrides von bereits bestehenden C++ Funktionen.
 
 Das hier abgebildete Schaubild zeigt den Ablauf des Wrapping-Vorgangs. Hierbei sind folgende Schritte zu erkennen:
 \begin{itemize}
@@ -917,6 +993,10 @@ Durch die eingeschränkte  Möglichkeit nur bis zum call des Debugging API Codes
 Das Fusee Level, Welt wie auch immer es hier bezeichnet werden sollte. Eine Basis wird gebraucht. Hierzu eine Zentrale anlaufstelle, ein Spiele “Kernel”? Irgend etwas dass im Zentrum steht.
 Alles andere muss auf Level etc aufgeteilt werden und bis zum einzelnen Asset heruntergebrochen werden.
 
+\subsubsection{Der Export einer Cinema 4D Szene in den FUSEE Szenengraphen}
+%TODO: 
+
+
 \section{Das eigentliche Plugin}
 \subsection{Visualisierung der Systemarchitektur}
 %Schaubilder und Grafiken sind hier nützlich. Abhängigkeiten und Aufteilung sinnvoll gestalten.
@@ -957,6 +1037,16 @@ Alles andere muss auf Level etc aufgeteilt werden und bis zum einzelnen Asset he
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \part*{Anhang}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bilbiographie START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\nocite{*}
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\printbibliography
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bilbiographie ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Source Code Verzeichnis START
@@ -985,27 +1075,18 @@ Alles andere muss auf Level etc aufgeteilt werden und bis zum einzelnen Asset he
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % UML START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter*{UML Diagramme}
+%\chapter*{UML Diagramme}
 \addcontentsline{toc}{chapter}{UML Diagramme}
+\includepdf[pages = 1-5]{Includes/UML_Sammlung.pdf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % UML ENDE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Bilbiographie START
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\nocite{*}
-\addcontentsline{toc}{chapter}{Literaturverzeichnis}
-\printbibliography
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Bilbiographie ENDE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Requirements START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter*{Requirements Dokumente}
+\addcontentsline{toc}{chapter}{Requirements Dokumente}
 \includepdf[pages = 1-4]{Includes/SoftwareRequirementsSpecification.pdf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Requirements ENDE
