@@ -2146,9 +2146,12 @@
     <bcf:citekey order="53">UnrealEngine4</bcf:citekey>
     <bcf:citekey order="54">UnityEngine5</bcf:citekey>
     <bcf:citekey order="55">MaxonC4d2014</bcf:citekey>
-    <bcf:citekey order="56">MaxonC4d2014</bcf:citekey>
-    <bcf:citekey order="57">SWIG2015</bcf:citekey>
-    <bcf:citekey order="58">SWIGIntroduction2015</bcf:citekey>
+    <bcf:citekey order="56">Carter2004</bcf:citekey>
+    <bcf:citekey order="57">Alienbrain</bcf:citekey>
+    <bcf:citekey order="58">Shotgun</bcf:citekey>
+    <bcf:citekey order="59">MaxonC4d2014</bcf:citekey>
+    <bcf:citekey order="60">SWIG2015</bcf:citekey>
+    <bcf:citekey order="61">SWIGIntroduction2015</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="apa" type="entry" sortscheme="apa">
   <bcf:sorting>
