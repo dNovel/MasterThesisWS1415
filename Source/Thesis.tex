@@ -179,7 +179,7 @@ Zweitbetreuer: Prof. Dr. Wolfgang Taube, Fakultät DM
 \renewcommand*{\chapterpagestyle}{empty}
 \chapter*{Abstract}%
 %\addcontentsline{toc}{chapter}{Abstract}
-Arbeitsprozesse in heutigen Game Engines verlangen von Entwicklern meist das erlernen neuer Toolsets und das während eines Zeitlich knapp bemessenen Projekt Zeitraums. Es wäre für Entwickler einfacher sich mit den bereits bekannten Tools, wie Modeling Editoren, zu beschäftigen und mit diesen großartige Ergebnisse zu erreichen. Designer müssen sich oft in unbekannte Editoren und SDKs einarbeiten während Entwickler sich in Grafische Editoren einarbeiten sollen um ihren Code an der richtigen Stelle des Projekts einzubinden.
+Arbeitsprozesse mit heutigen Game Engines verlangen von Entwicklern meist das Erlernen neuer Toolsets und das während eines Zeitlich knapp bemessenen Projekt Zeitraums. Es wäre für Entwickler einfacher sich mit den bereits bekannten Tools, wie Modeling Editoren, zu beschäftigen und mit diesen großartige Ergebnisse zu erreichen. Designer müssen sich oft in unbekannte Editoren und SDKs einarbeiten während Entwickler sich in Grafische Editoren einarbeiten sollen um ihren Code an der richtigen Stelle des Projekts einzubinden.
 Diese Arbeit baut eine Brücke zwischen beiden Welten. Durch die Konzeption eines Software Tools und Entwicklungsprozesses zum erstellen von Game Authoring Tools, wird gezeigt wie mit verschiedenen Frameworks bestehende Software erweitert werden kann um sie als Authoring Tool zu benutzen. Mit Hilfe eines Cinema 4D Plugins ist es möglich, dass Designer oder Entwickler jederzeit mit ihren eigenen Tools in die Entwicklung eines Projektes einsteigen. Das während der Arbeit entstandene Plugin bietet grundlegenden Funktionen um an einem Projekt mit der FUSEE Engine zu arbeiten. Ein FUSEE Projekt "managed" sich durch die Nutzung des entstandenen Cinema 4D Plugins und den generierten Visual Studio Solution Dateien aus Sicht des Plugin Nutzers selbst.
 Das zuerst konzeptionell entworfene Tool wurde während dieser Arbeit als Prototyp umgesetzt und bietet ausreichende Funktionalität um ein Projekt als Entwickler als auch als Artist zu erstellen und zu bearbeiten. Hierzu wurden verschiedene Konzepte betrachtet und andere GameEngines auf Workflow und Anwendbarkeit untersucht. Das \CSS Plugin Projekt FUSEE Uniplug wurde analysiert und in seinem Funktionsumfang erweitert. Das Ergebnis dieser Arbeit ist eine grundlegende Software Bibliothek in \CSS die nicht nur für Cinema 4D eingesetzt werden könnte.
 
@@ -292,14 +292,14 @@ Im professionellen Sektor ist das entwickeln interner Tools eine anspruchsvolle 
 
 \fullcite{MakingGamesM03Y2015-LOTF}
 \end{quote}
-
 Diese Entwicklungen bieten einen interessanten Ansatz und zeigen, dass Tool Development in der Industrie durch immer komplexere Softwareprojekte einen hohen Stellenwert erreicht hat.
-
 Ben Carter schreibt in \fullcite{Carter2004}, dass Entwickler so lange es geht in einem Tool arbeiten können sollten ohne dass sie das Tool dauernd wechseln müssten um Teilaufgaben zu erledigen.
 \begin{quote}
 “The users of the tool [...] should spend as much of their time as possible in that tool. Every time theay have to switch to another application to perform some task [...] they are losing time and potentially, breaking their concentration. \cite[S. 18]{Carter2004}”
 \end{quote}
+
 \section{Fragestellung der Arbeit}
+%TODO: Randbedingungen etwas herausarbeiten.
 Aus den oben angeführten Gründen beschäftigt sich diese Arbeit mit dem Gebiet des Authoring Tool Development und mit der Frage ob es möglich ist ein Tool zu konzipieren welches auf der Basis eines bereits bestehenden Modeling Editors (hier Cinema 4D von Maxon \footfullcite{MaxonC4d2014}) das Erstellen einer “fertigen”\footnote{Build fähige Version einer im Fusee Szenenformat abgespeicherten 3D Szene.} Szene für die 3D Engine Fusee\footnote{FUSEE (Furtwangen Simulationd and Entertainment Engine - \url{http://www.fusee3d.org})} ermöglicht. Dazu wird der gesamte Weg der Entstehung eines Authoring Tools Betrachtet. Verschiedene Projektmanagement Modelle zur internen Software Entwicklung werden geprüft und ein rudimentäres Requirements Engineering wird durchgeführt und somit ein Softwarekonzept entwickelt. Nach der Konzeption wird versucht die Basis Funktionalität in Visual Studio mit Hilfe von \CSS Code und der nach \CSS gewrappten\footnote{Eine Software welche von einem anderen Stück software umgeben wird.} Cinema 4D API als Programmunabhängige Softwarebibliothek zu implementieren. Die gewrappte Cinema 4D API basiert auf einem ehemaligen Projekt der Hochschule Furtwangen. Dieses wird als Grundlage für die hier angedachte Implementierung genutzt und bietet einen geringen Umfang an Basisfunktionalität. So bietet es die Möglichkeit grundsätzlich Plugins für Cinema 4D in der Programmiersprache \CSS zu schreiben. Von Haus aus ermöglicht Maxon das Entwickeln von Plugins nur in C++, Python und Coffee (einer von Maxon selbst entwickelten Skriptsprache). Der Vollständigkeit halber sei gesagt, dass Maxon für C++ noch das Framework Melange anbietet welches es ermöglicht Cinema 4D Dateien ohne eine Cinema 4D installation zu erstellen, zu speichern und zu laden. Sollte eine Installation vorhanden sein kann ein Melange Plugin auch Szenen rendern. vgl. Maxon Cinema 4D Developer Dokumentation unter \url{https://developers.maxon.net/}.
 
 Szenen in Cinema 4D werden grundsätzlich in einer Art Baumstruktur gespeichert und zur weiteren Verarbeitung im Speicher gehalten. Die hier konzipierte Software möchte diese Tatsache nutzen um Szenen aus einem Modeling Editor (Cinema 4D) in eine Szene des Fusee Szenen Formats (.fus) umzuwandeln. Eine “.fus” Datei ist ebenfalls in einer Baumartigen Struktur gespeichert. Dieses Prinzip der Szenendarstellung ist bereits aus verschiedenen Frameworks und Softwareprojekten für 2D Darstellung bekannt. Das ist zum einen der Übersichtlichkeit als auch verschiedenen Algorithmischen Operationen auf den Daten der Szene geschuldet. In Baumstrukturen organisierte Interfaces werden außerdem bei der Entwicklung des User Interfaces für das Mobile Betriebssystem Android verwendet.
@@ -363,7 +363,7 @@ Das Nachfolgende Kapitel beschäftigt sich mit dem Aspekt des Projektmanagement 
 
 \chapter{Produktionsprozess: Projektplanung und Analyse}
 \section{Entwicklungsprozesse in Interaktiver 3D Software und Games}
-Um einen Entwicklungsprozess abzubilden und Tools für Entwickler, sogenannte Authoring Tools oder Developer Tools, zu entwickeln bedarf es einer gewissen Organisation. Im Bereich der modernen Spieleentwicklung in kleinen bis mittleren Unternehmen (seltener bei großen AAA Produktionen \footnote{Allgemein: Hochqualitative Spiele Software mit großem Entwicklungsbudget und einer Breiten Zielgruppe. Vgl. \cite{GamasutraAAA2005} }) wird hierfür ein agiles Modell zur Softwareentwicklung eingesetzt. Hier soll ein kurzer Überblick über aktuelle Modelle entstehen. Diese Modelle ermöglichen zum einen das schnelle Entwickeln von Tools während der knappen Entwicklungszeit eines Spiele Produkts und zum anderen unterstützen sie die Arbeit von kleinen Teams, in welchen meist Tool Developement betrieben wird,  innerhalb eines großen Entwicklerteams um so gezielt plötzlich auftauchende Aufgaben ohne lange Planung und viel Bürokratie lösen zu können. Damit ist ein fortschreiten des gesamten Projektablaufs gesichert und Entwickler können ihre Zeit hauptsächlich für die Entwicklung der Tools investieren.
+Um einen Entwicklungsprozess abzubilden und Tools für Entwickler, sogenannte Authoring Tools oder Developer Tools, zu entwickeln bedarf es einer gewissen Organisation. Im Bereich der modernen Spieleentwickelung in kleinen bis mittleren Unternehmen (seltener bei großen AAA Produktionen \footnote{Allgemein: Hochqualitative Spiele Software mit großem Entwicklungsbudget und einer Breiten Zielgruppe. Vgl. \cite{GamasutraAAA2005} }) wird hierfür ein agiles Modell zur Softwareentwicklung eingesetzt. Hier soll ein kurzer Überblick über aktuelle Modelle entstehen. Diese Modelle ermöglichen zum einen das schnelle Entwickeln von Tools während der knappen Entwicklungszeit eines Spiele Produkts und zum anderen unterstützen sie die Arbeit von kleinen Teams, in welchen meist Tool Developement betrieben wird,  innerhalb eines großen Entwicklerteams um so gezielt plötzlich auftauchende Aufgaben ohne lange Planung und viel Bürokratie lösen zu können. Damit ist ein fortschreiten des gesamten Projektablaufs gesichert und Entwickler können ihre Zeit hauptsächlich für die Entwicklung der Tools investieren.
 
 \subsection{Projektmanagement Modelle}
 Um große Projekte wie Computergames oder Interaktive Software zu entwickeln, bedarf es meist einer detaillierten Planung und einer exakten Rollenverteilung im Entwicklerteam. Es existieren verschiedene Methoden des Projektmanagement auf welche hier kurz im Zusammenhang mit der Arbeit eingegangen werden soll. Einige der Projektmanagement Modelle wirken auf die Arbeitsweise der Teammitglieder aus. Daher wird diese Arbeit hier keinen Umfassenden Überblick über Projektmangament Methoden geben, sondern nur solche Ansprechen die sich direkt oder indirekt stark auf das Tool Development auswirken.
@@ -481,9 +481,9 @@ In der Praxis wäre für die Konzeption bzw. das Systemdesign eines neuen Tools 
 
 Aus diesen Gründen ist eine Stakeholderanalyse (auch bei kleineren Projekten) ein Wichtiger Bestandteil des Entwicklungsprozesses. Eine Bedarfsanalye und eine allgemeine Analyse der Aufgabengebiete der jeweiligen Entwickler sollte in das System Design bzw. das Requirements Engineering ebenfalls mit einfließen. Hierzu könnten Interviews (Gespräche und Befragungen zu den Wünschen der Anwender) mit den Anwendern geführt werden. Dies ist eine schnelle Methode welche sich gut mit einem agilen Prozess wie Scrum oder iterativen Prozessen vereinbaren lässt.
 
-\section{Ein Arbeitsprozess / Arbeitsablauf wird entwickelt}
+\section{Der Arbeitsprozess zur Authoring Tool Entwicklung}
 \subsection{Game Authoring / Game Development}
-Game Development beschreibt allgemein das entwickeln einer Interaktiven Software, meist eines Spiels. Hierbei spielt es keine Rolle ob die Software der puren Unterhaltung dient oder sich dem Bereich der Serious Games \footnote{ “[...] serious games are (digital) games used for purposes other than mere entertainment.” \cite{Tarja2007}} oder zuordnen lässt. Auch weitere interaktive Anwendungen ohne Unterhaltungsfaktor können in diese Kategorie fallen. Die Produktionsabläufe ähneln sich stark. Im Gegensatz zum Tool Development hat das Game Development meist den Auftrag am Ende ein für den Consumer zugängliches Produkt zu schaffen. Das Tool Development beschäftigt sich in erster Linie mit dem Erstellen der Werkzeuge welche benötigt werden um das Consumerprodukt zu entwickeln.
+Game Development beschreibt im Allgemeinen das Entwickeln einer Interaktiven Software, meist eines Spiels. Hierbei spielt es keine Rolle ob die Software der puren Unterhaltung dient oder sich dem Bereich der Serious Games \footnote{ “[...] serious games are (digital) games used for purposes other than mere entertainment.” \cite{Tarja2007}} oder zuordnen lässt. Auch weitere interaktive Anwendungen ohne Unterhaltungsfaktor können in diese Kategorie fallen. Die Produktionsabläufe ähneln sich stark. Im Gegensatz zum Tool Development hat das Game Development meist den Auftrag am Ende ein für den Consumer zugängliches Produkt zu schaffen. Das Tool Development beschäftigt sich in erster Linie mit dem Erstellen der Werkzeuge welche benötigt werden um das Consumerprodukt zu entwickeln.
 
 Es ist aber in der Tat so, dass Tool Development auch auf dem Consumer Markt ankommen kann. Verschiedene Entwickler stellen in der Vergangenheit ihre Tools den Fans und Kunden zur Verfügung. Aus diesen Tools haben sich selbst schon wieder Produkte wie Modifikationen\footnote{auch Mods genannt, Verändern das eigentliche Spiel oder ersetzen es in Form einer “Total Conversion” gleich ganz durch neue, eigens entwickelte Inhalte}, Patches oder Erweiterungen entwickelt. Einige Beispiele sind die das Creation Kit von Bethesda Softworks und die daraus entstandenen zahlreichen Fan Modifikationen wie Nehrim oder Enderal des Mod Teams SureAI\footnote{Freies Modifikations Team. \url{http://www.sureai.net}}.
 
@@ -545,11 +545,11 @@ Anschließend an die Analyse folgt das System Modeling in welchem die Anforderun
 
 \subsubsection{Abgleich des System Designs mit den Anforderungen}
 % TODO: Quellen zitieren etc.
-Vor der Implementierung muss immer auch geprüft werden ob das geplante System aus dem Designprozess mit den tatsächlichen Anforderungen der Stakeholder zusammen passt.
+Vor der Implementierung muss immer auch geprüft werden ob das geplante System aus dem Designprozess mit den tatsächlichen Anforderungen der Stakeholder zusammen passt. Hierfür werden die Konzeptionierten Software-Bestandteile mit der Zielgruppe diskutiert. Eventuelle Einwände und Vorschläge werden zum Konzept hinzugefügt und in die weitere Planung miteinbezogen.
 
 \subsubsection{Implementierung}
 %TODO: Erweitern. Mit Quellen.
-Die Implementierung ist der praktische Schritt des ganzen Prozesses. Während der Implementierung wird das Tool entwickelt, auf Fehler geprüft eventuell bei Verwendung von iterativen Projektmanagementmodellen wieder durch iterierende Abläufe erweitert und verändert.
+Die Implementierung ist der praktische Schritt des ganzen Prozesses. Während der Implementierung wird das Tool entwickelt, auf Fehler geprüft eventuell bei Verwendung von iterativen Projektmanagementmodellen wieder durch iterierende Abläufe im Konzept verändert oder erweitert und anschließend korrekt implementiert.
 % Evtl. hier was zu MVC oder so. Vll auch einfach wegen der interdsiziplinarität der Entwickler, die Sachen bestehen ja aus mehr als nur Bildern oder nur Code sie sind ein Verbund.
 
 %%%%%%
@@ -721,9 +721,9 @@ Als Entwicklerplattformen unterstützt Unity Windows und Mac OSX. Der Sourcecode
 
 % System Design des Tools
 \section{Systemdesign}
-Dieser Abschnitt beschreibt das Vorgehen und das Ergebnis des Systemdesigns. Ziel hier ist es ein Design für ein Softwareprodukt zu erstellen. Dieses Software Design wird zum Ende der Arbeit im Hinblick auf Basisfunktionalität animplementiert.
+Dieser Abschnitt beschreibt das Vorgehen während des Systemdesigns. Das Ziel hier ist es, eine technische Konzeption für ein Softwareprodukt zu erläutern. Dieses technische Konzept ist Grundlage für eine folgende Implementierung des Softwareprojektes.
+
 \subsection{Warum Fusee und Cinema 4D?}
-% TODO: Heute hier.
 Für diese Arbeit wurden die beiden Applikationen FUSEE\footnote{Furtwangen University Simulation and Entertainment Engine} und Cinema 4 [\autocite{MaxonC4d2014}] aus verschiedenen Gründen als Ausgangsbasis für die Forschung ausgewählt. Bei der FUSEE Engine handelt es sich um eine von der Hochschule Furtwangen eigens Entwickelte 3D Engine unter der Leitung von Herrn Prof. C. Müller der Fakultät DM. Sie wird meist durch Projekte, Abschlussarbeiten und Arbeitsgruppen weiter entwickelt. Bei der Engine handelt es sich um eine 3D Engine deren Quellcode komplett Open Source ist. Das komplette Projekt inklusive seiner Abhängigkeiten ist von GitHub\footnote{https://github.com/FUSEEProjectTeam/Fusee} zu beziehen - was eine Integration des hier in dieser Arbeit angedachten Projektes einfacher gestaltet. Weiterhin wurde das Uniplug Projekt in die Fusee Engine integriert und nutzt deren Formate, Strukturen und einen Teil der Codebase. Hierbei handelt es sich um verschiedene Mathematik Bibliotheken und Tools wie den FUSEE Project Generator.
 
 Der 3D Modeling Editor Cinema 4D steht kostenfrei für Studierende der Hochschule Furtwangen zur verfügung und bietet eine relativ gut dokumentiert API. Weiterhin ist das Projekt Uniplug auf die Verwendung mit Cinema 4D hin konzipiert und unterstützt zum Zeitpunkt der Erstellung dieser Arbeit noch keine weitere Software. Ein großer Teil der Cinema 4D C++ API war bereits in das Uniplug Tool integriert bzw. von C++ nach \CSS konvertiert / gewrapped. So konnte relativ Problemlos mit der Arbeit begonnen werden.
@@ -732,7 +732,7 @@ Der 3D Modeling Editor Cinema 4D steht kostenfrei für Studierende der Hochschul
 \textbf{Hinweis:} Alle hier verwendeten Diagramme finden sich im Anhang in einer größeren, höher aufgelösten Version im Format Din A4.
 
 \subsection{Systemdesign für das Toolkit}
-Das Fusee Authoring Toolkit (kurz FuseeAT), in der folgenden Abbildung \ref{FuseeATSystemÜberblick} in grün dargestellt, ist das Kernsystem dieses Konzeptes. Es handelt sich hierbei um eine Sammlung von Funktionen in Form einer \CSS Softwarebibliothek die es ermöglichen soll einen Editor\footnote{Modeling Editor, Welt Editor, in Zukunft  möglicherweise auch dem Sony “Level Editor”} in ein Game Authoring Tool für die Erstellung von Interaktiven Welten zu transformieren.
+Das Fusee Authoring Toolkit (kurz FuseeAT), in der folgenden Abbildung \ref{FuseeATSystemÜberblick} in grün dargestellt, ist das Kernsystem dieses Konzeptes. Es handelt sich hierbei um eine Sammlung von Funktionen in Form einer \CSS Softwarebibliothek die es ermöglichen soll einen Editor\footnote{Modeling Editor, Welt Editor, in Zukunft  möglicherweise auch dem bereits früher erwähnten Sony “Level Editor”} in ein Game Authoring Tool für die Erstellung von Interaktiven Welten zu transformieren.
 
 Die grau hinterlegten Bestandteile der Abbildung \ref{FuseeATSystemÜberblick} beschreiben Systeme welche in das Projekt mit einbezogen wurden, an deren Code jedoch nichts verändert wurde. Der “Fusee Project Generator” wurde zwar aus seiner ursprünglichen Form, einer als .Exe gebauten \CSS Anwendung, in ein neues \CSS Projekt innerhalb des FuseeAT verlagert. Das Projekt ist jetzt als Bibliothek zum Einbinden in \CSS Projekte verfügbar. An seiner Funktionsweise hat sich aber nichts getan. Die drei dargestellten Akteure verdeutlichen die getrennten Welten der jeweiligen Positionen während des Entwicklungsprozesses eines Interaktiven Software Produktes, z.B. eines Spiels und ihrer Sichtweise auf dieses Projekt.
 \begin{figure}[ht]
@@ -741,13 +741,14 @@ Die grau hinterlegten Bestandteile der Abbildung \ref{FuseeATSystemÜberblick} b
 	\caption{Überblick über die Systemarchitektur}
 	\label{FuseeATSystemÜberblick}
 \end{figure}
-Das gelb hinterlegte FUSEE Projekt beschreibt ein normales Engine Projekt. Im unterschied zu den aktuell meisten FUSEE Projekten verwendet es allerdings für den verlauf dieser Arbeit einen Binary Build der Engine. Dies hat den Vorteil, dass nicht der komplette Engine Code während der Arbeit für ein einziges Projekt mitgetragen werden muss. Der Engine Code direkt, wird während dieser Arbeit nicht erweitert, sie beschränkt sich lediglich auf die Erweiterung des Uniplug Projektes welches hier im Plugin Cinema 4D Uniplug in \CSS Container dargestellt ist.
-
-Damit das System erfolgreich arbeiten kann ist es nötig, von Cinema 4D verschiedene Information an das FuseeAT weiterzureichen. So muss im Plugin zu Cinema 4D ein Fusee Projekt geöffnet werden. Dies kann über einen UI Dialog geschehen, der die vom Benutzer eingetragenen Informationen über den Projektort auf der Festplatte des Nutzers dann an das FuseeAT weiterleitet. Somit kann das FuseeAT dann die komplette Steuerung des Projektes übernehmen und Cinema4D stellt nur eine Benutzerschnittstelle zur Interaktion dar. Somit wäre jegliche Funktionalität des FuseeAT in das eigentliche Authoring Framework ausgelagert und somit vom Programm Cinema 4D (oder anderen) abgekoppelt und unabhängig. Das Cinema 4D Plugin, in der Abbildung \ref{FuseeATSystemÜberblick} ebenfalls in grün dargestellt, stellt also nur die Schnittstelle des FuseeAT zur Software Cinema 4D dar und dient in diesem Fall als Kommunikatorensystem zwischen den verschiedenen Architekturen C++ und \CS.
+Das gelb hinterlegte FUSEE Projekt beschreibt ein sich in Produktion befindliches Engine Projekt. Im Unterschied zu den aktuell meisten FUSEE Projekten verwendet es allerdings für den verlauf dieser Arbeit einen Binary Build der Engine. Dies hat den Vorteil, dass nicht der komplette Engine Code während der Arbeit für ein einziges Projekt mitgetragen werden muss. Der Engine Code direkt, wird während dieser Arbeit nicht erweitert, sie beschränkt sich lediglich auf die Erweiterung des Uniplug Projektes welches hier im Plugin Cinema 4D Uniplug in \CSS Container dargestellt ist. Das Uniplug Projekt ist nicht direkt im Kern der Engine angesiedelt und lässt sich deshalb getrennt von dieser bearbeiten.
+\\
+\\
+Damit das System erfolgreich arbeiten kann ist es nötig, aus Cinema 4D verschiedene Information an das FuseeAT weiterzureichen. So muss im Plugin zu Cinema 4D ein Fusee Projekt geöffnet werden. Dies kann über einen UI Dialog geschehen, der die vom Benutzer eingetragenen Informationen über den Projektort auf der Festplatte des Nutzers dann an das FuseeAT weiterleitet. Somit kann das FuseeAT dann die komplette Steuerung des Projektes übernehmen und Cinema4D stellt nur eine Benutzerschnittstelle zur Interaktion dar. Somit wäre jegliche Funktionalität des FuseeAT in das eigentliche Authoring Framework ausgelagert und somit vom Programm Cinema 4D (oder anderen) abgekoppelt und unabhängig. Das Cinema 4D Plugin, in der Abbildung \ref{FuseeATSystemÜberblick} ebenfalls in grün dargestellt, stellt also nur die Schnittstelle des FuseeAT zur Software Cinema 4D dar und dient in diesem Fall als Kommunikatorensystem zwischen den verschiedenen Architekturen C++ und \CS.
 
 
 \subsection{Systemdesign für ein Tool Framework}
-Die folgende Abbildung \ref{FrameworkÜberblick} zeigt das Design für das FuseeAT im Überblick. Der grau hinterlegte Container steht für die mit Hilfe des Uniplug Projektes zu entwickelnde Cinema 4D API Benutzer Schnittstelle. Das FuseeAT kann in vier Bereiche aufgeteilt werden. Zuerst einmal wäre hier das Schnittstellen Modul des FuseeAT für die Kommunikation mit einem Plugin das Außerhalb des Systems verankert ist. Dieses FuseeAT Modul nimmt jegliche Calls (z. Dt. Aufrufe) entgegen und wandelt sie in Operationen des FuseeAT um. Hierzu verwendet weitere Module. Zu den Modulen gehören:
+Die folgende Abbildung \ref{FrameworkÜberblick} zeigt das Design für das FuseeAT im Überblick. Der grau hinterlegte Container steht für die mit Hilfe des Uniplug Projektes zu entwickelnde Cinema 4D API Benutzer Schnittstelle. Das FuseeAT kann in vier Bereiche aufgeteilt werden. Zuerst einmal wäre hier das Schnittstellen Modul des FuseeAT für die Kommunikation mit einem Plugin das außerhalb des Systems verankert ist. Dieses FuseeAT Modul nimmt jegliche Calls (z. Dt. Aufrufe) entgegen und wandelt sie in Operationen des FuseeAT um. Hierzu verwendet weitere Module. Zu den Modulen gehören:
 \begin{itemize}
 \item FuseeAT Projekt Manager
 \item FuseeAT File I/O Manager
@@ -772,7 +773,7 @@ Das Klassendiagramm in Abbildung \ref{FuseeATKlassendiagramm} beschreibt in eine
 	\caption{Klassendiagramm für das Fusee Authoring Toolkit}
 	\label{FuseeATKlassendiagramm}
 \end{figure}
-Das Klassendiagramm \ref{FuseeATKlassendiagramm} zeig bereits die Kompositionen der einzelnen Klassen auf. Die beiden Enumerations ProjectState und ToolState (in Orange hinterlegt) dienen dazu die Integrität eines EngineProjektes zu jeder Zeit zu gewährleisten. Sie werden als return Werte der Schnittstellen Funktionen nach Außen eingesetzt und können somit einen möglichen Entwickler, welcher das FuseeAT erweitern möchte, darüber Informieren ob eine Aktion erfolgreich war oder nicht. Der Entwickler kann dann entscheiden, wie er mit der gewonnenen Information umgehen möchte. In manchen Situationen würde es Sinn machen auf diese Information, evtl. mit einen Rollback oder Ähnlichem zu reagieren. Hier sei angemerkt, dass sich mit dem vormals erwähnten ATF Framework von Sony ein solches Do und Undo System in \CSS realisieren ließe. Es bietet laut Dokumentation ein solches System zur Integration an.
+Das Klassendiagramm \ref{FuseeATKlassendiagramm} zeig bereits die Kompositionen der einzelnen Klassen auf. Die beiden Enumerationen ProjectState und ToolState (in Orange hinterlegt) dienen dazu die Integrität eines Fusee Engine-Projektes zu jeder Zeit zu gewährleisten. Sie werden als Rückgabewerte der Schnittstellen Funktionen nach außen eingesetzt und können somit einen möglichen Entwickler, welcher das FuseeAT erweitern möchte, darüber Informieren ob eine Aktion erfolgreich war oder nicht. Der Entwickler kann dann entscheiden, wie er mit der gewonnenen Information umgehen möchte. In manchen Situationen würde es Sinn machen auf diese Information, evtl. mit einen Rollback oder Ähnlichem zu reagieren. Hier sei angemerkt, dass sich mit dem vormals erwähnten ATF Framework von Sony ein solches Do und Undo System in \CSS realisieren ließe. Es bietet laut Dokumentation ein solches System zur Integration an.
 
 
 \subsection{Systemdesign für ein Plugin System}
@@ -825,7 +826,7 @@ Das Plugin bietet weiterhin die Möglichkeit eine Szene aus Cinema4D in eine im 
 %Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen aus Assets und mehr.
 Da sich die FUSEE Engine in stetiger Entwicklung befindet, gibt es bis jetzt noch keine gesondert etablierte Asset Management Pipeline. Assets werden bis jetzt in Visual Studio direkt im Code per Include eingebunden. Meist handelt es sich bei in FUSEE eingebundenen Assets um eines der folgenden Asset-Typen:
 \begin{itemize}
-\item 3D-Modelle in den Formaten .obj (Dateiformat ist das von Menschen lesbare Model Format “Wavefront Object”\footnote{Entwickelt von Wavefront, das Unternehmen war später unter dem Namen Alias bekannt und wurde zwischenzeitlich von Autodesk aufgekauft \url{http://www.autodesk.de/}})
+\item 3D-Modelle in den Formaten .obj\footnote{Weitere Informationen zum Format unter: \url{http://www.fileformat.info/format/wavefrontobj/egff.htm} Online: geprüft am 27.04.2015} (Bei dem Dateiformat handelt es sich um das lesbare ASCII Model Datenformat “Wavefront Object”\footnote{Entwickelt von Wavefront, das Unternehmen war später unter dem Namen Alias bekannt und wurde zwischenzeitlich von Autodesk aufgekauft \url{http://www.autodesk.de/}})
 \item 2D-Texturen in den Formaten (JPEG, JPG, PNG)
 \item Audio Datei im Format MP3, Wav, etc. (Unterstützt alle von der SFML “Simple and Fast Multimedia Library \url{http://www.sfml-dev.org/} unterstützen Formate.” Inkl. eigener Implementierung einer MP3 Unterstützung durch den FUSEE Entwickler Fabian Gärtner.)
 \end{itemize}
@@ -833,7 +834,7 @@ Da sich die FUSEE Engine in stetiger Entwicklung befindet, gibt es bis jetzt noc
 
 \subsection{Asset Pipelines in Fusee Authoring Toolkit}
 % TODO: Wichtig. Fusee hat die Möglichkeit der .fus Exporte. Hier werden Assets serialisiert und auf die Festplatte geschrieben. Dadurch können sie schnell geladen werden. Die Assets werden mit protobuf serialisiert.
-Die folgende Grafik \ref{FuseeATAssetIteration} \footnote{Abbildung entnommen aus \cite[S. 7]{Carter2004} und neu Illustriert und beschriftet}. erläutert den Ablauf des Asset Authoring (Eines .fus Objektes mit angehängtem Code Component\footnote{Ein Extra Element welches an einem Asset Objekt angehängt ist} oder anderen) mit Hilfe der Asset Pipeline während der Produktion eines FUSEE Engine Projektes. Hierbei handelt es sich um einen iterativen Prozess welcher je nach Ergebnis des Tests und der Evaluation im Engine Projekt eine neue Iteration des Prozesses nach sich ziehen kann. In der Grafik wird Beispielhaft ein Model in Cinema4D erstellt, ein Component angehängt und anschließend vom FuseeAT System zur Laufzeit zu einer XML Datei serialisiert. Diese XML Datei kann dann von jedem Entwickler editiert werden. Die Datei wird weiterhin von FuseeAT in der Cinema4D Szene benötigt um eine Zuordnung eines Asset in der Szene wiederherzustellen.
+Die folgende Grafik \ref{FuseeATAssetIteration} \footnote{Abbildung entnommen aus \cite[S. 7]{Carter2004} und neu Illustriert und beschriftet.} ergänzt die Erläuterung zum Asset Authoring (Eines .fus Objektes mit angehängtem Code Component\footnote{Ein Extra Element welches an einem Asset Objekt angehängt ist} oder anderen) mit Hilfe der Asset Pipeline während der Produktion eines FUSEE Engine Projektes. Hierbei handelt es sich um einen iterativen Prozess welcher je nach Ergebnis des Tests und der Evaluation im Engine Projekt eine neue Iteration des Prozesses nach sich ziehen kann. In der Grafik wird Beispielhaft ein Model in Cinema4D erstellt, ein Component angehängt und anschließend vom FuseeAT System zur Laufzeit zu einer XML Datei serialisiert. Diese XML Datei kann dann von jedem Entwickler editiert werden. Die Datei wird weiterhin von FuseeAT in der Cinema4D Szene benötigt um eine Zuordnung eines Asset in der Szene wiederherzustellen.
 Das erstellte Asset bleibt weiterhin im Cinema4D Format, gespeichert in der Cinema4D Datei des Projektes, vorhanden. Somit besteht das Asset in einer nativen Version weiterhin und kann in einem iterativen Prozess weiterhin verändert werden.
 
 \begin{figure}[ht]
@@ -848,10 +849,11 @@ Während des Build- und/oder Speichervorgangs des Cinema4D und FUSEE Projekts ü
 \subsection{Assetmanagement in Fusee Authoring Toolkit}
 % TODO: Wie kann man die Assets managen und im Speicher halten etc. Wie kann ich das mit der Arbeit verflechten. Eventuell weil der Code auch das Projekt vor hält?
 Oft reicht eine einfache Versionierung, durch z.B. Git, von binären Asset Dateien wie Texturen oder Modellen nicht aus und muss daher von geeigneteren Tools übernommen werden.
-Das Assetmanagment innerhalb eines Projektes wird von FuseeAT nicht abgedeckt und sollte vom Entwicklerteam übernommen werden. Hierzu können verschiedene Tools eingesetzt werden die auf ein Management von Binary Asset Files spezialisiert sind. Beispiele für solche Systeme sind die Software \cite{Alienbrain}\footnote{Webadresse: \url{http://www.alienbrain.com/}} und die Software \cite{Shotgun}\footnote{\url{https://www.shotgunsoftware.com/}}. Diese kommerziellen Tools erlauben das Managen und logistische Verwalten von Assets während der Produktion von Entertainment Produkten. Eine solche Software kann ohne Probleme neben dem FuseeAT eingesetzt werden, da sich die beiden Wirkungsbereiche nicht überschneiden.
+Das Assetmanagment innerhalb eines Projektes wird von FuseeAT nicht abgedeckt und sollte vom Entwicklerteam übernommen werden. Hierzu können verschiedene Tools eingesetzt werden die auf ein Management von Binary Asset Files spezialisiert sind. Beispiele für solche Systeme sind die Software Alienbrain \autocite{Alienbrain}\footnote{Webadresse: \url{http://www.alienbrain.com/}} und die Software Shotgun \autocite{Shotgun}\footnote{\url{https://www.shotgunsoftware.com/}}. Diese kommerziellen Tools erlauben das Verwalten von Binären Assets (z.B. Audio Dateien, 3D-Modelle, Grafiken) während der Produktion von Entertainment Produkten. Eine solche Software kann ohne Probleme neben dem FuseeAT eingesetzt werden, da sich die beiden Wirkungsbereiche nicht überschneiden.
 
 \section{Die Cinema 4D C++ API und ihre Verwendung in diesem Projekt}
-Hier soll ein Überblick über ein Kernsystem dieser Arbeit gegeben werden. Für die Implementierung in FUSEE und dem Cinema 4D Pluginsystem war es nötig, auf das Uniplug System der Hochschule Furtwangen \footnote{Entstanden durch die Leitung und Entwicklung von Herrn. Prof. C. Müller, Fakultät Digitale Medien, in ständiger Weiterentwicklung durch Mitglieder und Studierende des Fusee Teams.} zurückzugreifen. Damit das Uniplug System in dieser Arbeit genutzt werden konnte, waren einige Erweiterungen nötig. Da dies zum Kern der Implementierung und des Systemdesigns von FuseeAT gehört, soll hier darauf eingegangen werden.
+Für die Implementierung in FUSEE und dem Cinema 4D Pluginsystem war es nötig, auf das Uniplug System der Hochschule Furtwangen \footnote{Entstanden durch die Leitung und Entwicklung von Herrn. Prof. C. Müller, Fakultät Digitale Medien, in ständiger Weiterentwicklung durch Mitglieder und Studierende des Fusee Teams.} zurückzugreifen. Damit das Uniplug System in dieser Arbeit genutzt werden konnte, waren einige Erweiterungen nötig. Da dies einen erheblichen Zeitaufwand vor und während der Implementierung bedingte und eine Abhängigkeit von FuseeAT darstellt, soll hier darauf eingegangen werden.
+
 \subsection{In der Implementierung verwendete Softwareprojekte / Ausgangssituation}
 Das Projekt “Fusee Authoring Toolkit” \footnote{Der Name der zu dieser Arbeit zugehörigen Softwarebibliothek} basiert auf mehreren Software Projekten. Ein Teil dieser Projekte wurde an der Hochschule Furtwangen entwickelt. Ein anderer Teil stammt von externen Entwicklen und gehört zu proprietärer Software. Dieser Abschnitt gibt einen Überblick über die verwendeten Softwarebestandteile und ihrer Einbindung in der Implementierung zur Zeit dieser Arbeit.
 \\
@@ -862,17 +864,17 @@ Verwendet wurden:
 \item Uniplug, ein in Fusee beinhaltetes Projekt zum Schreiben von Plugins in \CSS für Cinema 4D
 \item Die FUSEE Engine, eine Interaktive Simulations Engine zur Darstellung zweidimensionaler und dreidimensionaler Szenen
 \item Die Maxon Cinema 4D API(Hier sind nur C++ Headerfiles verfügbar. Jeglicher implementierter Cinema4D Programmcode ist nicht einsehbar.)
-\item Verschiedene Windows Bibliotheken aus dem .NET Universum
+\item Verschiedene Windows Bibliotheken aus dem .NET Framework auf welche hier nicht weiter eingegangen werden soll
 \end{itemize}
 
 \subsection{Cinema 4D Plugin API und SDK}
-Cinema 4D R16 \autocite{MaxonC4d2014} ist ein kommerzielles proprietäres Produkt des Unternehmens MAXON Computer GmbH und steht nicht als Open Source Projekt zur Verfügung. Maxon stellt für die Entwicklung von Plugins\footnote{Plugins in C4D - Erweiterungen für die Software Cinema 4D und deren Funktionen} eine API\footnote{Application Programming Interface, z. Dt. Programmierschnittstelle} bereit. Bei dieser API handelt es sich um eine Bibliothek geschrieben in C++. Dieser Code kann in Form von Header Files in die eigene Applikation integriert werden. Durch diese C++ Headerfiles ergibt sich eine Schnittstelle zu interenen Methoden in der Cinema 4D Software. Die tatsächlichen Methoden können mit der API nicht eingesehen werden, es handelt sich hier lediglich um Header Files ohne den Code der tatsächlichen Implementierung. Das C++ SDK wird bei einer Installation von Cinema 4D automatisch mitinstalliert. Auf einem Windows PC findet sich das SDK und die dazugehörigen Visual Studio Solution Dateien unter folgendem Pfad ausgehend vom Installations Ordner der 64Bit\footnote{Cinema 4D liegt seit der Version R15 nur noch als 64 Bit Version vor und benötigt laut \url{http://www.maxon.net/?id=311}(Maxon C4D System Requirements) ein 64 Bit System}: {“Cinema 4D/plugins/cinema4dsdk”}
+Cinema 4D R16 \autocite{MaxonC4d2014} ist ein kommerzielles proprietäres Produkt des Unternehmens MAXON Computer GmbH und steht nicht als Open Source Projekt zur Verfügung. Maxon stellt daher für die Entwicklung von Plugins\footnote{Plugins in C4D - Erweiterungen für die Software Cinema 4D und deren Funktionen} und die Erweiterung des Cinema 4D Funktionsumfangs eine API\footnote{Application Programming Interface, z. Dt. Programmierschnittstelle} bereit. Bei dieser API handelt es sich um eine Bibliothek geschrieben in C++. Dieser Code kann in Form von Header Files in die eigene Applikation integriert werden. Durch diese C++ Headerfiles ergibt sich eine Schnittstelle zu internen Methoden in der Cinema 4D Software. Die tatsächliche Implementierung kannmit der API nicht eingesehen werden, es handelt sich hier lediglich um Header Files ohne den tatsächlichen Code. Das C++ SDK wird bei einer Installation von Cinema 4D automatisch mitinstalliert. Auf einem Windows PC findet sich das SDK und die dazugehörigen Visual Studio Solution Dateien unter folgendem Pfad ausgehend vom Installations Ordner der 64Bit\footnote{Cinema 4D liegt seit der Version R15 nur noch als 64 Bit Version vor und benötigt laut \url{http://www.maxon.net/?id=311}(Maxon C4D System Requirements) ein 64 Bit System}: {“Cinema 4D/plugins/cinema4dsdk”}
 \\
 \\
-Maxon stellt jegliche SDKs und Beispiele auf seinem GitHub Account unter der Apache License Version 2.0, January 2004\footnote{Apache Licence 2.0 \url{https://github.com/PluginCafe/cinema4d_cpp_sdk/blob/master/LICENSE}} zur freien Verfügung \url{https://github.com/PluginCafe}. Das C++ SDK ist unter dieser Adresse einsehbar: \url{https://github.com/PluginCafe/cinema4d_cpp_sdk}
+Maxon bietet Beispiele zur Cinema 4D API auf einem GitHub Account\footnote{\url{https://github.com/PluginCafe}} unter der Apache License Version 2.0, January 2004\footnote{Apache Licence 2.0 \url{https://github.com/PluginCafe/cinema4d_cpp_sdk/blob/master/LICENSE}} zum kostenfreien Download an. Das C++ SDK/API ist seit der Version R16 fester Bestandteil der Cinema 4D Installation und muss nicht extra heruntergeladen oder gebaut werden.
 
-Das folgende Schaubild erläutert die Verwendung der API. Es ist in der Tat som dass der eigene Plugin Code laut Maxons Dokumentation einige Funktionen überschreiben bzw. Klassen vererben muss. Ansonsten ist der Inhalt des Plugincodes nicht beschränkt. 
-\newpage
+Voraussetzung für das Erstellen eines Plugins ist, dass der eigene Plugin Code laut Maxons Dokumentation einige Funktionen überschreiben bzw. Klassen vererben muss. Ansonsten ist der Inhalt des Quellcodes seitens Maxon nicht beschränkt. Das folgende Schaubild \ref{C4D API Schaubild} erläutert die Funktionsweise des Cinema 4D Plugin Systems. Der Entwickler kann seinen C++ Code fast frei entwickeln und ist nur dazu angehalten sich an Maxons Richtlinien zur Kommunikation mit dem Produkt Cinema 4D zu halten. Der Entwickler hat dabei die volle Kontrolle über seinen eigenen Plugin Code. Die Schnittstelle (C4D API/SDK) ist zumindest durch die mitgelieferten C++ Headerfiles noch einsehbar. Dies unterstützt den Entwickler eines Plugins während des debuggens. Sobald Aufrufe die eigentliche Software Cinema 4D erreichen, ist das einsehen des Codes nicht mehr möglich.
+
 \begin{figure}[ht]
 	\centering
   \includegraphics[width=\linewidth]{Bilder/C4D_Api_Schaubild_v1.jpg}
@@ -880,12 +882,12 @@ Das folgende Schaubild erläutert die Verwendung der API. Es ist in der Tat som 
 	\label{C4D API Schaubild}
 \end{figure}
 
-Das hier dargestellte Minimalbeispiel in C++ Code zeigt ein einfaches minimalistisches Plugin welches beim Ausführen nur eine Ausgabe auf der Konsole von Cinema 4D erzeugt.
+Das hier dargestellte Minimalbeispiel \ref{BasicC4dPlugin} in C++ Code zeigt ein einfaches minimalistisches Plugin welches beim Ausführen nur eine Ausgabe auf der Konsole von Cinema 4D erzeugt.
 
 \newpage
-\lstinputlisting[language=C++, caption = Einfaches Cinema 4D Plugin in der Programmiersprache C++]{Code/minimalbeispielPlugin.h}
+\lstinputlisting[language=C++, caption = Einfaches Cinema 4D Plugin in der Programmiersprache C++, label=BasicC4dPlugin]{Code/minimalbeispielPlugin.h}
 
-Das hier dargestellte Code Beispiel wird im nächsten Abschnitt relevant. Es folgt ein Überblick über das Uniplug Projekt welches das Schreiben von Cinema 4D Plugins in \CSS ermöglicht. Die oben gezeigte  Codestruktur wird dann noch einmal als \CSS Version erläutert.
+Dieses Code Beispiel wird im nächsten Abschnitt relevant. Es folgt ein Überblick über das Uniplug Projekt welches das Schreiben von Cinema 4D Plugins mit Hilfe der Programmiersprache \CSS ermöglicht. Die oben gezeigte  Codestruktur wird dann noch einmal als \CSS Version erläutert.
 
 \subsection{Uniplug}
 Bei Uniplug handelt es sich um ein Teil des Projektes FUSEE der Hochschule Furtwangen. Uniplug bietet die möglichkeit Cinema 4D Plugins in \CSS zu schreiben. Hierfür bedient es sich eines Interface Compilers SWIG [\fullcite{SWIG2015}]. Das gesamte Uniplug Projekt ist ein Open Source Projekt und steht auf GitHub Repository unter \url{https://github.com/FUSEEProjectTeam/Fusee} innerhalb des Fusee Projekts zum Download bereit. Das Uniplug Projekt stand bereits vor dieser Arbeit zur Verfügung. Allerdings hatte es nich den nötigen Umfang und das Projekt wurde während der Arbeit um wichtige Funktionen zur Entwicklung von Plugins erweitert. Folgende in Abbildung \ref{UniPlugVSStruktur} dargestellten Module sind Bestandteil des Uniplug Systems.
@@ -1017,16 +1019,20 @@ Das Fusee Level, Welt wie auch immer es hier bezeichnet werden sollte. Eine Basi
 Alles andere muss auf Level etc aufgeteilt werden und bis zum einzelnen Asset heruntergebrochen werden.
 
 \subsubsection{Unterschiede des FUSEE Szenengraphen zum Cinema4D Szenengraphen}
-
+% TODO: Nodes etc. hier darstellen und etwas dazu schreiben. Dann aber auch herausheben warum das wichtig ist. Das hat dann mit den Szenen exports etc. zu tun.
 \subsubsection{Der Export einer Cinema 4D Szene in den FUSEE Szenengraphen}
-%TODO: 
+%TODO:  Wie kann der export stattfinden?
 
 
-\section{Betrachtung der Implementierung}
+\section{Fortschritt der Implementierung}
 Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits erfolgte Implementierung und zeigt welche Aufgaben sich mit dem zum Zeitpunkt der Arbeit bereits Implementierten Teil der Software erledigen lassen.
 % TODO: Wie Weit ist die Implementierung vorran gekommen. Evtl. dann Anfang bis Mitte Mai zu ende schreiben.
 
-\subsubsection{Welche Teile des System Designs wurden bereits implementiert?}
+\subsection{Probleme während der Implementierung}
+% TODO: Zeitliche Probleme schildern welche hier vor allem das Problem mit der C4D API in den Vordergrund stellen soll. Eventuell mit diesem Abschnitt noch etwas warten oder am Ende umformulieren.
+% TODO: Erst Entwicklung von Uniplug erweitern bevor mit dem Plugin gearbeitet werden kann. Probleme durch das Wrappen und die fehlende Möglichkeit zu debuggen.
+
+\subsection{Welche Bereiche des Systemdesigns wurden bereits umgesetzt?}
 %Kette aufzeigen von Cinema4D nach Fusee Authoring Toolkit.
 
 \subsection{Implementierung: Generieren eines FUSEE Projektes}
@@ -1036,8 +1042,9 @@ Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits er
 %\subsection{Partial Classes in .NET}
 %Sind bis jetzt noch nicht verwendet worden.
 
-\subsubsection{Probleme und Herausforderungen während der Entwicklung}
-% TODO: Erst Entwicklung von Uniplug erweitern bevor mit dem Plugin gearbeitet werden kann. Probleme durch das Wrappen und die fehlende Möglichkeit zu debuggen.
+\subsection{Implementierung: Anfügen von Code an ein Asset}
+
+\subsection{Implementierung: Ablaufdiagramme}
 
 \subsection{Ein Anwendungsgebiet für die Implementierung: XPresso Schaltungen - Visual Programming / Programmieren ohne das schreiben von Code}
 % TODO: Hierzu gab es ein Paper auf welches ich gut verweisen könnte. Eventuell auch auf den Sony Editor welcher so eine Node basierte Programmierung bieten kann etc.
