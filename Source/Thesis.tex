@@ -464,22 +464,97 @@ Diese Arbeit bezieht sich auf den Bereich des Tool Development. Hierbei entwicke
 Computer Graphics Ingenieure beschäftigen sich meist mit dem entwickeln der eigentlichen Engine (und den angrenzenden Teilgebieten) des Produktes. Oft sind Graphics Engineers aber auch an der Tool Entwicklung beteiligt. Gerade in kleineren Unternehmen könnten die eigentlichen Strukturen schnell aufbrechen um Synergien im Team zu nutzen. Sie beschäftigen sich ausserdem häufig mit der Production Pipeline zum erstellen der Game Assets. Vgl. \autocite[S. 27 ]{Chandler2006}
 
 \section{Stakeholderanalyse intern}
-% TODO: Das muss erweitert werden. Hierzu gab es ein Tool zur Stakeholder analyse. Eventuell unterstützen hier ein paar Diagramme.
-Um herauszufinden, welche Entwicklergruppen eines Teams von neuen Development Tools im Bezug auf Fusee betroffen sind, wurde eine Analyse durchgeführt, um die Stakeholder innerhalb des Teams abzubilden. Die Begründung ist, dass Stakeholder ein wichtiger Bestandteil des Prozesses der Softwareentwicklung sind, da sich die Softwareentwicklung immer auf das Ergebnis und den “Kunden” (in diesem Fall selbst Entwickler des eigenen Unternehmens) ausrichtet.
+Um herauszufinden, welche Entwickler eines Teams von der Entwicklung neuer Development Tools im Blick auf ein Spieleentwickler Unternehmen betroffen sind, wurde eine Analyse durchgeführt, um die Stakeholder innerhalb des Teams zu identifizieren. Stakeholder sind ein wichtiger Bestandteil des Prozesses der Softwareentwicklung aber warum ist das so und was genau sind Stakeholder?
+\begin{quote}
+“Stakeholders are persons or organizations [...], who are actively involved in the project or whose interests may be positively or negatively affected
+by the performance or completion of the project.”
 
+\fullcite[S. 23]{PMBOK}
+\end{quote}
+Stakeholder sind für dieses Projekt also alle Personen und auch Organisationen die einen indirekten oder direkten Bezug zum Projekt haben (siehe Abbildung \ref{StakeholderÜbersicht}). Somit gehört zu den Stakeholdern auch das interne Entwicklerteam, welches nach Fertigstellung des Projektes mit dem entwickelten Tool arbeiten soll.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{Bilder/Stakeholder_Uebersicht.jpg}
+	\caption{Überblick Stakeholder. Alle am Projekt beteiligten Personen oder Organisationen müssen beachtet werden. Grafik entnommen aus \autocite[S. 24]{PMBOK}.}
+	\label{StakeholderÜbersicht}
+\end{figure}
+
+Wihlidal beschreibt ein weit verbreitetes Problem welches durch Fehler in der Stakeholder analyse entsteht:
 \begin{quote}
 It is very important to ask the right questions to your stakeholders [...] a lot of design and development time is wasted because of incorrect user requirements. Getting them right from the start will help alleviate this problem.
 \autocite[S. 28]{Wihlidal2006}
 \end{quote}
 
+
+
 In der Praxis wäre für die Konzeption bzw. das Systemdesign eines neuen Tools der Besuch der von der Tool Entwicklung betroffenen Teammitglieder am Arbeitsplatz und das beobachten der jeweils verrichteten Aufgaben sehr aufschlussreich. Durch diese Methode könnten Probleme im Arbeitsablauf frühzeitig identifiziert, behoben und besonders wichtige Features rechtzeitig vor Beginn der Implementierung in Erfahrung gebracht und geplant werden.
 
-\autocite{Wihlidal2006} beschreibt Stakeholder bezüglich des Tool Development folgendermaßen:
+\autocite{Wihlidal2006} beschreibt Stakeholder bezüglich des Gebietes Tool Development folgendermaßen:
 \begin{quote}
-“They (Stakeholders, Anmerkung des Autors) are the users who are most affected by the introduction of a tool and they ultimately contribute to the design and goals. (Stakeholders are, Anmerkung des Autors) defined as anyone who stands to gain or lose from the succes or failure of an application [...].” \autocite[S. 4-5]{Wihlidal2006}
+“They (Stakeholders, Anmerkung des Autors) are the users who are most affected by the introduction of a tool and they ultimately contribute to the design and goals. Stakeholders are (Anmerkung des Autors) defined as anyone who stands to gain or lose from the succes or failure of an application [...].” \autocite[S. 4-5]{Wihlidal2006}
 \end{quote}
+Diese Definition deckt sich mit der ogen erwähnten allgemeinen Definition der Stakeholder. Lediglich die Weitläufigkeit der Stakeholder hält sich hier in Grenzen. Sollte für das Softwareprodukt keine Veröffentlichung der Tools zur Generierung von User Generated Content geplant sein, beschränkt sich der Kreis der Stakeholder auf das interne Entwicklerteam. Eventuell sind noch andere Publishereigene Studios und Teams zu berücksichtigen. Dies kann vor allem dann der Fall sein, wenn eine Spiele Engine in mehreren Studios eines Publishers eingesetzt wird. Als Beispiel sei hier die 3D Engine Frostbite Engine \footnote{\fullcite{FrostbiteEngine}} von Digital Illusions CE \footnote{\url{http://www.frostbite.com}} unter dem Publisher Electronic Arts \footnote{\url{http://www.ea.com}} angeführt. Dieser Publisher setzt für alle aktuellen Projekte\footnote{\url{http://www.frostbite.com/games/future-games/}} seiner Studios auf die gleichen Tools und die gleiche Engine.
 
 Aus diesen Gründen ist eine Stakeholderanalyse (auch bei kleineren Projekten) ein Wichtiger Bestandteil des Entwicklungsprozesses. Eine Bedarfsanalye und eine allgemeine Analyse der Aufgabengebiete der jeweiligen Entwickler sollte in das System Design bzw. das Requirements Engineering ebenfalls mit einfließen. Hierzu könnten Interviews (Gespräche und Befragungen zu den Wünschen der Anwender) mit den Anwendern geführt werden. Dies ist eine schnelle Methode welche sich gut mit einem agilen Prozess wie Scrum oder iterativen Prozessen vereinbaren lässt.
+
+\subsection{Prozess der Stakeholderanalyse}
+Die Stakeholderanalyse wurde in folgenden Schritten durchgeführt und skizziert. Da diese Arbeit sich nicht auf ein reales Team bezieht, wurden statt der jeweiligen Personen oder Organisationen die Berufsbilder der eigentlichen Personen in den Vordergrund gestellt.
+\begin{itemize}
+\item Identifizieren der Stakeholder durch kreative Techniken wie z.B. Brainstorming
+\item Stakeholder in eine Gittergrafik einteilen um ihre Nähe zum Projekt zu bestimmen
+\item Interpretation der Stakeholder Absichten während des Projekts
+\item Entwickeln von Maßnahmen um:
+	\begin{itemize}
+	\item Risiken zu identifizieren
+	\item Beteiligungen im Projekt herauszuarbeiten
+	\item Eine Umsetzungsstrategie zu entwickeln
+	\end{itemize}
+\end{itemize}
+
+Der dritte Punkt die Interpretation der Absichten und Einstellung des jeweiligen Stakeholder zum Projekt entfällt in diesem Fall. Es ist ohne konkrete Personen schlicht nicht möglich eine persönliche fachliche Meinung des Stakeholders zu repräsentieren. Es wird an Stelle dessen hier davon ausgegangen, dass jeder Stakeholder ein Benutzerfreundliches praktisches Tool erhalten möchte welches den definierten Anforderungen dieser Arbeit entspricht.
+
+\subsubsection{Identifizieren der Stakeholder}
+Die Stakeholder wurden durch die kreative Methode eines Brainstormings als folgende Berufsgruppen innerhalb des Entwicklerteams des Unternehmens identifiziert. Auf Personengruppen außerhalb des Entwicklerteams wie z.B. Finanzabteilungen etc. soll nicht eingegangen werden, da sich diese Arbeit mit dem Prozess zur Konzeption eines Tools und der eigentlichen Konzeption zu diesem beschäftigt.
+\begin{itemize}
+\item Engineer
+	\begin{itemize}
+	\item Tool Eng.
+	\item Graphic Eng.
+	\item Network Eng.
+	\item Articicial Intelligence Eng.
+	\end{itemize}
+\item Artist
+	\begin{itemize}
+	\item Animator
+	\item World Builder / Level Designer
+	\end{itemize}
+\item Game-Designer
+	\begin{itemize}
+	\item Level Designer
+	\item Game Logic Scripter
+	\item User Interface Designer
+	\end{itemize}
+\item Producer
+	\begin{itemize}
+	\item Development Producer
+	\item Publisher Producer
+	\end{itemize}
+\end{itemize}
+Die Producer werden innerhalb der Konzeption dieser Arbeit als Designer betrachtet und unter dieser Gruppe geführt. Sollten die Producer denn Aufgaben an der Entwicklung übernehmen sind diese meist deckungsgleich mit den Aufgabenstellungen der Designer. Trotz allem sind die Producer hier aufgrund ihrer tragenden Rolle im Projekt als Stakeholder identifiziert worden. In vielen Fällen haben sie auch massive Entscheidungsgewalt über die verwendeten Techniken und Ressourcen während des Projektverlaufs.
+
+\subsubsection{Involvement in das Projekt erkennen und bestimmen}
+Um zu erkennen in welchem Bezug ein Stakeholder zu einem Projekt steht, wurde ein Gittermodell \ref{StakeholderGrafik} der Entwickler erstellt. Hier finden sich Beispielhaft weitere Stakeholder zur Verdeutlichung der Grafik. Hierzu zählen der Publisher, welcher als Organisation auftritt und weitere Entwicklerteams des gleichen Publishers die möglicherweise mit der gleichen Engine und evtl. den gleichen Werkzeugen arbeiten.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{Bilder/Stakeholder_Diagramm.jpg}
+	\caption{Überblick über die Identifizierten Stakeholder und deren Inovelement in die Planung und Umsetzung des Tool Projektes.}
+	\label{StakeholderGrafik}
+\end{figure}
+
+\subsubsection{Entwickeln einer Umsetzungsstrategie}
+Mithilfe der ermittelten Stakeholder und den oben angeführten Projektmanagementmodellen kann nach dieser Analyse ein Prozess und ein Konzept für ein Tool entwickelt werden. Die nächsten Abschnitte beschäftigen sich mit der Entwicklung eines Arbeitsprozesses zur Konzeption eines Software Tools und dessen Umsetzung auf Basis der jetzt durchgeführten Analysen.
 
 \section{Der Arbeitsprozess zur Authoring Tool Entwicklung}
 \subsection{Game Authoring / Game Development}
