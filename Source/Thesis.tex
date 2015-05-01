@@ -739,7 +739,7 @@ Es folgt ein Überblick über aktuell auf dem Markt vorhandene Game Engines. Auf
 \subsection{Unreal Engine 4}
 Die UnrealEngine4\footnote{\fullcite{UnrealEngine4}} wird von EPIC Games Inc. entwickelt und stellt eine im grafischen Sektor im High End Bereich angesiedelte Game Engine dar. Bei ihr handelt es sich um eine an einen Authoringeditor (Welt Editor / Level Editor) gebundene Game Engine.Alle Teile des Projekts kommen in diesem Editor zusammen und Projekte müssen dort bearbeitet werden. Die Engine sieht die Verwendung von Visual Studio 2013 auf Windows Rechnern und der IDE XCode auf Mac Rechnern zum schreiben von Code und dem kompilieren von Projekten vor. Seit kurzem ist die Unreal Engine kostenfrei unter \url{http://www.unrealengine.com} zu beziehen. Sollte ein mit der UE4 entwickeltes Produkt kommerziell vertrieben werden, so sind 5\% des Umsatzes an Lizenzgebühren an EPIC zu bezahlen.
 
-Sourcecode wird in der Unreal Engine in C++ und Blueprint geschrieben. Bei Blueprint handelt es sich um eine von EPIC entwickelte Scripting Language die sich Entwickler wendet welche sich weniger auf dem Sektor des Programmierens auskennen.
+Sourcecode wird in der Unreal Engine in C++ und Blueprint geschrieben. Bei Blueprint handelt es sich um eine von EPIC entwickelte Visual Scripting Language (ein Node basiertes System) die sich verstärkt an Designer und Artists richtet.
 
 Die UE4 kann Builds für folgende Plattformen erzeugen:
 \begin{itemize}
@@ -761,8 +761,45 @@ Plattformen auf welchen mit der Unreal Engine entwickelt werden kann sind:
 
 Der Sourcecode der Unreal Engine steht auf GitHub\footnote{\url{https://www.unrealengine.com/ue4-on-github}} zur freien Verfügung. Aus diesen Gründen wird die aktuellste Version der Unreal Engine, Version 4, für die Analyse dieser Arbeit zugrunde gelegt.
 
+Der Unreal Engine 4 Editor ist sehr flexibel an die eigenen Bedürfnisse anpassbar. Abhängig von den Wünschen der Entwickler kann die Oberfläche mehr auf das Entwickeln oder Designen ausgerichtet werden und bietet ähnliche Funktionen wie z.B. das Modeling Programm Cinema 4D. Der Editor bietet zu fast jeder Aktion eine Grafische Oberläche an. So genannte Projekt Wizards, führen den Benutzer bei komplexeren Prozessen an der Hand und erleichtern ihm so die Konfiguration von Assets im Editor. Sie unterstützen z.B. beim erstellen einer neuen Klasse oder dem Anlegen eines neuen Materials. Diese Wizards sind besonders für Neueinsteiger nützlich. Sie verdeutlichen den Ablauf eines Prozesses und unterstützen ein Fehlerfreies Abarbeiten der gewünschten Aktion.
+
 \subsubsection{Coding in der Unreal Engine 4}
+Entwickelt werden Anwendungen aus einer Mischung von Blueprint Items und C++ Code. 
+Blueprint ist node basiert, deswegen nicht ganz drauf eingehen
+C++ wird in VS entwickelt. Der Code kann kompiliert werden im Editor und dann gleich eingesetzt werden. C++ hat Schnittstellen zu Blueprint. Es bietet die Möglichkeit im Editor editierbare Variablen und Funktionen anzulegen.
+Neues Projekt und bei Erstellung wird gefragt wie man beginnen möchte. C++ oder Blueprint. Hier zeichnet sich schon eine Trennung ab. Eventgraphen noch betrachten oder kurz erwähnen.
+
 \subsubsection{Asset Verwaltung in der Unreal Engine 4}
+Assets können in der Unreal Engine 4  z.B. im Dateiformat .fbx (Version 2013) Importiert werden. Die Modelle und Materialien können hierbei z.B. direkt in 3DS Max, Modo oder Cinema 4D erstellt und übernommen werden. Es ist also möglich, die UE4 direkt in die AssetPipeline einzubinden. Durch die offene Verfügbarkeit des Quellcodes können auch eigene Module für die UE4 geschrieben werden, welche die Assetpipleine erweitern. Die Unreal Engine bietet einen Contentbrowser (siehe Abbildung \ref{UEContentbrowser}) an, welcher es ermöglicht Assets zu sortieren und diese zu durchsuchen. Die Assets können dann per Drag and Drop in die Szene der Engine eingefügt werden.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{Bilder/UE_Contentbrowser.JPG}
+	\caption{Ansicht des Contentbrowsers der Unreal Engine 4. Mit Suchfeld und Filterfunktionen, Assetvorschau ausklappbarer Ordnerstruktur.}
+	\label{UEContentbrowser}
+\end{figure}
+
+Zur Versionsverwaltung der Assets ist die Möglichkeit zur Integration eines Versionskontrollsystems gegeben. Eingebunden werden können auf GIT, Subversion und Perforce basierte Systeme.
+
+\subsubsection{Szenengraph in der Unreal Engine}
+Hier gehts um den UE4 Szenengraphen \ref{UESzenenGraph} und seine Gemeinsamkeiten mit dem Fusee und Cinema4D Szenengraphen.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=9cm, height=10cm]{Bilder/UESzenenGraph.JPG}
+	\caption{Beispielhafte Szene im Szenengraph der Unreal Engine 4. Er gleicht dem Fusee und Cinema 4D Szenengraphen stark.}
+	\label{UESzenenGraph}
+\end{figure}
+Der Szenengraph hängt unmittelbar mit der Detailansicht der Elemente zusammen. In der Detailansicht können jegliche “Components” an einem Objekt der Szene betrachtet und verändert werden.
+
+\subsubsection{Schwierigkeiten}
+Sehr Komplex
+Viel neues zu lernen. Wahnsinnig Tiefgehend.
+Blueprints sind ein praktisches System aber man muss einen gewissen Wissensstand haben um zu finden was gesucht wird etc.
+Als Entwickler muss man mit dem Editor und dem Code in VS arbeiten.
+Blueprint ist sehr präsent und nicht mehr “nur” eine Skriptsprache wie das Kismet System in der UE3 sondern ein gesamtes System. Es wird als Zentrale Konfigurationsmöglichkeit angeboten. Man kommt eigentlich nicht daran vorbei. Prefabs möglichkeiten etc. Dazu konfigurationen und speichern etc. Instanzen können jedesmal anders eingestellt werden.
+
+% Hier wichtig. Dazu schreiben wie ist er aufgebaut und welche Möglichkeiten hat man dort. Was bringt die Übersicht?
+
 
 \subsection{Unity 3D}
 Die Unity 3D Engine \footnote{\fullcite{UnityEngine5}} in der Version 5 wird von Unity Technologies entwickelt. Das Lizenzmodell sieht eine kostenfreie Variante mit einigen Einschränkungen und eine an Professionelle Nutzer gerichtete kostenpflichtige Version für in etwa 75\$ pro Monat vor. Enterprise Versionen, welche auch den Sourcecode der Engine enthalten, können über eine gesonderte Kontaktaufnahme gekauft werden. Die Unity Engine ist an den Unity Editor gebunden. In diesem Editor werden alle Entwickleraufgaben erledigt. Die IDE kann vom Programmierer frei gewählt werden. Es empfiehlt sich aktuell aber auf das von Unity mitgelieferte Mono Develop, Xamarin Studio oder Visual Studio in einer Version ab 2013 zu setzen. Vollen Support bietet aber aktuell nur das mitgelieferte Mono Develop. Unity unterstützt die Programmiersprachen \CS, Javascript und Boo. Bei Boo handelt es sich um eine von Unity Technologies selber entwickelte Skriptsprache.
