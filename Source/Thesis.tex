@@ -737,7 +737,7 @@ Es folgt ein Überblick über aktuell auf dem Markt vorhandene Game Engines. Auf
 % TODO: Wichtig hier noch was zu tun.
 
 \subsection{Unreal Engine 4}
-Die UnrealEngine4\footnote{\fullcite{UnrealEngine4}} wird von EPIC Games Inc. entwickelt und stellt eine im grafischen Sektor im High End Bereich angesiedelte Game Engine dar. Bei ihr handelt es sich um eine an einen Authoringeditor (Welt Editor / Level Editor) gebundene Game Engine.Alle Teile des Projekts kommen in diesem Editor zusammen und Projekte müssen dort bearbeitet werden. Die Engine sieht die Verwendung von Visual Studio 2013 auf Windows Rechnern und der IDE XCode auf Mac Rechnern zum schreiben von Code und dem kompilieren von Projekten vor. Seit kurzem ist die Unreal Engine kostenfrei unter \url{http://www.unrealengine.com} zu beziehen. Sollte ein mit der UE4 entwickeltes Produkt kommerziell vertrieben werden, so sind 5\% des Umsatzes an Lizenzgebühren an EPIC zu bezahlen.
+Die UnrealEngine4\footnote{\fullcite{UnrealEngine4}} (kurz UE4) wird von EPIC Games Inc. entwickelt und stellt eine im grafischen Sektor im High End Bereich angesiedelte Game Engine dar. Bei ihr handelt es sich um eine an einen Authoringeditor (Welt Editor / Level Editor) gebundene Game Engine.Alle Teile des Projekts kommen in diesem Editor zusammen und Projekte müssen dort bearbeitet werden. Die Engine sieht die Verwendung von Visual Studio 2013 auf Windows Rechnern und der IDE XCode auf Mac Rechnern zum schreiben von Code und dem kompilieren von Projekten vor. Seit kurzem ist die Unreal Engine kostenfrei unter \url{http://www.unrealengine.com} zu beziehen. Sollte ein mit der UE4 entwickeltes Produkt kommerziell vertrieben werden, so sind 5\% des Umsatzes an Lizenzgebühren an EPIC zu bezahlen.
 
 Sourcecode wird in der Unreal Engine in C++ und Blueprint geschrieben. Bei Blueprint handelt es sich um eine von EPIC entwickelte Visual Scripting Language (ein Node basiertes System) die sich verstärkt an Designer und Artists richtet.
 
@@ -764,13 +764,27 @@ Der Sourcecode der Unreal Engine steht auf GitHub\footnote{\url{https://www.unre
 Der Unreal Engine 4 Editor ist sehr flexibel an die eigenen Bedürfnisse anpassbar. Abhängig von den Wünschen der Entwickler kann die Oberfläche mehr auf das Entwickeln oder Designen ausgerichtet werden und bietet ähnliche Funktionen wie z.B. das Modeling Programm Cinema 4D. Der Editor bietet zu fast jeder Aktion eine Grafische Oberläche an. So genannte Projekt Wizards, führen den Benutzer bei komplexeren Prozessen an der Hand und erleichtern ihm so die Konfiguration von Assets im Editor. Sie unterstützen z.B. beim erstellen einer neuen Klasse oder dem Anlegen eines neuen Materials. Diese Wizards sind besonders für Neueinsteiger nützlich. Sie verdeutlichen den Ablauf eines Prozesses und unterstützen ein Fehlerfreies Abarbeiten der gewünschten Aktion.
 
 \subsubsection{Coding in der Unreal Engine 4}
-Entwickelt werden Anwendungen aus einer Mischung von Blueprint Items und C++ Code. 
-Blueprint ist node basiert, deswegen nicht ganz drauf eingehen
-C++ wird in VS entwickelt. Der Code kann kompiliert werden im Editor und dann gleich eingesetzt werden. C++ hat Schnittstellen zu Blueprint. Es bietet die Möglichkeit im Editor editierbare Variablen und Funktionen anzulegen.
-Neues Projekt und bei Erstellung wird gefragt wie man beginnen möchte. C++ oder Blueprint. Hier zeichnet sich schon eine Trennung ab. Eventgraphen noch betrachten oder kurz erwähnen.
+Anwendungen in der UE4 können mit Hilfe von verschiedenen Codingmechanismen erstellt werden. Die erste Möglichkeit wäre die dauerhafte Verwendung des Editors und des Konzeptes des Visual Programming mit Hilfe des Unreal eigenen Blueprint Systems. Beim Visual Programming handelt es sich wie die Bezeichnung bereits andeutet um visuelles Programmierung mit Hilfe von Grafischer Darstellung des Codes anstelle der Darstellung als Text. Hierbei werden oft Systeme eingesetzt die auf Nodes basieren. Die Abbildung \ref{UE4Blueprint} zeigt einen Ausschnitt aus einem Visual Programming Code welcher mit Blueprint erstellt wurde. Als Blueprint wird eine zusammengesetze Konfiguration aus Assets und Node basiertem Code bezeichnet.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{Bilder/ue4Blueprint.jpg}
+	\caption{Programmierung in der Unreal Engine 4 mit Hilfe des Blueprint Visual Programming Systems/Interfaces}
+	\label{UE4Blueprint}	
+\end{figure} 
+
+Die etablierte Programmiersprache C++ ist zweite Möglichkeit mit der UE4 Code zu schreiben. Allerdings hat EPIC die Unreal Engine Compiler dahingehend erweitert, dass ein spezielles Reflection System für die UE4 spezielle Sprachkonstrukte erkennen und in der Engine verwenden kann. Das Beispiel \ref{UE4_Makros}\footnote{Entnommen und abgeändert/erweitert aus der C++ Datei UECodeAnalysisProjectile.h des Beispiels “First Person Scene” des Unreal Engine 4 Editors.} zeigt mehrere solcher Markup Befehle vor den jeweiligen Funktionen, Properties der Klasse. Es handelt sich hierbei um Bezeichnungen wie z.B. UENUM(), UCLASS(), USTRUCT(), UFUNCTION(), und UPROPERTY().
+
+\lstinputlisting[language=C++, caption = Unreal Engine C++ Header Datei. Makros als Markup Befehle, label=UE4_Makros]{Code/ue4makros.h}
+
+Diese Makros und weitere sind alle in der UE4 Dokumentation \url{https://docs.unrealengine.com/latest/INT/} aufgelistet. Allerdings ist diese Art der Deklaration nur für bestimmte Schnittstellen Klassen essentiell. Der meiste selbst geschriebene Code kann ohne diese Makros geschrieben werden. Sie dienen nur der Kommunikation mit dem Editor und Kernsystemen der Engine. Es ist aber zu empfehlen diese Möglichkeit zu nutzen, so kümmert sich Beispielsweise der Garbage Collector der UE4 um Properties und Objekte welche mit den korrekten Makros ausgezeichnet wurden. 
+\begin{quote}
+For instance, a variable with a declaration prefaced by a UPROPERTY() macro can be garbage collected by the engine, and can be displayed and edited within Unreal Editor. \autocite{UnrealEngine4} - Dokumentation Unreal Engine 4 \url{https://docs.unrealengine.com}.
+\end{quote}
+Der gesamte C++ Code eines Projektes wird je nach Entwicklungsplattform entweder in Visual Studio (auf Windows) oder in der IDE XCode (auf Mac OSX) geschrieben. In der Realität werden Projekte mit einer Mischung der beiden Möglichkeiten (C++ und Blueprint) umgesetzt. Für das schnelle Prototyping eignet sich aber Blueprint alleine bereits sehr gut.
 
 \subsubsection{Asset Verwaltung in der Unreal Engine 4}
-Assets können in der Unreal Engine 4  z.B. im Dateiformat .fbx (Version 2013) Importiert werden. Die Modelle und Materialien können hierbei z.B. direkt in 3DS Max, Modo oder Cinema 4D erstellt und übernommen werden. Es ist also möglich, die UE4 direkt in die AssetPipeline einzubinden. Durch die offene Verfügbarkeit des Quellcodes können auch eigene Module für die UE4 geschrieben werden, welche die Assetpipleine erweitern. Die Unreal Engine bietet einen Contentbrowser (siehe Abbildung \ref{UEContentbrowser}) an, welcher es ermöglicht Assets zu sortieren und diese zu durchsuchen. Die Assets können dann per Drag and Drop in die Szene der Engine eingefügt werden.
+Assets können in der Unreal Engine 4  z.B. im Dateiformat .fbx (Version 2013) Importiert werden. Die Modelle und Materialien können hierbei z.B. direkt in 3DS Max, Modo oder Cinema 4D erstellt und übernommen werden. Es ist also möglich, die UE4 direkt in die AssetPipeline einzubinden. Durch die offene Verfügbarkeit des Quellcodes können auch eigene Module für die UE4 geschrieben werden, welche die Assetpipleine erweitern. Die Unreal Engine bietet einen Contentbrowser (siehe Abbildung \ref{UEContentbrowser}) an, welcher es ermöglicht Assets zu sortieren und diese zu durchsuchen. Assets können dann per Drag and Drop in die Szene der Engine eingefügt werden. Eine solche Lösung ist optimal um Designer und Artists bei ihrer Arbeit zu unterstützen.
 
 \begin{figure}[ht]
 	\centering
@@ -779,7 +793,7 @@ Assets können in der Unreal Engine 4  z.B. im Dateiformat .fbx (Version 2013) I
 	\label{UEContentbrowser}
 \end{figure}
 
-Zur Versionsverwaltung der Assets ist die Möglichkeit zur Integration eines Versionskontrollsystems gegeben. Eingebunden werden können auf GIT, Subversion und Perforce basierte Systeme.
+Zur Versionsverwaltung von Assets ist die Möglichkeit zur Integration eines Versionskontrollsystems gegeben. Eingebunden werden können auf GIT, Subversion und Perforce basierte Systeme.
 
 \subsubsection{Szenengraph in der Unreal Engine}
 Hier gehts um den UE4 Szenengraphen \ref{UESzenenGraph} und seine Gemeinsamkeiten mit dem Fusee und Cinema4D Szenengraphen.
@@ -791,12 +805,16 @@ Hier gehts um den UE4 Szenengraphen \ref{UESzenenGraph} und seine Gemeinsamkeite
 \end{figure}
 Der Szenengraph hängt unmittelbar mit der Detailansicht der Elemente zusammen. In der Detailansicht können jegliche “Components” an einem Objekt der Szene betrachtet und verändert werden.
 
-\subsubsection{Schwierigkeiten}
-Sehr Komplex
-Viel neues zu lernen. Wahnsinnig Tiefgehend.
-Blueprints sind ein praktisches System aber man muss einen gewissen Wissensstand haben um zu finden was gesucht wird etc.
-Als Entwickler muss man mit dem Editor und dem Code in VS arbeiten.
-Blueprint ist sehr präsent und nicht mehr “nur” eine Skriptsprache wie das Kismet System in der UE3 sondern ein gesamtes System. Es wird als Zentrale Konfigurationsmöglichkeit angeboten. Man kommt eigentlich nicht daran vorbei. Prefabs möglichkeiten etc. Dazu konfigurationen und speichern etc. Instanzen können jedesmal anders eingestellt werden.
+\subsubsection{Was kann für das FuseeAT Konzept aus der UE4 übernommen werden?}
+Um mit der Unreal Engine effektiv zu arbeiten, muss jeder Entwickler das Tool von Grund auf neu erlernen. Genau diese Problematik soll FuseeAT umgehen indem es bereits bekannte Tools, für diese Arbeit Cinema 4D, verwendet um eine von den Mitarbeitern bereits erlernte Oberfläche weiter zu verwenden. Allerdings beitet auch eine so komplexe und tiefgängige Engine wie die Unreal Engine 4 Ansätze die für das Fusee AT interessant sind. Das Blueprint System funktioniert wirklich gut und unterstützt Game Designer und Skripter während ihrer Arbeit und bietet ihnen eine gut durchdachte Visual Programming Lösung für die täglichen Aufgaben an. Ein solches System könnte sich in FuseeAT in Zukunft ebenfalls umsetzen lassen. Diese Funktionalitäten wurden bereits an der Hochschule Furtwangen in einem Projekt (Circuit 3D 2011 bis 2012) bei Herrn Prof. Müller diskutiert und an implementiert. Ein teil der Ergebnisse fand damals den Weg in das Projekt Uniplug.
+Weiterhin sind die Makros bzw. das Markup System ein guter Ansatz, Code zu markieren um im FuseeAT darauf einzugehen. \CSS bietet hier mit seinem Reflection und Attributes System genügend Möglichkeiten diese Funktionalität in FuseeAT zu integrieren. Die Funktionen des Contentbrowsers der UE4 könnten in Cinema 4D über verschiedene API Funktionen nachgebildet werden. Der Szenengraph der UE4 gleicht dem Fusee und Unity 3D Szenengraphen stark. Es handelt sich bei dieser Ausgestaltung um eine Konvention im Sektor der 3D Engines und darum kann das System von Cinema 4D übernommen werden ohne voraussichtlich dem Arbeitsfluss der Designer und Artists zu schaden.
+
+%--
+%Sehr Komplex
+%Viel neues zu lernen. Wahnsinnig Tiefgehend.
+%Blueprints sind ein praktisches System aber man muss einen gewissen Wissensstand haben um zu finden was gesucht wird etc.
+%Als Entwickler muss man mit dem Editor und dem Code in VS arbeiten.
+%Blueprint ist sehr präsent und nicht mehr “nur” eine Skriptsprache wie das Kismet System in der UE3 sondern ein gesamtes System. Es wird als Zentrale Konfigurationsmöglichkeit angeboten. Man kommt eigentlich nicht daran vorbei. Prefabs möglichkeiten etc. Dazu konfigurationen und speichern etc. Instanzen können jedesmal anders eingestellt werden.
 
 % Hier wichtig. Dazu schreiben wie ist er aufgebaut und welche Möglichkeiten hat man dort. Was bringt die Übersicht?
 
@@ -827,13 +845,34 @@ Unity kann Builds für die folgenden Plattformen erzeugen:
 Als Entwicklerplattformen unterstützt Unity Windows und Mac OSX. Der Sourcecode der Engine ist nur in einer Enterprise Version erhalten. Zum Erhalt dieser müssen gesonderte Verhandlungen mit Unity Technologies aufgenommen werden. Aus diesen Gründen wird die kostenfreie “free” Version für die Analyse in dieser Arbeit zu Grunde gelegt.
 
 \subsubsection{Coding in der Unity Engine 5}
+In Unity 5 kann wie bereits erwähnt in \CS, Javascript und Boo entwickelt werden. Die beiden Skriptsprachen Javascript und Boo wurden für diese Arbeit nicht betrachtet, da sich auch FUSEE für die Desktopentwicklung auf \CSS fokussiert hat. Unity bietet den eigens mitgebrachten Editor Mono Develop an in welchem der Code geschrieben werden kann. Unity unterstützt aktuell das .Net Framework 3.5.
 
 \subsubsection{Asset Verwaltung in der Unity Engine 5}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=7cm]{Bilder/uContentbrowser.jpg}
+	\caption{Ansicht des Contentbrowsers in Unity. Mit Suchfeld und Filterfunktionen und ausklappbarer Ordnerstruktur.}
+	\label{UnityContentbrowser}
+\end{figure}
 
+\subsubsection{Szenengraph in Unity}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=7cm]{Bilder/uSzeneGraphDetails.jpg}
+	\caption{Beispielhafte Szene im Szenengraph von Unity. Er gleicht dem Fusee und Cinema 4D Szenengraphen stark.}
+	\label{UnitySzenengraph}
+\end{figure}
+
+\subsubsection{Was kann für das FuseeAT Konzept aus Unity übernommen werden?}
+Einfachheit des Editors.
+Component System.
+Einfaches Materialsystem.
+Debugmöglichkeit ist gut, einfaches skripting in \CSS.
+Einfache Buildoptionen etc.
 
 % System Design des Tools
 \section{Systemdesign}
-Dieser Abschnitt beschreibt das Vorgehen während des Systemdesigns. Das Ziel hier ist es, eine technische Konzeption für ein Softwareprodukt zu erläutern. Dieses technische Konzept ist Grundlage für eine folgende Implementierung des Softwareprojektes.
+Dieser Abschnitt beschreibt das Systemdesign. Das Ziel hier ist es, eine technische Konzeption für ein Softwareprodukt zu entwickeln. Dieses technische Konzept ist Grundlage für eine nachfolgende Implementierung des Softwareprojektes.
 
 \subsection{Warum Fusee und Cinema 4D?}
 Für diese Arbeit wurden die beiden Applikationen FUSEE\footnote{Furtwangen University Simulation and Entertainment Engine} und Cinema 4 [\autocite{MaxonC4d2014}] aus verschiedenen Gründen als Ausgangsbasis für die Forschung ausgewählt. Bei der FUSEE Engine handelt es sich um eine von der Hochschule Furtwangen eigens Entwickelte 3D Engine unter der Leitung von Herrn Prof. C. Müller der Fakultät DM. Sie wird meist durch Projekte, Abschlussarbeiten und Arbeitsgruppen weiter entwickelt. Bei der Engine handelt es sich um eine 3D Engine deren Quellcode komplett Open Source ist. Das komplette Projekt inklusive seiner Abhängigkeiten ist von GitHub\footnote{https://github.com/FUSEEProjectTeam/Fusee} zu beziehen - was eine Integration des hier in dieser Arbeit angedachten Projektes einfacher gestaltet. Weiterhin wurde das Uniplug Projekt in die Fusee Engine integriert und nutzt deren Formate, Strukturen und einen Teil der Codebase. Hierbei handelt es sich um verschiedene Mathematik Bibliotheken und Tools wie den FUSEE Project Generator.
