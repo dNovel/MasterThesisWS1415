@@ -845,37 +845,47 @@ Unity kann Builds für die folgenden Plattformen erzeugen:
 Als Entwicklerplattformen unterstützt Unity Windows und Mac OSX. Der Sourcecode der Engine ist nur in einer Enterprise Version erhalten. Zum Erhalt dieser müssen gesonderte Verhandlungen mit Unity Technologies aufgenommen werden. Aus diesen Gründen wird die kostenfreie “free” Version für die Analyse in dieser Arbeit zu Grunde gelegt.
 
 \subsubsection{Coding in der Unity Engine 5}
-In Unity 5 kann wie bereits erwähnt in \CS, Javascript und Boo entwickelt werden. Die beiden Skriptsprachen Javascript und Boo wurden für diese Arbeit nicht betrachtet, da sich auch FUSEE für die Desktopentwicklung auf \CSS fokussiert hat. Unity bietet den eigens mitgebrachten Editor Mono Develop an in welchem der Code geschrieben werden kann. Unity unterstützt aktuell das .Net Framework 3.5.
+In Unity 5 kann wie bereits erwähnt in \CS, Javascript und Boo entwickelt werden. Die beiden Skriptsprachen Javascript und Boo wurden für diese Arbeit nicht betrachtet, da sich auch FUSEE für die Desktopentwicklung auf \CSS fokussiert hat. Unity bringt eine Version der Mono Develop IDE mit, welche alle drei Sprachen unterstützt. Unity unterstützt in der Version 5.0 aktuell das .Net Framework 3.5 und damit die \CSS Version 3.0 und die damit verbundenen Sprachfeatures. Unity setzt stark auf das Konzept des Programmierens mit Components. Die gesamte Engine ist für die Arbeit mit Components ausgelegt. Hierbei wird Funktionalität der Anwedungen so weit heruntergebrochen, bis sie in einzelne Code Dateien ausgelagert werden kann. Aus einem Pool an Component Skripts wird dann das Verhalten eines einzelnen Szenenobjekts aufgebaut. Dieses System ist sehr dynamisch und unterstützt die Entwickler beim experimentieren in der Game Engine. Eine solche Component basierte Lösung ist für das FuseeAT ebenfalls denkbar. Unity bietet genau wie die Unreal Engine einige Standardfunktionen welche im \CSS Code überschrieben werden sollten um ein Objekt in der Engine zu instanziieren. So wird ein GameObject (Die Bezeichnung eines Laufzeitobjektes in Unity) wie in Codebeispielt \ref{unityGameObject} implementiert. Das Beispiel enthält keinen funktionalen Code sondern stellt lediglich die Struktur dar. Fusee wird keine dieser Strukturen einbinden. Das Arbeiten mit FuseeAT soll für den Programmierer so frei wie möglich gestaltet werden.
+
+\lstinputlisting[caption = Unity GameObject Struktur, label=UnityGameObject]{Code/unityGameObject.cs}
+
+FuseeAT wird auf eine solche Einschränkung der Programmierung verzichten. Das hat mehrere Gründe. Zum einen soll FUSEE als Engine in der Lehre eingesetzt werden und hier besonders das Verständnis für tiefer gehenede Prozesse einer GameEngine fördern. Zum anderen sollen jegliche Projekte mit der FUSEE Engine durch einen einfachen Build auch im WebBrowser ausgeführt werden. Weiterhin ist die FUSEE Engine ein großes Teamprojekt und deren Erweiterung in diesem Maße kann während dieser Arbeit nicht entschieden und/oder umgesetzt werden.
 
 \subsubsection{Asset Verwaltung in der Unity Engine 5}
+Die Verwaltung von Assets in Unity ist ein recht einfacher Prozess. Modelle und Grafiken werden in den jeweiligen Programmen wie z.B. 3DS Max, Cinema 4D, Photoshop oder anderer Grafik Software erstellt und im passenden Format einfach in den Projektordner von Unity kopiert. Das Asset kann dann im Unity Editor selbst noch auf das Projekt abgestimmt werden. Ein Modell kann Materialien erhalten, Texturen können getauscht und Grafiken skaliert und auf Objekte angewendet werden. Aus mehreren Assets und/oder Components können in Unity so genannte Prefabs erstellt werden. Bei diesen handelt es sich um ein Paket aus Assets und Code welches z.B. zur Laufzeit der Engine instanziiert werden kann. Prefabs könnten auch als Abbild eines GameObjects in einem spezifischen Moment (Der Moment ihrer Erstellung) bezeichnet werden. Sie verhalten sich immer genau gleich wie das Ursprungs Prefab soweit sie nich individuell zur Laufzeit angepasst werden. Ein solches System ist für FuseeAT vorerst nicht geplant, könnte sich aber in der Zukunft als nützlich erweisen. FUSEE kann bereits in Cinema 4D gemodelte Objekte oder Modelle in der Fusee Engine mit Hilfe von Prototype serialisieren, allerdings ist dieses System noch nicht zu Ende implementiert und wird stetig erweitert.
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=7cm]{Bilder/uContentbrowser.jpg}
 	\caption{Ansicht des Contentbrowsers in Unity. Mit Suchfeld und Filterfunktionen und ausklappbarer Ordnerstruktur.}
 	\label{UnityContentbrowser}
 \end{figure}
+Um Assets in Unity zu bearbeiten, zu verwalten und zu durchsuchen steht ein Contentbrowser, siehe Abbildung \ref{UnityContentbrowser}, mit eben genau diesen Funktionen zur Verfügung. Grundsätzlich bildet dieser Contentbrowser alle Möglichkeiten ab, die auch FuseeAT unterstützen möchte.
 
 \subsubsection{Szenengraph in Unity}
+Der Unity Szenengraph gleicht dem Fusee Szenengraph. In der Tat lehnt sich das Design des Fusee Szenengraphen am System der Unity Engine an, denn beide basieren auf Nodes welche auf der gleichen Ebene durch Components erweitert werden. Kindobjekte von Nodes sind wiederum weitere Nodes. Dieses Design des Szenengraphen ist in Heutigen Game Engine bereits als eine Best Practice Lösung anzusehn und könnte aus diesem Grund auch Problemlos in FuseeAT integriert werden. Das System kann schnell durchdrungen und adaptiert werden.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=7cm]{Bilder/uSzeneGraphDetails.jpg}
-	\caption{Beispielhafte Szene im Szenengraph von Unity. Er gleicht dem Fusee und Cinema 4D Szenengraphen stark.}
+	\caption{Beispielhafte Szene im Szenengraph von Unity. Er gleicht dem Fusee und Cinema 4D Szenengraphen stark. Das Detailpanel zeigt Components eines Nodes.}
 	\label{UnitySzenengraph}
 \end{figure}
 
 \subsubsection{Was kann für das FuseeAT Konzept aus Unity übernommen werden?}
-Einfachheit des Editors.
-Component System.
-Einfaches Materialsystem.
-Debugmöglichkeit ist gut, einfaches skripting in \CSS.
-Einfache Buildoptionen etc.
+Aus den Funktionen der Unity Engine können verschiedene interessante Konzepte gefunden und für FuseeAT adaptiert werden. Hierzu gehört zu aller erst das Component System. Ddie Unreal Engine setzt wie bereits erwähnt ebenfalls auf ein Component System und das neue Szenengraphen Modell in FUSEE unterstützt diesen Ansatz ebenfalls. So sollte auch FuseeAT dieses Konzept berücksichtigen und die in FUSEE möglichen Components auch in den Cinema 4D Editor integrieren. Weiterhin ist das einfache Build und Deploymentsystem von Unity eine stärke der Engine. Für FuseeAT wäre es ein guter Ansatz die Arbeit der Designer und Artists mit der FUSEE Engine in Cinema 4D zu erleichtern wenn Builds für den Desktop und später evtl auch Web-Builds aus der C4D Software heraus erstellt werden könnten. Hiermit können  Designer und auch Artists jederzeit das Ergebnis ihrer Arbeit durch einen einfachen Build Vorgang direkt in der Engine betrachten.
+
+%Einfachheit des Editors.
+%Component System.
+%Einfaches Materialsystem.
+%Debugmöglichkeit ist gut, einfaches skripting in \CSS.
+%Einfache Buildoptionen etc.
 
 % System Design des Tools
 \section{Systemdesign}
-Dieser Abschnitt beschreibt das Systemdesign. Das Ziel hier ist es, eine technische Konzeption für ein Softwareprodukt zu entwickeln. Dieses technische Konzept ist Grundlage für eine nachfolgende Implementierung des Softwareprojektes.
+Dieser Abschnitt beschreibt das durchgeführte Systemdesign. Das Ziel hier ist es, eine technische Konzeption für ein Softwareprodukt zu entwickeln. Dieses technische Konzept ist Grundlage für eine nachfolgende Implementierung des Softwareprojektes FuseeAT. Einge Features werden diskutiert und die Entscheidung für oder gegen diese Erläutert.
 
 \subsection{Warum Fusee und Cinema 4D?}
-Für diese Arbeit wurden die beiden Applikationen FUSEE\footnote{Furtwangen University Simulation and Entertainment Engine} und Cinema 4 [\autocite{MaxonC4d2014}] aus verschiedenen Gründen als Ausgangsbasis für die Forschung ausgewählt. Bei der FUSEE Engine handelt es sich um eine von der Hochschule Furtwangen eigens Entwickelte 3D Engine unter der Leitung von Herrn Prof. C. Müller der Fakultät DM. Sie wird meist durch Projekte, Abschlussarbeiten und Arbeitsgruppen weiter entwickelt. Bei der Engine handelt es sich um eine 3D Engine deren Quellcode komplett Open Source ist. Das komplette Projekt inklusive seiner Abhängigkeiten ist von GitHub\footnote{https://github.com/FUSEEProjectTeam/Fusee} zu beziehen - was eine Integration des hier in dieser Arbeit angedachten Projektes einfacher gestaltet. Weiterhin wurde das Uniplug Projekt in die Fusee Engine integriert und nutzt deren Formate, Strukturen und einen Teil der Codebase. Hierbei handelt es sich um verschiedene Mathematik Bibliotheken und Tools wie den FUSEE Project Generator.
+Für diese Arbeit wurden die beiden Applikationen FUSEE\footnote{Furtwangen University Simulation and Entertainment Engine} und Cinema 4[\autocite{MaxonC4d2014} aus verschiedenen Gründen als Ausgangsbasis für die Forschung ausgewählt. Bei der FUSEE Engine handelt es sich um eine von der Hochschule Furtwangen eigens Entwickelte 3D Engine unter der Leitung von Herrn Prof. C. Müller der Fakultät DM. Sie wird meist durch Projekte, Abschlussarbeiten und Arbeitsgruppen weiter entwickelt. Bei der Engine handelt es sich um eine 3D Engine deren Quellcode komplett Open Source ist. Das komplette Projekt inklusive seiner Abhängigkeiten ist von GitHub\footnote{https://github.com/FUSEEProjectTeam/Fusee} zu beziehen - was eine Integration des hier in dieser Arbeit angedachten Projektes einfacher gestaltet. Weiterhin wurde das Uniplug Projekt in die Fusee Engine integriert und nutzt deren Formate, Strukturen und einen Teil der Codebase. Hierbei handelt es sich um verschiedene Mathematik Bibliotheken und Tools wie den FUSEE Project Generator.
 
 Der 3D Modeling Editor Cinema 4D steht kostenfrei für Studierende der Hochschule Furtwangen zur verfügung und bietet eine relativ gut dokumentiert API. Weiterhin ist das Projekt Uniplug auf die Verwendung mit Cinema 4D hin konzipiert und unterstützt zum Zeitpunkt der Erstellung dieser Arbeit noch keine weitere Software. Ein großer Teil der Cinema 4D C++ API war bereits in das Uniplug Tool integriert bzw. von C++ nach \CSS konvertiert / gewrapped. So konnte relativ Problemlos mit der Arbeit begonnen werden.
 \\
@@ -963,7 +973,7 @@ Der Fusee Project Generator ist ein Projekt das bereits vom ersten FUSEE Entwick
 	\caption{FUSEE Binary Projekt Struktur}
 	\label{FUSEEBinaryProjektStruktur}
 \end{figure}
- Die Solution Datei beinhalted die zwei Projekte “Simple” und “TestProjekt”. Diese Projekte beherbergen in den Referenzen jeweils die Binary Bibliotheken der FUSEE Engine. Das Projekt TestProjekt wurde mit dem FUSEE Generator angelegt. Hierfür benötigt der Generatur nur den gewünschten Namen des Projekts und den Pfad zum Fusee Binary Projekt auf der Festplatte des Benutzers.
+ Die Solution Datei beinhaltet die zwei Projekte “Simple” und “TestProjekt”. Diese Projekte beherbergen in den Referenzen jeweils die Binary Bibliotheken der FUSEE Engine. Das Projekt TestProjekt wurde mit dem FUSEE Generator angelegt. Hierfür benötigt der Generatur nur den gewünschten Namen des Projekts und den Pfad zum Fusee Binary Projekt auf der Festplatte des Benutzers.
 
 
 
