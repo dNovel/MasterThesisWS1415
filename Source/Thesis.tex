@@ -180,8 +180,8 @@ Zweitbetreuer: Prof. Dr. Wolfgang Taube, Fakultät DM
 \chapter*{Abstract}%
 %\addcontentsline{toc}{chapter}{Abstract}
 Arbeitsprozesse mit heutigen Game Engines verlangen von Entwicklern meist das Erlernen neuer Toolsets und das während eines Zeitlich knapp bemessenen Projekt Zeitraums. Es wäre für Entwickler einfacher sich mit den bereits bekannten Tools, wie Modeling Editoren, zu beschäftigen und mit diesen großartige Ergebnisse zu erreichen. Designer müssen sich oft in unbekannte Editoren und SDKs einarbeiten während Entwickler sich in Grafische Editoren einarbeiten sollen um ihren Code an der richtigen Stelle des Projekts einzubinden.
-Diese Arbeit baut eine Brücke zwischen beiden Welten. Durch die Konzeption eines Software Tools und Entwicklungsprozesses zum erstellen von Game Authoring Tools, wird gezeigt wie mit verschiedenen Frameworks bestehende Software erweitert werden kann um sie als Authoring Tool zu benutzen. Mit Hilfe eines Cinema 4D Plugins ist es möglich, dass Designer oder Entwickler jederzeit mit ihren eigenen Tools in die Entwicklung eines Projektes einsteigen. Das während der Arbeit entstandene Plugin bietet grundlegenden Funktionen um an einem Projekt mit der FUSEE Engine zu arbeiten. Ein FUSEE Projekt "managed" sich durch die Nutzung des entstandenen Cinema 4D Plugins und den generierten Visual Studio Solution Dateien aus Sicht des Plugin Nutzers selbst.
-Das zuerst konzeptionell entworfene Tool wurde während dieser Arbeit als Prototyp umgesetzt und bietet ausreichende Funktionalität um ein Projekt als Entwickler als auch als Artist zu erstellen und zu bearbeiten. Hierzu wurden verschiedene Konzepte betrachtet und andere GameEngines auf Workflow und Anwendbarkeit untersucht. Das \CSS Plugin Projekt FUSEE Uniplug wurde analysiert und in seinem Funktionsumfang erweitert. Das Ergebnis dieser Arbeit ist eine grundlegende Software Bibliothek in \CSS die nicht nur für Cinema 4D eingesetzt werden könnte.
+Diese Arbeit baut eine Brücke zwischen beiden Welten. Durch die Konzeption eines Software Tools und Entwicklungsprozesses zum erstellen von Game Authoring Tools, wird gezeigt wie mit verschiedenen Frameworks bestehende Software erweitert werden kann um sie als Authoring Tool zu benutzen. Mit Hilfe eines Cinema 4D Plugins ist es möglich, dass Designer oder Entwickler jederzeit mit ihren eigenen Tools in die Entwicklung eines Projektes einsteigen. Das während der Arbeit entstandene Plugin bietet grundlegenden Funktionen um an einem Projekt mit der Fusee Engine zu arbeiten. Ein Fusee Projekt "managed" sich durch die Nutzung des entstandenen Cinema 4D Plugins und den generierten Visual Studio Solution Dateien aus Sicht des Plugin Nutzers selbst.
+Das zuerst konzeptionell entworfene Tool wurde während dieser Arbeit als Prototyp umgesetzt und bietet ausreichende Funktionalität um ein Projekt als Entwickler als auch als Artist zu erstellen und zu bearbeiten. Hierzu wurden verschiedene Konzepte betrachtet und andere GameEngines auf Workflow und Anwendbarkeit untersucht. Das \CSS Plugin Projekt Fusee Uniplug wurde analysiert und in seinem Funktionsumfang erweitert. Das Ergebnis dieser Arbeit ist eine grundlegende Software Bibliothek in \CSS die nicht nur für Cinema 4D eingesetzt werden könnte.
 
 \clearpage
 \endgroup
@@ -300,12 +300,12 @@ Ben Carter schreibt in \fullcite{Carter2004}, dass Entwickler so lange es geht i
 
 \section{Fragestellung der Arbeit}
 %TODO: Randbedingungen etwas herausarbeiten.
-Aus den oben angeführten Gründen beschäftigt sich diese Arbeit mit dem Gebiet des Authoring Tool Development und mit der Frage ob es möglich ist ein Tool zu konzipieren welches auf der Basis eines bereits bestehenden Modeling Editors (hier Cinema 4D von Maxon \footfullcite{MaxonC4d2014}) das Erstellen einer “fertigen”\footnote{Build fähige Version einer im Fusee Szenenformat abgespeicherten 3D Szene.} Szene für die 3D Engine Fusee\footnote{FUSEE (Furtwangen Simulationd and Entertainment Engine - \url{http://www.fusee3d.org})} ermöglicht. Dazu wird der gesamte Weg der Entstehung eines Authoring Tools Betrachtet. Verschiedene Projektmanagement Modelle zur internen Software Entwicklung werden geprüft und ein rudimentäres Requirements Engineering wird durchgeführt und somit ein Softwarekonzept entwickelt. Nach der Konzeption wird versucht die Basis Funktionalität in Visual Studio mit Hilfe von \CSS Code und der nach \CSS gewrappten\footnote{Eine Software welche von einem anderen Stück software umgeben wird.} Cinema 4D API als Programmunabhängige Softwarebibliothek zu implementieren. Die gewrappte Cinema 4D API basiert auf einem ehemaligen Projekt der Hochschule Furtwangen. Dieses wird als Grundlage für die hier angedachte Implementierung genutzt und bietet einen geringen Umfang an Basisfunktionalität. So bietet es die Möglichkeit grundsätzlich Plugins für Cinema 4D in der Programmiersprache \CSS zu schreiben. Von Haus aus ermöglicht Maxon das Entwickeln von Plugins nur in C++, Python und Coffee (einer von Maxon selbst entwickelten Skriptsprache). Der Vollständigkeit halber sei gesagt, dass Maxon für C++ noch das Framework Melange anbietet welches es ermöglicht Cinema 4D Dateien ohne eine Cinema 4D installation zu erstellen, zu speichern und zu laden. Sollte eine Installation vorhanden sein kann ein Melange Plugin auch Szenen rendern. vgl. Maxon Cinema 4D Developer Dokumentation unter \url{https://developers.maxon.net/}.
+Aus den oben angeführten Gründen beschäftigt sich diese Arbeit mit dem Gebiet des Authoring Tool Development und mit der Frage ob es möglich ist ein Tool zu konzipieren welches auf der Basis eines bereits bestehenden Modeling Editors (hier Cinema 4D von Maxon \footfullcite{MaxonC4d2014}) das Erstellen einer “fertigen”\footnote{Build fähige Version einer im Fusee Szenenformat abgespeicherten 3D Szene.} Szene für die 3D Engine Fusee\footnote{Fusee (Furtwangen Simulationd and Entertainment Engine - \url{http://www.Fusee3d.org})} ermöglicht. Dazu wird der gesamte Weg der Entstehung eines Authoring Tools Betrachtet. Verschiedene Projektmanagement Modelle zur internen Software Entwicklung werden geprüft und ein rudimentäres Requirements Engineering wird durchgeführt und somit ein Softwarekonzept entwickelt. Nach der Konzeption wird versucht die Basis Funktionalität in Visual Studio mit Hilfe von \CSS Code und der nach \CSS gewrappten\footnote{Eine Software welche von einem anderen Stück software umgeben wird.} Cinema 4D API als Programmunabhängige Softwarebibliothek zu implementieren. Die gewrappte Cinema 4D API basiert auf einem ehemaligen Projekt der Hochschule Furtwangen. Dieses wird als Grundlage für die hier angedachte Implementierung genutzt und bietet einen geringen Umfang an Basisfunktionalität. So bietet es die Möglichkeit grundsätzlich Plugins für Cinema 4D in der Programmiersprache \CSS zu schreiben. Von Haus aus ermöglicht Maxon das Entwickeln von Plugins nur in C++, Python und Coffee (einer von Maxon selbst entwickelten Skriptsprache). Der Vollständigkeit halber sei gesagt, dass Maxon für C++ noch das Framework Melange anbietet welches es ermöglicht Cinema 4D Dateien ohne eine Cinema 4D installation zu erstellen, zu speichern und zu laden. Sollte eine Installation vorhanden sein kann ein Melange Plugin auch Szenen rendern. vgl. Maxon Cinema 4D Developer Dokumentation unter \url{https://developers.maxon.net/}.
 
 Szenen in Cinema 4D werden grundsätzlich in einer Art Baumstruktur gespeichert und zur weiteren Verarbeitung im Speicher gehalten. Die hier konzipierte Software möchte diese Tatsache nutzen um Szenen aus einem Modeling Editor (Cinema 4D) in eine Szene des Fusee Szenen Formats (.fus) umzuwandeln. Eine “.fus” Datei ist ebenfalls in einer Baumartigen Struktur gespeichert. Dieses Prinzip der Szenendarstellung ist bereits aus verschiedenen Frameworks und Softwareprojekten für 2D Darstellung bekannt. Das ist zum einen der Übersichtlichkeit als auch verschiedenen Algorithmischen Operationen auf den Daten der Szene geschuldet. In Baumstrukturen organisierte Interfaces werden außerdem bei der Entwicklung des User Interfaces für das Mobile Betriebssystem Android verwendet.
 
 \section{Ziele der Implementierung}
-Die während dieser Arbeit implementierte Software hat das Ziel eine Basis für die Verwendung von Cinema 4D als Game Engine Editor aufzubauen. Es werden grundlegende Funktionen in Form einer \CSS Bibliothek entwickelt die es ermöglichen sollen das Projekt in Zukungt auch für andere 3D Modeling Software anzupassen. Diese Arbeit zielt nicht darauf ab ein komplettes Tool für die Entwicklung von Spielen in der Fusee Engine zu erschaffen. Es wird versucht eine art Grundstein für weitere Forschung und Entwicklung in den Bereich des Game Authoring Toolkit Developments für die Arbeit mit der Akademischen Simulations und Entertainment Software FUSEE zu legen. Das Kernziel ist das Erstellen eines Konzeptes und die Erläuterung der einzelnen Module eines solchen Systems. Verschiedene bereits bestehende Tools und Game Engines werden zu vergleichen herangezogen und wurden im Laufe dieser Arbeit untersucht und verglichen.
+Die während dieser Arbeit implementierte Software hat das Ziel eine Basis für die Verwendung von Cinema 4D als Game Engine Editor aufzubauen. Es werden grundlegende Funktionen in Form einer \CSS Bibliothek entwickelt die es ermöglichen sollen das Projekt in Zukungt auch für andere 3D Modeling Software anzupassen. Diese Arbeit zielt nicht darauf ab ein komplettes Tool für die Entwicklung von Spielen in der Fusee Engine zu erschaffen. Es wird versucht eine art Grundstein für weitere Forschung und Entwicklung in den Bereich des Game Authoring Toolkit Developments für die Arbeit mit der Akademischen Simulations und Entertainment Software Fusee zu legen. Das Kernziel ist das Erstellen eines Konzeptes und die Erläuterung der einzelnen Module eines solchen Systems. Verschiedene bereits bestehende Tools und Game Engines werden zu vergleichen herangezogen und wurden im Laufe dieser Arbeit untersucht und verglichen.
 \section{Verwendete Software}
 \begin{itemize}
 \item Microsoft Visual Studio 2013, \newline verwendet als Entwicklungsumgebung für das Softwareprojekt. Sowohl in der Professional als auch der Community Edition. Zu Beziehen unter  \url{https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx}.
@@ -342,7 +342,7 @@ Um von Artists produzierte Assets in das Spiel zu bringen bedarf es meist einer 
 [...]
 It is comparatively rare that fully working game disc with all the assets needs to be produiced. It is certainly an event which happens more frequently as the game gets closer to being completed [...]. \fullcite[S. 6]{Carter2004}
 \end{quote}
-Somit ist die Assetpipeline ein wichtiges Instrument und besteht meist aus einer Zusammenstellung von eigens Entwickelten Tools und lizensierter Software wie z.B. Game Engines, Modeling Editoren wie 3DS Max, Cinema 4D, oder Maya und weiterer Software. Diese Arbeit beschäftigt sich also mit einem Teilgebiet der Asset Pipeline. In einem späteren Kapitel wird das FUSEE Asset Management betrachtet und die Asset Pipeline für das Entwickeln einer FUSEE Anwendung mit Cinema4D konzeptionell untersucht.
+Somit ist die Assetpipeline ein wichtiges Instrument und besteht meist aus einer Zusammenstellung von eigens Entwickelten Tools und lizensierter Software wie z.B. Game Engines, Modeling Editoren wie 3DS Max, Cinema 4D, oder Maya und weiterer Software. Diese Arbeit beschäftigt sich also mit einem Teilgebiet der Asset Pipeline. In einem späteren Kapitel wird das Fusee Asset Management betrachtet und die Asset Pipeline für das Entwickeln einer Fusee Anwendung mit Cinema4D konzeptionell untersucht.
 
 \section{Die Rollenverteilung interner Tool Developer}
 Wihlidahl \autocite[S. 5]{Wihlidal2006} beschreibt verschiedene Organisationsmodelle des internen Tool Development. Hierbei geht es darum die Verantwortlichkeiten für Entwicklung und den Support von internen Tools festzulegen. Er klassifiziert folgende Modelle:
@@ -602,10 +602,10 @@ Es folgt die Planungsphase des Tools. Hier wird zuerst eine Requirementsanalyse 
 \subsubsection{Requirements Analyse}
 \begin{itemize}
 \item Eine Software soll es ermöglichen, dass Artists, Designer und Developer an ein und dem selben Projekt arbeiten können ohne die gewohnte Arbeitsumgebung (3D-Modellierungssoftware, IDE) zu verlassen und etwas komplett neues (Level-Editor) zu erlernen.
-\item Das Produkt muss auf Basis der FUSEE Engine entstehen
-\item Ziel ist es in Cinema 4D ein FUSEE Projekt anzulegen, zu speichern und es zu öffnen
+\item Das Produkt muss auf Basis der Fusee Engine entstehen
+\item Ziel ist es in Cinema 4D ein Fusee Projekt anzulegen, zu speichern und es zu öffnen
 \item Assets sollen ins Spiel integriert werden können die von Artists, Designern und Entwicklern bearbeitet werden können.
-\item Das FUSEE \CSS Projekt sollte aus C4D heraus gebaut werden können.
+\item Das Fusee \CSS Projekt sollte aus C4D heraus gebaut werden können.
 %Hier könnte man einen Hinweis auf die Entwicklungsmethoden von id Software geben. Möglicherweise wäre eine Erwähnung der Pre-Rage Zeiten sinnvoll.
 \item Eine Stakeholderanalyse schafft klarheit, welche Parteien des Teams mit dem zu erstellenden Tool arbeiten müssen.
 \item Es ist zu analysieren, welche Schritte für welche Art der Arbeit des Teams notwendig sind. Hierzu werden Usecases der verschiedenen Rollen und Aufgaben erstellt.
@@ -641,7 +641,7 @@ Die Implementierung ist der praktische Schritt des ganzen Prozesses. Während de
 Diese Abschnitt behandelt eine Aufstellung von alltäglich Tasks (z. Dt. Aufgaben) und den Arbeitsschritten die dazu nötig sind diese Aufgaben der einzelnen Teammitglieder zu erledigen. Aus den aufgelisteten Tasks wurden dann die Anforderungen für die Requirementsanalyse herausgearbeitet. Um an diese Auflistung heranzukommen, empfiehlt sich in der Praxis das Interviewen und das Beobachten von Teammitgliedern um den Arbeitsalltag und die Probleme die das Tool lösen soll besser zu verstehen.
 
 \subsection{Was möchten Artists?}
-Es folgt eine Auflistung der Tasks die den normalen Arbeitsablauf eines Artists in der der Entwicklung mit der FUSEE Engine bezeichnen. Um die Tasks zu ermitteln wurde sich verschiedener kreativer Hilfsmittel wie z.B. Mindmaps bedient.
+Es folgt eine Auflistung der Tasks die den normalen Arbeitsablauf eines Artists in der der Entwicklung mit der Fusee Engine bezeichnen. Um die Tasks zu ermitteln wurde sich verschiedener kreativer Hilfsmittel wie z.B. Mindmaps bedient.
 \begin{itemize}
 \item Asset erstellen
 \item Asset exportieren
@@ -845,14 +845,14 @@ Unity kann Builds für die folgenden Plattformen erzeugen:
 Als Entwicklerplattformen unterstützt Unity Windows und Mac OSX. Der Sourcecode der Engine ist nur in einer Enterprise Version erhalten. Zum Erhalt dieser müssen gesonderte Verhandlungen mit Unity Technologies aufgenommen werden. Aus diesen Gründen wird die kostenfreie “free” Version für die Analyse in dieser Arbeit zu Grunde gelegt.
 
 \subsubsection{Coding in der Unity Engine 5}
-In Unity 5 kann wie bereits erwähnt in \CS, Javascript und Boo entwickelt werden. Die beiden Skriptsprachen Javascript und Boo wurden für diese Arbeit nicht betrachtet, da sich auch FUSEE für die Desktopentwicklung auf \CSS fokussiert hat. Unity bringt eine Version der Mono Develop IDE mit, welche alle drei Sprachen unterstützt. Unity unterstützt in der Version 5.0 aktuell das .Net Framework 3.5 und damit die \CSS Version 3.0 und die damit verbundenen Sprachfeatures. Unity setzt stark auf das Konzept des Programmierens mit Components. Die gesamte Engine ist für die Arbeit mit Components ausgelegt. Hierbei wird Funktionalität der Anwedungen so weit heruntergebrochen, bis sie in einzelne Code Dateien ausgelagert werden kann. Aus einem Pool an Component Skripts wird dann das Verhalten eines einzelnen Szenenobjekts aufgebaut. Dieses System ist sehr dynamisch und unterstützt die Entwickler beim experimentieren in der Game Engine. Eine solche Component basierte Lösung ist für das FuseeAT ebenfalls denkbar. Unity bietet genau wie die Unreal Engine einige Standardfunktionen welche im \CSS Code überschrieben werden sollten um ein Objekt in der Engine zu instanziieren. So wird ein GameObject (Die Bezeichnung eines Laufzeitobjektes in Unity) wie in Codebeispielt \ref{unityGameObject} implementiert. Das Beispiel enthält keinen funktionalen Code sondern stellt lediglich die Struktur dar. Fusee wird keine dieser Strukturen einbinden. Das Arbeiten mit FuseeAT soll für den Programmierer so frei wie möglich gestaltet werden.
+In Unity 5 kann wie bereits erwähnt in \CS, Javascript und Boo entwickelt werden. Die beiden Skriptsprachen Javascript und Boo wurden für diese Arbeit nicht betrachtet, da sich auch Fusee für die Desktopentwicklung auf \CSS fokussiert hat. Unity bringt eine Version der Mono Develop IDE mit, welche alle drei Sprachen unterstützt. Unity unterstützt in der Version 5.0 aktuell das .Net Framework 3.5 und damit die \CSS Version 3.0 und die damit verbundenen Sprachfeatures. Unity setzt stark auf das Konzept des Programmierens mit Components. Die gesamte Engine ist für die Arbeit mit Components ausgelegt. Hierbei wird Funktionalität der Anwedungen so weit heruntergebrochen, bis sie in einzelne Code Dateien ausgelagert werden kann. Aus einem Pool an Component Skripts wird dann das Verhalten eines einzelnen Szenenobjekts aufgebaut. Dieses System ist sehr dynamisch und unterstützt die Entwickler beim experimentieren in der Game Engine. Eine solche Component basierte Lösung ist für das FuseeAT ebenfalls denkbar. Unity bietet genau wie die Unreal Engine einige Standardfunktionen welche im \CSS Code überschrieben werden sollten um ein Objekt in der Engine zu instanziieren. So wird ein GameObject (Die Bezeichnung eines Laufzeitobjektes in Unity) wie in Codebeispielt \ref{unityGameObject} implementiert. Das Beispiel enthält keinen funktionalen Code sondern stellt lediglich die Struktur dar. Fusee wird keine dieser Strukturen einbinden. Das Arbeiten mit FuseeAT soll für den Programmierer so frei wie möglich gestaltet werden.
 
 \lstinputlisting[caption = Unity GameObject Struktur, label=UnityGameObject]{Code/unityGameObject.cs}
 
-FuseeAT wird auf eine solche Einschränkung der Programmierung verzichten. Das hat mehrere Gründe. Zum einen soll FUSEE als Engine in der Lehre eingesetzt werden und hier besonders das Verständnis für tiefer gehenede Prozesse einer GameEngine fördern. Zum anderen sollen jegliche Projekte mit der FUSEE Engine durch einen einfachen Build auch im WebBrowser ausgeführt werden. Weiterhin ist die FUSEE Engine ein großes Teamprojekt und deren Erweiterung in diesem Maße kann während dieser Arbeit nicht entschieden und/oder umgesetzt werden.
+FuseeAT wird auf eine solche Einschränkung der Programmierung verzichten. Das hat mehrere Gründe. Zum einen soll Fusee als Engine in der Lehre eingesetzt werden und hier besonders das Verständnis für tiefer gehenede Prozesse einer GameEngine fördern. Zum anderen sollen jegliche Projekte mit der Fusee Engine durch einen einfachen Build auch im WebBrowser ausgeführt werden. Weiterhin ist die Fusee Engine ein großes Teamprojekt und deren Erweiterung in diesem Maße kann während dieser Arbeit nicht entschieden und/oder umgesetzt werden.
 
 \subsubsection{Asset Verwaltung in der Unity Engine 5}
-Die Verwaltung von Assets in Unity ist ein recht einfacher Prozess. Modelle und Grafiken werden in den jeweiligen Programmen wie z.B. 3DS Max, Cinema 4D, Photoshop oder anderer Grafik Software erstellt und im passenden Format einfach in den Projektordner von Unity kopiert. Das Asset kann dann im Unity Editor selbst noch auf das Projekt abgestimmt werden. Ein Modell kann Materialien erhalten, Texturen können getauscht und Grafiken skaliert und auf Objekte angewendet werden. Aus mehreren Assets und/oder Components können in Unity so genannte Prefabs erstellt werden. Bei diesen handelt es sich um ein Paket aus Assets und Code welches z.B. zur Laufzeit der Engine instanziiert werden kann. Prefabs könnten auch als Abbild eines GameObjects in einem spezifischen Moment (Der Moment ihrer Erstellung) bezeichnet werden. Sie verhalten sich immer genau gleich wie das Ursprungs Prefab soweit sie nich individuell zur Laufzeit angepasst werden. Ein solches System ist für FuseeAT vorerst nicht geplant, könnte sich aber in der Zukunft als nützlich erweisen. FUSEE kann bereits in Cinema 4D gemodelte Objekte oder Modelle in der Fusee Engine mit Hilfe von Prototype serialisieren, allerdings ist dieses System noch nicht zu Ende implementiert und wird stetig erweitert.
+Die Verwaltung von Assets in Unity ist ein recht einfacher Prozess. Modelle und Grafiken werden in den jeweiligen Programmen wie z.B. 3DS Max, Cinema 4D, Photoshop oder anderer Grafik Software erstellt und im passenden Format einfach in den Projektordner von Unity kopiert. Das Asset kann dann im Unity Editor selbst noch auf das Projekt abgestimmt werden. Ein Modell kann Materialien erhalten, Texturen können getauscht und Grafiken skaliert und auf Objekte angewendet werden. Aus mehreren Assets und/oder Components können in Unity so genannte Prefabs erstellt werden. Bei diesen handelt es sich um ein Paket aus Assets und Code welches z.B. zur Laufzeit der Engine instanziiert werden kann. Prefabs könnten auch als Abbild eines GameObjects in einem spezifischen Moment (Der Moment ihrer Erstellung) bezeichnet werden. Sie verhalten sich immer genau gleich wie das Ursprungs Prefab soweit sie nich individuell zur Laufzeit angepasst werden. Ein solches System ist für FuseeAT vorerst nicht geplant, könnte sich aber in der Zukunft als nützlich erweisen. Fusee kann bereits in Cinema 4D gemodelte Objekte oder Modelle in der Fusee Engine mit Hilfe von Prototype serialisieren, allerdings ist dieses System noch nicht zu Ende implementiert und wird stetig erweitert.
 
 \begin{figure}[ht]
 	\centering
@@ -872,7 +872,7 @@ Der Unity Szenengraph gleicht dem Fusee Szenengraph. In der Tat lehnt sich das D
 \end{figure}
 
 \subsubsection{Was kann für das FuseeAT Konzept aus Unity übernommen werden?}
-Aus den Funktionen der Unity Engine können verschiedene interessante Konzepte gefunden und für FuseeAT adaptiert werden. Hierzu gehört zu aller erst das Component System. Ddie Unreal Engine setzt wie bereits erwähnt ebenfalls auf ein Component System und das neue Szenengraphen Modell in FUSEE unterstützt diesen Ansatz ebenfalls. So sollte auch FuseeAT dieses Konzept berücksichtigen und die in FUSEE möglichen Components auch in den Cinema 4D Editor integrieren. Weiterhin ist das einfache Build und Deploymentsystem von Unity eine stärke der Engine. Für FuseeAT wäre es ein guter Ansatz die Arbeit der Designer und Artists mit der FUSEE Engine in Cinema 4D zu erleichtern wenn Builds für den Desktop und später evtl auch Web-Builds aus der C4D Software heraus erstellt werden könnten. Hiermit können  Designer und auch Artists jederzeit das Ergebnis ihrer Arbeit durch einen einfachen Build Vorgang direkt in der Engine betrachten.
+Aus den Funktionen der Unity Engine können verschiedene interessante Konzepte gefunden und für FuseeAT adaptiert werden. Hierzu gehört zu aller erst das Component System. Ddie Unreal Engine setzt wie bereits erwähnt ebenfalls auf ein Component System und das neue Szenengraphen Modell in Fusee unterstützt diesen Ansatz ebenfalls. So sollte auch FuseeAT dieses Konzept berücksichtigen und die in Fusee möglichen Components auch in den Cinema 4D Editor integrieren. Weiterhin ist das einfache Build und Deploymentsystem von Unity eine stärke der Engine. Für FuseeAT wäre es ein guter Ansatz die Arbeit der Designer und Artists mit der Fusee Engine in Cinema 4D zu erleichtern wenn Builds für den Desktop und später evtl auch Web-Builds aus der C4D Software heraus erstellt werden könnten. Hiermit können  Designer und auch Artists jederzeit das Ergebnis ihrer Arbeit durch einen einfachen Build Vorgang direkt in der Engine betrachten.
 
 %Einfachheit des Editors.
 %Component System.
@@ -885,7 +885,7 @@ Aus den Funktionen der Unity Engine können verschiedene interessante Konzepte g
 Dieser Abschnitt beschreibt das durchgeführte Systemdesign. Das Ziel hier ist es, eine technische Konzeption für ein Softwareprodukt zu entwickeln. Dieses technische Konzept ist Grundlage für eine nachfolgende Implementierung des Softwareprojektes FuseeAT. Einge Features werden diskutiert und die Entscheidung für oder gegen diese Erläutert.
 
 \subsection{Warum Fusee und Cinema 4D?}
-Für diese Arbeit wurden die beiden Applikationen FUSEE\footnote{Furtwangen University Simulation and Entertainment Engine} und Cinema 4[\autocite{MaxonC4d2014} aus verschiedenen Gründen als Ausgangsbasis für die Forschung ausgewählt. Bei der FUSEE Engine handelt es sich um eine von der Hochschule Furtwangen eigens Entwickelte 3D Engine unter der Leitung von Herrn Prof. C. Müller der Fakultät DM. Sie wird meist durch Projekte, Abschlussarbeiten und Arbeitsgruppen weiter entwickelt. Bei der Engine handelt es sich um eine 3D Engine deren Quellcode komplett Open Source ist. Das komplette Projekt inklusive seiner Abhängigkeiten ist von GitHub\footnote{https://github.com/FUSEEProjectTeam/Fusee} zu beziehen - was eine Integration des hier in dieser Arbeit angedachten Projektes einfacher gestaltet. Weiterhin wurde das Uniplug Projekt in die Fusee Engine integriert und nutzt deren Formate, Strukturen und einen Teil der Codebase. Hierbei handelt es sich um verschiedene Mathematik Bibliotheken und Tools wie den FUSEE Project Generator.
+Für diese Arbeit wurden die beiden Applikationen Fusee\footnote{Furtwangen University Simulation and Entertainment Engine} und Cinema 4[\autocite{MaxonC4d2014} aus verschiedenen Gründen als Ausgangsbasis für die Forschung ausgewählt. Bei der Fusee Engine handelt es sich um eine von der Hochschule Furtwangen eigens Entwickelte 3D Engine unter der Leitung von Herrn Prof. C. Müller der Fakultät DM. Sie wird meist durch Projekte, Abschlussarbeiten und Arbeitsgruppen weiter entwickelt. Bei der Engine handelt es sich um eine 3D Engine deren Quellcode komplett Open Source ist. Das komplette Projekt inklusive seiner Abhängigkeiten ist von GitHub\footnote{https://github.com/FuseeProjectTeam/Fusee} zu beziehen - was eine Integration des hier in dieser Arbeit angedachten Projektes einfacher gestaltet. Weiterhin wurde das Uniplug Projekt in die Fusee Engine integriert und nutzt deren Formate, Strukturen und einen Teil der Codebase. Hierbei handelt es sich um verschiedene Mathematik Bibliotheken und Tools wie den Fusee Project Generator.
 
 Der 3D Modeling Editor Cinema 4D steht kostenfrei für Studierende der Hochschule Furtwangen zur verfügung und bietet eine relativ gut dokumentiert API. Weiterhin ist das Projekt Uniplug auf die Verwendung mit Cinema 4D hin konzipiert und unterstützt zum Zeitpunkt der Erstellung dieser Arbeit noch keine weitere Software. Ein großer Teil der Cinema 4D C++ API war bereits in das Uniplug Tool integriert bzw. von C++ nach \CSS konvertiert / gewrapped. So konnte relativ Problemlos mit der Arbeit begonnen werden.
 \\
@@ -902,7 +902,7 @@ Die grau hinterlegten Bestandteile der Abbildung \ref{FuseeATSystemÜberblick} b
 	\caption{Überblick über die Systemarchitektur}
 	\label{FuseeATSystemÜberblick}
 \end{figure}
-Das gelb hinterlegte FUSEE Projekt beschreibt ein sich in Produktion befindliches Engine Projekt. Im Unterschied zu den aktuell meisten FUSEE Projekten verwendet es allerdings für den verlauf dieser Arbeit einen Binary Build der Engine. Dies hat den Vorteil, dass nicht der komplette Engine Code während der Arbeit für ein einziges Projekt mitgetragen werden muss. Der Engine Code direkt, wird während dieser Arbeit nicht erweitert, sie beschränkt sich lediglich auf die Erweiterung des Uniplug Projektes welches hier im Plugin Cinema 4D Uniplug in \CSS Container dargestellt ist. Das Uniplug Projekt ist nicht direkt im Kern der Engine angesiedelt und lässt sich deshalb getrennt von dieser bearbeiten.
+Das gelb hinterlegte Fusee Projekt beschreibt ein sich in Produktion befindliches Engine Projekt. Im Unterschied zu den aktuell meisten Fusee Projekten verwendet es allerdings für den verlauf dieser Arbeit einen Binary Build der Engine. Dies hat den Vorteil, dass nicht der komplette Engine Code während der Arbeit für ein einziges Projekt mitgetragen werden muss. Der Engine Code direkt, wird während dieser Arbeit nicht erweitert, sie beschränkt sich lediglich auf die Erweiterung des Uniplug Projektes welches hier im Plugin Cinema 4D Uniplug in \CSS Container dargestellt ist. Das Uniplug Projekt ist nicht direkt im Kern der Engine angesiedelt und lässt sich deshalb getrennt von dieser bearbeiten.
 \\
 \\
 Damit das System erfolgreich arbeiten kann ist es nötig, aus Cinema 4D verschiedene Information an das FuseeAT weiterzureichen. So muss im Plugin zu Cinema 4D ein Fusee Projekt geöffnet werden. Dies kann über einen UI Dialog geschehen, der die vom Benutzer eingetragenen Informationen über den Projektort auf der Festplatte des Nutzers dann an das FuseeAT weiterleitet. Somit kann das FuseeAT dann die komplette Steuerung des Projektes übernehmen und Cinema4D stellt nur eine Benutzerschnittstelle zur Interaktion dar. Somit wäre jegliche Funktionalität des FuseeAT in das eigentliche Authoring Framework ausgelagert und somit vom Programm Cinema 4D (oder anderen) abgekoppelt und unabhängig. Das Cinema 4D Plugin, in der Abbildung \ref{FuseeATSystemÜberblick} ebenfalls in grün dargestellt, stellt also nur die Schnittstelle des FuseeAT zur Software Cinema 4D dar und dient in diesem Fall als Kommunikatorensystem zwischen den verschiedenen Architekturen C++ und \CS.
@@ -955,47 +955,47 @@ Das TagPlugin kümmert sich um die Zuordnung von Assets. Es ermöglicht es in Ci
 	\label{KlassendiagrammPluginArchitektur}
 \end{figure}
 Das MessagePlugin ist ein Hilfsplugin und implementiert keine Funktionalität sondern unterstützt die per Nachrichtensystem gesteuerte Kommunikation innerhalb von Cinema 4D. Durch dieses Plugin können Nachrichten des CommandPlugin an das TagPlugin und umgekehrt versandt werden. Die Nachrichten werden dann in den jeweiligen Plugins geparsed (sie bestehen aus einer Integer ID und einem Datenanteil\footnote{Von der Cinema 4D API festegelegt.}) und weiter verarbeitet. 
-Das hier angeführte Klassendiagramm \ref{KlassendiagrammPluginArchitektur} zeigt die für jedes Plugin benötigten API Funktionen. Diese Funktionen müssen im Plugin Code als überschriebene Funktionen implementiert werden. Die Klasse GUIPlugin implementiert ein UserInterface um ein FUSEE Projekt von Cinema 4D aus über einen Grafischen UI Dialog zu laden.
+Das hier angeführte Klassendiagramm \ref{KlassendiagrammPluginArchitektur} zeigt die für jedes Plugin benötigten API Funktionen. Diese Funktionen müssen im Plugin Code als überschriebene Funktionen implementiert werden. Die Klasse GUIPlugin implementiert ein UserInterface um ein Fusee Projekt von Cinema 4D aus über einen Grafischen UI Dialog zu laden.
 
 
 %\subsection{Entfernen von Abhängigkeiten}
 %TODO: Was war hier nochmal genau gemeint? Muss ich in den Unterlagen nachsehen.
 
 \subsection{Zeitersparnis durch bekannte Tools}
-Um nicht jegliche Funktionen neu implementieren zu müssen, wurde vor dem Beginn der Implementierung geprüft welche Funktionalitäten bereits in der FUSEE Engine gegeben sind. Durch die offene Struktur der Engine konnte bereits früher schon Code wiederverwendet werden. Diese Synergien der bereits vorhandenen Systemen sollten auch in zukünftigen Entwicklungen genutzt werden um, Zeit und Ressourcen zu sparen.
+Um nicht jegliche Funktionen neu implementieren zu müssen, wurde vor dem Beginn der Implementierung geprüft welche Funktionalitäten bereits in der Fusee Engine gegeben sind. Durch die offene Struktur der Engine konnte bereits früher schon Code wiederverwendet werden. Diese Synergien der bereits vorhandenen Systemen sollten auch in zukünftigen Entwicklungen genutzt werden um, Zeit und Ressourcen zu sparen.
 
 \subsubsection{Der Fusee Projekt Generator}
 %TODO: Kurz erklären was er kann etc.
-Der Fusee Project Generator ist ein Projekt das bereits vom ersten FUSEE Entwicklerteam angestoßen wurde. Es  handelt sich hierbei um ein Bibliotheksmodul welches es ermöglicht, ein neues \CSS Projekt in einerhalb einer FUSEE Solution anzulegen. Im Rahmen dieser Arbeit wurde der FUSEE Projekt Generator lediglich neu innerhalb des Uniplug Projektes verdrahtet. Davor war der Generator noch eine eigenständige Konsolen .Exe Anwendung. Aktuell können mehrere Projekte mit ein und dem selben Engine Binary Build gebaut und verdrahtet werden. Die folgende Abbildung \ref{FUSEEBinaryProjektStruktur} zeigt die Struktur eines solchen Fusee Projektes.
+Der Fusee Project Generator ist ein Projekt das bereits vom ersten Fusee Entwicklerteam angestoßen wurde. Es  handelt sich hierbei um ein Bibliotheksmodul welches es ermöglicht, ein neues \CSS Projekt in einerhalb einer Fusee Solution anzulegen. Im Rahmen dieser Arbeit wurde der Fusee Projekt Generator lediglich neu innerhalb des Uniplug Projektes verdrahtet. Davor war der Generator noch eine eigenständige Konsolen .Exe Anwendung. Aktuell können mehrere Projekte mit ein und dem selben Engine Binary Build gebaut und verdrahtet werden. Die folgende Abbildung \ref{FuseeBinaryProjektStruktur} zeigt die Struktur eines solchen Fusee Projektes.
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\linewidth/2]{Bilder/FUSEEBinaryProjekt.jpg}
-	\caption{FUSEE Binary Projekt Struktur}
-	\label{FUSEEBinaryProjektStruktur}
+	\includegraphics[width=\linewidth/2]{Bilder/FuseeBinaryProjekt.jpg}
+	\caption{Fusee Binary Projekt Struktur}
+	\label{FuseeBinaryProjektStruktur}
 \end{figure}
- Die Solution Datei beinhaltet die zwei Projekte “Simple” und “TestProjekt”. Diese Projekte beherbergen in den Referenzen jeweils die Binary Bibliotheken der FUSEE Engine. Das Projekt TestProjekt wurde mit dem FUSEE Generator angelegt. Hierfür benötigt der Generatur nur den gewünschten Namen des Projekts und den Pfad zum Fusee Binary Projekt auf der Festplatte des Benutzers.
+ Die Solution Datei beinhaltet die zwei Projekte “Simple” und “TestProjekt”. Diese Projekte beherbergen in den Referenzen jeweils die Binary Bibliotheken der Fusee Engine. Das Projekt TestProjekt wurde mit dem Fusee Generator angelegt. Hierfür benötigt der Generatur nur den gewünschten Namen des Projekts und den Pfad zum Fusee Binary Projekt auf der Festplatte des Benutzers.
 
 
 
 \subsubsection{Fusee .fus Exporter}
 %TODO: Kurz erklären was er kann etc. und ob er reingeommen wird. Da muss ich noch etwas abwarten.
 Beim Fusee Exporter handelt es sich um ein von Herrn Prof. C. Müller (Hochschule Furtwangen, Fakultät Digitale Medien) entwickeltes Cinema 4D Plugin. Das Plugin wurde ebenfalls mit Hilfe des Projektes Uniplug entwickelt. Es ermöglicht das exportieren einer Cinema 4D Szene in ein von Fusee lesbares Format (.fus). Dieses binary Format lässt sich in Fusee direkt im Code einer Engine Applikation laden und enthält sowohl Geometrie als auch weitere Bestandteile wie z.B. Materialien. Das Systemdesign sieht vor, dieses Plugin in das FuseeAT zu integrieren. Es erfüllt die Aufgabe des exports von Model bzw. Szenendateien in das Fusee Format zufriedenstellend und muss für eine Implementierung noch aus der Form eines Plugins in die Form einer Softwarebibliothek gebracht werden. Der Fusee Exporter ist an Cinema 4D gebunden und kann daher lediglich für den Export aus Cinema 4D genutzt werden. Für eine Verwendung in anderen Programmen müsste eine Schnittstelle geschaffen werden. Der Fusee Exporter operiert direkt auf den von Maxon in der API bereitgestellten Datentypen und Methoden einer Cinema 4D Szene.
-Das Plugin bietet weiterhin die Möglichkeit eine Szene aus Cinema4D in eine im Web Browser lauffähige Version einer Fusee Szene zu exportieren. Dies geschieht mittels der Verwendung von JSIL und verschiedener Javascript Bibliotheken. Weitere Informationen finden sich im Wiki\footnote{FUSEE Wiki zum Web Export: \url{https://github.com/FUSEEProjectTeam/Fusee/wiki/HowTo:-Fusee-on-Web}} zu Fusee.
+Das Plugin bietet weiterhin die Möglichkeit eine Szene aus Cinema4D in eine im Web Browser lauffähige Version einer Fusee Szene zu exportieren. Dies geschieht mittels der Verwendung von JSIL und verschiedener Javascript Bibliotheken. Weitere Informationen finden sich im Wiki\footnote{Fusee Wiki zum Web Export: \url{https://github.com/FuseeProjectTeam/Fusee/wiki/HowTo:-Fusee-on-Web}} zu Fusee.
 
-\section{Asset Management und Asset Pipeline in der FUSEE Engine}
+\section{Asset Management und Asset Pipeline in der Fusee Engine}
 % TODO % Begriffserklärung eines Asset, genaue Definitionen anmerken.
 %Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen aus Assets und mehr.
-Da sich die FUSEE Engine in stetiger Entwicklung befindet, gibt es bis jetzt noch keine gesondert etablierte Asset Management Pipeline. Assets werden bis jetzt in Visual Studio direkt im Code per Include eingebunden. Meist handelt es sich bei in FUSEE eingebundenen Assets um eines der folgenden Asset-Typen:
+Da sich die Fusee Engine in stetiger Entwicklung befindet, gibt es bis jetzt noch keine gesondert etablierte Asset Management Pipeline. Assets werden bis jetzt in Visual Studio direkt im Code per Include eingebunden. Meist handelt es sich bei in Fusee eingebundenen Assets um eines der folgenden Asset-Typen:
 \begin{itemize}
 \item 3D-Modelle in den Formaten .obj\footnote{Weitere Informationen zum Format unter: \url{http://www.fileformat.info/format/wavefrontobj/egff.htm} Online: geprüft am 27.04.2015} (Bei dem Dateiformat handelt es sich um das lesbare ASCII Model Datenformat “Wavefront Object”\footnote{Entwickelt von Wavefront, das Unternehmen war später unter dem Namen Alias bekannt und wurde zwischenzeitlich von Autodesk aufgekauft \url{http://www.autodesk.de/}})
 \item 2D-Texturen in den Formaten (JPEG, JPG, PNG)
-\item Audio Datei im Format MP3, Wav, etc. (Unterstützt alle von der SFML “Simple and Fast Multimedia Library \url{http://www.sfml-dev.org/} unterstützen Formate.” Inkl. eigener Implementierung einer MP3 Unterstützung durch den FUSEE Entwickler Fabian Gärtner.)
+\item Audio Datei im Format MP3, Wav, etc. (Unterstützt alle von der SFML “Simple and Fast Multimedia Library \url{http://www.sfml-dev.org/} unterstützen Formate.” Inkl. eigener Implementierung einer MP3 Unterstützung durch den Fusee Entwickler Fabian Gärtner.)
 \end{itemize}
 
 
 \subsection{Asset Pipelines in Fusee Authoring Toolkit}
 % TODO: Wichtig. Fusee hat die Möglichkeit der .fus Exporte. Hier werden Assets serialisiert und auf die Festplatte geschrieben. Dadurch können sie schnell geladen werden. Die Assets werden mit protobuf serialisiert.
-Die folgende Grafik \ref{FuseeATAssetIteration} \footnote{Abbildung entnommen aus \cite[S. 7]{Carter2004} und neu Illustriert und beschriftet.} ergänzt die Erläuterung zum Asset Authoring (Eines .fus Objektes mit angehängtem Code Component\footnote{Ein Extra Element welches an einem Asset Objekt angehängt ist} oder anderen) mit Hilfe der Asset Pipeline während der Produktion eines FUSEE Engine Projektes. Hierbei handelt es sich um einen iterativen Prozess welcher je nach Ergebnis des Tests und der Evaluation im Engine Projekt eine neue Iteration des Prozesses nach sich ziehen kann. In der Grafik wird Beispielhaft ein Model in Cinema4D erstellt, ein Component angehängt und anschließend vom FuseeAT System zur Laufzeit zu einer XML Datei serialisiert. Diese XML Datei kann dann von jedem Entwickler editiert werden. Die Datei wird weiterhin von FuseeAT in der Cinema4D Szene benötigt um eine Zuordnung eines Asset in der Szene wiederherzustellen.
+Die folgende Grafik \ref{FuseeATAssetIteration} \footnote{Abbildung entnommen aus \cite[S. 7]{Carter2004} und neu Illustriert und beschriftet.} ergänzt die Erläuterung zum Asset Authoring (Eines .fus Objektes mit angehängtem Code Component\footnote{Ein Extra Element welches an einem Asset Objekt angehängt ist} oder anderen) mit Hilfe der Asset Pipeline während der Produktion eines Fusee Engine Projektes. Hierbei handelt es sich um einen iterativen Prozess welcher je nach Ergebnis des Tests und der Evaluation im Engine Projekt eine neue Iteration des Prozesses nach sich ziehen kann. In der Grafik wird Beispielhaft ein Model in Cinema4D erstellt, ein Component angehängt und anschließend vom FuseeAT System zur Laufzeit zu einer XML Datei serialisiert. Diese XML Datei kann dann von jedem Entwickler editiert werden. Die Datei wird weiterhin von FuseeAT in der Cinema4D Szene benötigt um eine Zuordnung eines Asset in der Szene wiederherzustellen.
 Das erstellte Asset bleibt weiterhin im Cinema4D Format, gespeichert in der Cinema4D Datei des Projektes, vorhanden. Somit besteht das Asset in einer nativen Version weiterhin und kann in einem iterativen Prozess weiterhin verändert werden.
 
 \begin{figure}[ht]
@@ -1005,7 +1005,7 @@ Das erstellte Asset bleibt weiterhin im Cinema4D Format, gespeichert in der Cine
 	\label{FuseeATAssetIteration}
 \end{figure}
 
-Während des Build- und/oder Speichervorgangs des Cinema4D und FUSEE Projekts über das FuseeAT wird das Asset vom Framework in ein Asset des FUSEE Typs .fus gewandelt. Allerdings geht durch die bereits erwähnre redundante Speicherung des Asset im Cinema4D Format keine Information der ursprünglichen Datei verloren.
+Während des Build- und/oder Speichervorgangs des Cinema4D und Fusee Projekts über das FuseeAT wird das Asset vom Framework in ein Asset des Fusee Typs .fus gewandelt. Allerdings geht durch die bereits erwähnre redundante Speicherung des Asset im Cinema4D Format keine Information der ursprünglichen Datei verloren.
 
 \subsection{Assetmanagement in Fusee Authoring Toolkit}
 % TODO: Wie kann man die Assets managen und im Speicher halten etc. Wie kann ich das mit der Arbeit verflechten. Eventuell weil der Code auch das Projekt vor hält?
@@ -1013,7 +1013,7 @@ Oft reicht eine einfache Versionierung, durch z.B. Git, von binären Asset Datei
 Das Assetmanagment innerhalb eines Projektes wird von FuseeAT nicht abgedeckt und sollte vom Entwicklerteam übernommen werden. Hierzu können verschiedene Tools eingesetzt werden die auf ein Management von Binary Asset Files spezialisiert sind. Beispiele für solche Systeme sind die Software Alienbrain \autocite{Alienbrain}\footnote{Webadresse: \url{http://www.alienbrain.com/}} und die Software Shotgun \autocite{Shotgun}\footnote{\url{https://www.shotgunsoftware.com/}}. Diese kommerziellen Tools erlauben das Verwalten von Binären Assets (z.B. Audio Dateien, 3D-Modelle, Grafiken) während der Produktion von Entertainment Produkten. Eine solche Software kann ohne Probleme neben dem FuseeAT eingesetzt werden, da sich die beiden Wirkungsbereiche nicht überschneiden.
 
 \section{Die Cinema 4D C++ API und ihre Verwendung in diesem Projekt}
-Für die Implementierung in FUSEE und dem Cinema 4D Pluginsystem war es nötig, auf das Uniplug System der Hochschule Furtwangen \footnote{Entstanden durch die Leitung und Entwicklung von Herrn. Prof. C. Müller, Fakultät Digitale Medien, in ständiger Weiterentwicklung durch Mitglieder und Studierende des Fusee Teams.} zurückzugreifen. Damit das Uniplug System in dieser Arbeit genutzt werden konnte, waren einige Erweiterungen nötig. Da dies einen erheblichen Zeitaufwand vor und während der Implementierung bedingte und eine Abhängigkeit von FuseeAT darstellt, soll hier darauf eingegangen werden.
+Für die Implementierung in Fusee und dem Cinema 4D Pluginsystem war es nötig, auf das Uniplug System der Hochschule Furtwangen \footnote{Entstanden durch die Leitung und Entwicklung von Herrn. Prof. C. Müller, Fakultät Digitale Medien, in ständiger Weiterentwicklung durch Mitglieder und Studierende des Fusee Teams.} zurückzugreifen. Damit das Uniplug System in dieser Arbeit genutzt werden konnte, waren einige Erweiterungen nötig. Da dies einen erheblichen Zeitaufwand vor und während der Implementierung bedingte und eine Abhängigkeit von FuseeAT darstellt, soll hier darauf eingegangen werden.
 
 \subsection{In der Implementierung verwendete Softwareprojekte / Ausgangssituation}
 Das Projekt “Fusee Authoring Toolkit” \footnote{Der Name der zu dieser Arbeit zugehörigen Softwarebibliothek} basiert auf mehreren Software Projekten. Ein Teil dieser Projekte wurde an der Hochschule Furtwangen entwickelt. Ein anderer Teil stammt von externen Entwicklen und gehört zu proprietärer Software. Dieser Abschnitt gibt einen Überblick über die verwendeten Softwarebestandteile und ihrer Einbindung in der Implementierung zur Zeit dieser Arbeit.
@@ -1021,9 +1021,9 @@ Das Projekt “Fusee Authoring Toolkit” \footnote{Der Name der zu dieser Arbei
 \\
 Verwendet wurden:
 \begin{itemize}
-\item FUSEE Math Bibliothek, eine von Fusee unabhängige Sammlung in \CSS geschriebener Mathematischer Funktionen und Datentypen
+\item Fusee Math Bibliothek, eine von Fusee unabhängige Sammlung in \CSS geschriebener Mathematischer Funktionen und Datentypen
 \item Uniplug, ein in Fusee beinhaltetes Projekt zum Schreiben von Plugins in \CSS für Cinema 4D
-\item Die FUSEE Engine, eine Interaktive Simulations Engine zur Darstellung zweidimensionaler und dreidimensionaler Szenen
+\item Die Fusee Engine, eine Interaktive Simulations Engine zur Darstellung zweidimensionaler und dreidimensionaler Szenen
 \item Die Maxon Cinema 4D API(Hier sind nur C++ Headerfiles verfügbar. Jeglicher implementierter Cinema4D Programmcode ist nicht einsehbar.)
 \item Verschiedene Windows Bibliotheken aus dem .NET Framework auf welche hier nicht weiter eingegangen werden soll
 \end{itemize}
@@ -1050,7 +1050,7 @@ Das hier dargestellte Minimalbeispiel \ref{BasicC4dPlugin} in C++ Code zeigt ein
 Dieser Code ist ein Wichtiger Bestandteil der Cinema 4D API und letztendlich auch des FuseeAT. Das Beispiel wird im nächsten Abschnitt relevant. Es folgt ein Überblick über das Uniplug Projekt welches das Schreiben von Cinema 4D Plugins mit Hilfe der Programmiersprache \CSS ermöglicht. Die oben gezeigte  Codestruktur wird dann noch einmal als \CSS Version erläutert.
 
 \subsection{Uniplug}
-Bei Uniplug handelt es sich um ein Teil des Projektes FUSEE der Hochschule Furtwangen. Uniplug bietet die möglichkeit Cinema 4D Plugins in \CSS zu schreiben. Hierfür bedient es sich eines Interface Compilers SWIG [\fullcite{SWIG2015}]. Das gesamte Uniplug Projekt ist ein Open Source Projekt und steht auf GitHub Repository unter \url{https://github.com/FUSEEProjectTeam/Fusee} innerhalb des Fusee Projekts zum Download bereit. Das Uniplug Projekt stand bereits vor dieser Arbeit zur Verfügung. Allerdings hatte es nich den nötigen Umfang und das Projekt wurde während der Arbeit um wichtige Funktionen zur Entwicklung von Plugins erweitert. Folgende in Abbildung \ref{UniPlugVSStruktur} dargestellten Module sind Bestandteil des Uniplug Systems.
+Bei Uniplug handelt es sich um ein Teil des Projektes Fusee der Hochschule Furtwangen. Uniplug bietet die möglichkeit Cinema 4D Plugins in \CSS zu schreiben. Hierfür bedient es sich eines Interface Compilers SWIG [\fullcite{SWIG2015}]. Das gesamte Uniplug Projekt ist ein Open Source Projekt und steht auf GitHub Repository unter \url{https://github.com/FuseeProjectTeam/Fusee} innerhalb des Fusee Projekts zum Download bereit. Das Uniplug Projekt stand bereits vor dieser Arbeit zur Verfügung. Allerdings hatte es nich den nötigen Umfang und das Projekt wurde während der Arbeit um wichtige Funktionen zur Entwicklung von Plugins erweitert. Folgende in Abbildung \ref{UniPlugVSStruktur} dargestellten Module sind Bestandteil des Uniplug Systems.
 
 \begin{figure}[ht]
 	\centering
@@ -1108,33 +1108,7 @@ Die grauen Flächen im Diagramm beschreiben Aktionen in welche der Entwickler ak
 \subsubsection{Erweiterung des Uniplug Codes für Plugins vom Typ TagPlugin}
 Um das Projekt auf den Aktuellen Stand zu bringen und das schreiben des Plugins zu ermöglichen musste zuerst das Uniplug Projekt erweitert werden. Auch hier wurde mit iterativen Methoden gearbeitet. Falls Probleme mit verschiedene gewrappten Cinema 4D API Methoden auftragen, wurde zunächst geprüft, welche “pseudo” SWIG Dateien diese Probleme verursachten und welche Cinema 4D Api Funktionen aus diesem Grund in der \CSS API Code nicht vorhanden sind. Diese fehlenden Dateien wurden dann inkludiert und es wurde versucht das SWIG Projekt zu bauen. Sollte es bei diesem Schritt zu Problemen kommen, mussten die API Dateien genauer analysiert werden. In manchen Fällen war es nun nötig den nativen Code der API Dateien zu erweitern oder zu überschreiben. Bei der Implementierung des Cinema 4D Plugin Typs “TagPlugin” waren besondere Änderungen im API Code nötig. Hier sollen die Problematik und die Lösung dieser aufgezeigt und erläutert werden.
 \\
-\begin{lstlisting}[language=C++, caption = Einbinden des Maxon Cinema 4D C++ Datentyps TagPlugin in die \CSS API von Uniplug]
-#include "c4d_tagdata.h"
-#include "c4d_tagplugin.h"
-
-// "c4d_tagdata.h"
-//%include "c4d_tagdata.h";
-%feature("director") TagDataM;
-%csmethodmodifiers TagDataM::TagDataM "private";
-%typemap(cscode) TagDataM %{
-	public TagDataM(bool memOwn) : this(C4dApiPINVOKE.new_TagDataM(), memOwn) {
-    SwigDirectorConnect();
-  }
-%}
-%include "c4d_tagdata.h";
-%include "TagDataM.h";
-
-// "c4d_tagplugin.h"
-//%include "c4d_tagplugin.h";
-%feature("director") TagPlugin;
-%csmethodmodifiers TagPlugin::TagPlugin "private";
-%typemap(cscode) TagPlugin %{
-  public TagPlugin(bool memOwn) : this(C4dApiPINVOKE.new_TagPlugin(), memOwn) {
-    SwigDirectorConnect();
-  }
-%}
-%include "c4d_tagplugin.h";
-\end{lstlisting}
+\lstinputlisting[language=C++, caption = Einbinden des Maxon Cinema 4D C++ Datentyps TagPlugin in die \CSS API von Uniplug]{Code/c4dDataTypeToCSharp.h}
 
 Um den Datentyp TagData korrekt im \CSS Code zu verwenden, waren noch weitere Anpassungen im Code notwendig. Die Methode Message() des TagData ElternTyps NodeData musste überschrieben werden um das Message System in \CSS nutzen zu können. Dies wurde nötig durch die Verwendung eines Void Pointers seitens Maxons in der Parameterliste der Message Funktion im C++ Code der API. SWIG kann an dieser Stelle durch den nicht auf einen Datentypen festgelegten Void Pointer des Datentyps der Parameterliste keine zufriedenstellende Wrappingfunktion bereit stellen. Das folgende Codebeispiel der Message() Funktion verdeutlicht den Fix im C++ Code des Uniplug Native Projektes.
 
@@ -1169,28 +1143,26 @@ Bool TagDataM::Message(GeListNode *node, Int32 type, void *data)
 }
 \end{lstlisting}
 
-Durch die eingeschränkte  Möglichkeit nur bis zum call des Debugging API Codes debuggen zu können (Hierzu mehr im Kapitel Probleme und Herausforderungen), war die Lösung des Problems nicht wie meistens in mit SWIG gewrappten Codebasen durch einen einfachen \%typemap\footnote{Ermöglicht das mappen eines Datentyps der Eingangssprache auf einen anderen Datentyp der Ausgangssprache} sondern nur durch die Nachimplementierung der oben dargestellten switch case Anweisung innerhalb des Uniplug Projektes zu bewerkstelligen. 
+Durch die eingeschränkte  Möglichkeit nur bis zum call des Debugging API Codes debuggen zu können (Hierzu mehr im Kapitel Probleme und Herausforderungen), war die Lösung des Problems nicht wie meistens in mit SWIG gewrappten Codebasen durch einen einfachen \%typemap\footnote{Ermöglicht das mappen eines Datentyps der Eingangssprache auf einen anderen Datentyp der Ausgangssprache} sondern nur durch die nachträgliche Implementierung der oben dargestellten switch case Anweisung innerhalb des Uniplug Projektes zu bewerkstelligen. 
 
-\subsection{Aus FUSEE verwendete Software-Module}
-Wie bereits erwähnt, wird der Code der FUSEE Engine für diese Arbeit nicht erweitert. Es wird im Systemdesign aber ein wichtiges Element der Engine, der Szenengraph, verwendet. Dieser Abschnitt geht auf die Funktionsweise des Szenengraphen in FUSEE ein und zeigt seine Ähnlichkeiten und Unterschiede zum Szenenaufbau einer Cinema4D Szene auf. Hierzu werden die beiden Systeme analysiert und dann ein Design zum Mapping des Cinema4D Graphen auf das FUSEE System erläutert.
-\subsubsection{Der FUSEE Szenengraph}
-% TODO - Nachforschungen. Und das Beispiel einbinden?
-% Eine Grafik erleichtert das Verständnis und stellt außerdem das Konzept heraus.
-Der Fusee Szenengraph ermöglich das Traversieren und Vorhalten verschiedener Elemente einer FUSEE Szene. Der Graph ist aus einer Kombination von Nodes und Components aufgebaut. Er ähnelt stark dem Unity3D Ansatz des Szenengraphen. Eine Node ist ein Knotenpunkt ohne spezielle Daten. Die Node enthält lediglich einen Namen, eine Liste an Components und falls nötog, eine Liste an Kind-Nodes. Das Traversieren wird durch Visitor Implementierungen ermöglicht. Diese Visitor Patterns wurden während dieser Arbeit noch implementiert und erweitert. Ein Visitor ermöglicht das Traversieren einer Szene und seiner Nodes auf eine vom Entwickler definierte weise und kann so z.B. Transformationen durchführen, welche die Struktur einer Szene verändern.
+\subsection{Aus Fusee verwendete Software-Module}
+Wie bereits erwähnt, wird der Code der Fusee Engine für diese Arbeit nicht erweitert. Es wird im Systemdesign aber ein wichtiges Element der Engine, der Szenengraph, verwendet. Dieser Abschnitt geht auf die Funktionsweise des Szenengraphen in Fusee ein und zeigt seine Ähnlichkeiten und Unterschiede zum Szenenaufbau einer Cinema4D Szene auf. Hierzu werden die beiden Systeme analysiert und dann ein Design zum Mapping des Cinema4D Graphen auf das Fusee System erläutert.
+
+\subsubsection{Der Fusee Szenengraph}
+Der Fusee Szenengraph ermöglich das Traversieren und Vorhalten verschiedener Elemente einer Fusee Szene. Der Graph ist aus einer Kombination von Nodes und Components aufgebaut. Er ähnelt stark dem Unity3D Ansatz des Szenengraphen. Eine Node ist ein Knotenpunkt ohne spezielle Daten. Die Node enthält lediglich einen Namen, eine Liste an Components und falls nötog, eine Liste an Kind-Nodes. Das Traversieren wird durch Visitor Implementierungen ermöglicht. Diese Visitor Patterns wurden während dieser Arbeit noch implementiert und erweitert. Ein Visitor ermöglicht das Traversieren einer Szene und seiner Nodes auf eine vom Entwickler definierte weise und kann so z.B. Transformationen durchführen, welche die Struktur einer Szene verändern.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=8cm]{Bilder/fusee_Szenengraph_Vgl.jpg}
-	\caption{Der FUSEE Szenengraph in exemplarischer bildlicher Darstellung.}
+	\includegraphics[width=8cm]{Bilder/Fusee_Szenengraph_Vgl.jpg}
+	\caption{Der Fusee Szenengraph in exemplarischer bildlicher Darstellung.}
 	\label{FuseeSzenenGraph}
 \end{figure}
 
-Die Abbildung \ref{FuseeSzenenGraph} zeigt einen Beispielhaft dargestellten “SceneContainer” einer FUSEE Szene. Diese Szene besteht aus mehreren Nodes deren Components aus verschiedensten Typen bestehen. So kann ein Node als reiner Anker einer Szene dienen. In der Abbildunf \ref{FuseeSzenenGraph} dargestellt durch das “Root object”. Ein von einem Artist erstelltes Modell kann als Node Object mit angehängtem Mesh und Material Component umgesetzt werden. Sollte sich ein Mesh zusätzlich im Raum bewegen, kann es über eine weitere Transform Komponente verfügen. Sowohl Components als auch Visitor Pattern lassen sich vom Entwickler nach den eigenen Wünschen nach-implementieren oder anpassen. Ein kommentiertes Source Code Beispiel zur Anwendung des Fusee Szenengraphen findet sich im Anhang in Listing \ref{fuseeSzenenGraphExample}.
+Die Abbildung \ref{FuseeSzenenGraph} zeigt einen Beispielhaft dargestellten “SceneContainer” einer Fusee Szene. Diese Szene besteht aus mehreren Nodes deren Components aus verschiedensten Typen bestehen. So kann ein Node als reiner Anker einer Szene dienen. In der Abbildunf \ref{FuseeSzenenGraph} dargestellt durch das “Root object”. Ein von einem Artist erstelltes Modell kann als Node Object mit angehängtem Mesh und Material Component umgesetzt werden. Sollte sich ein Mesh zusätzlich im Raum bewegen, kann es über eine weitere Transform Komponente verfügen. Sowohl Components als auch Visitor Pattern lassen sich vom Entwickler nach den eigenen Wünschen nach-implementieren oder anpassen. Ein kommentiertes Source Code Beispiel zur Anwendung des Fusee Szenengraphen findet sich im Anhang in Listing \ref{FuseeSzenenGraphExample}.
 
-\subsubsection{Unterschiede des FUSEE Szenengraphen zum Cinema4D Szenengraphen}
-% TODO: Nodes etc. hier darstellen und etwas dazu schreiben. Dann aber auch herausheben warum das wichtig ist. Das hat dann mit den Szenen exports etc. zu tun.
-Der FUSEE- und der Cinema 4D Szenengraph unterscheiden sich in gewissen Konzeptionellen Ansätzen. Um also den C4D Szenengraph in einen FUSEE Szenengraph umzuwandeln, bedarf es einer Analyse der Unterschiede.
-Wie bereits erwähnt, verfügt der FUSEE Szenengraph über Nodes welche bis die Liste von Childnodes und der Liste an Components keine weiteren relevanten Daten speichern. Der Cinema 4D Graph ist an dieser Stelle um einiges komplexer. Seine Nodes bestehen bereits aus Instanzen von Datentypen die sich vom Standard Cinema 4D “BaseObject” Datentypen ableiten lassen. An ihnen sind bereits Nutzdaten gespeichert. Zu den möglichen Datentypen zählen unter anderem:
+\subsubsection{Unterschiede des Fusee Szenengraphen zum Cinema4D Szenengraphen}
+Der Fusee- und der Cinema 4D Szenengraph unterscheiden sich in gewissen Konzeptionellen Ansätzen. Um also den C4D Szenengraph in einen Fusee Szenengraph umzuwandeln, bedarf es einer Analyse der Unterschiede.
+Wie bereits erwähnt, verfügt der Fusee Szenengraph über Nodes welche bis die Liste von Childnodes und der Liste an Components keine weiteren relevanten Daten speichern. Der Cinema 4D Graph ist an dieser Stelle um einiges komplexer. Seine Nodes bestehen bereits aus Instanzen von Datentypen die sich vom Standard Cinema 4D “BaseObject” Datentypen ableiten lassen. An ihnen sind bereits Nutzdaten gespeichert. Zu den möglichen Datentypen zählen unter anderem:
 \begin{itemize}
 \item Geometrische Objekte (PointObject) davon abgeleitet wiederum:
 	\begin{itemize}
@@ -1206,20 +1178,21 @@ Wie bereits erwähnt, verfügt der FUSEE Szenengraph über Nodes welche bis die 
 \begin{figure}[ht]
 	\centering
 	\includegraphics{Bilder/c4d_Szenengraph_Vgl.jpg}
-	\caption{Der Cinema 4D Szenengraph. Verschiedenste Objekte als “Nodes”, darunter exemplarisch Tags verschiedener Tag-Datentypen am rechten Rand der Grafik.}
+	\caption{Der Cinema 4D Szenengraph. Verschiedenste Objekte als “Nodes”, daneben als Icons exemplarisch Tags verschiedener Tag-Datentypen am rechten Rand der Grafik.}
 	\label{Cinema4dSzenenGraph}
 \end{figure}
 
-Diese Objekte können wieder Kindobjekten der gleichen Datentypen beeinhalten. Diese Hierarchie zeigt die Abbildung \ref{Cinema4dSzenenGraph}. Die in der Abbildung \ref{Cinema4dSzenenGraph} am rechten Rand durch kleine Abbildungen neben den Nodes dargestellten Tags, beinhalten weitere Daten oder Einstellungen für das jeweils zugehörige Node. Diese können in einem anderen Fenster (Attribute Fenster/Panel) in Cinema 4d bearbeitet werden.
+Diese Objekte können wieder Kind-Objekte der gleichen Datentypen beinhalten. Diese Hierarchie zeigt die Abbildung \ref{Cinema4dSzenenGraph}. Die in der Abbildung \ref{Cinema4dSzenenGraph} am rechten Rand durch kleine Abbildungen neben den Nodes dargestellten Tags, beinhalten weitere Daten oder Einstellungen für das jeweils zugehörige Node. Diese können in einem anderen Fenster (Attribute Fenster/Panel) in Cinema 4d bearbeitet werden.
 
 
 
-\subsubsection{Der Export einer Cinema 4D Szene in den FUSEE Szenengraphen}
+\subsubsection{Der Export einer Cinema 4D Szene in den Fusee Szenengraphen}
 %TODO:  Wie kann der export stattfinden?
 
 
+
 \section{Fortschritt der Implementierung}
-Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits erfolgte Implementierung und zeigt welche Aufgaben sich mit dem zum Zeitpunkt der Arbeit bereits Implementierten Teil der Software erledigen lassen.
+Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits erfolgte Implementierung und zeigt welche Aufgaben sich mit dem zum Zeitpunkt der Arbeit bereits implementierten Teil der Software erledigen lassen.
 % TODO: Wie Weit ist die Implementierung vorran gekommen. Evtl. dann Anfang bis Mitte Mai zu ende schreiben.
 
 \subsection{Probleme während der Implementierung}
@@ -1229,7 +1202,7 @@ Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits er
 \subsection{Welche Bereiche des Systemdesigns wurden bereits umgesetzt?}
 %Kette aufzeigen von Cinema4D nach Fusee Authoring Toolkit.
 
-\subsection{Implementierung: Generieren eines FUSEE Projektes}
+\subsection{Implementierung: Generieren eines Fusee Projektes}
 %Ablauf erklären.
 % Also Code einfügen etc. wenn etwas interessant erscheint. Ansonsten einfach den Aufruf erklären.
 %\subsection{Code Generation und die Vermeidung von Roundtrips (nicht so ganz roundtrips, generierung um generierung etc.)}
@@ -1256,9 +1229,9 @@ Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits er
 %	Schluss START
 %%%%%%
 \chapter{Ergebnisse der Arbeit und Ausblick}
-\section{Game Authoring Entwicklungsprozesse jetzt und in Zukunft}
-\section{Welcher Mehrwert wurde erreicht?}
-\section{Integration des Systems in den weiteren Projektverlauf von FUSEE}
+\section{Wie weit ist das Projekt Fortgeschritten?}
+\section{Integration des Systems in den weiteren Projektverlauf von Fusee}
+\subsection{Game Authoring Entwicklungsprozesse jetzt und in Zukunft}
 %%%%%%
 %	Schluss ENDE
 %%%%%%
@@ -1274,6 +1247,7 @@ Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits er
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\nocite{*}
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
+%\cite{*}
 \printbibliography
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1286,7 +1260,7 @@ Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits er
 \lstlistoflistings
 
 \newpage
-\lstinputlisting[caption = {Beispiel zum Fusee Szenengraphen. Erstellt im Rahmen dieser Arbeit, während der Implementierung des Fusee Szenengraphen durch das Fusee Entwicklerteam und Herrn Prof. C. Müller.}, label=fuseeSzenenGraphExample]{Code/fuseeSzenenGraphExample.cs}
+\lstinputlisting[caption = {Beispiel zum Fusee Szenengraphen. Erstellt im Rahmen dieser Arbeit, während der Implementierung des Fusee Szenengraphen durch das Fusee Entwicklerteam und Herrn Prof. C. Müller.}, label=FuseeSzenenGraphExample]{Code/FuseeSzenenGraphExample.cs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Source Code Verzeichnis ENDE
