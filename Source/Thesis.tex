@@ -92,7 +92,7 @@ belowskip=1\baselineskip,			% Platz unter dem quellcode block
 % Settings fuer den Sourcecode ENDE
 
 % Listings
-\renewcommand{\lstlistlistingname}{Verzeichnis der Sourcecode Beispiele}
+\renewcommand{\lstlistlistingname}{Source Code Verzeichnis und Beispiele}
 \renewcommand{\lstlistingname}{Sourcecode Beispiele}
 
 % Autoren
@@ -1086,7 +1086,7 @@ Um aus dem C++ Code der Cinema 4D API aufrufbaren \CSS Code zu erzeugen sind ver
 	\label{SWIGUniplug}
 \end{figure}
 
- Diese Datei kümmert sich um das Wrappen des nativen C++ Codes nach \CS. Der eigentliche Wrapping Vorgang wird über ein SWIG make script aufgerufen welches während des Build Vorgangs des Projektes angestoßen wird. Dieser Vorgang muss bei der eigentlichen Pluginentwicklung nicht bei jedem Build durchgeführt werden. Es genügt, die API erneut zu wrappen wenn Veränderungen am API Code seitens Maxon oder des Benutzers vorgenommen wurden. Änderungen durch den Benutzer schliessen auch das erweitern der API Funktionalität mit ein. Das Uniplug Projekt ist zum Zeitpunkt dieser Arbeit weit von einem Vollständigen Wrapping der Cinema 4D API entfernt. Aus diesem Grund, ist noch relativ häufig die Erweiterung des API Projektes nötig. Verschiedene Eintragungen die für das Erweitern des Uniplug Projektes vorgenommen wurden, werden im nächsten Abschnitt genauer erläutert. Hierzu gehören einfache Inklusionen von Source Files, aber auch komplexe overrides von bereits bestehenden C++ Funktionen.
+Diese Datei kümmert sich um das Wrappen des nativen C++ Codes nach \CS. Der eigentliche Wrapping Vorgang wird über ein SWIG make script aufgerufen welches während des Build Vorgangs des Projektes angestoßen wird. Dieser Vorgang muss bei der eigentlichen Pluginentwicklung nicht bei jedem Build durchgeführt werden. Es genügt, die API erneut zu wrappen wenn Veränderungen am API Code seitens Maxon oder des Benutzers vorgenommen wurden. Änderungen durch den Benutzer schliessen auch das erweitern der API Funktionalität mit ein. Das Uniplug Projekt ist zum Zeitpunkt dieser Arbeit weit von einem Vollständigen Wrapping der Cinema 4D API entfernt. Aus diesem Grund, ist noch relativ häufig die Erweiterung des API Projektes nötig. Verschiedene Eintragungen die für das Erweitern des Uniplug Projektes vorgenommen wurden, werden im nächsten Abschnitt genauer erläutert. Hierzu gehören einfache Inklusionen von Source Files, aber auch komplexe overrides von bereits bestehenden C++ Funktionen.
 
 Das hier abgebildete Schaubild zeigt den Ablauf des Wrapping-Vorgangs. Hierbei sind folgende Schritte zu erkennen:
 \begin{itemize}
@@ -1171,16 +1171,49 @@ Bool TagDataM::Message(GeListNode *node, Int32 type, void *data)
 
 Durch die eingeschränkte  Möglichkeit nur bis zum call des Debugging API Codes debuggen zu können (Hierzu mehr im Kapitel Probleme und Herausforderungen), war die Lösung des Problems nicht wie meistens in mit SWIG gewrappten Codebasen durch einen einfachen \%typemap\footnote{Ermöglicht das mappen eines Datentyps der Eingangssprache auf einen anderen Datentyp der Ausgangssprache} sondern nur durch die Nachimplementierung der oben dargestellten switch case Anweisung innerhalb des Uniplug Projektes zu bewerkstelligen. 
 
-\subsection{Aus FUSEE verwendete Module}
-Wie bereits oben erwähnt, wird der Code der FUSEE Engine für diese Arbeit nicht erweitert. Es wird im Systemdesign aber ein wichtiges Element der Engine, der Szenengraph, verwendet. Dieser Abschnitt geht auf die Funktionsweise des Szenengraphen in FUSEE ein und zeigt seine Ähnlichkeiten und Unterschiede zum Szenenaufbau einer Cinema4D Szene auf. Hierzu werden die beiden Systeme analysiert und dann ein Design zum Mapping des Cinema4D Graphen auf das FUSEE System erläutert.
+\subsection{Aus FUSEE verwendete Software-Module}
+Wie bereits erwähnt, wird der Code der FUSEE Engine für diese Arbeit nicht erweitert. Es wird im Systemdesign aber ein wichtiges Element der Engine, der Szenengraph, verwendet. Dieser Abschnitt geht auf die Funktionsweise des Szenengraphen in FUSEE ein und zeigt seine Ähnlichkeiten und Unterschiede zum Szenenaufbau einer Cinema4D Szene auf. Hierzu werden die beiden Systeme analysiert und dann ein Design zum Mapping des Cinema4D Graphen auf das FUSEE System erläutert.
 \subsubsection{Der FUSEE Szenengraph}
 % TODO - Nachforschungen. Und das Beispiel einbinden?
 % Eine Grafik erleichtert das Verständnis und stellt außerdem das Konzept heraus.
-Das Fusee Level, Welt wie auch immer es hier bezeichnet werden sollte. Eine Basis wird gebraucht. Hierzu eine Zentrale anlaufstelle, ein Spiele “Kernel”? Irgend etwas dass im Zentrum steht.
-Alles andere muss auf Level etc aufgeteilt werden und bis zum einzelnen Asset heruntergebrochen werden.
+Der Fusee Szenengraph ermöglich das Traversieren und Vorhalten verschiedener Elemente einer FUSEE Szene. Der Graph ist aus einer Kombination von Nodes und Components aufgebaut. Er ähnelt stark dem Unity3D Ansatz des Szenengraphen. Eine Node ist ein Knotenpunkt ohne spezielle Daten. Die Node enthält lediglich einen Namen, eine Liste an Components und falls nötog, eine Liste an Kind-Nodes. Das Traversieren wird durch Visitor Implementierungen ermöglicht. Diese Visitor Patterns wurden während dieser Arbeit noch implementiert und erweitert. Ein Visitor ermöglicht das Traversieren einer Szene und seiner Nodes auf eine vom Entwickler definierte weise und kann so z.B. Transformationen durchführen, welche die Struktur einer Szene verändern.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=8cm]{Bilder/fusee_Szenengraph_Vgl.jpg}
+	\caption{Der FUSEE Szenengraph in exemplarischer bildlicher Darstellung.}
+	\label{FuseeSzenenGraph}
+\end{figure}
+
+Die Abbildung \ref{FuseeSzenenGraph} zeigt einen Beispielhaft dargestellten “SceneContainer” einer FUSEE Szene. Diese Szene besteht aus mehreren Nodes deren Components aus verschiedensten Typen bestehen. So kann ein Node als reiner Anker einer Szene dienen. In der Abbildunf \ref{FuseeSzenenGraph} dargestellt durch das “Root object”. Ein von einem Artist erstelltes Modell kann als Node Object mit angehängtem Mesh und Material Component umgesetzt werden. Sollte sich ein Mesh zusätzlich im Raum bewegen, kann es über eine weitere Transform Komponente verfügen. Sowohl Components als auch Visitor Pattern lassen sich vom Entwickler nach den eigenen Wünschen nach-implementieren oder anpassen. Ein kommentiertes Source Code Beispiel zur Anwendung des Fusee Szenengraphen findet sich im Anhang in Listing \ref{fuseeSzenenGraphExample}.
 
 \subsubsection{Unterschiede des FUSEE Szenengraphen zum Cinema4D Szenengraphen}
 % TODO: Nodes etc. hier darstellen und etwas dazu schreiben. Dann aber auch herausheben warum das wichtig ist. Das hat dann mit den Szenen exports etc. zu tun.
+Der FUSEE- und der Cinema 4D Szenengraph unterscheiden sich in gewissen Konzeptionellen Ansätzen. Um also den C4D Szenengraph in einen FUSEE Szenengraph umzuwandeln, bedarf es einer Analyse der Unterschiede.
+Wie bereits erwähnt, verfügt der FUSEE Szenengraph über Nodes welche bis die Liste von Childnodes und der Liste an Components keine weiteren relevanten Daten speichern. Der Cinema 4D Graph ist an dieser Stelle um einiges komplexer. Seine Nodes bestehen bereits aus Instanzen von Datentypen die sich vom Standard Cinema 4D “BaseObject” Datentypen ableiten lassen. An ihnen sind bereits Nutzdaten gespeichert. Zu den möglichen Datentypen zählen unter anderem:
+\begin{itemize}
+\item Geometrische Objekte (PointObject) davon abgeleitet wiederum:
+	\begin{itemize}
+	\item Polygon Objekte (PolygonObject)
+	\item Spline Objekte (SplineObject)
+	\item Linien Objekte (LineObject)
+	\end{itemize}
+\item Partikel Effekte (ParticleObject)
+\item Kamera Objekte (CameraObject)
+\item und viele weitere ...
+\end{itemize}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics{Bilder/c4d_Szenengraph_Vgl.jpg}
+	\caption{Der Cinema 4D Szenengraph. Verschiedenste Objekte als “Nodes”, darunter exemplarisch Tags verschiedener Tag-Datentypen am rechten Rand der Grafik.}
+	\label{Cinema4dSzenenGraph}
+\end{figure}
+
+Diese Objekte können wieder Kindobjekten der gleichen Datentypen beeinhalten. Diese Hierarchie zeigt die Abbildung \ref{Cinema4dSzenenGraph}. Die in der Abbildung \ref{Cinema4dSzenenGraph} am rechten Rand durch kleine Abbildungen neben den Nodes dargestellten Tags, beinhalten weitere Daten oder Einstellungen für das jeweils zugehörige Node. Diese können in einem anderen Fenster (Attribute Fenster/Panel) in Cinema 4d bearbeitet werden.
+
+
+
 \subsubsection{Der Export einer Cinema 4D Szene in den FUSEE Szenengraphen}
 %TODO:  Wie kann der export stattfinden?
 
@@ -1251,6 +1284,10 @@ Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits er
 % Source Code Verzeichnis START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lstlistoflistings
+
+\newpage
+\lstinputlisting[caption = {Beispiel zum Fusee Szenengraphen. Erstellt im Rahmen dieser Arbeit, während der Implementierung des Fusee Szenengraphen durch das Fusee Entwicklerteam und Herrn Prof. C. Müller.}, label=fuseeSzenenGraphExample]{Code/fuseeSzenenGraphExample.cs}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Source Code Verzeichnis ENDE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
