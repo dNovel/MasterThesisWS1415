@@ -1,4 +1,4 @@
-\documentclass[pagesize, paper=a4, fontsize=12pt,titlepage=true, headings=small, headnosepline, abstractoff, liststotoc, nochapterprefix, plainheadsepline, twoside]{scrreprt}
+\documentclass[pagesize, paper=a4, fontsize=12pt, titlepage=true, headings=small, headnosepline, abstractoff, liststotoc, nochapterprefix, plainheadsepline, twoside]{scrreprt}
 \usepackage[a4paper, left=40mm, right=30mm, top=20mm, bottom=30mm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
@@ -87,6 +87,7 @@ title=\lstname,                   % show the filename of files included with \ls
 captionpos=t,
 aboveskip=1\baselineskip,		% Platz über dem quellcode block
 belowskip=1\baselineskip,			% Platz unter dem quellcode block
+%frame=none,
 %morecomment=[il]{///}
 }
 % Settings fuer den Sourcecode ENDE
@@ -118,19 +119,11 @@ Zweitbetreuer: Prof. Dr. Wolfgang Taube, Fakultät DM
 \newcommand{\CSS}{C\texttt{\# }}
 % C++ Logo
 \newcommand{\CPP}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\bf +}}
-% LINQ For Geometry
-\newcommand{\LFG}{LINQ For Geometry}
-% LINQ For Geometry mit Space
-\newcommand{\LFGS}{LINQ For Geometry }
-% LINQ mit spaces links und rechts
-\newcommand{\LQ}{ LINQ }
 % Generic zeichen <T>
 \newcommand{\GT}{\textless T\textgreater}
 \newcommand{\GTS}{\textless T\textgreater\space}
 % Lambda Zeichen in C#
 \newcommand{\LAM}{ =\textgreater\space}
-% HES
-\newcommand{\HES}{Half-Edge Datenstruktur }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Commands ENDE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -280,7 +273,7 @@ dominik.steffen@gmail.com\\
 Arbeitsprozesse in heutigen Game Engines verlangen von Entwicklern meist das erlernen neuer Toolsets und dies während eines Zeitlich knapp bemessenen Projekt Zeitraums. Es wäre für Entwickler einfacher sich mit den bereits bekannten Tools zu beschäftigen und mit solchen großartige Ergebnisse zu erreichen. Authoring Tools ermöglichen  also auch Teammitgliedern ohne weiteres tiefegend technisches Verständnis für die Programmierung von Spielen, an Projekten in der Entwicklung mitzuarbeiten. Dieser Ansicht ist auch F. Mehm. Sein Team veröffentlichte einen Überblick (\fullcite{FutureTrendsGAT:2012}) über Game Authoring Tools in der Gegenwart und in der Zukunft. 
 
 \begin{quote}
-It [Developing “Authoring Tools”, Anmerkung des Autors] is successful due to several factors: it allows non-technical users to work on projects that would otherwise be out of their reach (due to lack of expertise, especially concerning programming languages); it can bring struc-ture into unstructured domains (such as game development) and it can speed up de-velopment by streamlining and automating common tasks. \cite {FutureTrendsGAT:2012}
+\glqq It [Developing “Authoring Tools”, Anmerkung des Autors] is successful due to several factors: it allows non-technical users to work on projects that would otherwise be out of their reach (due to lack of expertise, especially concerning programming languages); it can bring struc-ture into unstructured domains (such as game development) and it can speed up de-velopment by streamlining and automating common tasks.\grqq \ \cite{FutureTrendsGAT:2012}
 \end{quote}
 
 \section{Motivation}
@@ -716,18 +709,18 @@ Eine Szene wird gespeichert und vom ProjectHandler in ein Format überführt wel
 
 
 % Analyse
-\subsection{Prozess bezogen}
-\subsubsection{Gleichzeitig an Projekt arbeiten}
-\subsubsection{Model Datei importieren}
-\subsubsection{Gleichzeitig an einem Objekt arbeiten}
+%\subsection{Prozess bezogen}
+%\subsubsection{Gleichzeitig an Projekt arbeiten}
+%\subsubsection{Model Datei importieren}
+%\subsubsection{Gleichzeitig an einem Objekt arbeiten}
 
-\subsection{Projekt bezogen}
-\subsubsection{Projekt anlegen}
-\subsubsection{Projekt öffnen}
-\subsubsection{Projekt speichern}
-\subsubsection{Projekt bauen}
-\subsubsection{In Projekt einsteigen}
-\subsubsection{Projekt clonen etc.}
+%\subsection{Projekt bezogen}
+%\subsubsection{Projekt anlegen}
+%\subsubsection{Projekt öffnen}
+%\subsubsection{Projekt speichern}
+%\subsubsection{Projekt bauen}
+%\subsubsection{In Projekt einsteigen}
+%\subsubsection{Projekt clonen etc.}
 
 % Analyse von “konkurrenz” Software. Alternativer Software. Wie wird es aktuell gemacht?
 \section{Aktuelle Engines und deren Arbeitsprozesse}
@@ -1172,7 +1165,7 @@ Wie bereits erwähnt, verfügt der Fusee Szenengraph über Nodes welche bis die 
 	\end{itemize}
 \item Partikel Effekte (ParticleObject)
 \item Kamera Objekte (CameraObject)
-\item und viele weitere ...
+\item und weitere hier nicht erwähnte Typen.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -1188,30 +1181,79 @@ Diese Objekte können wieder Kind-Objekte der gleichen Datentypen beinhalten. Di
 
 \subsubsection{Der Export einer Cinema 4D Szene in den Fusee Szenengraphen}
 %TODO:  Wie kann der export stattfinden?
-
+% Eventuell noch eine Grafik oder ein Ablaufdiagramm hierzu gestalten.
 
 
 \section{Fortschritt der Implementierung}
-Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits erfolgte Implementierung und zeigt welche Aufgaben sich mit dem zum Zeitpunkt der Arbeit bereits implementierten Teil der Software erledigen lassen.
+Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits erfolgte Implementierung und zeigt welche Aufgaben sich mit dem zum Zeitpunkt der Arbeit bereits implementierten Teil der Software umsetzen lassen und welche Bereiche noch weiter entwickelt werden können und müssen.
+\subsection{Bereits umgesetzte Teile des Konzepts}
 % TODO: Wie Weit ist die Implementierung vorran gekommen. Evtl. dann Anfang bis Mitte Mai zu ende schreiben.
+Während der Implementierungsphase wurde versucht mit Hilfe der Cinema 4D API und des Uniplug Projekts eine Softwarebibliothek zu implementieren welche Basisfunktionalität für die Verwendung von Cinema 4D als Authoring Tool bieten kann. 
 
-\subsection{Probleme während der Implementierung}
-% TODO: Zeitliche Probleme schildern welche hier vor allem das Problem mit der C4D API in den Vordergrund stellen soll. Eventuell mit diesem Abschnitt noch etwas warten oder am Ende umformulieren.
-% TODO: Erst Entwicklung von Uniplug erweitern bevor mit dem Plugin gearbeitet werden kann. Probleme durch das Wrappen und die fehlende Möglichkeit zu debuggen.
+Folgende Funktionalität wurde bereits umgesetzt:
+\begin{itemize}
+\item Ein \CSS Projekt kann in einem Binary Fusee Engine Projekt angelegt werden
+\item Ein Projekt kann mit der Hilfe eines Plugins in Cinema 4D geöffnet werden
+\item Eine neue \CSS Klasse kann mit der Bibliothek angelegt und in das Projekt integriert werden
+\item Ein Tag kann im Cinema 4D Szenengraphen erzeugt und an ein Objekt der Szene geheftet werden
+\item Verschiedene Module des Cinema 4D Plugins können untereinander über das Cinema 4D Message System Informationen austauschen
+\item TODO: Eine Code Datei kann mit Hilfe eines Tags in Cinema 4D an ein Objekt angehängt werden. Hierzu wird im Speicher eine XML Datei angelegt und auf die Festplatte geschrieben, welche die Assoziation der beiden Objekte beschreibt.
+\end{itemize}
 
-\subsection{Welche Bereiche des Systemdesigns wurden bereits umgesetzt?}
-%Kette aufzeigen von Cinema4D nach Fusee Authoring Toolkit.
+Auf die genauere Umsetzung und einzelne interessante Aspekte der Implementierung wird in den nächsten Abschnitten weiter eingegangen.
 
 \subsection{Implementierung: Generieren eines Fusee Projektes}
-%Ablauf erklären.
-% Also Code einfügen etc. wenn etwas interessant erscheint. Ansonsten einfach den Aufruf erklären.
-%\subsection{Code Generation und die Vermeidung von Roundtrips (nicht so ganz roundtrips, generierung um generierung etc.)}
-%\subsection{Partial Classes in .NET}
-%Sind bis jetzt noch nicht verwendet worden.
+Um ein Projekt für die Fusee Engine zu generieren, wird die folgende Funktion \ref{CreateProjectMethod} des FuseeAT eingesetzt. 
+\begin{lstlisting}[label=CreateProjectMethod, caption=Funktion zum Generieren eines neuen Projekts in der Binary Version der Fusee Engine.]
+	public bool CreateProject(String slnName, String pName, String pPath);
+\end{lstlisting}
+Das Projekt kann durch die Angabe des Namens des Fusee Binary Solution Files, des vom Benutzer wählbaren Projektnamens und eines Pfades zur Solution erzeugt werden. Diese Funktion ist unabhängig von Cinema 4D implementiert. Alle Funktionen des FuseeAT sind nicht von einem bestimmten Modeling oder Level Editor abhängig und können somit wiederverwendet werden sollte das FuseeAT auf einen anderen Editor angepasst werden.
 
-\subsection{Implementierung: Anfügen von Code an ein Asset}
+\subsection{Implementierung: Öffnen eines Fusee Projektes in Cinema 4D}
+Ein bereits angelegtes Fusee Projekt kann durch den Plugin Code auch in Cinema 4D geöffnet werden. Die hierzu nötige Funktion \ref{OpenProjectMethod} ist die folgende:
+\begin{lstlisting}[label=OpenProjectMethod, caption=Funktion zum öffnen eines neuen Projekts in der Binary Version der Fusee Engine.]
+	public ToolState OpenProject(String pName, String pPath);
+\end{lstlisting}
+Das gewünschte Projekt wird, falls existent, direkt aus einer XML Datei deserialisiert. Diese XML Datei enthält alle wichtigen Informationen über das Projekt. Hierzu gehören verschiedene Dateinamen als auch verschiedene Pfade welche beim ersten Erstellen eines Projektes generiert oder durch den Benutzer über Dialoge und Abfragen eingegeben werden. Die im Codebeispiel \ref{OpenProjectStruct} dargestellten Attribute unterstützen das XML System beim serialisieren und deserialisieren der Objekte.
+
+\begin{lstlisting}[label=OpenProjectStruct, caption=Teil des Structs zum Serialisieren des Fusee Projektes aus Cinem a 4D. Die Serialisierung speichert das Projekt auf der Festplatte als lesbare XML Datei.]
+[XmlElement("PathToSolutionFolder")]
+public String PathToSolutionFolder;
+
+[XmlElement("PathToProjectFolder")]
+public String PathToProjectFolder;
+\end{lstlisting}
+
+
+Das Projekt wird nach der Deserialisierung im Speicher gehalten. So kann die Applikation, in diesem Fall das C4DPlugin dauerhaft auf alle wichtigen Informationen für die Verwaltung des Projektes zur Laufzeit zugreifen.
+
+\subsection{Implementierung: Erzeugen einer neuen \CSS Klasse und Einfügen in das Projekt}
+Das Erzeugen einer neuen Klasse kann über die Funktion \ref{CreateClassMethod} erreicht werden. Die erzeugte Klasse wird vom FuseeAT in das \CSS Projekt eingefügt. Der Nutzer muss nur den Namen der neuen \CSS Klasse übergeben. Die Klasse wird nach einem im FuseeAT abgelegten TEmplate erzeugt und enthält bis auf die Standardstrukturen einer \CSS Klasse (Klassendefinition und Konstruktor) keine weiteren Bestandteile. Das Template kann aber einfach in FuseeAT um gewünschte Settings erweitert werden.
+\begin{lstlisting}[label=CreateClassMethod, caption=Funktion zum Erstellen einer neuen Klasse im \CSS Projekt.]
+	public bool CreateNewClass(String pName);
+\end{lstlisting}
+
+\subsection{Implementierung: Erstellen eines Tags und Anfügen von Code an ein Asset}
+Durch die Cinema 4D API und das wrappen der dort vorhandenen Funktionen nach \CSS ist es möglich in der Cinema 4D Applikation an Objekte ein Tag anzuhängen. Ein Tag ist ein Objekt im Speicher welches in Referenz mit dem anhängenden Objekt steht und dieses um weitere Funktionalität oder Optionen erweitert. Es ist möglich dem Tag verschiedene Funktionen zuzuweisen. Leider muss die Funktionalität des Tags sehr stark an Cinema 4D gekuppelt werden da seine gesamte Implementierung über die C4D API erfolgt.
+Um Informationen an einem Tag zu speichern, wird das gleiche XML Serialisierungs und Deserialisierungs System eingesetzt welches auch beim Laden und Speichern eines Engine Projektes verwendet wird.
+
+\subsection{Das ToolState System des FuseeAT}
+Das FuseeAT ToolState System ist ein Konzept welches bei der Implementierung des Frameworks umgesetzt wurde. Das System besteht auf einem einfachen State Machine Konzept und erlaubt es dem Entwickler zur Identifizierung von Schwierigkeiten einige Enum Variablen als Returnwerte der Funktionen einzusetzen. Durch die Verwendung des Enums \ref{ToolState} können Probleme während der Laufzeit im FuseeAT System aufgedeckt werden. Das Konzept sieht vor, als return Werte der FuseeAT Funktionenjeweils einen Status des ToolState Enums zurückzugeben. So kann der Entwickler eines Plugins oder Editors auf diese Funktionen eingehen und vermeidet es so mit einem korrumpierten Projekt weiter zu arbeiten.
+\begin{lstlisting}[label=ToolState, caption=ToolState System unterstützt beim verbessern der Stabilität des FuseeAT.]
+    public enum ToolState {
+        OK = 0,
+        ERROR = 1,
+        WARNING = 2,
+    }
+\end{lstlisting}
 
 \subsection{Implementierung: Ablaufdiagramme}
+%TODO: Hier noch etwas zu den Abläufen des Systems besonders des Plugins schreiben.
+
+\subsection{Problematische Aspekte während der Umsetzung des Konzepts}
+Problematisch war, dass die Uniplug Softwarebibliothek zum Zeitpunkt der Implementierung nicht die nötigen Funktionen der Cinema 4D API unterstützt. Zudem wurde die Cinema 4D API Bibliothek und deren Integration in die Cinema 4D R16 Applikation während der Entwicklung durch ein Update seitens Maxon stark verändert. Um die Entwicklung des Plugins für die Verwendung der FuseeAT bibliothek zu beginnen, mussten verschiedenste  Funktionen der Cinema 4D API in das Uniplug Projekt integriert werden. Die Phase dieser Integration konnte aufgrund der komplexität des Cinema 4D API nicht als abgeschlossen betrachtet werden. Während der Entwicklung des Plugins und des FuseeAT musste immer weitere Cinema 4D API Bestandteile nach \CSS gewrapped werden um die Funktionalität zwischen FuseeAT und dem Cinema 4D Plugin herzustellen. Da Uniplug ein Essentielles Projekt für die Implementierung des Konzeptes darstellt, war es unerlässlich zuerst die fehlende Funktionalität in Uniplug zu ergänzen. 
+Die Komplexität der Cinema 4D \CPP API und dessen Transformation nach \CSS verzögerte die Entwicklung des Authoring Tool Frameworks und des Plugins deutlich, so dass während der Arbeit nicht alle gewünschten Funktionen implementiert werden konnten. Weiterhin existieren aktuell nur schwer zu lösende Probleme welche durch die Verwendung von SWIG  in Verbindung mit der komplexen API von C4d auftraten. Die Funktionalität der User Interface Erweiterungen in Cinema 4D ist nur eingeschränkt vorhanden. Es ist aktuell nicht möglich, Cinema 4D GUI Fenster mit UI Elementen wie z.B. Buttons und Textfeldern zu erweitern. Es wurde versucht das System zu debuggen um den Grund für diese Problematik zu beheben. Allerdings konnte aufgrund des verschleierten Cinema 4D API Codes nur auf ein gewisses Level debugged werden. So ergibt sich beim Hinzufügen einer UI Komponentenen ein Fehler welcher nur bis zum Aufruf des Cinema 4D API Codes verfolgt werden konnte. Dort endet die Möglichkeit des Debuggings. Diese Komponente returned dann nur eine Boolean Variable mit der Belegung false. Aufgrund der zeitlichen beschränkung dieser Arbeit wurde dieses Modul ersteinmal hinten angestellt und die Entwicklung auf andere Teile des Konzepts konzentriert.
+Weiterhin verkompliziert sich die Entwicklung durch das wrappen der \CPP Api nach \CSS stark. Einfache Funktionen der Cinema 4D API können meist nur kompliziert nach \CSS übersetzt werden. Hier zeigt sich ein Nachteil des Uniplug Projektes. Es ist zwar einfach, während der Entwicklung in \CSS gegebene Funktionen von Uniplug zu verwenden, allerdings ist die Erweiterung von Uniplug fast immer mit Problemen und großem Zeitaufwand verbunden. Somit erschwerte die immer wieder nötige Rückkehr nach Uniplug während der Implementierung das FuseeAT den effektiven Fortschritt massiv.
 
 \subsection{Ein Anwendungsgebiet für die Implementierung: XPresso Schaltungen - Visual Programming / Programmieren ohne das schreiben von Code}
 % TODO: Hierzu gab es ein Paper auf welches ich gut verweisen könnte. Eventuell auch auf den Sony Editor welcher so eine Node basierte Programmierung bieten kann etc.
