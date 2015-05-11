@@ -1247,15 +1247,30 @@ Das FuseeAT ToolState System ist ein Konzept welches bei der Implementierung des
     }
 \end{lstlisting}
 
-\subsection{Implementierung: Ablaufdiagramme}
+\subsection{Der ProjectState in FuseeAT}
+Durch die simple Implementierung des Enums ProjectState \ref{ProjectState} und dessen Verwendung während der Laufzeit des FuseeAT kann der Status des Projektes jederzeit überprüft werden. Ein Entwickler, welcher das FuseeAT erweitern oder verwenden möchte, kann jederzeit auf den Status des Projektes zugreifen und seine Funktionen mit absichern. Durch dieses recht einfache Konzept, können Probleme in den Solution und Projektdateien des FuseeAT erkannt werden. Es ist aber unabdingbar, dass fehleranfällige Operationen und Code diese Funktion auch einbinden und abfragen.
+\begin{lstlisting}[caption=Code des ProjectState Enums. Wird in FuseeAT verwendet um die Integrität eines Projekts zu erhalten., label=ProjectState]
+    public enum ProjectState
+    {
+        Clean = 0, // means open, too
+        Dirty = 1,
+        Corrupt = 2,
+        Closed = 3
+    }
+\end{lstlisting}
+
+
+%\subsection{Implementierung: Ablaufdiagramme}
 %TODO: Hier noch etwas zu den Abläufen des Systems besonders des Plugins schreiben.
 
 \subsection{Problematische Aspekte während der Umsetzung des Konzepts}
-Problematisch war, dass die Uniplug Softwarebibliothek zum Zeitpunkt der Implementierung nicht die nötigen Funktionen der Cinema 4D API unterstützt. Zudem wurde die Cinema 4D API Bibliothek und deren Integration in die Cinema 4D R16 Applikation während der Entwicklung durch ein Update seitens Maxon stark verändert. Um die Entwicklung des Plugins für die Verwendung der FuseeAT bibliothek zu beginnen, mussten verschiedenste  Funktionen der Cinema 4D API in das Uniplug Projekt integriert werden. Die Phase dieser Integration konnte aufgrund der komplexität des Cinema 4D API nicht als abgeschlossen betrachtet werden. Während der Entwicklung des Plugins und des FuseeAT musste immer weitere Cinema 4D API Bestandteile nach \CSS gewrapped werden um die Funktionalität zwischen FuseeAT und dem Cinema 4D Plugin herzustellen. Da Uniplug ein Essentielles Projekt für die Implementierung des Konzeptes darstellt, war es unerlässlich zuerst die fehlende Funktionalität in Uniplug zu ergänzen. 
+Problematisch war, dass die Uniplug Softwarebibliothek zum Zeitpunkt der Implementierung nicht die nötigen Funktionen der Cinema 4D API unterstützt. Zudem wurde die Cinema 4D API Bibliothek und deren Integration in die Cinema 4D R16 Applikation während der Entwicklung durch ein Update seitens Maxon stark verändert. Um die Entwicklung des Plugins für die Verwendung der FuseeAT bibliothek zu beginnen, mussten verschiedenste  Funktionen der Cinema 4D API in das Uniplug Projekt integriert werden. Die Phase dieser Integration konnte aufgrund der komplexität des Cinema 4D API nicht als abgeschlossen betrachtet werden. Während der Entwicklung des Plugins und des FuseeAT musste immer weitere Cinema 4D API Bestandteile nach \CSS gewrapped werden um die Funktionalität zwischen FuseeAT und dem Cinema 4D Plugin herzustellen. Da Uniplug ein Essentielles Projekt für die Implementierung des Konzeptes darstellt, war es unerlässlich zuerst die fehlende Funktionalität in Uniplug zu ergänzen.
+
 Die Komplexität der Cinema 4D \CPP API und dessen Transformation nach \CSS verzögerte die Entwicklung des Authoring Tool Frameworks und des Plugins deutlich, so dass während der Arbeit nicht alle gewünschten Funktionen implementiert werden konnten. Weiterhin existieren aktuell nur schwer zu lösende Probleme welche durch die Verwendung von SWIG  in Verbindung mit der komplexen API von C4d auftraten. Die Funktionalität der User Interface Erweiterungen in Cinema 4D ist nur eingeschränkt vorhanden. Es ist aktuell nicht möglich, Cinema 4D GUI Fenster mit UI Elementen wie z.B. Buttons und Textfeldern zu erweitern. Es wurde versucht das System zu debuggen um den Grund für diese Problematik zu beheben. Allerdings konnte aufgrund des verschleierten Cinema 4D API Codes nur auf ein gewisses Level debugged werden. So ergibt sich beim Hinzufügen einer UI Komponentenen ein Fehler welcher nur bis zum Aufruf des Cinema 4D API Codes verfolgt werden konnte. Dort endet die Möglichkeit des Debuggings. Diese Komponente returned dann nur eine Boolean Variable mit der Belegung false. Aufgrund der zeitlichen beschränkung dieser Arbeit wurde dieses Modul ersteinmal hinten angestellt und die Entwicklung auf andere Teile des Konzepts konzentriert.
+
 Weiterhin verkompliziert sich die Entwicklung durch das wrappen der \CPP Api nach \CSS stark. Einfache Funktionen der Cinema 4D API können meist nur kompliziert nach \CSS übersetzt werden. Hier zeigt sich ein Nachteil des Uniplug Projektes. Es ist zwar einfach, während der Entwicklung in \CSS gegebene Funktionen von Uniplug zu verwenden, allerdings ist die Erweiterung von Uniplug fast immer mit Problemen und großem Zeitaufwand verbunden. Somit erschwerte die immer wieder nötige Rückkehr nach Uniplug während der Implementierung das FuseeAT den effektiven Fortschritt massiv.
 
-\subsection{Ein Anwendungsgebiet für die Implementierung: XPresso Schaltungen - Visual Programming / Programmieren ohne das schreiben von Code}
+%\subsection{Ein Anwendungsgebiet für die Implementierung: XPresso Schaltungen - Visual Programming / Programmieren ohne das schreiben von Code}
 % TODO: Hierzu gab es ein Paper auf welches ich gut verweisen könnte. Eventuell auch auf den Sony Editor welcher so eine Node basierte Programmierung bieten kann etc.
 %Ein Ausblick auf die Zukunft. Eventuell hier den Artikel anführen welcher über Visuelle Programmierung berichtet hat.
 % Eventuell ein verweis auf Uniplugs Ausgangsprojekt von damals. Die Programmierung mit XPressoNodes
@@ -1272,8 +1287,20 @@ Weiterhin verkompliziert sich die Entwicklung durch das wrappen der \CPP Api nac
 %%%%%%
 \chapter{Ergebnisse der Arbeit und Ausblick}
 \section{Wie weit ist das Projekt Fortgeschritten?}
+Die Konzeption eines Authoring-Tools und die Untersuchung und Entwicklung eines Arbeitsprozesses für das Entwickeln von Authoring Tools in internen Teams wurde abgeschlossen. Der Arbeitsprozess beschreibt eine unkomplizierte Möglichkeit des Entwickelns und betrachtet hierbei sowohl Aspekte des Projektmanagements einer Tool Entwicklung als auch technische Aspekte. Er wurde grundsätzlich auf kleine interne Teams ausgerichtet und versucht das Projektmanagement mit so wenig Overhead wie möglich umzusetzen. Somit wurde bewusst auf viel Bürokratie während des Entwicklungsprozesses verzichtet. Weiterhin wurden zwei weitere Game Engines und deren Workflows untersucht. Die Szenengraphen der jeweiligen Engines wurden so weit es möglich war analysiert und in ein Konzept für die Fusee Engine und das FuseeAT übersetzt. Das FuseeAT wurde während des Systemdesignes unabhängig einer speziellen Oberfläche entwickelt. Das Konzept für das FuseeAT wurde anschließend in der Implementierungsphase teilweise umgesetzt um ein Framework mit Schnittstellen nach Außen zu schaffen. Eine grundsätzliche Funktionalität ist gegeben und kann nun in verschiedene Editoren wie z.B. Cinema 4D integriert werden. 
+
 \section{Integration des Systems in den weiteren Projektverlauf von Fusee}
-\subsection{Game Authoring Entwicklungsprozesse jetzt und in Zukunft}
+Aufgrund der im Abschnitt “Problematische Aspekte während der Umsetzung des Konzepts” aufgeführten Probleme während der Entwicklung in Cinema4D ist die Implementierung des FuseeAT nicht komplett abgeschlossen. Das Fusee Projekt an sich ist entsprechend seiner Natur als Simulations- und Entertainment Engine ein Projekt welches sich in ständiger Entwicklung befindet. Somit kann in Zukunft das FuseeAT für verschiedene Editoren und Tools genutzt werden um eine grafische Oberfläche für das Produzieren von Applikationen mit der Fusee Engine zu schaffen. 
+
+%\subsection{Game Authoring Entwicklungsprozesse jetzt und in Zukunft}
+
+\subsection{Ergebnisse der Arbeit}
+Aufgrund der gewonnenen Erkenntnisse lässt sich sagen, dass die Authoring Tool Entwicklung  auch in Zukunft ein wichtiger Bestandteil der Spiele und Software Entwicklung bleiben wird. Verschiedenste angeführte Quellen belegen, dass dieser Bereich der Projekte immer weiter strukturiert und ausgebaut wird. Hierbei sei noch einmal auf Sonys Studio SnSystems\footnote{\url{http://snsystems.com/}} verwiesen welches sich rein um diese Aufgabe kümmert. Es ist aber auch für kleine Teams möglich während der Entwicklung Lücken im Tool Lineup des Unternehmens zu füllen und mit Hilfe von Frameworks und effizienter Planung schnell neue Tools zu erschaffen.
+Um die Entwicklung noch schneller zu gestalten wurde im Konzept zu FuseeAT besonders darauf geachtet, dass das FuseeAT Framework ungebunden von Editor Software zu gestalten. FuseeAT kann durch seinen Aufbau schnell erweitert werden. Cinema4D wiederum konnte aufgrund der gesetzten Ziele (Entwicklung des Frameworks in \CS, Anbindung an Cinema4D mit dem Uniplug Projekt) nicht als effizientes Werkzeug für die Tool Entwicklung identifiziert werden. Die Idee, ein Authoring Tool so zu gestalten, dass jedes Mitglied des Teams seine gewohnte Arbeitsumgebung während der Entwicklung mit dem Tool nicht verlassen muss, scheiterte hier an der komplexen API und dem “Wrapping” der Cinema4D API von \CPP nach \CSS. Das Konzept an sich scheint allerdings aufgrund der in der Untersuchung von Unity3d und der Unreal Engine 4 erkannten ähnlichen Konzepte einer 3DModelling Software und eines Game Engine Editors vielversprechend. Hier ergab sich ein größtenteils Deckungsgleiches Bild der Softwarearchitektur. Sicherlich kann die FuseeAT durch einen höheren Zeitaufwand und ein größeres Entwicklerteam in die Cinema4D Software integriert werden.
+Letztendlich wurden viele Grundsteine für die Entwicklung von und mit FuseeAT gelegt und ein kompletter Entwicklungsprozess für die Tool Entwicklung aufgezeigt. Eine Erweiterung der Implementierung findet in Zukunft sicherlich statt.
+
+
+
 %%%%%%
 %	Schluss ENDE
 %%%%%%
