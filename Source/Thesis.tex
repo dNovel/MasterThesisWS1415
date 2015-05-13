@@ -269,7 +269,7 @@ dominik.steffen@gmail.com\\
 %%%%%%
 %	Einführung / Einleitung START
 %%%%%%
-\chapter{Einführung in Game Authoring und dessen Arbeitsprozesse}
+\chapter{Einführung}
 Arbeitsprozesse in heutigen Game Engines verlangen von Entwicklern häufig das Erlernen neuer Tools und Toolsets und dies während eines zeitlich knapp bemessenen Projektzeitraums. Es wäre für Entwickler möglicherweise einfacher sich nur mit bereits aus dem Arbeitsalltag bekannten Tools zu beschäftigen. Alltägliche Tools definieren sich je nach Entwicklergruppe unterschiedlich. Für Artists und Designer handelt es sich hierbei meist um Welt-Editoren sowie Grafik und 3D-Modeling Applikationen. Programmierer in der Spiele-Entwicklung arbeiten meist mit Entwicklungsumgebungen, Debuggern und Analyse Tools.\\
 
 Spezielle Game Authoring Tools\footnote{Werkzeuge zum Erstellen von Interaktiven Softwareapplikationen} ermöglichen aber auch Teammitgliedern ohne tiefgehendes technisches Verständnis für die Programmierung von Spielen, an Projekten in der Entwicklung mitzuarbeiten. So können Designer und Artists Skripte und Verhaltensalgorithmen für die Spiellogik entwerfen oder die Performance der Applikation testen. Authoring Tools können das Entwickeln von Anwendungen erheblich beschleunigen und Entwickler bei alltäglichen Aufgaben unterstützen. Vgl. \fullcite{FutureTrendsGAT:2012}
@@ -298,7 +298,7 @@ Vor der Konzeption wird der Arbeitsprozess des Authoring Tools Development anhan
 
 Diese Arbeit zielt nicht darauf ab ein komplett entwickeltes Tool für das Erstellen von Spielen in der Fusee Engine zu erschaffen. Es wird eher versucht einen Grundstein für weitere Forschung und Entwicklung auf dem Gebiet des Game Authoring Toolkit Developments im Bezug auf die Fusee Engine zu legen. Das Kernziel ist die Analyse und Darstellung eines Entwicklungsprozesses, das Erstellen eines Konzeptes für das Fusee Authoring Tool und die Erläuterung der einzelnen Module eines solchen Software Projektes.
 
-\section{Während dieser Arbeit verwendete Software}
+\section{Verwendete Software zur Erstellung dieser Arbeit}
 \begin{itemize}
 \item Microsoft Visual Studio 2013, \newline verwendet als Entwicklungsumgebung für das Softwareprojekt. Sowohl in der Professional als auch der Community Edition. Zu Beziehen unter  \url{https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx}.
 \item Die Erweiterung ReSharper in Version 7.1 f"ur Visual Studio 2010 \url{http://www.jetbrains.com/resharper}.
@@ -309,9 +309,18 @@ Diese Arbeit zielt nicht darauf ab ein komplett entwickeltes Tool für das Erste
 \item Adobe Acrobat Reader in der Version 2015.007.20033. Kostenfrei herunterzuladen unter \url{https://get2.adobe.com/reader/}.
 \end{itemize}
 
+\subsection{Die Fusee Engine}
+Bei der Furtwangen University Simulation and Entertainment Engine (kurz Fusee) handelt es sich um eine akdemische 3D Engine. Sie eignet sich vor allem für das Entwickeln von Interaktiven 3D Applikationen und wird in Forschung und Lehre eingesetzt. Die Engine wurde von Herrn Prof. C. Müller an der Fakultät DM in Zusammenarbeit mit einer Studentischen Projektgruppe entwickelt. Seit dem wird die Engine stetig als Open Source Engine von Studierenden in Projekten und Abschlussarbeiten weiter entwickelt.\\
 
+Eine Besonderheit der Engine ist die Möglichkeit Applikationen für Web Browser zu bauen ohne auf die Nutzung von Plugins angewiesen zu sein. Mit Hilfe von Crosscompilern (hier der Compiler JSIL) kann der \CSS Code der Engine in Javascript übersetzt werden. Vgl. \fullcite{FUSEECMFG} \\
 
-\chapter{Tool Development in internen Teams}
+Fusee ist kompatibel zur Open Source .Net Variante Mono, kann auf Windows Systemen aber auch ohne Einschränkungen mit Microsofts .Net arbeiten. Auf die Fusee Engine wird in dieser Arbeit häufig Bezug genommen, da einige Bestandteile des Fusee Projektes essentiell für den praktischen Teil dieser Arbeit und die Fragestellung sind.
+
+%%%%%%
+%	Einführung / Einleitung ENDE
+%%%%%%
+
+\chapter{Über das Tool Development und über intern organisierten Entwicklerteams}
 
 \section{Definition: Tools und Toolsets}
 Die Werkzeuge eines Entwickler Teams können übergreifend in Tools und Toolsets klassifiziert werden. Während es sich bei Tools um eigenständige Software handelt die meist zum Lösen einer spezifischen Aufgabe entwickelt oder eingekauft wurde, handelt es sich bei Toolsets um eine in sich abgestimmte Kollektion von Werkzeugen die zusammen die Produktions Pipeline des Produktes darstellen. Die Komplexität von Tools reicht von einfach Text Editoren bis hin zu Modeling und Level Design Software. Die Komplexität des Tools korreliert meist mit der Komplexität der zu lösenden Problematik.
@@ -319,25 +328,23 @@ Tools können oft für eine spätere Aufgabe wiederverwendet werden. So genannte
 
 Oft ergibt sich aber aus ehemaligen Wegwerf-Tools oft auch die Chance ein Werkzeug zu entwickeln dass den Entwicklern längere Zeit treue Dienste leistet.
 
-% TODO https://github.com/SonyWWS/ATF/wiki/High-Level-View-of-ATF
-% Eventuell könnte hier noch interessanter Inhalt dazu kommen.
-
-% MEF: runtime extensibility problem solution - kurz also plugin module.
-
 \section{Internes Tool Developing oder Tool Licencing?}
-Internes Tool Development ist ein wichtiger Aspekt im Team eines Games und Software Entwicklerteams. Erich Bethke \autocite{Bethke2003} berichtet  in davon, dass Michael Abrash\footnote{Ehemals idSoftware, ehemals Valve VR, aktuell Chief Scientist bei Oculus \url{https://www.oculus.com/company/}} ihm einst mitteilte, “dass 50\% der Entwickler Arbeit bei idSoftware in das Tool Development fliesse.” vgl. \fullcite[S. 44]{Bethke2003}. An der Relevanz des Themas hat sich trotz des zurückliegenden Zeitraums (Jahr 2003) kaum etwas getan. Sony hat für den Release der Playstation 4\footnote{Playstation 4 - Erschienen im Herbst 2013} ein Development Kit \footfullcite{DVLP:Freeman2014} für die internen Entwickler Studios  erstellen lassen, welches bereits während der Planung und Entwicklung der Konsole entwickelt wurde. Sony hat diese Prozedur perfektioniert und lässt die eigenen Tools sogar in einem eigens dafür gegründeten Unternehmen für die eigenen Studios erstellen \footnote{SNSystems \url{http://www.snsystems.com/}}. Sony hat im Herbst 2014 den für Playstation 3 Spiele eigens intern entwickelten Welt Editor “Level Editor”\footfullcite{GS:SonyLE2014} als Open Source Software veröffentlicht und für Jedermann auf GitHub verfügbar gemacht. Der Editor kommt ohne direkten Enginebezug aus und lässt sich somit für verschiedenste Projekte der Sony Studios anpassen. Das ATF Framework, auf welchem viele interne Tools von Sony basieren\footnote{Hier ein Einführungsvideo: \url{https://www.youtube.com/watch?v=aU-9vzFELxc}}, kann von Sound Editoren über Cinematic Editoren bis hin zu State Machine Visualisierungen genutzt werden.Eine Übersicht vonn Tools, welche das ATF Framework erfolgreich verwendet haben findet sich unter \url{https://github.com/SonyWWS/ATF/wiki/ATF-Gallery}. Natürlich ist hier trotzdem noch ein gewisser grad an Aufwand zu betreiben, aber durch das integrierte ATF Framework werden viele Bereiche mit wiederverwendbarem Code abgedeckt. Sony Hauseigene  Entwicklerstudios haben ebenfalls ihre eigenen Tool Kits und Editoren auf dem von Sony bereitgestellten ATF Framework und “Level Editor” erstellt um Spiele wie Naughty Dogs Uncharted\footfullcite{NaughtyDog2007}, Guerilla Games’ Killzone Serie\footfullcite{GuerillaGames2004} oder Quantic Dreams Beyond:Two Souls\footfullcite{QuanticDream2013} zu erstellen. Eine Übersicht der Studios welche das ATF Framework verwenden findet sich unter dieser Adresse \url{https://github.com/SonyWWS/ATF/wiki/ATF-Adoption}. Dieser große Einfluss des Frameworks zeigt, dass selbst in großen - und kleineren - Studios immernoch Bedarf nach einfach und schnell zu erweiternden Frameworks und Editoren besteht. Das ATF Framework bzw. der “Level Editor” von Sony waren auch ein Anlass das das praktische Projekt zu dieser Arbeit an zu implementieren.
+Internes Tool Development ist ein wichtiger Aspekt im Team eines Games und Software Entwicklerteams. Erich Bethke [\fullcite{Bethke2003}] berichtet davon, dass Michael Abrash\footnote{Ehemals idSoftware, ehemals Valve VR, aktuell Chief Scientist bei Oculus \url{https://www.oculus.com/company/}} ihm erläuterte, “dass 50\% der Entwickler Arbeit bei idSoftware in das Tool Development fliesse.” vgl. \cite[S. 44]{Bethke2003}. An der Relevanz des Themas hat sich trotz des zurückliegenden Zeitraums (Jahr 2003) kaum etwas getan. Sony hat für den Release der Playstation 4\footnote{Playstation 4 - Erschienen im Herbst 2013} ein Development Kit \footfullcite{DVLP:Freeman2014} für die internen Entwickler Studios  erstellen lassen, welches bereits während der Planung und Entwicklung der Konsole entwickelt wurde. Sony hat diese Prozedur perfektioniert und lässt die eigenen Tools sogar in einem eigens dafür gegründeten Unternehmen für die eigenen Studios erstellen \footnote{SNSystems \url{http://www.snsystems.com/}}. Sony hat im Herbst 2014 den für Playstation 3 Spiele eigens intern entwickelten Welt Editor “Level Editor”\footfullcite{GS:SonyLE2014} als Open Source Software veröffentlicht und für Jedermann auf GitHub verfügbar gemacht. Der Editor kommt ohne direkten Enginebezug aus und lässt sich somit für verschiedenste Projekte der Sony Studios anpassen. Das ATF Framework, auf welchem viele interne Tools von Sony basieren\footnote{Hier ein Einführungsvideo: \url{https://www.youtube.com/watch?v=aU-9vzFELxc}}, kann von Sound Editoren über Cinematic Editoren bis hin zu State Machine Visualisierungen genutzt werden.Eine Übersicht vonn Tools, welche das ATF Framework erfolgreich verwendet haben findet sich unter \url{https://github.com/SonyWWS/ATF/wiki/ATF-Gallery}. Natürlich ist hier trotzdem noch ein gewisser grad an Aufwand zu betreiben, aber durch das integrierte ATF Framework werden viele Bereiche mit wiederverwendbarem Code abgedeckt. Sony Hauseigene  Entwicklerstudios haben ebenfalls ihre eigenen Tool Kits und Editoren auf dem von Sony bereitgestellten ATF Framework und “Level Editor” erstellt um Spiele wie Naughty Dogs Uncharted\footfullcite{NaughtyDog2007}, Guerilla Games’ Killzone Serie\footfullcite{GuerillaGames2004} oder Quantic Dreams Beyond:Two Souls\footfullcite{QuanticDream2013} zu erstellen. Eine Übersicht der Studios welche das ATF Framework verwenden findet sich unter dieser Adresse \url{https://github.com/SonyWWS/ATF/wiki/ATF-Adoption}. Dieser große Einfluss des Frameworks zeigt, dass selbst in großen - und kleineren - Studios immernoch Bedarf nach einfach und schnell zu erweiternden Frameworks und Editoren besteht. Das ATF Framework bzw. der “Level Editor” von Sony waren auch eine Inspiration das das praktische Projekt zu dieser Arbeit zu konzipieren.
+
+Durch Betrachtung der hier erwähnten Unternehmen und der Methoden der einzelnen Studios, lässt sich erkennen, dass die Größe des Studios bei der gewählten Methode der Entwicklung eine gewisse Rolle spielt. Große Unternehmen wie Sony Entertainment können es sich finanziell leisten ein gesondertes Studio für die Tool Entwicklung zu betreiben oder gleich Third Party Software zu lizenzieren. Kleinere Entwickler verteilen die Aufgaben meist an interne Mitarbeiter oder lizenzieren Third Party Tools. Im Akademischen Sektor an der Hochschule Furtwangen, in welchem Fusee eingesetzt wird, wäre es am effizientesten bei der Wahl von Tools auf Open Source Software oder selbst entwickelte Tools zurückzugreifen. Das Konzept welches im Rahmen dieser Arbeit erstellt wurde, kann zukünftige Projektgruppen beim Erstellen von Fusee Applikationen und Tools unterstützen und fördert somit das interne Tool Development. Somit haben auch Entwickler innerhalb eines Projektes, sollten sie gleichzeitig Tool Entwickler und Stakeholder (Nutzer) des Tools sein, einen doppelten Einfluss auf die Qualität und den Projektverlauf des Tool Development.
 
 \section{Asset Pipelines}
-Um von Artists produzierte Assets in das Spiel zu bringen bedarf es meist einer so genannten Asset Pipeline. Bei dieser Asset Pipeline handelt es sich um eine angepasst Zusammenstellung mehrerer (auch selbst erstellter) Entwicklertools. Das Ziel der Asset Pipeline beschreibt \autocite{Carter2004} mit:
+Artists produzieren Assets für das Projekt. Um diese in das Spiel zu übertragen bedarf es einer so genannten Asset Pipeline. Bei dieser Asset Pipeline handelt es sich um eine angepasst Zusammenstellung mehrerer Entwicklertools. Das Ziel der Asset Pipeline beschreibt \autocite{Carter2004} mit:
 \begin{quote}
 “Quite simply, the term describes the sequence of processes that takes assets from their source form [...] to the final data that can be burned onto a disc or cardridge to form part of the finished game.”
 [...]
 It is comparatively rare that fully working game disc with all the assets needs to be produiced. It is certainly an event which happens more frequently as the game gets closer to being completed [...]. \fullcite[S. 6]{Carter2004}
 \end{quote}
-Somit ist die Assetpipeline ein wichtiges Instrument und besteht meist aus einer Zusammenstellung von eigens Entwickelten Tools und lizensierter Software wie z.B. Game Engines, Modeling Editoren wie 3DS Max, Cinema 4D, oder Maya und weiterer Software. Diese Arbeit beschäftigt sich also mit einem Teilgebiet der Asset Pipeline. In einem späteren Kapitel wird das Fusee Asset Management betrachtet und die Asset Pipeline für das Entwickeln einer Fusee Anwendung mit Cinema 4D konzeptionell untersucht.
+Somit ist nach Carter die Assetpipeline ein wichtiges Instrument und besteht meist aus einer Zusammenstellung von eigens entwickelten Tools und lizenzierter Software wie z.B. Game Einengens, Modeling Editoren wie 3DS Max, Cinema 4D, oder Maya und weiterer Software.\\
+Diese Arbeit beschäftigt sich also mit einem Teilgebiet der Asset Pipeline. Genauer gesagt mit dem Ziel der Asset Pipeline, dem Welt Editor. In einem späteren Kapitel wird das Fusee Asset Management betrachtet und die Asset Pipeline für das Entwickeln einer Fusee Anwendung mit Cinema 4D konzeptionell untersucht. Hierbei wird untersucht, ob es denn möglich ist die Wege von Content Creation Tools wir Cinema 4D derart zu verkürzen, dass eben nicht nicht die Assets in diesen Editoren erstellt werden, sondern auch die Asset Pipeline und der Welt Editor darin integriert sind.
 
 \section{Die Rollenverteilung interner Tool Developer Teams}
-Wihlidahl \autocite[S. 5]{Wihlidal2006} beschreibt verschiedene Organisationsmodelle des internen Tool Development. Hierbei geht es darum die Verantwortlichkeiten für Entwicklung und den Support von internen Tools festzulegen. Er klassifiziert folgende Modelle:
+Wihlidahl \autocite[S. 5]{Wihlidal2006} beschäftigt sich mit verschiedenen Organisationsmodellen des internen Tool Development. Hierbei geht es darum die Verantwortlichkeiten für Entwicklung und den Support von internen Tools festzulegen. Er klassifiziert folgende Modelle:
 \begin{itemize}
 \item Dedicated Tools Team
 \item Developer Ownership
@@ -346,28 +353,45 @@ Wihlidahl \autocite[S. 5]{Wihlidal2006} beschreibt verschiedene Organisationsmod
 \item Content Team Develops and Supports
 \end{itemize}
 
-Diese Arbeit legt sich für den Aspekt des Software-Designs und der Organisatorischen Planung auf die Variante “Dedicated Tools Team” fest. \autocite{Wihlidal2006} beschreibt dieses Variante wie folgt:
-\begin{quote}
-This model is based around a team that takes a tool from inception all the way to supporting it. This model works extremely well, though it generally requires a liason with both technical and esign skills to help faciliate effective communication between the tools team and the target audience when discussing features and workflow using the tool. A strong example of a game development studio following this model is BioWare Corp. \autocite[5]{Wihlidal2006}
-\end{quote}
+Für die Konzeption dieser Arbeit und die Akademische Entwicklung mit der Fusee Engine empfehlen sich die folgenden zwei Strukturen. Mit ihnen können auch relativ kleine Teams erfolgreich im Bereich des Tool Development agieren, da kein großer Overhead im Bereich des Management oder Personals impliziert wird.
 
-%%%%%%
-%	Einführung / Einleitung ENDE
-%%%%%%
+\subsection{Dedicated Tools Team}
+Wihlidal grenzt die verschiedenen Strukturen der Tool Entwicklung ab und beschreibt hierbei verschiedene Vorgehensweisen zur Konzeption und Umsetzung von Tools durch interne Teams.
+Diese Art der Struktur vertraut einem Team die komplette Konzeption und Umsetzung des Tools an. Diese Art der Arbeit verlangt Skills im Bereich der Entwicklung aber auch im User Interface Design. Das Team bietet internen Support für das Tool. Vgl. \cite{Wihlidal2006}. Diese Art der Teamorganisation bietet sich besonders für Projekte und Teams an die es sich zum Ziel gesetzt haben ein Werkzeug für die ContentCreation oder eine ContentCreation Software zu entwickeln. Dieses Profil passt sehr gut auf die bisherigen Teams welche sich mit dem Fusee Projekt auseinander gesetzt haben und wird auch in Zukunft sicher nützlich sein.
+
+\subsection{Content Team Develops and Supports}
+Wihlidal beschreibt hiermit eine art der Organisation die vor allem kleine Teams unterstützt. Die Content Entwickler des Projekts entscheiden welche Tools sie für das effiziente Arbeiten am Projekt benötigen und designen und setzen diese diese selbstständig um. Diese Art der Entwicklung kann die Produktivität des Teams unterstützten. In kleinen Teams in welchen vor allem während der Entwicklung immer wieder Ressourcen frei werden (z.B. könnten Engine Entwickler zur Projektlaufzeit freie Ressourcen investieren so lange nicht an der Optimierung der Applikation entwickelt wird) lässt sich diese Variante gezielt einsetzen um den Overhead gering zu halten und die Entwickler stetig im Projekt einzubinden. Vgl. \cite{Wihlidal2006}.
+
 
 \chapter{Produktionsprozess: Projektplanung und Analyse}
 \section{Projektmanagement für Game Authoring und Tool Development}
-Um einen Entwicklungsprozess abzubilden und Tools für Entwickler, sogenannte Authoring Tools oder Developer Tools, zu entwickeln bedarf es einer gewissen Organisation. Im Bereich der modernen Spieleentwickelung in kleinen bis mittleren Unternehmen (seltener bei großen AAA Produktionen \footnote{Allgemein: Hochqualitative Spiele Software mit großem Entwicklungsbudget und einer Breiten Zielgruppe. Vgl. \cite{GamasutraAAA2005} }) wird hierfür ein agiles Modell zur Softwareentwicklung eingesetzt. Hier soll ein kurzer Überblick über aktuelle Modelle entstehen. Diese Modelle ermöglichen zum einen das schnelle Entwickeln von Tools während der knappen Entwicklungszeit eines Spiele Produkts und zum anderen unterstützen sie die Arbeit von kleinen Teams, in welchen meist Tool Developement betrieben wird,  innerhalb eines großen Entwicklerteams um so gezielt plötzlich auftauchende Aufgaben ohne lange Planung und viel Bürokratie lösen zu können. Damit ist ein fortschreiten des gesamten Projektablaufs gesichert und Entwickler können ihre Zeit hauptsächlich für die Entwicklung der Tools investieren.
+Um einen Entwicklungsprozess abzubilden und Tools für Entwickler, sogenannte Authoring Tools oder Developer Tools, zu entwickeln bedarf es einer gewissen Organisation. Im Bereich der modernen Spieleentwickelung in kleinen bis mittleren Unternehmen (seltener bei großen AAA Produktionen \footnote{Allgemein: Hochqualitative Spiele Software mit großem Entwicklungsbudget und einer Breiten Zielgruppe. Vgl. \cite{GamasutraAAA2005} }) wird hierfür meist ein agiles Modell zur Softwareentwicklung eingesetzt. Hier soll ein kurzer Überblick über aktuelle Modelle entstehen. Diese Modelle ermöglichen zum einen das schnelle Entwickeln von Tools während der knappen Entwicklungszeit eines Spiele Produkts und zum anderen unterstützen sie die Arbeit von kleinen Teams, in welchen meist Tool Developement betrieben wird,  innerhalb eines großen Entwicklerteams um so gezielt plötzlich auftauchende Aufgaben ohne lange Planung und viel Bürokratie lösen zu können. Damit ist ein fortschreiten des gesamten Projektablaufs gesichert und Entwickler können ihre Zeit hauptsächlich für die Entwicklung der Tools investieren.
 
 \subsection{Projektmanagement Modelle im Game Authoring und Tool Development Bereich}
-Um große Projekte wie Computergames oder Interaktive Software zu entwickeln, bedarf es meist einer detaillierten Planung und einer exakten Rollenverteilung im Entwicklerteam. Es existieren verschiedene Methoden des Projektmanagement auf welche hier kurz im Zusammenhang mit der Arbeit eingegangen werden soll. Einige der Projektmanagement Modelle wirken auf die Arbeitsweise der Teammitglieder aus. Daher wird diese Arbeit hier keinen Umfassenden Überblick über Projektmangament Methoden geben, sondern nur solche Ansprechen die sich direkt oder indirekt stark auf das Tool Development auswirken.
+Es existieren verschiedene Methoden des Projektmanagement auf welche hier kurz im Zusammenhang mit der Arbeit eingegangen werden soll. Einige der Projektmanagement Modelle wirken auf die Arbeitsweise der Teammitglieder aus. Daher wird diese Arbeit hier keinen Umfassenden Überblick über Projektmangament Methoden geben, sondern nur solche Ansprechen die sich direkt oder indirekt stark auf das Tool Development auswirken.
 
 \subsection{Agiles Modell oder klassisches Modell?}
-Viele Entwickler (Ubisoft, siehe \cite{MKG:Schmitz2014}) setzen heute auf moderne Modelle zum Entwickeln von Software. Die so genannten agilen Modelle (wie Beispielsweise Scrum,  Extreme Programming und Feature Driven Development) ermöglichen meist das schnelle (agile) reagieren auf plötzlich auftauchende schwierige Situationen. Klassische Modelle (Wasserfallmodell (starres klassisches Modell), Spiralmodell (weiter entwickeltes iterativ orientiertes Modell)) haben hier meist Probleme durch ungleich höhere Bürokratie und Komplexität und benötigen ein Zeitaufwändigeres re-iterieren im Falle von Updates und Umstrukturierungen in Folge von unvorhergesehenen Ereignissen und Problemen. Hochkomplexe Software Projekte die über längere Zeiträume entwickelt werden können meist nur durch klassiche Projektmanagement Modelle überblickt und erfasst werden. Allerdings bedeutet der zusätzliche Bürokratische Mehraufwand auch oftmals einen erhöhten Overhead im Personal-, Software- und Knowledge-Bereich. Es ist im Fall des schnell-lebigen Tool Developments also geschickter, sich mit einem ebenso schnell-lebigen und agilen Projektmanagementmodell wie Scrum zu organisieren.
+Viele Entwickler (z.B. Ubisoft, siehe \cite{MKG:Schmitz2014}\footnote{Artikel der Zeitschrift Making Games, verfügbar unter \url{http://www.makinggames.biz/features/projektmanagement-mit-scrum,2534.html}, zuletzt geprüft am 12.05.2015.}) setzen heute auf moderne Modelle zum Entwickeln von Software. Die so genannten agilen Modelle (wie Beispielsweise Scrum,  Extreme Programming und Feature Driven Development) ermöglichen meist das schnelle (agile) reagieren auf plötzlich auftauchende schwierige Situationen. Klassische Modelle (Wasserfallmodell (starres klassisches Modell), Spiralmodell (weiter entwickeltes iterativ orientiertes Modell)) haben hier meist Probleme durch ungleich höhere Bürokratie und Komplexität und benötigen ein Zeitaufwändigeres re-iterieren im Falle von Updates und Umstrukturierungen in Folge von unvorhergesehenen Ereignissen und Problemen. Hochkomplexe Software Projekte die über längere Zeiträume entwickelt werden können meist nur durch klassiche Projektmanagement Modelle überblickt und erfasst werden. Allerdings bedeutet der zusätzliche Bürokratische Mehraufwand auch oftmals einen erhöhten Overhead im Personal-, Software- und Knowledge-Bereich. Es ist im Fall des schnell-lebigen Tool Developments also geschickter, sich mit einem ebenso schnell-lebigen und agilen Projektmanagementmodell wie Scrum zu organisieren.
 
 \subsection{Das Scrum Modell}
-Der Scrum Prozess tauchte das erste mal in der Veröffentlichung \fullcite{NewProdDev1986} auf - damals nicht unbedingt in der Software- sondern der allgemeinen Produktentwicklung angesiedelt. Seitdem hat sich das Modell weiter entwickelt und erfreut sich bei innovativen Softareprojekten im Games und Indie-Games Bereich (auch und meist wohl auch vor allem im Tool Development) sehr großer Beliebtheit. Die Entwickler CCP und Warhorse Studios hatten hierzu eigene Videos und Artikel veröffentlicht in welchen sie die Vorzüge des Systems und die Integration im eigenen Entwicklungsprozess präsentieren, siehe \cite{CCP:ScrumAndAgile2009}, \cite{WH:Scrum2013}, \cite{WH:ScrumVideo2013}.
+Der Scrum Prozess ist ein empirisches Modell des Projektmanangements und tauchte das erste mal in der Veröffentlichung \fullcite{NewProdDev1986} auf - damals nicht unbedingt in der Software- sondern der allgemeinen Produktentwicklung angesiedelt. Seitdem hat sich das Modell weiter entwickelt und erfreut sich bei innovativen Softareprojekten im Games und Indie-Games Bereich (auch und meist wohl auch vor allem im Tool Development) sehr großer Beliebtheit. Die Entwickler CCP und Warhorse Studios hatten hierzu eigene Videos und Artikel veröffentlicht in welchen sie die Vorzüge des Systems und die Integration im eigenen Entwicklungsprozess präsentieren. Hierzu veröffentlichte das Studio CCP einen kompletten Talk der Hauseigenen Konferenz unter \fullcite{CCP:ScrumAndAgile2009}.  Das Unternehmen Warhorse Studio veröffentlichte zwei Entwicklertagebücher. Beide thematisierten den Umstieg auf Scrum und die daraus gewonnene Effizienz für das Teams unter \fullcite{WH:Scrum2013} und \fullcite{WH:ScrumVideo2013}.
 
+Das Scrum Modell basiert nach Ken Schwaber [\fullcite[S. 11]{Schwaber2004}.] auf dem Prinzip der empirischen Prozess Kontrolle. Er beschreibt drei Standbeine dieser empirischen Kontrolle:
+\begin{itemize}
+\item Visibility
+\item Inspection
+\item Adaptation
+\end{itemize}
+
+Visibility: Alle Aspekte der Prozesse welche den Erfolgreichen Ablauf des Projekts beeinflussen müssen von denjenigen verständlich sein, die in den Prozess eingebunden sind. Das bedeutet in erster Linie, dass verschiedene Stati eines Projektes genau definiert sind und für jeden einsehbar und verständlich formuliert. 
+
+Inspection: Jeglicher Fortschritt des Projekts muss immer wieder geprüft werden um Probleme und Abweichungen im Projekt frühzeitig zu erkennen und diesem entgegenwirken zu können. Hierbei ist es wichtig, dass der Inspektor der die Inspection durchführt die Sache durchdringen kann welche er versucht zu untersuchen.
+
+Adaption: Sollten verschiedene Aspekte des Projekts das positive Endergebnis negativ beeinflussen so sind Änderungen im Prozess und Projekt nötig um dem entgegen zu wirken.
+
+Erläuterungen entnommen, übersetzt und angepasst aus \cite[S. 11]{Schwaber2004}.
+\\
+\\
 Scrum eignet sich besonders für unkomplizierte und schnelle Prozesse. \autocite{Chandler2006} beschreibt es wie folgt:
 \begin{quote}
 “It is relatively easy to implement as it requires no formal training, only a commitment by the team to use the process.”
@@ -414,6 +438,8 @@ Es soll hier an einem kurzen Beispiel deutlich gemacht werden, wie ein solches T
 \end{itemize}
 Dieser Prozess schließt iterrativ ab bzw. nicht ab, da während der Entwicklung einer interaktiven Anwendung / Games eventuell auch auf externe Einflüsse wie Third Party Software oder Marktentwicklungen eingegangen wird. Als Beispiel: So könnte sich durch die Veröffentlichung einer neuen GPU Generation oder den vorgezogenen PC Release die Pixel-Auflösung der benötigten Textur-Dateien ändern.
 
+Zusammengefasst kann der Scrum Prozess besonders aufgrund seiner empirischen Natur und der schnellen Reaktionszeit auf negative Entwicklungen im Projekt für das Tool Development empfohlen werden. Die schnelle und leicht Verständliche Struktur dieses Managementprozesses kann jeder Mitarbeiter schnell verstehen und in den Alltag seiner Tätigkeit als Entwickler integrieren.
+
 \section{Mitglieder eines Entwicklerteams}
 Es soll hier ein kurzer Überblick über die gängigsten Mitglieder eines Entwicklerteams gegeben werden. Grob können Entwickler in die folgenden Gruppen aufgeteilt werden - Artist, Designer, Engineer und Producer. Jede Gruppe arbeitet hierbei meist interdisziplinär mit den anderen zusammen, kümmert sich aber doch um die ganz eigenen Bestandteile eines Produktes. Es ist durchaus so, dass jede Gruppe ihre eigenen Tools und Methoden verwendet. Dieser Ansatz wird in der Konzeptionierung dieser Arbeit aufgegriffen und weiter verfolgt.
 
@@ -421,7 +447,7 @@ Bei der Bezeichnung und Aufteilung der verschiedenen Teammitglieder in Fachberei
 
 Diese Auswahl beschränkt sich auf Mitglieder des Teams welche mit dem Entwicklungs Prozess des Tool Authorings mehr oder weniger direkt in Verbindung treten.
 
-Grundsätzlich ist eine solche Analyse auch für das eigentlich Team sinnvoll. Während der Konzeption eines Tools muss darauf geachtet werden, welche Gruppen von Entwicklern mit welchem Grad an technischem und gestalterischem Verständnis mit dem Tool umgehen sollen. Daher ist es essentiell über die Strukturen des eigenen Entwickler Teams in Kenntnis zu sein.
+Grundsätzlich ist eine solche Analyse auch für das eigentlich Team sinnvoll. Während der Konzeption eines Tools muss darauf geachtet werden, welche Gruppen von Entwicklern mit welchem Grad an technischem und gestalterischem Verständnis mit dem Tool umgehen sollen. Daher ist es essentiell über die Strukturen des eigenen Entwickler Teams in Kenntnis zu sein. Vor allem sollte die topologische Verteilung aufgrund von Stakeholderanalysen während der Tool Entwicklung bekannt sein. 
 
 \subsection{Producer}
 Der Producer (Produzent) ist für gewöhnlich bereits einige Jahre in der Industrie als Entwickler tätig gewesen bevor er diese Position einnahm. Er ist meist verantwortlich für ein Projekt und das management des Entwicklerteams. Zu seinen Aufgaben gehört die Überwachung des Projektverlaufs, das einhalten der Deadlines und des Budgets. Producer kümmern sich in erster Linie um den Ablauf des Alltagsgeschäftes (der Entwicklung) und nicht um die Kreativen Aspekte des Projekts. Produzenten können ihren Fokus auf viele Aspekte des Projktes legen. Meist treten sie als Developer Producer (DP) und Publisher Producer (PP) auf. Als DP sind sie meist in den gesamten Tagesablauf der Entwicklung eingebunden und beteiligen sich auch an den eigentlichen aufgaben der Entwicklung während sie als PP vor mit externen Entwicklern arbeiten und die Interessen des Publishers vertreten und nicht besonders stark in den Entwickleralltag eingebunden sind. Vgl. \fullcite[S. 19-20]{Chandler2006}
@@ -471,6 +497,7 @@ Um eine Produktion erfolgreich zu starten, bedarf es einer Asset Pipeline und de
 \item Which areas of the system can be automated?
 \end{itemize} Vgl. \autocite[S. 224-225]{Chandler2006}
 \\
+\\
 Durch das Beantworten dieser Fragen, kann sicher gegangen werden, dass die meisten wichtigen Aspekte berücksichtigt wurden. Dieser Prozess wird für das FuseeAT Beispielhaft durchgeführt. Die Analyse findet sich im Anhang dieser Arbeit im Requirements Engineering Dokument.
 \\
 Carey Chico\footnote{Aktuell Präsident bei Zero Mass Enery \url{https://www.linkedin.com/in/careychico}, ehemals Pandemic Studios} (als Experte im Werk von \cite{Chandler2006} vertreten) beschreibt die Relevanz einer guten Asset Pipeline und vor allem des dedizierten internen Tool Developments wie folgt:
@@ -506,19 +533,15 @@ Es folgt die Planungsphase des Tools. Hier wird zuerst eine Requirementsanalyse 
 \item Es ist zu analysieren, welche Schritte für welche Art der Arbeit des Teams notwendig sind. Hierzu werden Usecases der verschiedenen Rollen und Aufgaben erstellt.
 \end{itemize}
 \subsubsection{Requirements Dokumentation}
-%TODO: Erweitern. Mit Quellen. Dokumentation ist nicht alles? Agiles Manifesto im Bezug auf RE!!!
 Während der Requirements Dokumentation werden alle Ansprüche an die Software Dokumentiert und von den Stakeholdern geprüft. Über dieses Dokument lässt sich der spätere Funktionsumfang des Tools genaustens definieren und verfolgen. Das Dokument stellt sozusagen ein rechtlich relevantes Dokument dar. Ein Dokument mit Bezug auf den Praktischen Teil dieser Arbeit findet sich im Anhang.
 
 \subsubsection{System Design / System Modeling}
-%TODO: Erweitern. Mit Quellen.
 Anschließend an die Analyse folgt das System Modeling in welchem die Anforderungen des Programs zu einem Softwareprodukt modeliert werden. Oft bedient sich das Entwicklerteam hierbei Notationen wie UML \footnote{Unified Modeling Language} um ihre Ideen und Entwürfe in ein allgemein verständliches Format von Diagrammen und Schrift Formen zu bringen. Das System Design ist ein kritischer Punkt. Hier müssen die Anforderungen des Kunden genau in die geplante Entwicklung des Systems übernommen werden. Oftmals arbeitet das System Design 
 
 \subsubsection{Abgleich des System Designs mit den Anforderungen}
-% TODO: Quellen zitieren etc.
 Vor der Implementierung muss immer auch geprüft werden ob das geplante System aus dem Designprozess mit den tatsächlichen Anforderungen der Stakeholder zusammen passt. Hierfür werden die Konzeptionierten Software-Bestandteile mit der Zielgruppe diskutiert. Eventuelle Einwände und Vorschläge werden zum Konzept hinzugefügt und in die weitere Planung miteinbezogen.
 
 \subsubsection{Implementierung}
-%TODO: Erweitern. Mit Quellen.
 Die Implementierung ist der praktische Schritt des ganzen Prozesses. Während der Implementierung wird das Tool entwickelt, auf Fehler geprüft eventuell bei Verwendung von iterativen Projektmanagementmodellen wieder durch iterierende Abläufe im Konzept verändert oder erweitert und anschließend korrekt implementiert.
 % Evtl. hier was zu MVC oder so. Vll auch einfach wegen der interdsiziplinarität der Entwickler, die Sachen bestehen ja aus mehr als nur Bildern oder nur Code sie sind ein Verbund.
 
@@ -941,16 +964,11 @@ Das TagPlugin kümmert sich um die Zuordnung von Assets. Es ermöglicht es in Ci
 Das MessagePlugin ist ein Hilfsplugin und implementiert keine Funktionalität sondern unterstützt die per Nachrichtensystem gesteuerte Kommunikation innerhalb von Cinema 4D. Durch dieses Plugin können Nachrichten des CommandPlugin an das TagPlugin und umgekehrt versandt werden. Die Nachrichten werden dann in den jeweiligen Plugins geparsed (sie bestehen aus einer Integer ID und einem Datenanteil\footnote{Von der Cinema 4D API festegelegt.}) und weiter verarbeitet. 
 Das hier angeführte Klassendiagramm \ref{KlassendiagrammPluginArchitektur} zeigt die für jedes Plugin benötigten API Funktionen. Diese Funktionen müssen im Plugin Code als überschriebene Funktionen implementiert werden. Die Klasse GUIPlugin implementiert ein UserInterface um ein Fusee Projekt von Cinema 4D aus über einen Grafischen UI Dialog zu laden.
 
-
-%\subsection{Entfernen von Abhängigkeiten}
-%TODO: Was war hier nochmal genau gemeint? Muss ich in den Unterlagen nachsehen.
-
 \subsection{Zeitersparnis durch das Verwenden von Fusee Modulen}
 Um nicht jegliche Funktionen neu implementieren zu müssen, wurde vor dem Beginn der Implementierung geprüft welche Funktionalitäten bereits in der Fusee Engine gegeben sind. Durch die offene Struktur der Engine konnte bereits früher schon Code wiederverwendet werden. Diese Synergien der bereits vorhandenen Systemen sollten auch in zukünftigen Entwicklungen genutzt werden um, Zeit und Ressourcen zu sparen.
 Die folgende Module des Fusee Projekts wurden für den Rahmen dieser Arbeit angepasst und verwendet.
 
 \subsubsection{Der Fusee Projekt Generator}
-%TODO: Kurz erklären was er kann etc.
 Der Fusee Project Generator ist ein Projekt das bereits vom ersten Fusee Entwicklerteam angestoßen wurde. Es  handelt sich hierbei um ein Bibliotheksmodul welches es ermöglicht, ein neues \CSS Projekt in einerhalb einer Fusee Solution anzulegen. Im Rahmen dieser Arbeit wurde der Fusee Projekt Generator lediglich neu innerhalb des Uniplug Projektes verdrahtet. Davor war der Generator noch eine eigenständige Konsolen .Exe Anwendung. Aktuell können mehrere Projekte mit ein und dem selben Engine Binary Build gebaut und verdrahtet werden. Die folgende Abbildung \ref{FuseeBinaryProjektStruktur} zeigt die Struktur eines solchen Fusee Projektes.
 \begin{figure}[ht]
 	\centering
@@ -963,13 +981,10 @@ Der Fusee Project Generator ist ein Projekt das bereits vom ersten Fusee Entwick
 
 
 \subsubsection{Fusee .fus Exporter}
-%TODO: Kurz erklären was er kann etc. und ob er reingeommen wird. Da muss ich noch etwas abwarten.
 Beim Fusee Exporter handelt es sich um ein von Herrn Prof. C. Müller (Hochschule Furtwangen, Fakultät Digitale Medien) entwickeltes Cinema 4D Plugin. Das Plugin wurde ebenfalls mit Hilfe des Projektes Uniplug entwickelt. Es ermöglicht das exportieren einer Cinema 4D Szene in ein von Fusee lesbares Format (.fus). Dieses binary Format lässt sich in Fusee direkt im Code einer Engine Applikation laden und enthält sowohl Geometrie als auch weitere Bestandteile wie z.B. Materialien. Das Systemdesign sieht vor, dieses Plugin in das FuseeAT zu integrieren. Es erfüllt die Aufgabe des exports von Model bzw. Szenendateien in das Fusee Format zufriedenstellend und muss für eine Implementierung noch aus der Form eines Plugins in die Form einer Softwarebibliothek gebracht werden. Der Fusee Exporter ist an Cinema 4D gebunden und kann daher lediglich für den Export aus Cinema 4D genutzt werden. Für eine Verwendung in anderen Programmen müsste eine Schnittstelle geschaffen werden. Der Fusee Exporter operiert direkt auf den von Maxon in der API bereitgestellten Datentypen und Methoden einer Cinema 4D Szene.
 Das Plugin bietet weiterhin die Möglichkeit eine Szene aus Cinema 4D in eine im Web Browser lauffähige Version einer Fusee Szene zu exportieren. Dies geschieht mittels der Verwendung von JSIL und verschiedener Javascript Bibliotheken. Weitere Informationen finden sich im Wiki\footnote{Fusee Wiki zum Web Export: \url{https://github.com/FuseeProjectTeam/Fusee/wiki/HowTo:-Fusee-on-Web}} zu Fusee.
 
 \section{Asset Management und Asset Pipeline in der Fusee Engine}
-% TODO % Begriffserklärung eines Asset, genaue Definitionen anmerken.
-%Assets und das aufbrechen in Bestandteile eines Projektes. Level etc. bestehen aus Assets und mehr.
 Da sich die Fusee Engine in stetiger Entwicklung befindet, gibt es bis jetzt noch keine gesondert etablierte Asset Management Pipeline. Assets werden bis jetzt in Visual Studio direkt im Code per Include eingebunden. Meist handelt es sich bei in Fusee eingebundenen Assets um eines der folgenden Asset-Typen:
 \begin{itemize}
 \item 3D-Modelle in den Formaten .obj\footnote{Weitere Informationen zum Format unter: \url{http://www.fileformat.info/format/wavefrontobj/egff.htm} Online: geprüft am 27.04.2015} (Bei dem Dateiformat handelt es sich um das lesbare ASCII Model Datenformat “Wavefront Object”\footnote{Entwickelt von Wavefront, das Unternehmen war später unter dem Namen Alias bekannt und wurde zwischenzeitlich von Autodesk aufgekauft \url{http://www.autodesk.de/}})
@@ -979,7 +994,6 @@ Da sich die Fusee Engine in stetiger Entwicklung befindet, gibt es bis jetzt noc
 
 
 \subsection{Asset Pipelines in Fusee Authoring Toolkit}
-% TODO: Wichtig. Fusee hat die Möglichkeit der .fus Exporte. Hier werden Assets serialisiert und auf die Festplatte geschrieben. Dadurch können sie schnell geladen werden. Die Assets werden mit protobuf serialisiert.
 Die folgende Grafik \ref{FuseeATAssetIteration} \footnote{Abbildung entnommen aus \cite[S. 7]{Carter2004} und neu Illustriert und beschriftet.} ergänzt die Erläuterung zum Asset Authoring (Eines .fus Objektes mit angehängtem Code Component\footnote{Ein Extra Element welches an einem Asset Objekt angehängt ist} oder anderen) mit Hilfe der Asset Pipeline während der Produktion eines Fusee Engine Projektes. Hierbei handelt es sich um einen iterativen Prozess welcher je nach Ergebnis des Tests und der Evaluation im Engine Projekt eine neue Iteration des Prozesses nach sich ziehen kann. In der Grafik \ref{FuseeATAssetIteration} wird Beispielhaft ein Model in Cinema 4D erstellt, ein Component angehängt und anschließend vom FuseeAT System zur Laufzeit zu einer XML Datei serialisiert. Diese XML Datei kann dann von jedem Entwickler editiert werden. Die Datei wird weiterhin von FuseeAT in der Cinema 4D Szene benötigt um eine Zuordnung eines Asset in der Szene wiederherzustellen.
 Das erstellte Asset bleibt weiterhin im Cinema 4D Format, gespeichert in der Cinema 4D Datei des Projektes, vorhanden. Somit besteht das Asset in einer nativen Version weiterhin und kann in einem iterativen Prozess weiterhin verändert werden.
 
@@ -993,7 +1007,6 @@ Das erstellte Asset bleibt weiterhin im Cinema 4D Format, gespeichert in der Cin
 Während des Build- und/oder Speichervorgangs des Cinema 4D und Fusee Projekts über das FuseeAT wird das Asset vom Framework in ein Asset des Fusee Typs .fus gewandelt. Allerdings geht durch die bereits erwähnte redundante Speicherung des Asset im Cinema 4D Format keine Information der ursprünglichen Datei verloren.
 
 \subsection{Assetmanagement in Fusee Authoring Toolkit}
-% TODO: Wie kann man die Assets managen und im Speicher halten etc. Wie kann ich das mit der Arbeit verflechten. Eventuell weil der Code auch das Projekt vor hält?
 Oft reicht eine einfache Versionierung, durch z.B. Git, von binären Asset Dateien wie Texturen oder Modellen nicht aus und muss daher von geeigneteren Tools übernommen werden.
 Das Assetmanagment innerhalb eines Projektes wird von FuseeAT nicht abgedeckt und sollte vom Entwicklerteam übernommen werden. Hierzu können verschiedene Tools eingesetzt werden die auf ein Management von Binary Asset Files spezialisiert sind. Beispiele für solche Systeme sind die Software Alienbrain \autocite{Alienbrain}\footnote{Webadresse: \url{http://www.alienbrain.com/}} und die Software Shotgun \autocite{Shotgun}\footnote{\url{https://www.shotgunsoftware.com/}}. Diese kommerziellen Tools erlauben das Verwalten von Binären Assets (z.B. Audio Dateien, 3D-Modelle, Grafiken) während der Produktion von Entertainment Produkten. Eine solche Software kann ohne Probleme neben dem FuseeAT eingesetzt werden, da sich die beiden Wirkungsbereiche nicht überschneiden.
 Da FuseeAT jedoch auf human readable file formats setzt und diese als XML Dateien im Projekt Ordner ablegt, kann für die Versionierung von FuseeAT Projekten ein VCS wie Git herangezogen werden. Ein weiterer Vorteil der lesbaren XML Dateien ist der unkomplizierte Merge-Vorgang innerhalb des VCS, Bei Problemen können Entwickler diese Dateien auch jederzeit von Hand verändern und das Projekt in Cinema 4D erneut laden.
@@ -1135,8 +1148,6 @@ Durch die eingeschränkte  Möglichkeit nur bis zum call des Debugging API Codes
 \section{Der Fusee Szenengraph}
 Wie bereits erwähnt, wird der Code der Fusee Engine für diese Arbeit nicht erweitert. Es wird im Systemdesign aber ein wichtiges Element der Engine, der Szenengraph, verwendet. Dieser Abschnitt geht auf die Funktionsweise des Szenengraphen in Fusee ein und zeigt seine Ähnlichkeiten und Unterschiede zum Szenenaufbau einer Cinema 4D Szene auf. 
 
-%TODO: Hierzu werden die beiden Systeme analysiert und dann ein Design zum Mapping des Cinema 4D Graphen auf das Fusee System erläutert.
-
 Der Fusee Szenengraph ermöglich das Traversieren und Vorhalten verschiedener Elemente einer Fusee Szene. Der Graph ist aus einer Kombination von Nodes und Components aufgebaut. Er ähnelt stark dem Unity3D Ansatz des Szenengraphen. Eine Node ist ein Knotenpunkt ohne spezielle Daten. Die Node enthält lediglich einen Namen, eine Liste an Components und falls nötog, eine Liste an Kind-Nodes. Das Traversieren wird durch Visitor Implementierungen ermöglicht. Diese Visitor Patterns wurden während dieser Arbeit noch implementiert und erweitert. Ein Visitor ermöglicht das Traversieren einer Szene und seiner Nodes auf eine vom Entwickler definierte weise und kann so z.B. Transformationen durchführen, welche die Struktur einer Szene verändern.
 
 \begin{figure}[ht]
@@ -1172,17 +1183,13 @@ Wie bereits erwähnt, verfügt der Fusee Szenengraph über Nodes welche bis die 
 
 Diese Objekte können wieder Kind-Objekte der gleichen Datentypen beinhalten. Diese Hierarchie zeigt die Abbildung \ref{Cinema 4DSzenenGraph}. Die in der Abbildung \ref{Cinema 4DSzenenGraph} am rechten Rand durch kleine Abbildungen neben den Nodes dargestellten Tags, beinhalten weitere Daten oder Einstellungen für das jeweils zugehörige Node. Diese können in einem anderen Fenster (Attribute Fenster/Panel) in Cinema 4d bearbeitet werden.
 
-
-
 \subsubsection{Der Export einer Cinema 4D Szene in den Fusee Szenengraphen}
 %TODO:  Wie kann der export stattfinden?
 % Eventuell noch eine Grafik oder ein Ablaufdiagramm hierzu gestalten.
 
-
 \section{Stand der Implementierung}
 Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits erfolgte Implementierung und zeigt welche Aufgaben sich mit dem zum Zeitpunkt der Arbeit bereits implementierten Teil der Software umsetzen lassen und welche Bereiche noch weiter entwickelt werden können und müssen.
 \subsection{Bereits umgesetzte Module des Konzepts}
-% TODO: Wie Weit ist die Implementierung vorran gekommen. Evtl. dann Anfang bis Mitte Mai zu ende schreiben.
 Während der Implementierungsphase wurde versucht mit Hilfe der Cinema 4D API und des Uniplug Projekts eine Softwarebibliothek zu implementieren welche Basisfunktionalität für die Verwendung von Cinema 4D als Authoring Tool bieten kann. 
 
 Folgende Funktionalität wurde bereits umgesetzt:
@@ -1192,7 +1199,7 @@ Folgende Funktionalität wurde bereits umgesetzt:
 \item Eine neue \CSS Klasse kann mit der Bibliothek angelegt und in das Projekt integriert werden
 \item Ein Tag kann im Cinema 4D Szenengraphen erzeugt und an ein Objekt der Szene geheftet werden
 \item Verschiedene Module des Cinema 4D Plugins können untereinander über das Cinema 4D Message System Informationen austauschen
-\item TODO: Eine Code Datei kann mit Hilfe eines Tags in Cinema 4D an ein Objekt angehängt werden. Hierzu wird im Speicher eine XML Datei angelegt und auf die Festplatte geschrieben, welche die Assoziation der beiden Objekte beschreibt.
+%TODO \item Eine Code Datei kann mit Hilfe eines Tags in Cinema 4D an ein Objekt angehängt werden. Hierzu wird im Speicher eine XML Datei angelegt und auf die Festplatte geschrieben, welche die Assoziation der beiden Objekte beschreibt.
 \end{itemize}
 
 Auf die genauere Umsetzung und einzelne interessante Aspekte der Implementierung wird in den nächsten Abschnitten weiter eingegangen.
