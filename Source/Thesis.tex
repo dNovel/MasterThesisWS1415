@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[babel,german=guillemets]{csquotes}
-\usepackage[backend=biber, style=apa]{biblatex}
+\usepackage[backend=biber]{biblatex}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -33,9 +33,7 @@
 % Festlegung Art der Zitierung -NatDin für Deutschland: Abkuerzung Autor + Jahr
 %\bibliographystyle{jurabib}
 \DeclareLanguageMapping{german}{german-apa}
-\DefineBibliographyStrings{ngerman}{%
-    bibliography={Literaturverzeichnis}% NICHT references
-}
+%\DefineBibliographyStrings{ngerman}{bibliography={Literaturverzeichnis}}
 \addbibresource{Biblatex/VerzeichnisBuecher.bib}
 %plain
 
@@ -1336,13 +1334,19 @@ Letztendlich wurden viele Grundsteine für die Entwicklung von und mit FuseeAT g
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bilbiographie START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\nocite{*}
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
-%\cite{*}
-\printbibliography
-\newpage
+\printbibliography[nottype=misc, title=Literaturverzeichnis]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bilbiographie ENDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Software Verzeichnis START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{chapter}{Softwareverzeichnis}
+\printbibliography[type={misc}, title=Softwareverzeichnis]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Software Verzeichnis ENDE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
