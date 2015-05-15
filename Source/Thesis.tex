@@ -655,7 +655,7 @@ Das hier entwickelte Konzept versucht nun die in der Analyse gewonnenen Erkenntn
 Diese Abschnitt behandelt eine Auswahl alltäglicher Tasks (z. Dt. Aufgaben) der Mitarbeiter des Produktionsteams und die Arbeitsschritten die dazu nötig sind diese zu erledigen. Aus den aufgelisteten Tasks wurden dann die Anforderungen für die Requirementsanalyse herausgearbeitet. Um an diese Auflistung heranzukommen, empfiehlt sich in der Praxis das Interviewen und das Beobachten von Teammitgliedern um den Arbeitsalltag und die Probleme die das Tool lösen soll besser zu verstehen. Weiterhin können Ziele des Projektes und spezielle kritische Marken im Gamedesign Aufschluss über benötigte Features liefern.
 
 \subsection{Use Cases für Artists}
-Es folgt eine Auflistung der Tasks die den normalen Arbeitsablauf eines Artists in der der Entwicklung mit der Fusee Engine bezeichnen. Um die Tasks zu ermitteln wurde sich verschiedener kreativer Hilfsmittel wie z.B. Mindmaps und Brainstorming bedient.
+Es folgt eine Auflistung der Tasks die den normalen Arbeitsablauf eines Artists in der der Entwicklung mit der Fusee Engine bezeichnen. Um die Tasks zu ermitteln wurde sich verschiedener kreativer Hilfsmittel wie z.B. Mindmaps und Brainstorming bedient. Die folgenden Use Cases beschreiben die Tätigkeiten von Artists im Fusee Authoring Tool.
 \begin{itemize}
 \item Asset erstellen
 \item Asset exportieren
@@ -690,14 +690,46 @@ Eine bereits bestehende Game Szene kann vom Artist bearbeitet werden.
 Eine Szene wird vom Artist gespeichert und steht danach anderen zur Bearbeitung zur Verfügung.
 
 \subsection{Use Cases für Designer}
-%TODO oder mit Artist zusammen führen.
+Die Use Cases von Designern bilden sich häufig aus einer Schnittmenge der Use Cases von Artists und Engineers. Was Designer einzigartig macht ist meist ihr Überblick über die gesamte Entwicklung. Folgende Usse Cases beschreiben die Tasks von Designern im geplanten Fusee Authoring Tool. Das Use Case Diagramm \ref{UseCaseDesigner} visualisiert die aufgeführten Use Cases.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth - 2cm]{Bilder/UseCase_Designer.jpg}
+	\caption{Überblick über die Use Cases eines Designers.}
+	\label{UseCaseDesigner}
+\end{figure}
+
+\begin{itemize}
+\item Skript-Datei hinzufügen
+\item Asset importieren
+\item Projekt bearbeiten
+\item Builds anfertigen
+\item Szene erstellen
+\item Szene bearbeiten
+\item Szene speichern
+\end{itemize}
+
+\subsubsection{Skript-Datei hinzufügen}
+Eine Skript Datei wird an ein Objekgt angefügt. Im Falle von Fusee handelt es sich hier entweder um Javascript Code für Web Builds oder um eine \CSS Code Datei.
+\subsubsection{Asset importieren}
+Der Designer kann vom Artist erstelle Assets in eine Szene des Editors importieren. 
+\subsubsection{Projekt bearbeiten}
+Der Designer bearbeitet das Projekt. Dies bedeutet er muss das Projekt öffnen und betrachten können.
+\subsubsection{Assets platzieren, skalieren und transformieren}
+Der Designer platziert verschiedenste Assets in die erstellten Welten mit Hilfe des Editors. Er skaliert diese Assets auf die korrekte Größe und transformiert ihre Position im Raum. Somit passt er die vom Artists erhaltenen Assets an seine eigenen Bedürfnisse an. 
+\subsubsection{Builds anfertigen}
+Das erstelle Spiel wird durch einen Build getestet. Sollte ein Build erfolgreich sein, kann der Designer seine erstellen Welten und Level in der Fusee Applikation ausprobieren. Er kann die Wirkung der Welt beurteilen und möglicherweise Veränderungen am Design und Layout vornehmen.
+\subsubsection{Szene erstellen, Szene bearbeiten, Szene speichern}
+Diese drei UseCases sind deckungsgleich mit denen des Artist und werden aus diesem Grund hier nicht mehr gesondert beschrieben.
 
 \subsection{Use-Cases eines Engineer}
-Diese Auflistung beschreibt die Tasks des Engineer.
+Engineers bewegen sich eher auf der technischen Seite der Entwicklung und beschäftigen sich demnach im Fall von Fusee hauütsächlich mit einer IDE wie Visual Studio. Die hier aufgeführten Tasks beschreiben die Use Cases eines Engineers im Bereich des Fusee Developments.
+
 \begin{itemize}
 \item Code-Datei hinzufügen
 \item Asset verwenden
 \item Projekt bearbeiten
+\item Builds anfertigen
 \item Szene erstellen
 \item Szene bearbeiten
 \item Szene speichern
@@ -730,21 +762,6 @@ Der Engineer öffnet eine Szene und bearbeitet diese in seiner IDE. Hierzu muss 
 
 \subsubsection{Szene speichern}
 Eine Szene wird gespeichert und vom ProjectHandler in ein Format überführt welches ein Artist in seiner gewohnten 3D Umgebung ebenfalls nutzen kann.
-
-
-% Analyse
-%\subsection{Prozess bezogen}
-%\subsubsection{Gleichzeitig an Projekt arbeiten}
-%\subsubsection{Model Datei importieren}
-%\subsubsection{Gleichzeitig an einem Objekt arbeiten}
-
-%\subsection{Projekt bezogen}
-%\subsubsection{Projekt anlegen}
-%\subsubsection{Projekt öffnen}
-%\subsubsection{Projekt speichern}
-%\subsubsection{Projekt bauen}
-%\subsubsection{In Projekt einsteigen}
-%\subsubsection{Projekt clonen etc.}
 
 \section{Ananlyse von beliebten Editoren und derer Module im Bezug auf die Konzeption des FuseeAT Plugins}
 Aufgrund der Thematik mit dem Bezug zur 3D Engine Fusee beschränkt sich die Auswahl der betrachteten Editoren auf die an der Hochschule Furtwangen populärsten Game Engines und Editoren, analysiert deren Editoren Features und stellt die Arbeitsabläufe in diesen Editoren und Tools dar. Es folgt eine Wertung und ein Vergleich mit den für das Fusee Authoring Toolkit geplanten Features. Bei den hier gewählten Editoren handelt es sich um stand alone Applikationen welche das Gegenteil des hier entworfenen Konzeptes eines in das Content Creation Tool integrierten Editors darstellen. Allerdings gleichen sich die Authoring Tool Ansätze maßgeblich. Funktionen, Module und Konzepte sind größtenteils deckungsgleich mit denen des Cinema 4D Editors. Aus diesem Grund lassen sich einige der Module für FuseeAT und vor allem das Cinema 4D Plugin adaptieren.
@@ -1183,6 +1200,7 @@ Diese Objekte können wieder Kind-Objekte der gleichen Datentypen beinhalten. Di
 \subsubsection{Der Export einer Cinema 4D Szene in den Fusee Szenengraphen}
 %TODO:  Wie kann der export stattfinden?
 % Eventuell noch eine Grafik oder ein Ablaufdiagramm hierzu gestalten.
+% Einen Algorithmus könnte ich eigentlich relativ simpel entwickeln.
 
 \section{Stand der Implementierung}
 Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits erfolgte Implementierung und zeigt welche Aufgaben sich mit dem zum Zeitpunkt der Arbeit bereits implementierten Teil der Software umsetzen lassen und welche Bereiche noch weiter entwickelt werden können und müssen.
