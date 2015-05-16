@@ -331,7 +331,7 @@ Fusee ist kompatibel zur Open Source .Net Variante Mono, kann auf Windows System
 %	Hauptteil START
 %%%%%%
 
-\chapter{Über das Tool Development und über intern organisierten Entwicklerteams}
+\chapter{Über das Tool Development in intern organisierten Entwicklerteams}
 
 \section{Definition: Tools und Toolsets}
 Die Werkzeuge eines Entwickler Teams können übergreifend in Tools und Toolsets klassifiziert werden. Während es sich bei Tools um eigenständige Software handelt die meist zum Lösen einer spezifischen Aufgabe entwickelt oder eingekauft wurde, handelt es sich bei Toolsets um eine in sich abgestimmte Kollektion von Werkzeugen die zusammen genommen die Produktions Pipeline des Produktes darstellen. Die Komplexität von Tools reicht von einfach Text Editoren bis hin zu Modeling und Level Design Software.
@@ -434,11 +434,11 @@ Hier soll nurn kurz ein Szenario aufgebaut werden, welches das Tool Developement
 Die Stakeholder des Tools wären in diesem Fall die anderen Entwickler des Unternehmens die das Produkt im Produktivbetrieb einsetzen möchten. Es kann hierbei auch von Vorteil sein, das Tool iterativ in den Arbeitsalltag des Teams zu integrieren um die Entwickler nicht durch einen Berg an neuen Features zu verunsichern und so die Einarbeitungszeit möglichst gering zu halten.
 \\
 \\
-Es soll hier an einem kurzen Beispiel deutlich gemacht werden, wie ein solches Tool eingeführt werden könnte. Der Prozess der Entwickler kann mit Scrum wie unten in der Auflistung dargestellt ablaufen. Jeder Schritt wird in Sprints eingeteilt und enthält gleichzeitig Tägliche Stand Up Meetings. Sollte der Sprint eines Punktes erfolgreich abgeschlossen sein, so wird der nächste Schritt angegangen.
+Es soll hier an einem kurzen Beispiel deutlich gemacht werden, wie ein solches Tool eingeführt werden könnte. Der Prozess der Entwickler kann mit Scrum wie unten in der Auflistung dargestellt ablaufen. Jeder Schritt wird in Sprints eingeteilt und enthält gleichzeitig tägliche Stand Up Meetings. Sollte der Sprint eines Punktes erfolgreich abgeschlossen sein, so wird der nächste Schritt angegangen.
 \\
 \textbf{Szenario}: Ein Team benötigt einen Textur-Editor / Tool um Texturen in das Format der Game-Engine zu transformieren.
 \begin{itemize}
-\item Der Antrag für das Tool vom Producer/Entwickler/oder anderen Personen wird gestellt.
+\item Der Antrag für ein spezifisches Tool vom Producer/Entwickler/oder anderen Personen wird gestellt.
 \item Das Tool wird bewilligt und das Tool Development Team wird beauftragt.
 \item Das Team entwickelt designed das Tool und implementiert Basisfunktionalität.
 \item Das Tool wird mit der Basisfunktionalität an das Produkt Team herausgegeben.
@@ -627,15 +627,14 @@ Die Stakeholder wurden durch die kreative Methode eines Brainstormings als folge
 \end{itemize}
 Die Producer werden innerhalb der Konzeption dieser Arbeit als Designer betrachtet und unter dieser Gruppe geführt. Sollten die Producer denn Aufgaben an der Entwicklung übernehmen sind diese meist deckungsgleich mit den Aufgabenstellungen der Designer. Trotz allem sind die Producer hier aufgrund ihrer tragenden Rolle im Projekt als Stakeholder identifiziert worden. In vielen Fällen haben sie auch massive Entscheidungsgewalt über die verwendeten Techniken und Ressourcen während des Projektverlaufs.
 
-\subsubsection{Involvement in das Projekt erkennen und bestimmen}
-Um zu erkennen in welchem Bezug ein Stakeholder zu einem Projekt steht, wurde ein Gittermodell \ref{StakeholderGrafik} der Entwickler erstellt. Hier finden sich Beispielhaft weitere Stakeholder zur Verdeutlichung der Grafik. Hierzu zählen der Publisher, welcher als Organisation auftritt und weitere Entwicklerteams des gleichen Publishers die möglicherweise mit der gleichen Engine und evtl. den gleichen Werkzeugen arbeiten.
-\begin{figure}[ht]
+\begin{figure}[hb]
 	\centering
-	\includegraphics[width=\linewidth - 2cm]{Bilder/Stakeholder_Diagramm.jpg}
+	\includegraphics[width=\linewidth]{Bilder/Stakeholder_Diagramm.jpg}
 	\caption{Überblick über die Identifizierten Stakeholder und deren Inovelement in die Planung und Umsetzung des Tool Projektes.}
 	\label{StakeholderGrafik}
 \end{figure}
-Mithilfe der ermittelten Stakeholder und den oben angeführten Projektmanagementmodellen kann nach dieser Analyse ein Prozess und ein Konzept für ein Tool entwickelt werden. Die nächsten Abschnitte beschäftigen sich mit der Entwicklung eines Arbeitsprozesses zur Konzeption eines Software Tools und dessen Umsetzung auf Basis der jetzt durchgeführten Analysen.
+
+Um zu erkennen in welchem Bezug ein Stakeholder zu einem Projekt steht, wurde ein Gittermodell \ref{StakeholderGrafik} der Entwickler erstellt. Hier finden sich Beispielhaft weitere Stakeholder zur Verdeutlichung der Grafik. Hierzu zählen der Publisher, welcher als Organisation auftritt und weitere Entwicklerteams des gleichen Publishers die möglicherweise mit der gleichen Engine und evtl. den gleichen Werkzeugen arbeiten.
 
 \section{Zusammenfassung des Arbeitsprozesses}
 Zu Beginn des Tool Development Projektes sollte erst einmal die Struktur des Entwickler Teams analysiert werden. Hierbei muss sich für eine der möglichen Methoden der Organisation entschieden werden. Die beiden von Wihlidal \cite[S. ]{Wihlidal2006} beschrieben Organisationsstrukturen "Dedicated Tools Team" und "Content Team Develops and Supports" wurden als praktisch für das interne zur Produktentwicklung parallel ausgerichtete Tool Development vorgestellt. Sobald sich das Entwickler Team für eine Struktur entschieden hat, kann es sich um die Auswahl eines geeigneten Projektmanagementmodells kümmern. Hierbei wurde aufgrund seiner unkomplizierten Art und einfachen adaption das Scrum Projektmanagementmodell ausgewählt. Es vereinfacht den Entwicklungsprozess und reduziert den nötigen Verwaltungsaufwand auf ein Minimum.
@@ -647,7 +646,7 @@ Der hier skizzierte Prozess wurde so weit es möglich war auch auf die Konzeptio
 
 \section{Zeitersparnis durch die Entwicklung eines Tools als Plugin für eine bekannte Umgebung}
 %TODO: Hier darauf eingehen warum in C4d und wieso und warum das den flow unterstützen könnte.
-Im Gegensatz zu großen Monumentalen Editoren wie denen in der Unreal Engine 4 und der Unity Engine sieht das hier angewendete Konzept des Tool splitting vor, die verschiedenen Entwickler Disziplinen auf bekannte Tools aufzuteilen und diese bereits bekannten Tools mit neuer Funktionalität auszustatten. So minimiert sich die Einarbeitungszeit der Entwickler. Weiterhin sollte die Konzentration der Entwickler auf einem höheren Level erhalten bleiben als es bei Entwicklern der Fall ist, welche für jeden Schritt das Tool wechseln müssten. Natürlich bieten bereits jetzt große Editoren wie Unreal Engine 4 und Unity fast jegliche Funktionaltität in einem großen Tool an, wie aber bereits gesagt ist es nötig dazu die bereits erlernte Software wie z.B. Cinema 4D zu verlassen.
+Im Gegensatz zu großen Monumentalen Editoren wie in der Unreal Engine 4 und der Unity Engine vorhanden, sieht das hier angewendete Konzept des Tool splitting vor, die verschiedenen Entwickler Disziplinen auf bekannte Tools aufzuteilen und diese bereits bekannten Tools mit neuer Funktionalität auszustatten. So minimiert sich die Einarbeitungszeit der Entwickler. Weiterhin sollte die Konzentration der Entwickler auf einem höheren Level erhalten bleiben als es bei Entwicklern der Fall ist, welche für jeden Schritt das Tool wechseln müssten. Natürlich bieten bereits jetzt große Editoren wie Unreal Engine 4 und Unity fast jegliche Funktionaltität in einem großen Tool an, wie aber bereits gesagt ist es nötig dazu die bereits erlernte Software wie z.B. Cinema 4D zu verlassen.
 
 Eine Zeitersparnis auf Seiten der Tool Entwickler kann erreicht werden, da sie sich nur mit der Erweiterung einer bereits fertiggestellten, getesteten Software beschäftigen müssen anstatt ein komplett neues Tool zu entwickeln. Es entfällt hierbei ein großer Teil der Software Architektur. Natürlich gibt es auch hier einschränkungen. Das zu erweiternde Tool muss den Tool Developern bekannt und eine Schnittstelle vorhanden sein. Im Rahmen dieser Arbeit konnten beide Bedingungen ausreichend erfüllt werden. Cinema 4D bietet eine Schnittstelle in Form einer API und das Tool war dem Autor aus früheren Projekten ausreichend bekannt.
 
@@ -655,7 +654,16 @@ Das hier entwickelte Konzept versucht nun die in der Analyse gewonnenen Erkenntn
 
 % Planung
 \section{Use Cases der verschiedenen Entwickler}
-Diese Abschnitt behandelt eine Auswahl alltäglicher Tasks (z. Dt. Aufgaben) der Mitarbeiter des Produktionsteams und die Arbeitsschritten die dazu nötig sind diese zu erledigen. Aus den aufgelisteten Tasks wurden dann die Anforderungen für die Requirementsanalyse herausgearbeitet. Um an diese Auflistung heranzukommen, empfiehlt sich in der Praxis das Interviewen und das Beobachten von Teammitgliedern um den Arbeitsalltag und die Probleme die das Tool lösen soll besser zu verstehen. Weiterhin können Ziele des Projektes und spezielle kritische Marken im Gamedesign Aufschluss über benötigte Features liefern.
+Diese Abschnitt behandelt eine Auswahl alltäglicher Tasks (z. Dt. Aufgaben) der Mitarbeiter des Produktionsteams einer Fusee Applikation. Aus den aufgelisteten Tasks wurden dann die Anforderungen für die Requirementsanalyse herausgearbeitet. Um an diese Auflistung heranzukommen, empfiehlt sich in der Praxis das Interviewen und das Beobachten von Teammitgliedern um den Arbeitsalltag und die Probleme die das Tool lösen soll besser zu verstehen. Weiterhin können Ziele des Projektes und spezielle kritische Marken im Gamedesign Aufschluss über benötigte Features liefern.
+Die hier aufgeführten Tasks beschreiben Arbeitsschritte welche das Fusee Authoring Tool unterstützen sollte. Die Kommunikation der Benutzer zum Fusee Authoring Tool unterscheidet sich durch den Prozess des Tool splitting je nach Entwickler. Während Artists und Designer über eine Grafische Schnittstelle auf das Fusee Authoring Tool zugreifen, arbeiten Ingenieure mit Visual Studio direkt auf dem Projekt der Engine. Hier ist keine weitere Schnittstelle zum Fusee Authoring Tool nötig.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{Bilder/UseCase_Allgemein.jpg}
+	\caption{Überblick über die Use Cases der Entwickler in einem Fusee Authoring Tool.}
+	\label{UseCaseAllgemein}
+\end{figure}
+Die hier dargestellten Aufgaben umschreiben die Basisfunktionalität eines Authoring Tools für die Fusee Engine. Solche Funktionen können in der meisten Software sowohl per Code aufgerufen, als auch ber GUI Funktionalität erreicht werden. In den folgenden Diagrammen wird auf eine erneute Auflistung der Tasks verzichtet und sie werden nur noch exemplarisch dargestellt.
 
 \subsection{Use Cases für Artists}
 Es folgt eine Auflistung der Tasks die den normalen Arbeitsablauf eines Artists in der der Entwicklung mit der Fusee Engine bezeichnen. Um die Tasks zu ermitteln wurde sich verschiedener kreativer Hilfsmittel wie z.B. Mindmaps und Brainstorming bedient. Die folgenden Use Cases beschreiben die Tätigkeiten von Artists im Fusee Authoring Tool.
@@ -667,15 +675,15 @@ Es folgt eine Auflistung der Tasks die den normalen Arbeitsablauf eines Artists 
 \item Szene speichern
 \end{itemize}
 
-Die Übersicht \ref{UseCaseArtist} beschreibt die Einbindung des Artist in das System und skizziert seine Use Cases in Verbindung mit den Modulen des gesamten Systems. Das Modul “Project Handler System” beschreibt hier eine imaginäre Editoren Schnittstelle zwischen den anderen Modulen.
+Die Abbildung \ref{UseCaseArtist} beschreibt die Einbindung des Artist in das System und skizziert seine Use Cases in Verbindung mit den Modulen des gesamten Systems. Das Modul “Fusee Authoring Tool” beschreibt hier eine Software Bibliothek und Editoren Schnittstelle.
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\linewidth]{Bilder/UseCase_Artist.png}
+	\includegraphics[width=\linewidth]{Bilder/UseCase_Artist.jpg}
 	\caption{Überblick über die Use Cases eines Artist.}
 	\label{UseCaseArtist}
 \end{figure}
 
-Es folgt eine Betrachtung der einzelnen Tasks vom Standpunkt des Requirementsengineering aus. Anschliessend wurden die wichtigsten Aktivitäten eines Tasks herausgefiltet und hierraus ein System entwickelt.
+Es folgt eine Betrachtung der einzelnen Tasks vom Standpunkt des Requirements Engineering aus. Anschliessend wurden die wichtigsten Aktivitäten eines Tasks herausgefiltet und hierraus ein System entwickelt.
 
 \subsubsection{Asset erstellen}
 Der Artist erstellt ein Asset in seiner gewohnten Software. Normalerweise handelt es sich hier um 3D Modelle oder 2D Texturen. Texturen werden in einem 2D Grafikprogramm erstellt und  in das 3D Programm importiert. Es folgt das mapping auf die Modelle.
@@ -714,10 +722,10 @@ Die Use Cases von Designern bilden sich häufig aus einer Schnittmenge der Use C
 
 \subsubsection{Skript-Datei hinzufügen}
 Eine Skript Datei wird an ein Objekgt angefügt. Im Falle von Fusee handelt es sich hier entweder um Javascript Code für Web Builds oder um eine \CSS Code Datei.
-\subsubsection{Asset importieren}
-Der Designer kann vom Artist erstelle Assets in eine Szene des Editors importieren. 
 \subsubsection{Projekt bearbeiten}
 Der Designer bearbeitet das Projekt. Dies bedeutet er muss das Projekt öffnen und betrachten können.
+\subsubsection{Asset importieren}
+Der Designer kann vom Artist erstellte Assets in eine Szene des Editors importieren. 
 \subsubsection{Assets platzieren, skalieren und transformieren}
 Der Designer platziert verschiedenste Assets in die erstellten Welten mit Hilfe des Editors. Er skaliert diese Assets auf die korrekte Größe und transformiert ihre Position im Raum. Somit passt er die vom Artists erhaltenen Assets an seine eigenen Bedürfnisse an. 
 \subsubsection{Builds anfertigen}
@@ -726,13 +734,13 @@ Das erstelle Spiel wird durch einen Build getestet. Sollte ein Build erfolgreich
 Diese drei UseCases sind deckungsgleich mit denen des Artist und werden aus diesem Grund hier nicht mehr gesondert beschrieben.
 
 \subsection{Use-Cases eines Engineer}
-Engineers bewegen sich eher auf der technischen Seite der Entwicklung und beschäftigen sich demnach im Fall von Fusee hauütsächlich mit einer IDE wie Visual Studio. Die hier aufgeführten Tasks beschreiben die Use Cases eines Engineers im Bereich des Fusee Developments.
+Engineers bewegen sich eher auf der technischen Seite der Entwicklung und beschäftigen sich demnach im Fall von Fusee hauütsächlich mit einer IDE wie Visual Studio. Die hier aufgeführten Tasks beschreiben die Use Cases eines Engineers im Bereich des Fusee Developments. Hier sei noch einmal erwähnt, dass der Engineer nicht auf das Fusee Authoring Tool zugreift. Seine Tasks beziehen sich nur auf die Arbeit in der IDE.
 
 \begin{itemize}
 \item Code-Datei hinzufügen
 \item Asset verwenden
 \item Projekt bearbeiten
-\item Builds anfertigen
+\item Projekt builden
 \item Szene erstellen
 \item Szene bearbeiten
 \item Szene speichern
@@ -741,7 +749,7 @@ Engineers bewegen sich eher auf der technischen Seite der Entwicklung und besch�
 Die Übersicht \ref{UseCaseEngineer} skizziert die Verwebung des Engineer mit seinen Use Cases und dem System.
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=\linewidth]{Bilder/UseCase_Engineer.png}
+	\includegraphics[width=\linewidth]{Bilder/UseCase_Engineer.jpg}
 	\caption{Überblick über die Use Cases eines Engineer.}
 	\label{UseCaseEngineer}
 \end{figure}
@@ -753,6 +761,9 @@ Der Engineer möchte neu geschriebenen Code in das Projekt einfügen. Ersucht si
 
 \subsubsection{Asset verwenden}
 Der Engineer verwendet Assets (Models, Texturen, etc.) um diese in einer Szene anzuprogrammieren. Hierzu wird das Asset durch Code in die Engine geladen, texturiert und mit Shadern versehn etc. Bei einem Build wird das Model korrekt kopiert bzw. in das Build Format überführt.
+
+\subsubsection{Projekt builden}
+Der Engineer baut das Projekt für die gewünschte Distributions oder Testplattform und erhält ein lauffähiges Binary Programm. Hierzu wird meist eine einfache Menükonstruktion wie Schaltflächen oder Dropdown Menüs genutzt. In Visual Studio entspricht dies den Build Targets.
 
 \subsubsection{Projekt bearbeiten}
 Der Engineer verändert etwas an der Projektstruktur oder der Codebase des Projektes. Die Änderungen werden dauerhaft gespeichert und in der Projektstruktur verortet.
@@ -1206,7 +1217,8 @@ Diese Objekte können wieder Kind-Objekte der gleichen Datentypen beinhalten. Di
 % Einen Algorithmus könnte ich eigentlich relativ simpel entwickeln.
 
 \section{Stand der Implementierung}
-Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits erfolgte Implementierung und zeigt welche Aufgaben sich mit dem zum Zeitpunkt der Arbeit bereits implementierten Teil der Software umsetzen lassen und welche Bereiche noch weiter entwickelt werden können und müssen.
+Der folgende Abschnitt der Arbeit gibt nun einen Überblick über die bereits erfolgte Implementierung und zeigt welche Aufgaben sich mit dem zum Zeitpunkt der Arbeit bereits implementierten Teil der Software umsetzen lassen und welche Bereiche noch weiter entwickelt werden können und müssen. Weiterhin wird auf einige Probleme während der Umsetzung hingewiesen die im Rahmen dieser Arbeit nicht gelöst werden konnten.
+
 \subsection{Bereits umgesetzte Module des Konzepts}
 Während der Implementierungsphase wurde versucht mit Hilfe der Cinema 4D API und des Uniplug Projekts eine Softwarebibliothek zu implementieren welche Basisfunktionalität für die Verwendung von Cinema 4D als Authoring Tool bieten kann. 
 
