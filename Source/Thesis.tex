@@ -3,7 +3,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[babel,german=guillemets]{csquotes}
-\usepackage[backend=biber]{biblatex}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -23,7 +22,17 @@
 \usepackage{scrpage2}
 \usepackage [singlelinecheck=false] {caption}
 \usepackage{pdfpages}
-
+\usepackage[%
+		backend=biber,
+		style=alphabetic,
+		sorting=none,
+		block=none,
+		indexing=false,
+		isbn=true,
+		url=true,
+		doi=true,
+		natbib=true
+		]{biblatex}
 
 % Paket fuer das anzeigen von Sourcecode
 \usepackage{listings}
@@ -36,6 +45,9 @@
 %\DefineBibliographyStrings{ngerman}{bibliography={Literaturverzeichnis}}
 \addbibresource{Biblatex/VerzeichnisBuecher.bib}
 %plain
+\DefineBibliographyStrings{german}{%
+urlseen = {geprüft am},
+}
 
 % Festlegen der Sprache
 \selectlanguage{ngerman}
@@ -91,8 +103,7 @@ belowskip=1\baselineskip,			% Platz unter dem quellcode block
 % Settings fuer den Sourcecode ENDE
 
 % Listings
-\renewcommand{\lstlistlistingname}{Source Code Verzeichnis und Beispiele}
-\renewcommand{\lstlistingname}{Sourcecode Beispiele}
+\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
 
 % Autoren
 \author{
@@ -337,7 +348,7 @@ Fusee ist kompatibel zur Open Source .Net Variante Mono, kann auf Windows System
 %	Hauptteil START
 %%%%%%
 
-\chapter{Über das Tool Development in intern organisierten Entwicklerteams}
+\chapter{Tool Development in internen Entwicklerteams}
 
 \section{Definition: Tools und Toolsets}
 Die Werkzeuge eines Entwickler Teams können übergreifend in Tools und Toolsets klassifiziert werden. Während es sich bei Tools um eigenständige Software handelt die meist zum Lösen einer spezifischen Aufgabe entwickelt oder eingekauft wurde, handelt es sich bei Toolsets um eine in sich abgestimmte Kollektion von Werkzeugen die zusammen genommen die Produktions Pipeline des Produktes darstellen. Die Komplexität von Tools reicht von einfach Text Editoren bis hin zu Modeling und Level Design Software.
@@ -350,6 +361,25 @@ Internes Tool Development ist ein wichtiger Aspekt im Team eines Games und Softw
 
 Durch Betrachtung der hier erwähnten Unternehmen und der Methoden der einzelnen Studios, lässt sich erkennen, dass die Größe des Studios bei der gewählten Methode der Entwicklung eine gewisse Rolle spielt. Große Unternehmen wie Sony Entertainment können es sich finanziell leisten ein gesondertes Studio für die Tool Entwicklung zu betreiben oder gleich Third Party Software zu lizenzieren. Kleinere Entwickler verteilen die Aufgaben meist an interne Mitarbeiter oder lizenzieren Third Party Tools. Im Akademischen Sektor an der Hochschule Furtwangen, in welchem Fusee eingesetzt wird, wäre es am effizientesten bei der Wahl von Tools auf Open Source Software oder selbst entwickelte Tools zurückzugreifen. Das Konzept welches im Rahmen dieser Arbeit erstellt wurde, kann zukünftige Projektgruppen beim Erstellen von Fusee Applikationen und Tools unterstützen und fördert somit das interne Tool Development. Somit haben auch Entwickler innerhalb eines Projektes, sollten sie gleichzeitig Tool Entwickler und Stakeholder (Nutzer) des Tools sein, einen doppelten Einfluss auf die Qualität und den Projektverlauf des Tool Development.
 
+\section{Organisationsstrukturen und Rollenverteilung}
+Wihlidahl \autocite[S. 5]{Wihlidal2006} beschäftigt sich mit verschiedenen Organisationsmodellen des internen Tool Development. Hierbei geht es darum die Verantwortlichkeiten für Entwicklung und den Support von internen Tools festzulegen. Er klassifiziert folgende Modelle:
+\begin{itemize}
+\item Dedicated Tools Team
+\item Developer Ownership
+\item Game Team Develops - Tool Team Supports
+\item Engine Team Develops - Game Team Supports
+\item Content Team Develops and Supports
+\end{itemize}
+
+Für die Umsetzung der Konzeption dieser Arbeit und die Akademische Entwicklung mit der Fusee Engine empfehlen sich die folgenden zwei Strukturen. Mit ihnen können auch relativ kleine Teams erfolgreich im Bereich des Tool Development agieren, da kein großer Overhead im Bereich des Management oder Personals impliziert wird.
+
+\subsection{Dedicated Tools Team}
+Wihlidal grenzt die verschiedenen Strukturen der Tool Entwicklung ab und beschreibt hierbei verschiedene Vorgehensweisen zur Konzeption und Umsetzung von Tools durch interne Teams.
+Diese Art der Struktur vertraut einem Team die komplette Konzeption und Umsetzung des Tools an. Diese Art der Arbeit verlangt Skills im Bereich der Entwicklung aber auch im User Interface Design. Das Team bietet internen Support für das Tool. Vgl. \cite{Wihlidal2006}. Diese Art der Teamorganisation bietet sich besonders für Projekte und Teams an die es sich zum Ziel gesetzt haben ein Werkzeug für die ContentCreation oder eine ContentCreation Software zu entwickeln. Dieses Profil passt sehr gut auf die bisherigen Teams welche sich mit dem Fusee Projekt auseinander gesetzt haben und wird auch in Zukunft sicher nützlich sein.
+
+\subsection{Content Team Develops and Supports}
+Wihlidal beschreibt hiermit eine art der Organisation die vor allem kleine Teams unterstützt. Die Content Entwickler des Projekts entscheiden welche Tools sie für das effiziente Arbeiten am Projekt benötigen und designen und setzen diese diese selbstständig um. Diese Art der Entwicklung kann die Produktivität des Teams unterstützten. In kleinen Teams in welchen vor allem während der Entwicklung immer wieder Ressourcen frei werden (z.B. könnten Engine Entwickler zur Projektlaufzeit freie Ressourcen investieren so lange nicht an der Optimierung der Applikation entwickelt wird) lässt sich diese Variante gezielt einsetzen um den Overhead gering zu halten und die Entwickler stetig im Projekt einzubinden. Vgl. \cite{Wihlidal2006}.
+
 \section{Asset Pipelines}
 Artists produzieren Assets für das Projekt. Um diese in das Spiel zu übertragen bedarf es einer so genannten Asset Pipeline. Bei dieser Asset Pipeline handelt es sich um eine angepasst Zusammenstellung mehrerer Entwicklertools. Das Ziel der Asset Pipeline beschreibt \autocite{Carter2004} mit:
 \begin{quote}
@@ -360,27 +390,31 @@ It is comparatively rare that fully working game disc with all the assets needs 
 Somit ist nach Carter die Assetpipeline ein wichtiges Instrument und besteht meist aus einer Zusammenstellung von eigens entwickelten Tools und lizenzierter Software wie z.B. Game Einengens, Modeling Editoren wie 3DS Max, Cinema 4D, oder Maya und weiterer Software.\\
 Diese Arbeit beschäftigt sich also mit einem Teilgebiet der Asset Pipeline. Genauer gesagt mit dem Ziel der Asset Pipeline, dem Welt Editor. In einem späteren Kapitel wird das Fusee Asset Management betrachtet und die Asset Pipeline für das Entwickeln einer Fusee Anwendung mit Cinema 4D konzeptionell untersucht. Hierbei wird untersucht, ob es denn möglich ist die Wege von Content Creation Tools wir Cinema 4D derart zu verkürzen, dass eben nicht nicht die Assets in diesen Editoren erstellt werden, sondern auch die Asset Pipeline und der Welt Editor darin integriert sind.
 
-\section{Die Rollenverteilung interner Tool Developer Teams}
-Wihlidahl \autocite[S. 5]{Wihlidal2006} beschäftigt sich mit verschiedenen Organisationsmodellen des internen Tool Development. Hierbei geht es darum die Verantwortlichkeiten für Entwicklung und den Support von internen Tools festzulegen. Er klassifiziert folgende Modelle:
+\subsection {Der Einfluss der Asset Pipeline auf die Tool Entwicklung}
+Um eine Produktion erfolgreich zu starten, bedarf es einer Asset Pipeline und der dazugehörigen Tools. Um zu untersuchen, welche Tools für das Projekt nötig sind, sollten sich Lead-Developer eines Spielesoftware Projektes zu Beginn des Arbeit folgende von Chandler [in \cite[S 223-224]{Chandler2006}] beschriebene Fragen stellen.
 \begin{itemize}
-\item Dedicated Tools Team
-\item Developer Ownership
-\item Game Team Develops - Tool Team Supports
-\item Engine Team Develops - Game Team Supports
-\item Content Team Develops and Supports
-\end{itemize}
+\item Welche Werkzeuge und Software wird benötigt?
+\item Ist es möglich Assets in das Game Format und wieder zurück in das Ausgangsformat zu konvertieren? (Zwei Wege Funktionalität)
+\item Gibt es irgendwelche Engpässe? Kritische Konzepte im Game Design?
+\item Wann muss das Tool umgesetzt sein?
+\item Wie werden Assets im Tool verwaltet? (Entscheidung für eine “Version Control Software”)
+\item Welche Teile eines Prozesses, einer Software können automatisiert werden?
+\end{itemize} Vgl. \autocite[S. 224-225]{Chandler2006}
+\\
+Durch das Beantworten dieser Fragen, kann sicher gegangen werden, dass die meisten wichtigen Aspekte berücksichtigt wurden. Dieser Prozess wird für das FuseeAT Beispielhaft durchgeführt. Die Analyse findet sich im Anhang dieser Arbeit im Requirements Engineering Dokument.
+\\
+Carey Chico\footnote{Aktuell Präsident bei Zero Mass Enery \url{https://www.linkedin.com/in/careychico}, ehemals Pandemic Studios} (als Experte im Werk von \cite{Chandler2006} vertreten) beschreibt die Relevanz einer guten Asset Pipeline und vor allem des dedizierten internen Tool Developments wie folgt:
+\begin{quote}
+One of the necessities of game development is a solid tool stategy. You must have a core group of engineers who are dedicated to tools programming on your team. They can enhance the proprietary tools that are part of your pipeline by upgrading features [...] and adding new features based on the game development needs. [...] Because efficient game production depends on creating assets quickly, the developers are constantly thinking of ways to use tools to speed up the asset production pipeline [...]. The longer it takes an artist to get an asset frim source art to an asset that can be seen in game, the less they want to deal with the process, and the lower the quality.
+[...]
+All pertinent people on the team must be able to access, manipulate, modify and change the content in the game simultaneously or equally.
+\autocite[S. 224-225]{Chandler2006}
+\end{quote}
 
-Für die Konzeption dieser Arbeit und die Akademische Entwicklung mit der Fusee Engine empfehlen sich die folgenden zwei Strukturen. Mit ihnen können auch relativ kleine Teams erfolgreich im Bereich des Tool Development agieren, da kein großer Overhead im Bereich des Management oder Personals impliziert wird.
-
-\subsection{Dedicated Tools Team}
-Wihlidal grenzt die verschiedenen Strukturen der Tool Entwicklung ab und beschreibt hierbei verschiedene Vorgehensweisen zur Konzeption und Umsetzung von Tools durch interne Teams.
-Diese Art der Struktur vertraut einem Team die komplette Konzeption und Umsetzung des Tools an. Diese Art der Arbeit verlangt Skills im Bereich der Entwicklung aber auch im User Interface Design. Das Team bietet internen Support für das Tool. Vgl. \cite{Wihlidal2006}. Diese Art der Teamorganisation bietet sich besonders für Projekte und Teams an die es sich zum Ziel gesetzt haben ein Werkzeug für die ContentCreation oder eine ContentCreation Software zu entwickeln. Dieses Profil passt sehr gut auf die bisherigen Teams welche sich mit dem Fusee Projekt auseinander gesetzt haben und wird auch in Zukunft sicher nützlich sein.
-
-\subsection{Content Team Develops and Supports}
-Wihlidal beschreibt hiermit eine art der Organisation die vor allem kleine Teams unterstützt. Die Content Entwickler des Projekts entscheiden welche Tools sie für das effiziente Arbeiten am Projekt benötigen und designen und setzen diese diese selbstständig um. Diese Art der Entwicklung kann die Produktivität des Teams unterstützten. In kleinen Teams in welchen vor allem während der Entwicklung immer wieder Ressourcen frei werden (z.B. könnten Engine Entwickler zur Projektlaufzeit freie Ressourcen investieren so lange nicht an der Optimierung der Applikation entwickelt wird) lässt sich diese Variante gezielt einsetzen um den Overhead gering zu halten und die Entwickler stetig im Projekt einzubinden. Vgl. \cite{Wihlidal2006}.
+Hiermit zeigt Chico ein Kernthema dieser Arbeit auf: Einige auf Tools fokussierte Mitarbeiter unterstützen den Produktionsprozess einer Spiele Software positiv. Tools die auf bereits bekannter Software basieren sind wichtig. Ihrer Bedienung ist leicht zu verstehen und sie stehen jedem Mitglied des Teams zur Verfügung. Solche Authoring Tools könnten den Produktionsprozess zugänglicher und effizienter gestalten. Da eine Erweiterung eines intern entwickelten Tools durch die Entwickler dauerhaft möglich wäre, kann auch ein langfristiger Einsatz dieser Tools gewährleistet werden und rechtfertigt somit eine aufwändigere Entwicklungsarbeit und ein dediziertes Entwicklerteam. Die Eckpfeiler dieser Tools wiederum ergeben sich aus der Asset pipeline der Entwickler, Designer und Artists. Somit ergibt sich eine enge Beziehung zwischen Third Party Software und den eigenen Tools. Womit wieder der Kern dieser Arbeit angesprochen wird. Eine noch engere Beziehung zwischen den Third Party Content Creation Applikationen und eigenen Tools. Somit wäre es auch nach Chico sehr praktisch die Editoren der Game Engine direkt in die Content Creation Software wie Cinema 4D zu integrieren. Ein kürzerer Weg kann dann nicht mehr erreicht werden.
 
 
-\chapter{Produktionsprozess: Projektplanung und Analyse}
+\chapter{Produktionsprozess: Projektplanung und Requirements Analyse}
 \section{Projektmanagement für Game Authoring und Tool Development}
 Um einen Entwicklungsprozess abzubilden und Tools für Entwickler, sogenannte Authoring Tools oder Developer Tools, zu entwickeln bedarf es einer gewissen Organisation. Im Bereich der modernen Spieleentwickelung in kleinen bis mittleren Unternehmen (seltener bei großen AAA Produktionen \footnote{Allgemein: Hochqualitative Spiele Software mit großem Entwicklungsbudget und einer Breiten Zielgruppe. Vgl. \cite{GamasutraAAA2005} }) wird hierfür meist ein agiles Modell zur Softwareentwicklung eingesetzt. Hier soll ein kurzer Überblick über aktuelle Modelle entstehen. Diese Modelle ermöglichen zum einen das schnelle Entwickeln von Tools während der knappen Entwicklungszeit eines Spiele Produkts und zum anderen unterstützen sie die Arbeit von kleinen Teams, in welchen meist Tool Developement betrieben wird,  innerhalb eines großen Entwicklerteams um so gezielt plötzlich auftauchende Aufgaben ohne lange Planung und viel Bürokratie lösen zu können. Damit ist ein fortschreiten des gesamten Projektablaufs gesichert und Entwickler können ihre Zeit hauptsächlich für die Entwicklung der Tools investieren.
 
@@ -499,30 +533,6 @@ Tool Entwickler sind ein Kernpunkt dieser Arbeit. Sie sind verantwortlich dafür
 
 \subsubsection{Grahics Engineer}
 Computer Graphics Ingenieure beschäftigen sich meist mit dem Entwickeln der eigentlichen Engine (und den angrenzenden Teilgebieten) des Produktes. Oft sind Graphics Engineers aber auch an der Tool Entwicklung beteiligt. Gerade in kleineren Unternehmen könnten die eigentlichen Strukturen schnell aufbrechen um Synergien im Team zu nutzen. \autocite[S. 27 ]{Chandler2006}
-
-\section{Analyse und Planung in der Authoring Tool Entwicklung}
-\subsection {Der Einfluss der Asset Pipeline auf die Tool Entwicklung}
-Um eine Produktion erfolgreich zu starten, bedarf es einer Asset Pipeline und der dazugehörigen Tools. Um zu untersuchen, welche Tools für das Projekt nötig sind, sollten sich Lead-Developer eines Spielesoftware Projektes zu Beginn des Arbeit folgende von Chandler [in \cite[S 223-224]{Chandler2006}] beschriebene Fragen stellen.
-\begin{itemize}
-\item Welche Werkzeuge und Software wird benötigt?
-\item Ist es möglich Assets in das Game Format und wieder zurück in das Ausgangsformat zu konvertieren? (Zwei Wege Funktionalität)
-\item Gibt es irgendwelche Engpässe? Kritische Konzepte im Game Design?
-\item Wann muss das Tool umgesetzt sein?
-\item Wie werden Assets im Tool verwaltet? (Entscheidung für eine “Version Control Software”)
-\item Welche Teile eines Prozesses, einer Software können automatisiert werden?
-\end{itemize} Vgl. \autocite[S. 224-225]{Chandler2006}
-\\
-Durch das Beantworten dieser Fragen, kann sicher gegangen werden, dass die meisten wichtigen Aspekte berücksichtigt wurden. Dieser Prozess wird für das FuseeAT Beispielhaft durchgeführt. Die Analyse findet sich im Anhang dieser Arbeit im Requirements Engineering Dokument.
-\\
-Carey Chico\footnote{Aktuell Präsident bei Zero Mass Enery \url{https://www.linkedin.com/in/careychico}, ehemals Pandemic Studios} (als Experte im Werk von \cite{Chandler2006} vertreten) beschreibt die Relevanz einer guten Asset Pipeline und vor allem des dedizierten internen Tool Developments wie folgt:
-\begin{quote}
-One of the necessities of game development is a solid tool stategy. You must have a core group of engineers who are dedicated to tools programming on your team. They can enhance the proprietary tools that are part of your pipeline by upgrading features [...] and adding new features based on the game development needs. [...] Because efficient game production depends on creating assets quickly, the developers are constantly thinking of ways to use tools to speed up the asset production pipeline [...]. The longer it takes an artist to get an asset frim source art to an asset that can be seen in game, the less they want to deal with the process, and the lower the quality.
-[...]
-All pertinent people on the team must be able to access, manipulate, modify and change the content in the game simultaneously or equally.
-\autocite[S. 224-225]{Chandler2006}
-\end{quote}
-
-Hiermit zeigt Chico ein Kernthema dieser Arbeit auf: Einige auf Tools fokussierte Mitarbeiter unterstützen den Produktionsprozess einer Spiele Software positiv. Tools die auf bereits bekannter Software basieren sind wichtig. Ihrer Bedienung ist leicht zu verstehen und sie stehen jedem Mitglied des Teams zur Verfügung. Solche Authoring Tools könnten den Produktionsprozess zugänglicher und effizienter gestalten. Da eine Erweiterung eines intern entwickelten Tools durch die Entwickler dauerhaft möglich wäre, kann auch ein langfristiger Einsatz dieser Tools gewährleistet werden und rechtfertigt somit eine aufwändigere Entwicklungsarbeit und ein dediziertes Entwicklerteam. Die Eckpfeiler dieser Tools wiederum ergeben sich aus der Asset pipeline der Entwickler, Designer und Artists. Somit ergibt sich eine enge Beziehung zwischen Third Party Software und den eigenen Tools. Womit wieder der Kern dieser Arbeit angesprochen wird. Eine noch engere Beziehung zwischen den Third Party Content Creation Applikationen und eigenen Tools. Somit wäre es auch nach Chico sehr praktisch die Editoren der Game Engine direkt in die Content Creation Software wie Cinema 4D zu integrieren. Ein kürzerer Weg kann dann nicht mehr erreicht werden.
 
 \subsection{Der Analyse und Entwicklungsprozess des Tool Developments}
 Nach Wihlidal unterscheidet sich die Planung eines Projektes zur Erstellung eines Developer Tools nicht sehr von der Planung für die allgemeine Entwicklung von Software. Der Software Development Life Cycle (SDLC) besteht aus vier Planungsphasen. Der erste Schritt wäre eine allgemeine Planung des Tools. Diese beinhaltet Funktionen und Umfang des Tools. Eine Beschreibung der Anforderungen bzw. der Ziele des Projektes wird mit den begünstigten Entwicklern abgesprochen. Die zweite Phase beschreibt eine Bedarfsanalyse der Stakeholder. Es werden Arbeitsabläufe skizziert und mit den Beteiligten durchgesprochen. Je nach Komplexität und Relevanz des Projekts wird Software anderer Hersteller oder anderer Arbeitsbereiche ebenfalls analysiert und das Ergebnis zur Gesamtanalyse hinzugezogen. So könnte eventuell der Einsatz einer Drittanbieter Software in gewissen Situationen vorteilhafter sein als eine komplette interne Neuentwicklung. Diese Entscheidung ist aber sehr Situationsabhängig. Daraufhin folgt die Designphase in welcher das Entwicklerteam des neuen Tools das Requirements Engineering abschliesst und mit dem Software-/Systemdesign beginnt. Hier wird das Produkt in Form von UML Diagrammen und Veranschaulichungen entwickelt. Die tatsächliche Implementierung folgt als letzte Phase des Projektablaufs. Während der Implementierung kann aufgrund der Verwendung des agilen Scrum Systems immer schnell auf Hindernisse und Wünsche der Stakeholder reagiert werden. Vgl. \parencite[S. 37-40]{Wihlidal2006}
@@ -648,9 +658,9 @@ Nach der Planung der Organisationsstrukturen kann das Team soch dem Konzeptionel
 Die Implementierungs und Testphase schließt das Projekt ab. Hierbei wird der Erfolg aller vorherigen Phasen auf die Probe gestellt. Die Implementierung kann von Alpha und Beta Tests begleitet werden. Somit können die Mitglieder des Produktionsteams das Tool bereits kennen lernen und einige Features in Rücksprache mit den Entwicklern noch verändern.
 Der hier skizzierte Prozess wurde so weit es möglich war auch auf die Konzeption des FuseeAT angewendet.
 
-\chapter{Entwicklung eines Konzeptes}
+\chapter{Konzeptentwicklung}
 
-\section{Zeitersparnis durch die Entwicklung eines Tools als Plugin für eine bekannte Umgebung}
+\section{Zeitersparnis durch die Entwicklung eines Tools als Plugin für einen bereits existenten 3D Editor}
 %TODO: Hier darauf eingehen warum in C4d und wieso und warum das den flow unterstützen könnte.
 Im Gegensatz zu großen Monumentalen Editoren wie in der Unreal Engine 4 und der Unity Engine vorhanden, sieht das hier angewendete Konzept des Tool splitting vor, die verschiedenen Entwickler Disziplinen auf bekannte Tools aufzuteilen und diese bereits bekannten Tools mit neuer Funktionalität auszustatten. So minimiert sich die Einarbeitungszeit der Entwickler. Weiterhin sollte die Konzentration der Entwickler auf einem höheren Level erhalten bleiben als es bei Entwicklern der Fall ist, welche für jeden Schritt das Tool wechseln müssten. Natürlich bieten bereits jetzt große Editoren wie Unreal Engine 4 und Unity fast jegliche Funktionaltität in einem großen Tool an, wie aber bereits gesagt ist es nötig dazu die bereits erlernte Software wie z.B. Cinema 4D zu verlassen.
 
@@ -783,7 +793,7 @@ Der Engineer öffnet eine Szene und bearbeitet diese in seiner IDE. Hierzu muss 
 \subsubsection{Szene speichern}
 Eine Szene wird gespeichert und vom ProjectHandler in ein Format überführt welches ein Artist in seiner gewohnten 3D Umgebung ebenfalls nutzen kann.
 
-\section{Ananlyse von beliebten Editoren und derer Module im Bezug auf die Konzeption des FuseeAT Plugins}
+\section{Analyse von beliebten Editoren und derer Module im Bezug auf die Konzeption des FuseeAT Plugins}
 Aufgrund der Thematik mit dem Bezug zur 3D Engine Fusee beschränkt sich die Auswahl der betrachteten Editoren auf die an der Hochschule Furtwangen populärsten Game Engines und Editoren, analysiert deren Editoren Features und stellt die Arbeitsabläufe in diesen Editoren und Tools dar. Es folgt eine Wertung und ein Vergleich mit den für das Fusee Authoring Toolkit geplanten Features. Bei den hier gewählten Editoren handelt es sich um stand alone Applikationen welche das Gegenteil des hier entworfenen Konzeptes eines in das Content Creation Tool integrierten Editors darstellen. Allerdings gleichen sich die Authoring Tool Ansätze maßgeblich. Funktionen, Module und Konzepte sind größtenteils deckungsgleich mit denen des Cinema 4D Editors. Aus diesem Grund lassen sich einige der Module für FuseeAT und vor allem das Cinema 4D Plugin adaptieren.
 
 \subsection{Unreal Engine 4}
@@ -1361,8 +1371,8 @@ Letztendlich wurden viele Grundsteine für die Entwicklung von und mit FuseeAT g
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Software Verzeichnis START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\addcontentsline{toc}{chapter}{Softwareverzeichnis}
-\printbibliography[type={misc}, title=Softwareverzeichnis]
+\addcontentsline{toc}{chapter}{Software und Applikationsverzeichnis}
+\printbibliography[type={misc}, title=Software und Applikationsverzeichnis]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Software Verzeichnis ENDE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

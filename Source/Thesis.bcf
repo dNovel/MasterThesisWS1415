@@ -40,7 +40,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labelalpha</bcf:key>
-      <bcf:value>0</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="multivalued">
       <bcf:key>labelnamespec</bcf:key>
@@ -121,7 +121,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortscheme</bcf:key>
-      <bcf:value>nty</bcf:value>
+      <bcf:value>none</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquelist</bcf:key>
@@ -603,30 +603,7 @@
   <bcf:sorting>
     <bcf:presort>mm</bcf:presort>
     <bcf:sort order="1">
-      <bcf:sortitem order="1">presort</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="2" final="1">
-      <bcf:sortitem order="1">sortkey</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="3">
-      <bcf:sortitem order="1">sortname</bcf:sortitem>
-      <bcf:sortitem order="2">author</bcf:sortitem>
-      <bcf:sortitem order="3">editor</bcf:sortitem>
-      <bcf:sortitem order="4">translator</bcf:sortitem>
-      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="6">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="4">
-      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="2">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="5">
-      <bcf:sortitem order="1">sortyear</bcf:sortitem>
-      <bcf:sortitem order="2">year</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="6">
-      <bcf:sortitem order="1" pad_side="left" pad_width="4" pad_char="0">volume</bcf:sortitem>
-      <bcf:sortitem order="2">0000</bcf:sortitem>
+      <bcf:sortitem order="1">citeorder</bcf:sortitem>
     </bcf:sort>
   </bcf:sorting>
   <!-- DATA MODEL -->
@@ -1989,35 +1966,35 @@
     <bcf:citekey order="19">NaughtyDog2007</bcf:citekey>
     <bcf:citekey order="20">GuerillaGames2004</bcf:citekey>
     <bcf:citekey order="21">QuanticDream2013</bcf:citekey>
-    <bcf:citekey order="22">Carter2004</bcf:citekey>
-    <bcf:citekey order="23">Carter2004</bcf:citekey>
+    <bcf:citekey order="22">Wihlidal2006</bcf:citekey>
+    <bcf:citekey order="23">Wihlidal2006</bcf:citekey>
     <bcf:citekey order="24">Wihlidal2006</bcf:citekey>
-    <bcf:citekey order="25">Wihlidal2006</bcf:citekey>
-    <bcf:citekey order="26">Wihlidal2006</bcf:citekey>
-    <bcf:citekey order="27">GamasutraAAA2005</bcf:citekey>
-    <bcf:citekey order="28">MKG:Schmitz2014</bcf:citekey>
-    <bcf:citekey order="29">NewProdDev1986</bcf:citekey>
-    <bcf:citekey order="30">CCP:ScrumAndAgile2009</bcf:citekey>
-    <bcf:citekey order="31">WH:Scrum2013</bcf:citekey>
-    <bcf:citekey order="32">WH:ScrumVideo2013</bcf:citekey>
-    <bcf:citekey order="33">Schwaber2004</bcf:citekey>
-    <bcf:citekey order="34">Schwaber2004</bcf:citekey>
-    <bcf:citekey order="35">Chandler2006</bcf:citekey>
-    <bcf:citekey order="36">Chandler2006</bcf:citekey>
-    <bcf:citekey order="37">Chandler2006</bcf:citekey>
-    <bcf:citekey order="38">Chandler2006</bcf:citekey>
+    <bcf:citekey order="25">Carter2004</bcf:citekey>
+    <bcf:citekey order="26">Carter2004</bcf:citekey>
+    <bcf:citekey order="27">Chandler2006</bcf:citekey>
+    <bcf:citekey order="28">Chandler2006</bcf:citekey>
+    <bcf:citekey order="29">Chandler2006</bcf:citekey>
+    <bcf:citekey order="30">Chandler2006</bcf:citekey>
+    <bcf:citekey order="31">GamasutraAAA2005</bcf:citekey>
+    <bcf:citekey order="32">MKG:Schmitz2014</bcf:citekey>
+    <bcf:citekey order="33">NewProdDev1986</bcf:citekey>
+    <bcf:citekey order="34">CCP:ScrumAndAgile2009</bcf:citekey>
+    <bcf:citekey order="35">WH:Scrum2013</bcf:citekey>
+    <bcf:citekey order="36">WH:ScrumVideo2013</bcf:citekey>
+    <bcf:citekey order="37">Schwaber2004</bcf:citekey>
+    <bcf:citekey order="38">Schwaber2004</bcf:citekey>
     <bcf:citekey order="39">Chandler2006</bcf:citekey>
-    <bcf:citekey order="40">MaxonC4d2014</bcf:citekey>
-    <bcf:citekey order="41">AutodeskMax2014</bcf:citekey>
-    <bcf:citekey order="42">FoundryModo2014</bcf:citekey>
-    <bcf:citekey order="43">Blender2015</bcf:citekey>
-    <bcf:citekey order="44">Chandler2006</bcf:citekey>
-    <bcf:citekey order="45">Chandler2006</bcf:citekey>
-    <bcf:citekey order="46">AutodeskScale2014</bcf:citekey>
-    <bcf:citekey order="47">Chandler2006</bcf:citekey>
+    <bcf:citekey order="40">Chandler2006</bcf:citekey>
+    <bcf:citekey order="41">Chandler2006</bcf:citekey>
+    <bcf:citekey order="42">Chandler2006</bcf:citekey>
+    <bcf:citekey order="43">Chandler2006</bcf:citekey>
+    <bcf:citekey order="44">MaxonC4d2014</bcf:citekey>
+    <bcf:citekey order="45">AutodeskMax2014</bcf:citekey>
+    <bcf:citekey order="46">FoundryModo2014</bcf:citekey>
+    <bcf:citekey order="47">Blender2015</bcf:citekey>
     <bcf:citekey order="48">Chandler2006</bcf:citekey>
     <bcf:citekey order="49">Chandler2006</bcf:citekey>
-    <bcf:citekey order="50">Chandler2006</bcf:citekey>
+    <bcf:citekey order="50">AutodeskScale2014</bcf:citekey>
     <bcf:citekey order="51">Chandler2006</bcf:citekey>
     <bcf:citekey order="52">Chandler2006</bcf:citekey>
     <bcf:citekey order="53">Chandler2006</bcf:citekey>
@@ -2041,63 +2018,17 @@
     <bcf:citekey order="71">SWIG2015</bcf:citekey>
     <bcf:citekey order="72">SWIGIntroduction2015</bcf:citekey>
   </bcf:section>
-  <bcf:sortlist section="0" name="nty" type="entry" sortscheme="nty">
+  <bcf:sortlist section="0" name="none" type="entry" sortscheme="none">
   <bcf:sorting>
     <bcf:sort order="1">
-      <bcf:sortitem order="1">presort</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="2" final="1">
-      <bcf:sortitem order="1">sortkey</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="3">
-      <bcf:sortitem order="1">sortname</bcf:sortitem>
-      <bcf:sortitem order="2">author</bcf:sortitem>
-      <bcf:sortitem order="3">editor</bcf:sortitem>
-      <bcf:sortitem order="4">translator</bcf:sortitem>
-      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="6">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="4">
-      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="2">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="5">
-      <bcf:sortitem order="1">sortyear</bcf:sortitem>
-      <bcf:sortitem order="2">year</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="6">
-      <bcf:sortitem order="1" pad_side="left" pad_width="4" pad_char="0">volume</bcf:sortitem>
-      <bcf:sortitem order="2">0000</bcf:sortitem>
+      <bcf:sortitem order="1">citeorder</bcf:sortitem>
     </bcf:sort>
   </bcf:sorting>
   </bcf:sortlist>
-  <bcf:sortlist section="0" name="nty" type="entry" sortscheme="nty">
+  <bcf:sortlist section="0" name="none" type="entry" sortscheme="none">
   <bcf:sorting>
     <bcf:sort order="1">
-      <bcf:sortitem order="1">presort</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="2" final="1">
-      <bcf:sortitem order="1">sortkey</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="3">
-      <bcf:sortitem order="1">sortname</bcf:sortitem>
-      <bcf:sortitem order="2">author</bcf:sortitem>
-      <bcf:sortitem order="3">editor</bcf:sortitem>
-      <bcf:sortitem order="4">translator</bcf:sortitem>
-      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="6">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="4">
-      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="2">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="5">
-      <bcf:sortitem order="1">sortyear</bcf:sortitem>
-      <bcf:sortitem order="2">year</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="6">
-      <bcf:sortitem order="1" pad_side="left" pad_width="4" pad_char="0">volume</bcf:sortitem>
-      <bcf:sortitem order="2">0000</bcf:sortitem>
+      <bcf:sortitem order="1">citeorder</bcf:sortitem>
     </bcf:sort>
   </bcf:sorting>
   </bcf:sortlist>
