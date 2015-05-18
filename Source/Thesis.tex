@@ -631,9 +631,9 @@ Eine Zeitersparnis auf Seiten der Tool Entwickler kann erreicht werden, da sie s
 
 Das hier entwickelte Konzept versucht nun die in der Analyse gewonnenen Erkenntnisse über den Entwicklungsprozess umzusetzen und dabei ein Tool zu konzipieren welches den Cinema 4D Model Editor um Fusee Editing Funktionalität erweitert. Hierbei wird die Pluginfunktionalität von Cinema 4D als Schnittstelle zum Benutzer ausgenutzt. Das konzipierte Plugin nutzt im Hintergrund als Businesslogik das FuseeAT und beinhaltet selbst nur Funktionalität welche durch die Cinema 4D API bedingt wird. Begonnen werden aber soll die Konzeption des Tools mit einer Analyse des Teams und dem Erstellen von Use Cases.
 
-\section{ChandlerFragen}\label{sec:ChandlerFragenAntwort}
+\section{Integration von Tools in die Production Pipeline - Sechs Fragen nach Chandler }\label{sec:ChandlerFragenAntwort}
 %TODO: Titel ändern.
-In Abschnitt \ref{sec:ChandlerFragenKatalog} wurde auf den Fragenkatalog von Chandler verwiesen \parencite[S. 223-224]{Chandler2006}. Hier sollen diesen Fragen nun im Bezug auf das FuseeAT beantwortet werden bevor eine Requirements Analyse und ein System Design erstellt werden. Hiermit soll die Production Pipeline für Fusee untersucht werden. Es muss geklärt sein, ob weitere Tools involviert sind und wenn ob sich diese eventuell mit der geplanten Funktionalität von FuseeAT überschneiden. Somit könnte in einem solchen Fall möglicherweise Entwicklungszeit eingespart werden.
+In Abschnitt \ref{sec:ChandlerFragenKatalog} wurde auf den Fragenkatalog bezüglich der Integration von Tools in die Production Pipeline von Chandler verwiesen \parencite[S. 223-224]{Chandler2006}. Hier sollen diesen Fragen nun im Bezug auf das FuseeAT beantwortet werden bevor eine Requirements Analyse und ein System Design erstellt werden. Hiermit soll die Production Pipeline für Fusee untersucht werden. Es muss geklärt sein, ob weitere Tools involviert sind und wenn ob sich diese eventuell mit der geplanten Funktionalität von FuseeAT überschneiden. Somit könnte in einem solchen Fall möglicherweise Entwicklungszeit eingespart werden.
 
 \subsubsection{Welche Werkzeuge und Software wird benötigt?}
 Verwendet wird für ein Projekt mit der Fusee Engine ein Binary Build der Engine selbst. Weiterhin werden verschiedene Code Editoren wie Visual Studio oder XCode für den Mac eingesetzt. Dies hängt jedoch von den Entwicklern selbst ab. Modelle werden für Fusee in einer Modeling Applikation erstellt. Cinema 4D eignet sich hier aktuell am besten. Das Programm unterstützt durch ein Plugin den direkten Export in das Fusee eigene Format .fus. Texturen und 2D Grafiken können mit handelsüblichen Bildbearbeitungsprogrammen erstellt werden.
@@ -672,7 +672,7 @@ Jeglicher Code ist als Open Source Code zu veröffentlichen bzw. der Zugriff auf
 
 \textbf{Plugin} - Eine Software die eine bereits bestehende Software um selbst geschriebene Funktionalität erweitert.
 
-\subsection{Produktfunktionen}
+\subsection{Unterstütze Funktionalität des FuseeAT}
 Die hier aufgeführten Funktionen sind Kernaspekte der Software und wären in einer realen Produktion zu erfüllende rechtskräftige Ansprüche. Alle hier genannten Anforderungen gelten für das FuseeAT und die Implementierung des Cinema 4D Plugins.
 \begin{itemize}
 \item Ein Fusee Projekt muss anlegt werden können.
@@ -710,9 +710,9 @@ Der Prozess der Stakeholder Analyse wurde bereits beschrieben. An dieser Stelle 
 	\end{itemize}
 \end{itemize}
 Die Producer werden innerhalb der Konzeption dieser Arbeit als Designer betrachtet und unter dieser Gruppe geführt. Sollten die Producer denn Aufgaben an der Entwicklung übernehmen sind diese meist deckungsgleich mit den Aufgabenstellungen der Designer. Trotz allem sind die Producer hier aufgrund ihrer tragenden Rolle im Projekt als Stakeholder identifiziert worden. In vielen Fällen haben sie auch massive Entscheidungsgewalt über die verwendeten Techniken und Ressourcen während des Projektverlaufs.
-\begin{figure}[hb]
+\begin{figure}[ht]
 	\centering
-	\includegraphics[width=\linewidth]{Bilder/Stakeholder_Diagramm.jpg}
+	\includegraphics[width=10cm]{Bilder/Stakeholder_Diagramm.jpg}
 	\caption{Überblick über die Identifizierten Stakeholder und deren Inovelement in die Planung und Umsetzung des Tool Projektes.}
 	\label{StakeholderGrafik}
 \end{figure}
