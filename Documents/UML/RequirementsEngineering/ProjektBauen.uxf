@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>70</x>
+      <y>280</y>
+      <w>310</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Projekt auf Fehler überprüfen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>30</x>
+      <y>480</y>
+      <w>380</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>MSBuild Mechanismus anstoßen und Ergebnis ausgeben</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>120</x>
+      <y>590</y>
+      <w>210</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Applikation ausführen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>330</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>540</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>110</x>
+      <y>390</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Projekt speichern</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>430</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+</diagram>

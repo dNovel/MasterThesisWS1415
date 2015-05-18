@@ -22,6 +22,7 @@
 \usepackage{scrpage2}
 \usepackage [singlelinecheck=false] {caption}
 \usepackage{pdfpages}
+\usepackage{morefloats}
 \usepackage[%
 		backend=biber,
 		style=alphabetic,
@@ -66,7 +67,7 @@ urlseen = {geprüft am},
 %\addtokomafont{sectioning}{\color{titleblack}\rmfamily}
 
 % URL Style
-\urlstyle{rm}
+\urlstyle{same}
 
 \lstset{
 backgroundcolor=\color{mywhite},  % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
@@ -390,8 +391,8 @@ It is comparatively rare that fully working game disc with all the assets needs 
 Somit ist nach Carter die Assetpipeline ein wichtiges Instrument und besteht meist aus einer Zusammenstellung von eigens entwickelten Tools und lizenzierter Software wie z.B. Game Einengens, Modeling Editoren wie 3DS Max, Cinema 4D, oder Maya und weiterer Software.\\
 Diese Arbeit beschäftigt sich also mit einem Teilgebiet der Asset Pipeline. Genauer gesagt mit dem Ziel der Asset Pipeline, dem Welt Editor. In einem späteren Kapitel wird das Fusee Asset Management betrachtet und die Asset Pipeline für das Entwickeln einer Fusee Anwendung mit Cinema 4D konzeptionell untersucht. Hierbei wird untersucht, ob es denn möglich ist die Wege von Content Creation Tools wir Cinema 4D derart zu verkürzen, dass eben nicht nicht die Assets in diesen Editoren erstellt werden, sondern auch die Asset Pipeline und der Welt Editor darin integriert sind.
 
-\subsection {Der Einfluss der Asset Pipeline auf die Tool Entwicklung}
-Um eine Produktion erfolgreich zu starten, bedarf es einer Asset Pipeline und der dazugehörigen Tools. Um zu untersuchen, welche Tools für das Projekt nötig sind, sollten sich Lead-Developer eines Spielesoftware Projektes zu Beginn des Arbeit folgende von Chandler [in \cite[S 223-224]{Chandler2006}] beschriebene Fragen stellen.
+\subsection {Der Einfluss der Asset Pipeline auf die Tool Entwicklung}\label{sec:ChandlerFragenKatalog}
+Um eine Produktion erfolgreich zu starten, bedarf es einer Asset Pipeline und der dazugehörigen Tools. Um zu untersuchen, welche Tools für das Projekt nötig sind, sollten sich Lead-Developer eines Spielesoftware Projektes zu Beginn des Arbeit folgende von Chandler in \parencite[S 223-224]{Chandler2006} beschriebene Fragen stellen.
 \begin{itemize}
 \item Welche Werkzeuge und Software wird benötigt?
 \item Ist es möglich Assets in das Game Format und wieder zurück in das Ausgangsformat zu konvertieren? (Zwei Wege Funktionalität)
@@ -401,7 +402,7 @@ Um eine Produktion erfolgreich zu starten, bedarf es einer Asset Pipeline und de
 \item Welche Teile eines Prozesses, einer Software können automatisiert werden?
 \end{itemize} Vgl. \autocite[S. 224-225]{Chandler2006}
 \\
-Durch das Beantworten dieser Fragen, kann sicher gegangen werden, dass die meisten wichtigen Aspekte berücksichtigt wurden. Dieser Prozess wird für das FuseeAT Beispielhaft durchgeführt. Die Analyse findet sich im Anhang dieser Arbeit im Requirements Engineering Dokument.
+Durch das Beantworten dieser Fragen, kann sicher gegangen werden, dass die meisten wichtigen Aspekte berücksichtigt wurden. Dieser Prozess wird für das FuseeAT Beispielhaft durchgeführt. Die Analyse findet sich in Abschnitt \ref{sec:ChandlerFragenAntwort} dieser Arbeit.
 \\
 Carey Chico\footnote{Aktuell Präsident bei Zero Mass Enery \url{https://www.linkedin.com/in/careychico}, ehemals Pandemic Studios} (als Experte im Werk von \cite{Chandler2006} vertreten) beschreibt die Relevanz einer guten Asset Pipeline und vor allem des dedizierten internen Tool Developments wie folgt:
 \begin{quote}
@@ -614,8 +615,75 @@ Die Stakeholderanalyse wurde in folgenden Schritten durchgeführt und skizziert.
 
 Der dritte Punkt die Interpretation der Absichten und Einstellung des jeweiligen Stakeholder zum Projekt entfällt in diesem Fall. Es ist ohne konkrete Personen schlicht nicht möglich eine persönliche fachliche Meinung des Stakeholders zu repräsentieren. Es wird an Stelle dessen hier davon ausgegangen, dass jeder Stakeholder ein Benutzerfreundliches praktisches Tool erhalten möchte welches den definierten Anforderungen dieser Arbeit entspricht.
 
+\section{Zusammenfassung des Arbeitsprozesses}
+Zu Beginn des Tool Development Projektes sollte erst einmal die Struktur des Entwickler Teams analysiert werden. Hierbei muss sich für eine der möglichen Methoden der Organisation entschieden werden. Die beiden von Wihlidal \cite[S. ]{Wihlidal2006} beschrieben Organisationsstrukturen "Dedicated Tools Team" und "Content Team Develops and Supports" wurden als praktisch für das interne zur Produktentwicklung parallel ausgerichtete Tool Development vorgestellt. Sobald sich das Entwickler Team für eine Struktur entschieden hat, kann es sich um die Auswahl eines geeigneten Projektmanagementmodells kümmern. Hierbei wurde aufgrund seiner unkomplizierten Art und einfachen adaption das Scrum Projektmanagementmodell ausgewählt. Es vereinfacht den Entwicklungsprozess und reduziert den nötigen Verwaltungsaufwand auf ein Minimum.
+Nach der Planung der Organisationsstrukturen kann das Team soch dem Konzeptionellen Part widmen und diesen mit einer Requirements Analyse beginnen. Diese Phase der Entwicklung ist mit größt möglicher Sorgfalt auszuführen da alle weiteren Schritte, insbesondere der Erfolg der Implementierung hiervon abhängig sind. In dieser Phase war es nötig, die Stakeholder zu identifizieren, UseCases zu verstehen und die benötigten Features der Software herauszuarbeiten. Im Anschluss an die Analyse folgt das Requirements Engineering. Hierbei handelt es sich um einen Arbeitsschritt welcher technische und theoretische Praktiken vereint. Eventuell werden während der Requirements Analyse auch besonders kritische Features durch eine Prototypische Implementierung ergründet. Weiterhin entsteht hier das gesamte Systemdesign.
+Die Implementierungs und Testphase schließt das Projekt ab. Hierbei wird der Erfolg aller vorherigen Phasen auf die Probe gestellt. Die Implementierung kann von Alpha und Beta Tests begleitet werden. Somit können die Mitglieder des Produktionsteams das Tool bereits kennen lernen und einige Features in Rücksprache mit den Entwicklern noch verändern.
+Der hier skizzierte Prozess wurde so weit es möglich war auch auf die Konzeption des FuseeAT angewendet.
+
+\chapter{Konzeptentwicklung}
+
+\section{Zeitersparnis durch die Entwicklung eines Tools als Plugin für einen bereits existenten 3D Editor}
+%TODO: Hier darauf eingehen warum in C4d und wieso und warum das den flow unterstützen könnte.
+Im Gegensatz zu großen Monumentalen Editoren wie in der Unreal Engine 4 und der Unity Engine vorhanden, sieht das hier angewendete Konzept des Tool splitting vor, die verschiedenen Entwickler Disziplinen auf bekannte Tools aufzuteilen und diese bereits bekannten Tools mit neuer Funktionalität auszustatten. So minimiert sich die Einarbeitungszeit der Entwickler. Weiterhin sollte die Konzentration der Entwickler auf einem höheren Level erhalten bleiben als es bei Entwicklern der Fall ist, welche für jeden Schritt das Tool wechseln müssten. Natürlich bieten bereits jetzt große Editoren wie Unreal Engine 4 und Unity fast jegliche Funktionaltität in einem großen Tool an, wie aber bereits gesagt ist es nötig dazu die bereits erlernte Software wie z.B. Cinema 4D zu verlassen.
+
+Eine Zeitersparnis auf Seiten der Tool Entwickler kann erreicht werden, da sie sich nur mit der Erweiterung einer bereits fertiggestellten, getesteten Software beschäftigen müssen anstatt ein komplett neues Tool zu entwickeln. Es entfällt hierbei ein großer Teil der Software Architektur. Natürlich gibt es auch hier einschränkungen. Das zu erweiternde Tool muss den Tool Developern bekannt und eine Schnittstelle vorhanden sein. Im Rahmen dieser Arbeit konnten beide Bedingungen ausreichend erfüllt werden. Cinema 4D bietet eine Schnittstelle in Form einer API und das Tool war dem Autor aus früheren Projekten ausreichend bekannt.
+
+Das hier entwickelte Konzept versucht nun die in der Analyse gewonnenen Erkenntnisse über den Entwicklungsprozess umzusetzen und dabei ein Tool zu konzipieren welches den Cinema 4D Model Editor um Fusee Editing Funktionalität erweitert. Hierbei wird die Pluginfunktionalität von Cinema 4D als Schnittstelle zum Benutzer ausgenutzt. Das konzipierte Plugin nutzt im Hintergrund als Businesslogik das FuseeAT und beinhaltet selbst nur Funktionalität welche durch die Cinema 4D API bedingt wird. Begonnen werden aber soll die Konzeption des Tools mit einer Analyse des Teams und dem Erstellen von Use Cases.
+
+\section{ChandlerFragen}\label{sec:ChandlerFragenAntwort}
+%TODO: Titel ändern.
+In Abschnitt \ref{sec:ChandlerFragenKatalog} wurde auf den Fragenkatalog von Chandler verwiesen \parencite[S. 223-224]{Chandler2006}. Hier sollen diesen Fragen nun im Bezug auf das FuseeAT beantwortet werden bevor eine Requirements Analyse und ein System Design erstellt werden. Hiermit soll die Production Pipeline für Fusee untersucht werden. Es muss geklärt sein, ob weitere Tools involviert sind und wenn ob sich diese eventuell mit der geplanten Funktionalität von FuseeAT überschneiden. Somit könnte in einem solchen Fall möglicherweise Entwicklungszeit eingespart werden.
+
+\subsubsection{Welche Werkzeuge und Software wird benötigt?}
+Verwendet wird für ein Projekt mit der Fusee Engine ein Binary Build der Engine selbst. Weiterhin werden verschiedene Code Editoren wie Visual Studio oder XCode für den Mac eingesetzt. Dies hängt jedoch von den Entwicklern selbst ab. Modelle werden für Fusee in einer Modeling Applikation erstellt. Cinema 4D eignet sich hier aktuell am besten. Das Programm unterstützt durch ein Plugin den direkten Export in das Fusee eigene Format .fus. Texturen und 2D Grafiken können mit handelsüblichen Bildbearbeitungsprogrammen erstellt werden.
+
+\subsubsection{Ist es möglich Assets in das Engine Format und wieder zurück in das Ausgangsformat zu konvertieren? (Zwei Wege Funktionalität)}
+Es ist aktuell nicht möglich .fus Dateien wieder nach Cinema 4D zu exportieren. Es müssen also im Fall von FuseeAT jegliche Rohdaten vorgehalten werden. FuseeAT sollte also alle nativen Cinema 4D Dateien für ein Fusee Projekt zusätzlich speichern oder diese zumindest in einem verwalteten Projektordner ablegen.
+
+\subsubsection{Gibt es irgendwelche Engpässe? Kritische Konzepte im Game Design?}
+Da aktuell kein Spiele Konzept existiert können dort keine Engpässe existieren. Jedoch ist im Bereich des tool Developments das konvertieren der \CPP Funktionalität der Cinema 4D API nach \CSS eine Problematische Stelle und könnte im Verlauf des Projektes eine Herausforderung darstellen.
+
+\subsubsection{Wann muss das Tool umgesetzt sein?}
+Es existiert keine Deadline für die fertige Umsetzung des Tools da sich diese Arbeit hauptsächlich mit der Konzeptionierung beschäftigt. Das Tool an sich wird voraussichtlich auch nach dieser Arbeit im Rahmen des Fusee Projektes weiterentwickelt werden.
+
+\subsubsection{Wie werden Assets im Tool verwaltet? (Entscheidung für eine “Version Control Software”)}
+%TODO: Export XML.
+
+\subsubsection{Welche Teile eines Prozesses, einer Software können automatisiert werden?}
+Es könnten verschiedene Prozesse des Tools automatisiert werden. Diese können dann im Hintergrund des Editors ablaufen. Hierzu zählt das Builden eines Projekts, das Speichern eines Projekt mit Hilfe einer Automatischen Speicherfunktion im Datenverlust vorzubeugen und das bereinigendes Projektverzeichnisses von nicht mehr benötigten Referenzen auf Assets und weiteres.
+
+
+\section{Anforderungsentwicklung und Spezifikation}\label{sec:RAD}
+Der hier folgende Abschnitt \ref{sec:RAD} beschreibt das Requirements Engineering welches die Funktionalität des Authoring Tools beschreibt. Die Gliederung des Requirement Dokumentes orientiert sich an den Vorgaben des IEEE Standards 830-1984 definiert in \fullcite{ieeeRED}\footnote{Erreichbar unter folgender Adresse \url{http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=278253}. Zuletzt geprüft am 18.05.2015}. Der Standard “Guide for Software Requirements Specifications” beschreibt die Inhalte einer Requirement Specification und das Vorgehen während der Erstellung eines solchen Dokuments.
+
+\subsection{Geplanter Einsatzzweck und Anwendungsbereich der Software}
+Das Fusee Authoring Tools Projekt ist eine Bibliothek die es ermöglicht Plugins (und Ähnliches) für 3D Modelling Software zu schreiben welche diese Software um Authoring Tool Funktionen erweitert. Dieses Dokument beschäftigt sich mit den Anforderungen der Software Bibliothek selbst und der Anbindung an Cinema 4D.
+Die Software soll es ermöglichen, dass Artists, Designer und Engineers an ein und dem selben Projekt arbeiten können ohne die gewohnte eigene Arbeitsumgebung (3D-Modellierungssoftware, Developer IDEs etc.) zu verlassen und etwas komplett neues zu erlernen.
+Das Projekt wird als Teil des Fusee Engine Projekts entwickelt. Das Projekt ist ein Teil des Fusee Engine Uniplug Projektes.
+Jeglicher Code ist als Open Source Code zu veröffentlichen bzw. der Zugriff auf den Code ist unter freier akademischer Lizenz sicher zu stellen.
+
+\subsection{Definitionen und Abkürzungen}
+\textbf{FuseeAT} - Hierbei handelt es sich um das Fusee Authoring Tool. Die Abkürzung bezeichnet die Authoring Tool Software Bibliothek bzw. das Framework.
+
+\textbf{Fusee} - Die Furtwangen University Simulation and Entertainment Engine. Eine 3D Echtzeit Engine zur Entwicklung interaktiver Applikationen.
+
+\textbf{Editor} - In diesem Fall ein 3D Modeling Editor. Speziell für dieses Projekt der Modeling Editor Cinema 4D von Maxon.
+
+\textbf{Plugin} - Eine Software die eine bereits bestehende Software um selbst geschriebene Funktionalität erweitert.
+
+\subsection{Produktfunktionen}
+Die hier aufgeführten Funktionen sind Kernaspekte der Software und wären in einer realen Produktion zu erfüllende rechtskräftige Ansprüche. Alle hier genannten Anforderungen gelten für das FuseeAT und die Implementierung des Cinema 4D Plugins.
+\begin{itemize}
+\item Ein Fusee Projekt muss anlegt werden können.
+\item Ein Fusee Projekt muss bearbeitet werden können.
+\item Ein Fusee Projekt muss geöffnet werden können
+\item Ein Fusee Projekt muss gespeichert werden können.
+\item Das Fusee Engine Projekt soll gebaut werden können.
+\end{itemize}
+
 \subsubsection{Identifizieren der Stakeholder}
-Die Stakeholder wurden durch die kreative Methode eines Brainstormings als folgende Berufsgruppen innerhalb des Entwicklerteams des Unternehmens identifiziert. Auf Personengruppen außerhalb des Entwicklerteams wie z.B. Finanzabteilungen etc. soll nicht eingegangen werden, da sich diese Arbeit mit dem Prozess zur Konzeption eines Tools und der eigentlichen Konzeption zu diesem beschäftigt.
+Der Prozess der Stakeholder Analyse wurde bereits beschrieben. An dieser Stelle soll die Analyse einmal Beispielhaft für ein Entwicklerteam durchgeführt werden. Die Stakeholder wurden durch die kreative Methode eines Brainstormings als folgende Berufsgruppen innerhalb des Entwicklerteams des Unternehmens identifiziert. Auf Personengruppen außerhalb des Entwicklerteams wie z.B. Finanzabteilungen etc. soll nicht eingegangen werden, da sich diese Arbeit mit dem Prozess zur Konzeption eines Tools und der eigentlichen Konzeption zu diesem beschäftigt.
 \begin{itemize}
 \item Engineer
 	\begin{itemize}
@@ -642,31 +710,84 @@ Die Stakeholder wurden durch die kreative Methode eines Brainstormings als folge
 	\end{itemize}
 \end{itemize}
 Die Producer werden innerhalb der Konzeption dieser Arbeit als Designer betrachtet und unter dieser Gruppe geführt. Sollten die Producer denn Aufgaben an der Entwicklung übernehmen sind diese meist deckungsgleich mit den Aufgabenstellungen der Designer. Trotz allem sind die Producer hier aufgrund ihrer tragenden Rolle im Projekt als Stakeholder identifiziert worden. In vielen Fällen haben sie auch massive Entscheidungsgewalt über die verwendeten Techniken und Ressourcen während des Projektverlaufs.
-
 \begin{figure}[hb]
 	\centering
 	\includegraphics[width=\linewidth]{Bilder/Stakeholder_Diagramm.jpg}
 	\caption{Überblick über die Identifizierten Stakeholder und deren Inovelement in die Planung und Umsetzung des Tool Projektes.}
 	\label{StakeholderGrafik}
 \end{figure}
-
 Um zu erkennen in welchem Bezug ein Stakeholder zu einem Projekt steht, wurde ein Gittermodell \ref{StakeholderGrafik} der Entwickler erstellt. Hier finden sich Beispielhaft weitere Stakeholder zur Verdeutlichung der Grafik. Hierzu zählen der Publisher, welcher als Organisation auftritt und weitere Entwicklerteams des gleichen Publishers die möglicherweise mit der gleichen Engine und evtl. den gleichen Werkzeugen arbeiten.
 
-\section{Zusammenfassung des Arbeitsprozesses}
-Zu Beginn des Tool Development Projektes sollte erst einmal die Struktur des Entwickler Teams analysiert werden. Hierbei muss sich für eine der möglichen Methoden der Organisation entschieden werden. Die beiden von Wihlidal \cite[S. ]{Wihlidal2006} beschrieben Organisationsstrukturen "Dedicated Tools Team" und "Content Team Develops and Supports" wurden als praktisch für das interne zur Produktentwicklung parallel ausgerichtete Tool Development vorgestellt. Sobald sich das Entwickler Team für eine Struktur entschieden hat, kann es sich um die Auswahl eines geeigneten Projektmanagementmodells kümmern. Hierbei wurde aufgrund seiner unkomplizierten Art und einfachen adaption das Scrum Projektmanagementmodell ausgewählt. Es vereinfacht den Entwicklungsprozess und reduziert den nötigen Verwaltungsaufwand auf ein Minimum.
-Nach der Planung der Organisationsstrukturen kann das Team soch dem Konzeptionellen Part widmen und diesen mit einer Requirements Analyse beginnen. Diese Phase der Entwicklung ist mit größt möglicher Sorgfalt auszuführen da alle weiteren Schritte, insbesondere der Erfolg der Implementierung hiervon abhängig sind. In dieser Phase war es nötig, die Stakeholder zu identifizieren, UseCases zu verstehen und die benötigten Features der Software herauszuarbeiten. Im Anschluss an die Analyse folgt das Requirements Engineering. Hierbei handelt es sich um einen Arbeitsschritt welcher technische und theoretische Praktiken vereint. Eventuell werden während der Requirements Analyse auch besonders kritische Features durch eine Prototypische Implementierung ergründet. Weiterhin entsteht hier das gesamte Systemdesign.
-Die Implementierungs und Testphase schließt das Projekt ab. Hierbei wird der Erfolg aller vorherigen Phasen auf die Probe gestellt. Die Implementierung kann von Alpha und Beta Tests begleitet werden. Somit können die Mitglieder des Produktionsteams das Tool bereits kennen lernen und einige Features in Rücksprache mit den Entwicklern noch verändern.
-Der hier skizzierte Prozess wurde so weit es möglich war auch auf die Konzeption des FuseeAT angewendet.
+\subsection{Externe Schnittstellen}
+Das FuseeAT wird als eigenständige Softwarebibliothek entwickelt. Es bestehen keine engen Kopplungen zwischen dem FuseeAT und einem speziellen Editor. FuseeAT kann durch das Implementieren eines Interfaces für jeden gewünschten Editor angepasst werden. Die Software ist offen gestaltet und verwendet ein einfaches System welches Nutzern der Bibliothek das implementieren von Error handling Operationen unterstützt. Das FuseeAT ist Open Source und kann jederzeit eingesehen werden.
 
-\chapter{Konzeptentwicklung}
+\subsection{Restriktionen}
+\begin{itemize}
+\item Das gesamte Projekt nutzt die Basis des Uniplug Projektes.
+\item Das Projekt wird fast komplett in \CSS und maximal geringe Teile in \CPP entwickelt.
+\item Die Entwicklungsdauer ist begrenzt auf Teile des Wintersemesters 14/15.
+\item Das Projekt muss auf Windows 8 lauffähig sein.
+\item Der Code muss auf GitHub zur Verfügung gestellt werden.
+\end{itemize}
 
-\section{Zeitersparnis durch die Entwicklung eines Tools als Plugin für einen bereits existenten 3D Editor}
-%TODO: Hier darauf eingehen warum in C4d und wieso und warum das den flow unterstützen könnte.
-Im Gegensatz zu großen Monumentalen Editoren wie in der Unreal Engine 4 und der Unity Engine vorhanden, sieht das hier angewendete Konzept des Tool splitting vor, die verschiedenen Entwickler Disziplinen auf bekannte Tools aufzuteilen und diese bereits bekannten Tools mit neuer Funktionalität auszustatten. So minimiert sich die Einarbeitungszeit der Entwickler. Weiterhin sollte die Konzentration der Entwickler auf einem höheren Level erhalten bleiben als es bei Entwicklern der Fall ist, welche für jeden Schritt das Tool wechseln müssten. Natürlich bieten bereits jetzt große Editoren wie Unreal Engine 4 und Unity fast jegliche Funktionaltität in einem großen Tool an, wie aber bereits gesagt ist es nötig dazu die bereits erlernte Software wie z.B. Cinema 4D zu verlassen.
+\subsection{Projektabhängigkeiten}
+Das Projekt ist auf Grund verschiedener Abhängigkeiten im Fusee  Uniplug Projekt aktuell auf Windows beschränkt.
+Das Projekt ist auf \CSS beschränkt.
+Das Projekt nutzt eine gewrappter Version des Maxon \CPP SDK.
 
-Eine Zeitersparnis auf Seiten der Tool Entwickler kann erreicht werden, da sie sich nur mit der Erweiterung einer bereits fertiggestellten, getesteten Software beschäftigen müssen anstatt ein komplett neues Tool zu entwickeln. Es entfällt hierbei ein großer Teil der Software Architektur. Natürlich gibt es auch hier einschränkungen. Das zu erweiternde Tool muss den Tool Developern bekannt und eine Schnittstelle vorhanden sein. Im Rahmen dieser Arbeit konnten beide Bedingungen ausreichend erfüllt werden. Cinema 4D bietet eine Schnittstelle in Form einer API und das Tool war dem Autor aus früheren Projekten ausreichend bekannt.
+\subsection{Funktionale Anforderungen}
+%TODO: Hier noch fixen.
+Hierbei handelt es sich um spezifische Funktionalität welche die Fusee Authoring Tools Bibliothek anbieten soll:
 
-Das hier entwickelte Konzept versucht nun die in der Analyse gewonnenen Erkenntnisse über den Entwicklungsprozess umzusetzen und dabei ein Tool zu konzipieren welches den Cinema 4D Model Editor um Fusee Editing Funktionalität erweitert. Hierbei wird die Pluginfunktionalität von Cinema 4D als Schnittstelle zum Benutzer ausgenutzt. Das konzipierte Plugin nutzt im Hintergrund als Businesslogik das FuseeAT und beinhaltet selbst nur Funktionalität welche durch die Cinema 4D API bedingt wird. Begonnen werden aber soll die Konzeption des Tools mit einer Analyse des Teams und dem Erstellen von Use Cases.
+\subsubsection{Projekt anlegen}
+Ein Visual Studio \CSS Projekt muss vom Editor aus angelegt werden können. Hierzu bedarf es folgender in Schaubild \ref{re:projektanlegen} Operationen. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=7cm]{Bilder/ProjektAnlegen.jpg}
+	\caption{Ablauf der beschriebenen Funktionalität: Projekt anlegen}
+	\label{re:projektanlegen}
+\end{figure}
+
+\subsubsection{Projekt bearbeiten (Durch das Hinzufügen von Assets oder Funktionalität)}
+Die Grafik \ref{projektbearbeiten} beschreibt die Bearbeitung eines Engine Projekts. Hierbei kann der Abschnitt Änderungen vornehmen wiederum andere Tasks implizieren und ist aus diesem Grund an dieser Stelle allgemein gehalten.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=7cm]{Bilder/ProjektBearbeiten.jpg}
+	\caption{Ablauf der beschriebenen Funktionalität: Projekt bearbeiten}
+	\label{re:projektbearbeiten}
+\end{figure}
+
+\subsubsection{Projekt öffnen - Ein bestehendes Projekt im Editor öffnen}
+Das Projekt muss im Editor geöffnet werden können. Hierzu sind wenige Schritte wie in Abbildung \ref{re:projektöffnen} beschrieben nötig.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=9cm]{Bilder/ProjektOeffnen.jpg}
+	\caption{Ablauf der beschriebenen Funktionalität: Projekt öffnen}
+	\label{re:projektöffnen}
+\end{figure}
+
+\subsubsection{Projekt bauen}
+Das Projekt soll von einem Entwickler während der Arbeit gebaut werden können. Somit kann der Entwickler seine durchgeführten Änderungen jederzeit testen. Die Abbildung \ref{re:projektbauen} zeigt den Ablauf dieser Funktionalität.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=9cm]{Bilder/ProjektBauen.jpg}
+	\caption{Ablauf der beschriebenen Funktionalität: Projekt bauen}
+	\label{re:projektbauen}
+\end{figure}
+
+\subsubsection{Nicht Funktionale Anforderungen}
+Das Projekt muss während des Projektzeitraums des Wintersemesters 2014/2015 mit einer ausreichenden Basisfunktionalität erstellt werden.
+Das Projekt muss mit Sandcastle oder ähnlichem Dokumentiert werden und die Dokumentation muss dem Projekt beigelegt werden.
+
+\subsubsection{Schnittstellen der Bibliothek}
+Die Fusee Game Authoring Tool Bibliothek bietet eine Schnittstelle um Plugins für unterschiedliche Modellingsoftware zu erstellen.  Die Bibliothek ist nicht von Cinema 4D Funktionen abhängig sondern unterstützt Windows spezifische \CSS Funktionalität. 
+
+\subsubsection{Design Beschränkungen}
+Das Interface wird nicht großartig frei gestaltet. Es orientiert sich an den gegebenen Cinema 4D Interface Optionen und nutzt die Cinema 4D SDK API um die Interface Elemente darzustellen.
+
+\subsubsection{Qualitätsanforderungen}
+Das Projekt wird im Alpha Stadium beendet und stellt daher nur einen gewissen Pool an Basisfunktionalitäten zur Verfügung. Das Projekt kann Problemlos um weitere Funktionalität erweitert werden und es wird das Fusee und das Uniplug Projekt weiterhin begleiten.
 
 % Planung
 \section{Use Cases der verschiedenen Entwickler}
@@ -940,6 +1061,8 @@ Aus den Funktionen der Unity Engine können verschiedene interessante Konzepte g
 %Debugmöglichkeit ist gut, einfaches skripting in \CSS.
 %Einfache Buildoptionen etc.
 
+
+
 % System Design des Tools
 \section{Systemdesign}
 Das Ziel hier ist es, eine technische Konzeption für ein Softwareprodukt zu entwickeln. Dieses technische Konzept ist Grundlage für eine nachfolgende Implementierung des Softwareprojektes FuseeAT. Einige Features werden diskutiert und die Entscheidung für oder gegen diese erläutert.
@@ -1017,7 +1140,7 @@ Das TagPlugin kümmert sich um die Zuordnung von Assets. Es ermöglicht es in Ci
 Das MessagePlugin ist ein Hilfsplugin und implementiert keine Funktionalität sondern unterstützt die per Nachrichtensystem gesteuerte Kommunikation innerhalb von Cinema 4D. Durch dieses Plugin können Nachrichten des CommandPlugin an das TagPlugin und umgekehrt versandt werden. Die Nachrichten werden dann in den jeweiligen Plugins geparsed (sie bestehen aus einer Integer ID und einem Datenanteil\footnote{Von der Cinema 4D API festegelegt.}) und weiter verarbeitet. 
 Das hier angeführte Klassendiagramm \ref{KlassendiagrammPluginArchitektur} zeigt die für jedes Plugin benötigten API Funktionen. Diese Funktionen müssen im Plugin Code als überschriebene Funktionen implementiert werden. Die Klasse GUIPlugin implementiert ein UserInterface um ein Fusee Projekt von Cinema 4D aus über einen Grafischen UI Dialog zu laden.
 
-\subsection{Zeitersparnis durch das Verwenden von Fusee Modulen}
+\subsection{Zeitersparnis durch wiederverwendbare Fusee Module}
 Um nicht jegliche Funktionen neu implementieren zu müssen, wurde vor dem Beginn der Implementierung geprüft welche Funktionalitäten bereits in der Fusee Engine gegeben sind. Durch die offene Struktur der Engine konnte bereits früher schon Code wiederverwendet werden. Diese Synergien der bereits vorhandenen Systemen sollten auch in zukünftigen Entwicklungen genutzt werden um, Zeit und Ressourcen zu sparen.
 Die folgende Module des Fusee Projekts wurden für den Rahmen dieser Arbeit angepasst und verwendet.
 
@@ -1162,37 +1285,49 @@ Im folgenden Code Beispiel sind einige dieser Konstanten dargestellt. Bei dem hi
 \begin{lstlisting}[language=C++, caption = Überschreiben der Message Funktion des TagData Datentyps, label=CodeMessageFunktion]
 Bool TagDataM::Message(GeListNode *node, Int32 type, void *data)
 {
-	switch (type)
+switch (type)
+{
+case MSG_EDIT:
+	break;
+case MSG_GETCUSTOMICON:
+	break;
+case COLORSYSTEM_HSVTAB:
+	break;
+case MSG_DOCUMENTINFO:
 	{
-	case MSG_EDIT:
-
-		break;
-	case MSG_GETCUSTOMICON:
-		break;
-	case COLORSYSTEM_HSVTAB:
-		break;
-	case MSG_DOCUMENTINFO:
-		{
-			DocumentInfoData* did = (DocumentInfoData*)data;
-			return MessageDocumentInfo(node, did);
-		}
-		break;
-	case MSG_DESCRIPTION_GETINLINEOBJECT:
-		break;
-	case DRAW_PARAMETER_OGL_PRIMITIVERESTARTINDEX:
-		break;
+		DocumentInfoData* did = (DocumentInfoData*)data;
+		return MessageDocumentInfo(node, did);
 	}
-
-	return true;
+	break;
+case MSG_DESCRIPTION_GETINLINEOBJECT:
+	break;
+case DRAW_PARAMETER_OGL_PRIMITIVERESTARTINDEX:
+	break;
+	}
+return true;
 }
 \end{lstlisting}
 
 Durch die eingeschränkte  Möglichkeit nur bis zum call des Debugging API Codes debuggen zu können (Hierzu mehr im Kapitel Probleme und Herausforderungen), war die Lösung des Problems nicht wie meistens in mit SWIG gewrappten Codebasen durch einen einfachen \%typemap\footnote{Ermöglicht das mappen eines Datentyps der Eingangssprache auf einen anderen Datentyp der Ausgangssprache} sondern nur durch die nachträgliche Implementierung der oben dargestellten switch case Anweisung innerhalb des Uniplug Projektes zu bewerkstelligen. 
 
 \section{Der Fusee Szenengraph}
-Wie bereits erwähnt, wird der Code der Fusee Engine für diese Arbeit nicht erweitert. Es wird im Systemdesign aber ein wichtiges Element der Engine, der Szenengraph, verwendet. Dieser Abschnitt geht auf die Funktionsweise des Szenengraphen in Fusee ein und zeigt seine Ähnlichkeiten und Unterschiede zum Szenenaufbau einer Cinema 4D Szene auf. 
+Dieser Abschnitt geht auf die Funktionsweise des Szenengraphen in Fusee ein und zeigt seine Ähnlichkeiten und Unterschiede zum Szenenaufbau einer Cinema 4D Szene auf. Der Fusee Szenengraph bietet ein essentielle Werkzeuge und ist gleichzeitig auch das Zielformat der Konvertierung von Cinema 4D Szenen nach Fusee. Der Fusee Szenen Graph wird durch einen SceneContainer, gezeigt in Beispiel \ref{FuseeSGSceneContainer}, pro 3D Szene im Code repräsentiert.
 
-Der Fusee Szenengraph ermöglich das Traversieren und Vorhalten verschiedener Elemente einer Fusee Szene. Der Graph ist aus einer Kombination von Nodes und Components aufgebaut. Er ähnelt stark dem Unity3D Ansatz des Szenengraphen. Eine Node ist ein Knotenpunkt ohne spezielle Daten. Die Node enthält lediglich einen Namen, eine Liste an Components und falls nötog, eine Liste an Kind-Nodes. Das Traversieren wird durch Visitor Implementierungen ermöglicht. Diese Visitor Patterns wurden während dieser Arbeit noch implementiert und erweitert. Ein Visitor ermöglicht das Traversieren einer Szene und seiner Nodes auf eine vom Entwickler definierte weise und kann so z.B. Transformationen durchführen, welche die Struktur einer Szene verändern.
+\begin{lstlisting}[caption = Anlegen eines Fusee SceneContainers und damit Verwendung des Szenengraphen., label=FuseeSGSceneContainer]
+sceneContainer = new SceneContainer();
+sceneContainer.Header = new SceneHeader();
+sceneContainer.Children = new List<SceneNodeContainer>();
+\end{lstlisting}
+
+Der Fusee Szenengraph ermöglich das Traversieren und Vorhalten verschiedener Elemente einer Fusee Szene. Der Graph ist aus einer Kombination von Nodes und Components aufgebaut. Er ähnelt stark dem Unity3D Ansatz des Szenengraphen. Eine Node ist ein Knotenpunkt ohne spezielle Daten. Das Code Beispiel \ref{FuseeSGNode} zeigt: Die Node enthält lediglich einen Namen, eine Liste an Components und falls nötig, eine Liste an Kind-Nodes.
+
+\begin{lstlisting}[caption = Anlegen eines Fusee Node Containers und initialisieren einer Component Liste., label=FuseeSGNode]
+SceneNodeContainer node1 = new SceneNodeContainer();
+node1.Name = "firstObjectNode";
+node1.Components = new List<SceneComponentContainer>();
+\end{lstlisting}
+
+Das Traversieren wird durch Visitor Implementierungen ermöglicht. Diese Visitor Patterns wurden während dieser Arbeit noch durch das Fusee Team implementiert und erweitert. Ein Visitor ermöglicht das Traversieren einer Szene und seiner Nodes nach einem vom Entwickler definierten Algorithmus. So ist es möglich z.B. Transformationen durchführen, welche die Struktur einer Szene verändern.
 
 \begin{figure}[ht]
 	\centering
@@ -1201,7 +1336,14 @@ Der Fusee Szenengraph ermöglich das Traversieren und Vorhalten verschiedener El
 	\label{FuseeSzenenGraph}
 \end{figure}
 
-Die Abbildung \ref{FuseeSzenenGraph} zeigt einen Beispielhaft dargestellten “SceneContainer” einer Fusee Szene. Diese Szene besteht aus mehreren Nodes deren Components aus verschiedensten Typen bestehen. So kann ein Node als reiner Anker einer Szene dienen. In der Abbildung \ref{FuseeSzenenGraph} dargestellt durch das “Root object”. Ein von einem Artist erstelltes Modell kann als Node Object mit angehängtem Mesh und Material Component umgesetzt werden. Sollte sich ein Mesh zusätzlich im Raum bewegen, kann es über eine weitere Transform Komponente verfügen. Sowohl Components als auch Visitor Pattern lassen sich vom Entwickler nach den eigenen Wünschen nach-implementieren oder anpassen. Ein kommentiertes Source Code Beispiel zur Anwendung des Fusee Szenengraphen findet sich im Anhang in Listing \ref{FuseeSzenenGraphExample}.
+Die Abbildung \ref{FuseeSzenenGraph} zeigt einen Beispielhaft dargestellten “SceneContainer” einer Fusee Szene. Diese Szene besteht aus mehreren Nodes deren Components aus verschiedensten Typen bestehen. So kann ein Node als reiner Anker einer Szene dienen. In der Abbildung \ref{FuseeSzenenGraph} dargestellt durch das “Root object”. Ein von einem Artist erstelltes Modell kann als Node Object mit angehängtem Mesh und Material Component umgesetzt werden. Sollte sich ein Mesh zusätzlich im Raum bewegen, kann es über eine weitere Transform Komponente verfügen. Sowohl Components als auch Visitor Pattern lassen sich vom Entwickler nach den eigenen Wünschen nach-implementieren oder anpassen. Das anlegen einer Component erfolgt gleich wie das Anlegen eines Fusee SceneNodeContainers. Zu sehen ist dies in Beispiel \ref{FuseeSGComponent}. Ein komplett kommentiertes Source Code Beispiel zur Anwendung des Fusee Szenengraphen findet sich im Anhang in Listing \ref{FuseeSzenenGraphExample}.
+
+\begin{lstlisting}[caption = Erstellen einer Component aus einem Mesh Objekt und Anhängen an einen Fusee SceneNodeContainer., label=FuseeSGComponent]
+MeshComponent mesh1 = new MeshComponent();
+LoadMesh(@"Assets/Cube.obj.model", out mesh1);
+[...]
+node1.Components.Add(mesh1);
+\end{lstlisting}
 
 \subsubsection{Unterschiede des Fusee Szenengraphen zum Cinema 4D Szenengraphen}
 Der Fusee- und der Cinema 4D Szenengraph unterscheiden sich in gewissen konzeptionellen Ansätzen. Um also den C4D Szenengraph in einen Fusee Szenengraphen umzuwandeln, bedarf es einer Analyse der Unterschiede.
@@ -1419,8 +1561,8 @@ Letztendlich wurden viele Grundsteine für die Entwicklung von und mit FuseeAT g
 % Requirements START
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\chapter*{Requirements Dokumente}
-\addcontentsline{toc}{chapter}{Requirements Dokumente}
-\includepdf[pages = 1-4]{Includes/SoftwareRequirementsSpecification.pdf}
+%\addcontentsline{toc}{chapter}{Requirements Dokumente}
+%\includepdf[pages = 1-4]{Includes/SoftwareRequirementsSpecification.pdf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Requirements ENDE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

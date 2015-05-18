@@ -2007,16 +2007,18 @@
     <bcf:citekey order="60">Wihlidal2006</bcf:citekey>
     <bcf:citekey order="61">FrostbiteEngine</bcf:citekey>
     <bcf:citekey order="62">Wihlidal2006</bcf:citekey>
-    <bcf:citekey order="63">UnrealEngine4</bcf:citekey>
-    <bcf:citekey order="64">UnrealEngine4</bcf:citekey>
-    <bcf:citekey order="65">UnityEngine5</bcf:citekey>
-    <bcf:citekey order="66">MaxonC4d2014</bcf:citekey>
-    <bcf:citekey order="67">Carter2004</bcf:citekey>
-    <bcf:citekey order="68">Alienbrain</bcf:citekey>
-    <bcf:citekey order="69">Shotgun</bcf:citekey>
-    <bcf:citekey order="70">MaxonC4d2014</bcf:citekey>
-    <bcf:citekey order="71">SWIG2015</bcf:citekey>
-    <bcf:citekey order="72">SWIGIntroduction2015</bcf:citekey>
+    <bcf:citekey order="63">Chandler2006</bcf:citekey>
+    <bcf:citekey order="64">ieeeRED</bcf:citekey>
+    <bcf:citekey order="65">UnrealEngine4</bcf:citekey>
+    <bcf:citekey order="66">UnrealEngine4</bcf:citekey>
+    <bcf:citekey order="67">UnityEngine5</bcf:citekey>
+    <bcf:citekey order="68">MaxonC4d2014</bcf:citekey>
+    <bcf:citekey order="69">Carter2004</bcf:citekey>
+    <bcf:citekey order="70">Alienbrain</bcf:citekey>
+    <bcf:citekey order="71">Shotgun</bcf:citekey>
+    <bcf:citekey order="72">MaxonC4d2014</bcf:citekey>
+    <bcf:citekey order="73">SWIG2015</bcf:citekey>
+    <bcf:citekey order="74">SWIGIntroduction2015</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="none" type="entry" sortscheme="none">
   <bcf:sorting>
