@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>50</x>
+      <y>310</y>
+      <w>140</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Run-Time Engine
+valign=center
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>50</x>
+      <y>390</y>
+      <w>140</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Fusee Core System
+valign=center
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>50</x>
+      <y>460</y>
+      <w>330</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>OS (Windows, Mac OSX, Linux)
+valign=center
+bg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>50</x>
+      <y>510</y>
+      <w>330</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Driver (GPU, Input, etc.)
+valign=center
+bg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>200</x>
+      <y>410</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>FuseeAT Bibliotheken
+valign=center
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>200</x>
+      <y>360</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Plugin für Editor
+valign=center
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>200</x>
+      <y>310</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Editor Software
+valign=center
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>50</x>
+      <y>560</y>
+      <w>330</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Hardware (PC, Smartphone, Tablet)
+valign=center
+bg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
