@@ -1070,13 +1070,71 @@ Der Unity Szenengraph gleicht dem Fusee Szenengraph. In der Tat lehnt sich das D
 \subsubsection{Was kann für das FuseeAT Konzept aus Unity übernommen werden?}
 Aus den Funktionen der Unity Engine können verschiedene interessante Konzepte gefunden und für FuseeAT adaptiert werden. Hierzu gehört zu aller erst das Component System. Die Unreal Engine setzt wie bereits erwähnt ebenfalls auf ein Component System und das neue Szenengraphen Modell in Fusee unterstützt diesen Ansatz ebenfalls. So sollte auch FuseeAT dieses Konzept berücksichtigen und die in Fusee möglichen Components auch in den Cinema 4D Editor integrieren. Weiterhin ist das einfache Build und Deploymentsystem von Unity eine stärke der Engine. Für FuseeAT wäre es ein guter Ansatz die Arbeit der Designer und Artists mit der Fusee Engine in Cinema 4D zu erleichtern wenn Builds für den Desktop und später evtl. auch Web-Builds eines gesamten Fusee Projekts (welche aktuell wie bereits erwähnt schon mit der Fusee Engine möglich sind) aus der C4D Software heraus erstellt werden könnten. Hiermit können  Designer und auch Artists jederzeit das Ergebnis ihrer Arbeit durch einen einfachen Build Vorgang direkt in der Engine betrachten.
 
-%Einfachheit des Editors.
-%Component System.
-%Einfaches Materialsystem.
-%Debugmöglichkeit ist gut, einfaches skripting in \CSS.
-%Einfache Buildoptionen etc.
 
+\subsection{Das ATF Framework und der LevelEditor von Sony}
+%TODO: Noch erledigen als letzten Punkt.
+Dieser Abschnitt wird sich nun mit dem ATF Framework von Sony und einem mitgelieferten Open Source Projekts des ATF Frameworks beschäftigen. Ziel ist es die Funktionalität der Applikationen zu untersuchen und hierraus Erkenntnisse für das Konzept des FuseeAT zu gewinnen. Bei diesem Framework handelt es sich nicht direkt um einen Editor. Es existieren aber Beispielprojekte aus dem Produktionsfundus von Sony. Eines hiervon der Sony LevelEditor (Produktname) wird im Rahmen dieser Untersuchung noch vorgestellt und diskutiert.
 
+\subsubsection{Was ist das ATF?}
+Das ATF (Authoring Toolkit Framework) Framework von Sony ist eine Sammlung von \CSS Komponenten (Eng. Component) mit denen sich Game Authoring Tools erstellen lassen. Mit Hilfe dieses Frameworks ist es möglich Authoring Tools zu erstellen. Die gesamte Software basiert auf dem Microsoft .NET Framework und ist komplett in der Programmiersprache \CSS umgesetzt. Das Framework wurde bereits zur Entwicklung von Level Editoren, Debuggern, Audio Editoren, Charakter Animation Tools und vielen weiteren Projekten eingesetzt. Entwickelt wurde die Software von den Sony World Wide Studios (kurz. SonyWWS). Vgl. \fullcite{ATFFramework}.
+
+\subsubsection{Open Source}
+Beim ATF handelt es sich um Open Source Software. Das gesamte Projekt steht unter der Apache License Version 2.0, January 2004. Das Projekt kann unter der folgenden Adresse auf GitHub bezogen werden: \url{https://github.com/SonyWWS/ATF}. Es ist frei erweiterbar und erhält unregelmäßig Updates der Sony Entwickler welche über GitHub aktualisiert werden können. Die Open Source Charakteristik macht das Projekt für Tool Developer interessant. Einer längerfristigen zukünftigen Nutzung steht nichts im Wege so lange die Code Basis des Frameworks geklont oder heruntergeladen wird. 
+
+\subsubsection{Wie funktioniert es?}
+Das Framework basiert auf einer vielzahl an Components. Jede Component liefert einen gewissen spezifizierten Grad an Funktionalität mit. Die Components können und sollen in Projekten wiederverwendet werden. Dazu gehören folgende Funktionalitäten:
+
+\begin{itemize}
+\item Standard Asset editing features wie:
+
+	\begin{itemize}
+	\item Ausschneiden
+	\item Kopieren
+	\item Einfügen
+	\end{itemize}
+
+\item Das Laden und Speichern von Assets.
+\item Ein Document Object Model (DOM) zur Verwaltung von Dokumenten\footnote{Hierbei handelt es sich um jegliche Assets die in ein Tool hinein geladen werden können. Hierbei kann es sich um reinen Text bis hin zu Model Dateien handeln. Vgl. \url{https://github.com/SonyWWS/ATF/wiki/What-is-a-Document-in-ATF}} im Speicher während der Arbeit mit dem Tool.
+\item Skin Editing (Frei gestaltbare Editor Benutzer-Oberflächen)
+\item Property Editing
+\item und vielem mehr.
+\end{itemize}
+
+Eine genauere Übersicht findet sich bei Interesse unter der folgenden Adresse: \url{https://github.com/SonyWWS/ATF/wiki/ATF-Technology-and-Sample-App-Matrix} - zuletzt geprüft am 12.05.2015.
+
+Die verschiedenen Components können beim Erstellen einer Applikation mit wenigen Zeilen Code geladen werden wie das Beispiel \ref{ATFLoadComponent} zeigt. Das Beispiel reicht aus um Basisfunktionalität (Öffnen, Speichern, Schliessen, etc.) für File Dialoge zu implementieren.
+
+\begin{lstlisting}[
+caption = Laden eines ATF Component im Programmcode. Beispielcode aus den Examples welche dem ATF beiliegen. Projekt: ModelViewer. Datei: Program.cs, label=ATFLoadComponent]
+
+[...]
+var catalog = new TypeCatalog(
+	typeof(StandardFileCommands),
+};
+[...]
+var stdfile = container.GetExportedValue<StandardFileCommands>();
+stdfile.RegisterCommands = StandardFileCommands.CommandRegister.FileOpen;
+
+\end{lstlisting}
+
+Das ATF ist problemlos durch jeden interessierten Entwickler erweiterbar. Da wie erwähnt der komplette SourceCode frei verfügbar ist, können auch Änderung am Projekt vorgenommen werden.
+
+\subsubsection{Der LevelEditor}
+Ein interessantes Projekt welches mit dem ATF erstellt wurde ist der Sony LevelEditor. Zu finden ist die Software unter der folgenden Adresse \url{https://github.com/SonyWWS/LevelEditor} auf GitHub. Diese Software eignet sich dazu Level, Maps und Virtuelle Welten für Computerspiele zu designen. Es handelt sich hierbei um einen vollständig funktionalen Editor. Das Rendering des Editors basiert auf Microsofts Direct X 11. Wie auf dem Screenshot \ref{SonyATFLevelEditor} ersichtlich ist, handelt es sich beim Sony Level Editor um einen Editor mit Basis Funktionalität. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{Bilder/ATFLevelEditor.jpg}
+	\caption{Der Sony ATF LevelEditor}
+	\label{SonyATFLevelEditor}
+\end{figure}
+
+Dieser Editor ist im Gegensatz zum Unreal und Unity Editor nicht für Scripting und Programmieren ausgelegt. Es ist kein vollständiger Game Engine Editor. Der Editor dient in erster Linie dazu Virtuelle Welten für Spiele zu gestalten. Natürlich kann der Editor von Entwicklern dahingehend Erweitert werden. Ein System für das Anfügen von Components an in der Szene platzierte Assets ist bereits in Grundzügen Vorhanden.
+
+Aufgrund seiner angedachten Funktionalität als reiner Welt Editor enthält der LevelEditor auch keinen SzenenGraphen und keinerlei Code Funktionalität.
+
+\subsubsection{Welche Erkenntnisse können für FuseeAT gewonnen werden?}
+Durch das sehr flexible Component System ist das ATF Framework ein interessantes Konzept für die Authoring Tool Entwicklung. Eine Verwendung von FuseeAT in einem direkt angepassten ATF Framework Editor anstatt FuseeAT als Cinema 4D Plugin zu implementieren wäre sicherlich ein lohnenswertes Folgeprojekt. Zum Zeitpunkt dieser Arbeit war es nicht vorgesehen das ATF Framework zu verwenden. Der LevelEditor von Sony ist zwar nur ein Beispielprojekt des ATF Frameworks, zeigt aber dass es mit dem ATF relativ simpel ist einen solchen Editor zu implementieren. Nun wäre die Anbindung des FuseeAT an den ATF Editor, oder einen selbst geschriebenen Editor,  zu weit vom Kern dieser Arbeit entfernt. Allerdings ist der ATF ein interessanter Ansatz des Tool Authoring und die Erfolgreiche Verwendung in vielen kommerziellen Projekten bestätigt das Konzept der Software. Eine zukünftige Verwendung von ATF um die Funktionalität von FuseeAT zu erweitern wäre ein interessanter Ansatz. Das ATF muss nicht rein als Editoren Oberfläche etc eingesetzt werden. Es können auch einzelne Funktionalitäten aus dem Framework herausgelöst werden und in andere Software integriert. Hierzu gehören vor allem Standardoperationen wie Dateioperationen aus dem Repertoire des Frameworks. Weiterhin stelle das Sony ATF für das Konzept von FuseeAT eine Inspiration dar.
 
 % System Design des Tools
 \section{Systemdesign}
@@ -1550,12 +1608,14 @@ Weiterhin verkompliziert sich die Entwicklung durch das wrappen der \CPP Api nac
 \chapter{Ergebnisse der Arbeit und Ausblick}
 
 \section{Fazit}
-Das Gebiet des Tool Development selbst bleibt ein wichtiger Bestandteil der Produktionsteams. Verschiedene analysierte Interviews und Dokumentationen zeichnen eine positive Entwicklung des Team Developments auch in kleineren Teams ab. Trotz aller heute vorhandenen Techniken die das Entwickeln von Software erleichtern ist das Tool Development immer noch ein kritischer Prozess im Produktionszyklus. Vor allem weil Tools meist während der Produktion eines Spiels / Software weiterentwickelt oder gar neu entwickelt werden müssen.
+Das Gebiet des Tool Development selbst bleibt ein wichtiger Bestandteil der Produktionsteams. Verschiedene analysierte Interviews und Dokumentationen zeichnen eine positive Entwicklung des Tool Developments auch in kleineren Teams ab. Trotz aller heute vorhandenen Techniken die das Entwickeln von Software erleichtern ist das Tool Development immer noch ein kritischer Prozess im Produktionszyklus. Vor allem weil Tools meist während der Produktion eines Spiels / Software weiterentwickelt oder gar neu entwickelt werden müssen. \\
 
-In dieser Arbeit wurde der Prozess des Tool Development analysiert und visualisiert. Hierbei hat sich gezeigt, dass es sinnvoll ist den Prozess im Interesse des eigenen Produktionsteams transparent zu gestalten. Es ist außerordentlich wichtig, dass der Prozess und seine Methoden verlässlich gestaltet sind. Der Tool Development Prozess verlangt fast immer nach einer schnellen Umsetzung des Auftrags. Hierbei sind agile Management Prozess von Vorteil. Sie benötigen weniger Verwaltungs Overhead und unterstützen hiermit die Entwickler im Zeitmanagement. Gleichzeitig kann das Team durch weniger benötigtes Personal agiler agieren. Für die Anwendung dieser Strategien empfiehlt es sich aber für kritische Aufgaben nur gut eingespielte Teams einzusetzen. Jeder Schritt des Entwicklungsprozesses den das Team verinnerlicht hat erleichtert die Entwicklung des Tools.
- 
-Im Rahmen der Konzeption des Tools wurden der Unreal Engine 4 Editor und der Unity 3D Editor untersucht. Die wichtigsten Features und Elemente dieser Editoren wurden in das Konzept des Fusee Authoring Tools integriert. Das Konzept der nach Entwicklergruppen getrennten Authoring Tools wurde hierbei als Ausgangssituation genutzt. Ein getrenntes Tool hat viele Vorteile. Durch die Nutzung von Synergien bereits bestehender Software, hier die Oberfläche von Cinema 4D und dessen Plugin System, kann außerdem Entwicklungszeit eingespart werden. Der Aufwand für die Entwicklung solcher Systeme entfällt. Für Tool Entwickler und Produktiventwickler sind diese Tools bereits aus dem Alltag bekannt. Dies spart wiederum den Aufwand der erneuten Einarbeitung. Es müssen lediglich einige neue Funktionen erlernt werden. An den eigentlichen Arbeitsabläufen in den Tools ändert sich jedoch kaum etwas. Das Erweitern dieser Software kann durch die vorhandenen Plugin Systeme ebenfalls durch wenig Aufwand erfolgen. Der Zeitaufwand hält sich in Grenzen sobald das Tool Team einmal eine Wissensbasis aufgebaut hat. Dieses Konzept unterstützt also das Tool Entwickler Team während des Prozesses der Tool Entwicklung und Konzeption. Allerdings hat es auch einige Nachteile welche hier ebenfalls aufgezeigt werden sollen. Zunächst einmal besteht eine gewisse Abhängigkeit vom Entwickler der genutzten Software. Sollte Maxon sich entscheiden in einer zukünftigen Version einige Änderungen an der API von Cinema 4D durchzuführen, so kann dies zu unangemessenem Aufwand des Entwicklerteams führen. Tools müssen dann wieder an die Änderungen angepasst werden. Dies kam während der Bearbeitung dieser Arbeit öfter vor. Die Änderungen bedingten Teilweise einen erheblichen Mehraufwand um die genutzten Projekte, im Speziellen das Uniplug Projekt, wieder in einen Lauffähigen Stand zu versetzen. Hier wäre es also zu empfehlen falls möglich auf Open Source Software zu setzen. Im Notfall könnten alte Versionen dieser Software geklont und intern ohne Probleme entwickelt werden. Hierbei ist lediglich auf die Lizenzbestimmungen der jeweiligen Software zu achten. Im Falle von proprietärer Software wäre es nicht möglich etwas am Code des Produkts zu ändern. Natürlich kann in manchen Fällen einfach die alte Software weiterverwendet werden, allerdings ist das nicht immer der Fall. Möglicherweise verlieren Lizenzkeys ihre Gültigkeit, oder die Entwickler sind aufgrund einer Betriebssystemveränderung dazu gezwungen die Software zu aktualisieren. Häufig ist die Umsetzung von Tool Funktionalität ein komplexer Prozess der sich durch den nicht zugänglichen Code einer proprietären Softwarebasis nur weiter verkompliziert. Hierbei sei auf die Probleme der Implementierung des FuseeAT verwiesen. Der komplette Entwickleraufwand konnte nicht von einem Entwickler allein im Zeitrahmen dieser Arbeit bewältigt werden. Die Verwendung des Uniplug Projektes erleichterte zwar das Schreiben des Codes durch die Möglichkeit der \CSS Entwicklung, gleichzeitig erschwerte es aber auch die Nutzung der Cinema 4D API. Für das FuseeAT Plugin mussten einige neue Funktionen in das Uniplug Projekt integriert werden. Dieses wrapping nach \CSS war nicht immer Problemlos. Besonders sei hier auf die schlechte Debugging Möglichkeit des Cinema 4D APIs durch die Konvertierung nach \CSS verwiesen. Auch hier lässt sich wieder eine Tendenz zu Open Source Software erkennen.
-Im Vergleich mit den zwei Editoren der Unreal Engine 4 und der Unity Engine zeigt sich, dass diese Monumentalen Editoren erst einmal eine große Einstiegshürde darstellen. Hierbei hat das Konzept der geteilten Tools den Vorteil der schnelleren Adaption. Allerdings beschränkt sich dies auch nur auf den Entwicklern bereits bekannte Tool Umgebunden. Es ist außerdem selten der Fall, dass sich ein Entwickler für ein Projekt für eine komplett neue Entwicklungsumgebung entscheidet. Auch hier kann das Konzept dieser Arbeit nützlich sein.
+In dieser Arbeit wurde der Prozess des Tool Development analysiert und visualisiert. Hierbei hat sich gezeigt, dass es sinnvoll ist den Prozess im Interesse des eigenen Produktionsteams transparent zu gestalten. Es ist außerordentlich wichtig, dass der Prozess und seine Methoden verlässlich gestaltet sind. Der Tool Development Prozess verlangt fast immer nach einer schnellen Umsetzung des Auftrags. Hierbei sind agile Management Prozess von Vorteil. Sie benötigen weniger Verwaltungs Overhead und unterstützen hiermit die Entwickler im Zeitmanagement. Gleichzeitig kann das Team durch weniger benötigtes Personal agiler agieren. Für die Anwendung dieser Strategien empfiehlt es sich aber für kritische Aufgaben nur gut eingespielte Teams einzusetzen. Jeder Schritt des Entwicklungsprozesses den das Team verinnerlicht hat erleichtert die Entwicklung des Tools.\\
+
+Im Rahmen der Konzeption des Tools wurden der Unreal Engine 4 Editor und der Unity 3D Editor untersucht. Die wichtigsten Features und Elemente dieser Editoren wurden in das Konzept des Fusee Authoring Tools integriert. Das Konzept der nach Entwicklergruppen getrennten Authoring Tools wurde hierbei als Ausgangssituation genutzt. Ein getrenntes Tool hat viele Vorteile. Durch die Nutzung von Synergien bereits bestehender Software, hier die Oberfläche von Cinema 4D und dessen Plugin System, kann außerdem Entwicklungszeit eingespart werden. Der Aufwand für die Entwicklung solcher Systeme entfällt. Für Tool Entwickler und Produktiventwickler sind diese Tools bereits aus dem Alltag bekannt. Dies spart wiederum den Aufwand der erneuten Einarbeitung. Es müssen lediglich einige neue Funktionen erlernt werden. An den eigentlichen Arbeitsabläufen in den Tools ändert sich jedoch kaum etwas. Das Erweitern dieser Software kann durch die vorhandenen Plugin Systeme ebenfalls durch wenig Aufwand erfolgen. Der Zeitaufwand hält sich in Grenzen sobald das Tool Team einmal eine Wissensbasis aufgebaut hat. Dieses Konzept unterstützt also das Tool Entwickler Team während des Prozesses der Tool Entwicklung und Konzeption. Allerdings hat es auch einige Nachteile welche hier ebenfalls aufgezeigt werden sollen. Zunächst einmal besteht eine gewisse Abhängigkeit vom Entwickler der genutzten Software. Sollte Maxon sich entscheiden in einer zukünftigen Version einige Änderungen an der API von Cinema 4D durchzuführen, so kann dies zu unangemessenem Aufwand des Entwicklerteams führen. Tools müssen dann wieder an die Änderungen angepasst werden. Dies kam während der Bearbeitung dieser Arbeit öfter vor. Die Änderungen bedingten Teilweise einen erheblichen Mehraufwand um die genutzten Projekte, im Speziellen das Uniplug Projekt, wieder in einen Lauffähigen Stand zu versetzen. Hier wäre es also zu empfehlen falls möglich auf Open Source Software zu setzen. Im Notfall könnten alte Versionen dieser Software geklont und intern ohne Probleme entwickelt werden. Hierbei ist lediglich auf die Lizenzbestimmungen der jeweiligen Software zu achten. Im Falle von proprietärer Software wäre es nicht möglich etwas am Code des Produkts zu ändern. Natürlich kann in manchen Fällen einfach die alte Software weiterverwendet werden, allerdings ist das nicht immer der Fall. Möglicherweise verlieren Lizenzkeys ihre Gültigkeit, oder die Entwickler sind aufgrund einer Betriebssystemveränderung dazu gezwungen die Software zu aktualisieren. Häufig ist die Umsetzung von Tool Funktionalität ein komplexer Prozess der sich durch den nicht zugänglichen Code einer proprietären Softwarebasis nur weiter verkompliziert. Hierbei sei auf die Probleme der Implementierung des FuseeAT verwiesen. Der komplette Entwickleraufwand konnte nicht von einem Entwickler allein im Zeitrahmen dieser Arbeit bewältigt werden. Die Verwendung des Uniplug Projektes erleichterte zwar das Schreiben des Codes durch die Möglichkeit der \CSS Entwicklung, gleichzeitig erschwerte es aber auch die Nutzung der Cinema 4D API. Für das FuseeAT Plugin mussten einige neue Funktionen in das Uniplug Projekt integriert werden. Dieses wrapping nach \CSS war nicht immer Problemlos. Besonders sei hier auf die schlechte Debugging Möglichkeit des Cinema 4D APIs durch die Konvertierung nach \CSS verwiesen. Auch hier lässt sich wieder eine Tendenz zu Open Source Software erkennen.\\
+
+Im Vergleich mit den zwei Editoren der Unreal Engine 4 und der Unity Engine zeigt sich, dass diese Monumentalen Editoren erst einmal eine große Einstiegshürde darstellen. Hierbei hat das Konzept der geteilten Tools den Vorteil der schnelleren Adaption. Allerdings beschränkt sich dies auch nur auf den Entwicklern bereits bekannte Tool Umgebunden. Es ist außerdem selten der Fall, dass sich ein Entwickler für ein Projekt für eine komplett neue Entwicklungsumgebung entscheidet. Auch hier kann das Konzept dieser Arbeit nützlich sein.\\
+
 Abschließend lässt sich sagen, das Konzept ist für die Arbeit mit der Fusee Engine anwendbar. Um ein produktives Tool zu entwickeln empfiehlt es sich aber wenn möglich auf Open Source Software zu setzen. Sollte dies nicht möglich sein, so wäre die Verwendung von nativen APIs einer Verwendung von gewrappter Software vorzuziehen. Die während der Umsetzung des Konzeptes entdecken Problematiken verzögerten die Entwicklung stark und machten sie in manchen Bereichen leider sogar unmöglich. Das analysierte ATF Framework von Sony wäre für die Fusee Engine sicherlich eine praktische Basis für die Entwicklung eines Authoring Tools. Für diese art von Software existiert zwar wenig Support, allerdings lässt die Erfahrung im Bereich der Open Source Entwicklung darauf schließen, dass beliebte Software stets von einer verantwortungsbewussten interessierten Community weiterentwickelt wird. Hier könnte sich eine Integration mit Fusee lohnen. Das entwickelte Konzept für das FuseeAT Framework könnte für dieses Projekt eingesetzt werden. Durch die Tatsache, dass das FuseeAT unabhängig von der Editoren Oberfläche konzipiert wurde, kann es einfach für die Verwendung in anderer Software angepasst werden. Der bereits implementierte Teil des FuseeAT Framework wird in den Entwicklungsast des Fusee Projektes integriert und sicherlich in Zukunft weiter entwickelt. Das Konzept ist weiterhin vielversprechend und könnte parallel neben monumentalen Umgebunden existieren.
 
 
@@ -1566,7 +1626,15 @@ Die Konzeption eines Authoring-Tools und die Analyse eines Arbeitsprozesses für
 \section{Integration des Systems in den weiteren Projektverlauf von Fusee}
 Die im Abschnitt “Problematische Aspekte während der Implementierung” aufgeführten Probleme beeinflussten die Entwicklung des Cinema 4D Plugins stark negativ. Aus diesem Grund ist die Implementierung des FuseeAT nicht komplett abgeschlossen. Das Fusee Projekt an sich ist entsprechend seiner Natur als in der Lehre eingesetzte Simulations- und Entertainment Engine ein Projekt welches sich in ständiger Entwicklung befindet. Somit kann in Zukunft das FuseeAT für verschiedene Editoren und Tools als Ausgangsprojekt genutzt werden um eine grafische Oberfläche für das Produzieren von Applikationen mit der Fusee Engine zu schaffen.  
 
-%\subsection{Game Authoring Entwicklungsprozesse jetzt und in Zukunft}
+\section {Wo ist der Sourcecode und die Dokumentation zu FuseeAT zu beziehen?}
+Sollte am Quellcode von FuseeAT Interesse bestehen, ist dieser für alle Interessenten, unter den folgenden GitHub Links abzurufen. Die Dokumentation ist im Verzeichnis des Frameworks in Form eines .chm (Microsoft Compiled HTML Help) Hilfedokumentes zu finden.
+\begin{itemize}
+\item Aktuell ist der Code im Branch {feat\_dsteffen\_GameAuthoring} unter \url{https://github.com/FUSEEProjectTeam/Fusee} (zuletzt geprüft am 20.05.2015) verfügbar.
+\item Der Code ist nicht production ready und ist aktuell nur in einer speziell eingerichteten Entwicklungsumgebung lauffähig.
+\item In Zukunft wird das Projekt voraussichtlich direkt in den Fusee develop branch integriert sein.
+\end{itemize}
+
+Der gesamte Code dieser Arbeit ist "`Open Source"' und steht unter der MIT Lizenz, abrufbar auf der Webseite der "'Open Source Initative"` unter \url{http://opensource.org/licenses/MIT} (zuletzt geprüft am: 20.05.2015). Weitere Lizenz Informationen zum Code finden sich in der MIT-License.txt und der MIT-License\_DE.txt im Verzeichnis des Softwareprojekts.
 
 
 
