@@ -289,7 +289,7 @@ Diese Editoren wie z.B. der Unreal Engine 4 Editor und der Unity3D Editor bieten
 
 Im professionellen Sektor ist das Entwickeln interner Tools eine anspruchsvolle Aufgabe und dieser Aufwand wird meist bei größeren Projekten wie z.B. dem im Jahr 2014 erschienenen Action-Rollenspiel \fullcite{LOTF-DECK13} des Entwicklerteams Deck13 aus Frankfurt praktiziert. Das Team hat hierfür einen WYSIWYP (What you see is what you play) Editor für das Produktionsteam des Titels entwickelt. Der Editor bietet die Möglichkeit das Spiel genau so zu bearbeiten wie es der Spieler nach dem Kauf zu sehen bekommt was aus einem Interview mit den Entwicklern in der Zeitschrift Making Games hervor geht:
 \begin{quote}
-“We needed an editor that could display the game in the same way that a player would experience it, as we couldn’t allow for differences in the experience of, say, a level artist and the gamer, or a game designer and a gamer. [...] Basically you can start the game in >>game mode<< and >>editor mode<<.  [...] Also, it meant that artists ang game/level-designers used the same view on all objects.”
+\glqq We needed an editor that could display the game in the same way that a player would experience it, as we couldn’t allow for differences in the experience of, say, a level artist and the gamer, or a game designer and a gamer. [...] Basically you can start the game in >>game mode<< and >>editor mode<<.  [...] Also, it meant that artists ang game/level-designers used the same view on all objects.\grqq{}
 
 \fullcite{MakingGamesM03Y2015-LOTF}
 \end{quote}
@@ -308,7 +308,7 @@ Den Authoring Tool Entwicklern kann durch die Verwendung von bereits erhältlich
 
 Ben Carter schreibt in \fullcite{Carter2004}:
 \begin{quote}
-“The users of the tool [...] should spend as much of their time as possible in that tool. Every time they have to switch to another application to perform some task [...] they are losing time and potentially, breaking their concentration. \cite[S. 18]{Carter2004}”
+\glqq The users of the tool [...] should spend as much of their time as possible in that tool. Every time they have to switch to another application to perform some task [...] they are losing time and potentially, breaking their concentration. \grqq{} \fullcite[S. 18]{Carter2004}
 \end{quote}
 Seine Theorie spricht also für die Integration von Tool Funktionalität in die meist genutzte Software der Entwickler. Carter regt hier an, dass der Nutzer so viel Zeit wie möglich in einem Tool verbringen sollte. So kann die Konzentration des Entwicklers länger aufrecht erhalten werden und er wird nicht durch Veränderungen der Arbeitsumgebung gestört. Dies ließe sich durch die bereits erwähnte Trennung von Tools nach Entwicklergruppen realisieren.
 
@@ -394,9 +394,9 @@ Wihlidal beschreibt hiermit eine art der Organisation die vor allem kleine Teams
 \section{Asset Pipelines}
 Artists produzieren Assets für das Projekt. Um diese in das Spiel zu übertragen bedarf es einer so genannten Asset Pipeline. Bei dieser Asset Pipeline handelt es sich um eine angepasst Zusammenstellung mehrerer Entwicklertools. Das Ziel der Asset Pipeline beschreibt Carter in \fullcite{Carter2004} mit:
 \begin{quote}
-“Quite simply, the term describes the sequence of processes that takes assets from their source form [...] to the final data that can be burned onto a disc or cardridge to form part of the finished game.”
+\glqq Quite simply, the term describes the sequence of processes that takes assets from their source form [...] to the final data that can be burned onto a disc or cardridge to form part of the finished game.
 [...]
-It is comparatively rare that fully working game disc with all the assets needs to be produiced. It is certainly an event which happens more frequently as the game gets closer to being completed [...]. \fullcite[S. 6]{Carter2004}
+It is comparatively rare that fully working game disc with all the assets needs to be produiced. It is certainly an event which happens more frequently as the game gets closer to being completed [...].\grqq{} \fullcite[S. 6]{Carter2004}
 \end{quote}
 Somit ist nach Carter die Assetpipeline ein wichtiges Instrument und besteht meist aus einer Zusammenstellung von eigens entwickelten Tools und lizenzierter Software wie z.B. Game Engines, Modeling Editoren wie 3DS Max, Cinema 4D, oder Maya und weiterer Software.\\
 Diese Arbeit beschäftigt sich also mit einem Teilgebiet der Asset Pipeline. Genauer gesagt mit dem Ziel der Asset Pipeline, dem Welt Editor. In einem späteren Kapitel wird das Fusee Asset Management betrachtet und die Asset Pipeline für das Entwickeln einer Fusee Anwendung mit Cinema 4D konzeptionell untersucht. Hierbei wird untersucht, ob es denn möglich ist die Wege von Content Creation Tools, z.B. von Cinema 4D, derart zu verkürzen, dass eben nicht nicht die Assets in diesen Editoren erstellt werden, sondern auch die Asset Pipeline und der Welt Editor (Synonym: Level Editor, Umgebungs-Editor) darin integriert sind.
@@ -416,9 +416,9 @@ Durch das Beantworten dieser Fragen, kann sicher gegangen werden, dass die wicht
 \\
 Carey Chico\footnote{Aktuell Präsident bei Zero Mass Enery \url{https://www.linkedin.com/in/careychico}, ehemals Pandemic Studios} (als Experte im Werk von \cite{Chandler2006} vertreten) beschreibt die Relevanz einer guten Asset Pipeline und vor allem des dedizierten internen Tool Developments wie folgt:
 \begin{quote}
-One of the necessities of game development is a solid tool stategy. You must have a core group of engineers who are dedicated to tools programming on your team. They can enhance the proprietary tools that are part of your pipeline by upgrading features [...] and adding new features based on the game development needs. [...] Because efficient game production depends on creating assets quickly, the developers are constantly thinking of ways to use tools to speed up the asset production pipeline [...]. The longer it takes an artist to get an asset frim source art to an asset that can be seen in game, the less they want to deal with the process, and the lower the quality.
+\glqq One of the necessities of game development is a solid tool stategy. You must have a core group of engineers who are dedicated to tools programming on your team. They can enhance the proprietary tools that are part of your pipeline by upgrading features [...] and adding new features based on the game development needs. [...] Because efficient game production depends on creating assets quickly, the developers are constantly thinking of ways to use tools to speed up the asset production pipeline [...]. The longer it takes an artist to get an asset frim source art to an asset that can be seen in game, the less they want to deal with the process, and the lower the quality.
 [...]
-All pertinent people on the team must be able to access, manipulate, modify and change the content in the game simultaneously or equally.
+All pertinent people on the team must be able to access, manipulate, modify and change the content in the game simultaneously or equally.\grqq{}
 \autocite[S. 224-225]{Chandler2006}
 \end{quote}
 
@@ -454,11 +454,11 @@ Erläuterungen entnommen, übersetzt und angepasst aus \fullcite[S. 11]{Schwaber
 \\
 Scrum eignet sich besonders für unkomplizierte und schnelle Prozesse. Chandler beschreibt es wie folgt:
 \begin{quote}
-“It is relatively easy to implement as it requires no formal training, only a commitment by the team to use the process.”
+\glqq It is relatively easy to implement as it requires no formal training, only a commitment by the team to use the process.\grqq{}
 \cite[S. 45]{Chandler2006}
 \end{quote}
 \begin{quote}
-“The basics of scrum involve creating subsets of self-directed teams within the larger project team [...] and work toghether to complete a set of tasks that will result in a tangible deliverable at the end of a set period of time.”
+\glqq The basics of scrum involve creating subsets of self-directed teams within the larger project team [...] and work toghether to complete a set of tasks that will result in a tangible deliverable at the end of a set period of time.\grqq{}
 \cite[S. 45]{Chandler2006}
 \end{quote}
 Diese Struktur der kleinen Teams im Team lassen sich auf das Prinzip des internen Tool Development Teams anwenden, da sich schon die Strukturen gleichen.
@@ -576,8 +576,8 @@ Die Implementierung ist der praktische Schritt des ganzen Prozesses. Während de
 \section{Stakeholderanalyse intern}
 Um herauszufinden, welche Entwickler eines Teams von der Entwicklung neuer Development Tools im Blick auf ein Spieleentwickler Unternehmen betroffen sind, wurde eine Analyse durchgeführt, um die Stakeholder innerhalb des Teams zu identifizieren. Stakeholder sind ein wichtiger Bestandteil des Prozesses der Softwareentwicklung. Warum ist das so und was genau sind Stakeholder in der Tool Entwicklung?
 \begin{quote}
-“Stakeholders are persons or organizations [...], who are actively involved in the project or whose interests may be positively or negatively affected
-by the performance or completion of the project.” \fullcite[S. 23]{PMBOK}
+\glqq Stakeholders are persons or organizations [...], who are actively involved in the project or whose interests may be positively or negatively affected
+by the performance or completion of the project.\grqq{} \fullcite[S. 23]{PMBOK}
 \end{quote}
 Stakeholder sind für dieses Projekt also alle Personen und auch Organisationen die einen indirekten oder direkten Bezug zum Projekt haben (siehe Abbildung \ref{StakeholderÜbersicht}). Somit gehört zu den Stakeholdern auch das interne Entwicklerteam, welches nach Fertigstellung des Projektes mit dem entwickelten Tool arbeiten soll.
 
@@ -590,7 +590,7 @@ Stakeholder sind für dieses Projekt also alle Personen und auch Organisationen 
 
 Wihlidal beschreibt ein weit verbreitetes Problem welches durch Fehler in der Stakeholder Analyse entsteht:
 \begin{quote}
-It is very important to ask the right questions to your stakeholders [...] a lot of design and development time is wasted because of incorrect user requirements. Getting them right from the start will help alleviate this problem.
+\glqq It is very important to ask the right questions to your stakeholders [...] a lot of design and development time is wasted because of incorrect user requirements. Getting them right from the start will help alleviate this problem.\grqq{}
 \autocite[S. 28]{Wihlidal2006}
 \end{quote}
 
@@ -598,7 +598,7 @@ In der Praxis wäre für die Konzeption bzw. das Systemdesign eines neuen Tools 
 
 \autocite{Wihlidal2006} beschreibt Stakeholder bezüglich des Gebietes Tool Development folgendermaßen:
 \begin{quote}
-“They (Stakeholders, Anmerkung des Autors) are the users who are most affected by the introduction of a tool and they ultimately contribute to the design and goals. Stakeholders are (Anmerkung des Autors) defined as anyone who stands to gain or lose from the succes or failure of an application [...].” \parencite[S. 4-5]{Wihlidal2006}
+\glqq They (Stakeholders, Anmerkung des Autors) are the users who are most affected by the introduction of a tool and they ultimately contribute to the design and goals. Stakeholders are (Anmerkung des Autors) defined as anyone who stands to gain or lose from the succes or failure of an application [...].\grqq{} \parencite[S. 4-5]{Wihlidal2006}
 \end{quote}
 Diese Definition deckt sich mit der bereits erwähnten allgemeinen Definition der Stakeholder. Sollte für das Softwareprodukt keine Veröffentlichung der Tools zur Generierung von User Generated Content geplant sein, beschränkt sich der Kreis der Stakeholder auf das interne Entwicklerteam. Eventuell sind noch andere Publisher-eigene Studios und Teams zu berücksichtigen. Dies kann vor allem dann der Fall sein, wenn eine Spiele Engine in mehreren Studios eines Publishers eingesetzt wird. Als Beispiel sei hier die 3D Engine Frostbite Engine \footnote{\fullcite{FrostbiteEngine}} von Digital Illusions CE \footnote{\url{http://www.frostbite.com}} unter dem Publisher Electronic Arts \footnote{\url{http://www.ea.com}} angeführt. Dieser Publisher setzt für alle aktuellen Projekte\footnote{\url{http://www.frostbite.com/games/future-games/}} seiner Studios auf die gleichen Tools und die gleiche Engine.
 
@@ -974,7 +974,7 @@ Die etablierte Programmiersprache C++ ist eine zweite Möglichkeit mit der UE4 C
 
 Diese Makros und weitere sind alle in der UE4 Dokumentation \url{https://docs.unrealengine.com/latest/INT/} aufgelistet. Allerdings ist diese Art der Deklaration nur für bestimmte Schnittstellen Klassen essentiell. Der meiste selbst geschriebene Code kann ohne diese Makros geschrieben werden. Sie dienen nur der Kommunikation mit dem Editor und Kernsystemen der Engine. Es ist aber zu empfehlen diese Möglichkeit zu nutzen, so kümmert sich Beispielsweise der Garbage Collector der UE4 um Properties und Objekte welche mit den korrekten Makros ausgezeichnet wurden. 
 \begin{quote}
-For instance, a variable with a declaration prefaced by a UPROPERTY() macro can be garbage collected by the engine, and can be displayed and edited within Unreal Editor. \autocite{UnrealEngine4} - Dokumentation Unreal Engine 4 \url{https://docs.unrealengine.com}.
+\glqq For instance, a variable with a declaration prefaced by a UPROPERTY() macro can be garbage collected by the engine, and can be displayed and edited within Unreal Editor.\grqq{} \autocite{UnrealEngine4} - Dokumentation Unreal Engine 4 \url{https://docs.unrealengine.com}.
 \end{quote}
 Der gesamte C++ Code eines Projektes wird je nach Entwicklungsplattform entweder in Visual Studio (auf Windows) oder in der IDE X Code (auf Mac OSX) geschrieben. In der Realität werden Projekte mit einer Mischung der beiden Möglichkeiten (C++ und Blueprint) umgesetzt. Für das schnelle Prototyping eignet sich aber Blueprint alleine bereits sehr gut.
 
