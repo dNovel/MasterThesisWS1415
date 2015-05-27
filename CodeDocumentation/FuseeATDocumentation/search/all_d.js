@@ -1,12 +1,13 @@
 var searchData=
 [
-  ['saveproject',['SaveProject',['../de/d75/interface_fusee_authoring_tools_1_1_i_fusee_authoring_tools.html#a35024276076f7e15af956d13185e87bf',1,'FuseeAuthoringTools.IFuseeAuthoringTools.SaveProject()'],['../d6/d4c/class_fusee_authoring_tools_1_1c4d_set_1_1_fusee_authoring_tools_c4_d.html#a62691888af25636ecd8dbe719eb484c5',1,'FuseeAuthoringTools.c4dSet.FuseeAuthoringToolsC4D.SaveProject()'],['../d8/dbd/class_fusee_authoring_tools_1_1tools_1_1_fusee_project_manager.html#a9794209c7236e444a4d7eecf7e5f9920',1,'FuseeAuthoringTools.tools.FuseeProjectManager.SaveProject()']]],
-  ['session',['Session',['../d0/d81/class_fusee_authoring_tools_1_1_templates_1_1_simple_class_base.html#a1c6d477d1e32d59129b8901f5980c569',1,'FuseeAuthoringTools::Templates::SimpleClassBase']]],
-  ['setprojectclean',['SetProjectClean',['../d8/dbd/class_fusee_authoring_tools_1_1tools_1_1_fusee_project_manager.html#a77fa65ceb8521e27aa3bd1609d7e5539',1,'FuseeAuthoringTools::tools::FuseeProjectManager']]],
-  ['setprojectdirty',['SetProjectDirty',['../d8/dbd/class_fusee_authoring_tools_1_1tools_1_1_fusee_project_manager.html#ac5d7a45fec15ee88ca8eb78964c84f99',1,'FuseeAuthoringTools::tools::FuseeProjectManager']]],
-  ['simpleclass',['SimpleClass',['../d7/dd0/class_fusee_authoring_tools_1_1_templates_1_1_simple_class.html#a8edb5bc473c22e6de82e6aaf88cebbc1',1,'FuseeAuthoringTools::Templates::SimpleClass']]],
-  ['simpleclass',['SimpleClass',['../d7/dd0/class_fusee_authoring_tools_1_1_templates_1_1_simple_class.html',1,'FuseeAuthoringTools::Templates']]],
-  ['simpleclass_2ecs',['SimpleClass.cs',['../dd/d53/_simple_class_8cs.html',1,'']]],
-  ['simpleclassbase',['SimpleClassBase',['../d0/d81/class_fusee_authoring_tools_1_1_templates_1_1_simple_class_base.html',1,'FuseeAuthoringTools::Templates']]],
-  ['solutionname',['SolutionName',['../d6/d97/struct_fusee_authoring_tools_1_1_engine_project.html#ac02905561d6c31c3b1724b6f6b818b26',1,'FuseeAuthoringTools::EngineProject']]]
+  ['pathtocsprojectfile',['PathToCsProjectFile',['../d6/d97/struct_fusee_authoring_tools_1_1_engine_project.html#a039eecce524a80b04fcf005764cbb47b',1,'FuseeAuthoringTools::EngineProject']]],
+  ['pathtoprojectfolder',['PathToProjectFolder',['../d6/d97/struct_fusee_authoring_tools_1_1_engine_project.html#abc4809d298e1a264897edffa4195bbf1',1,'FuseeAuthoringTools::EngineProject']]],
+  ['pathtosolutionfolder',['PathToSolutionFolder',['../d6/d97/struct_fusee_authoring_tools_1_1_engine_project.html#adeca26dd5d11c05c2bde3d7aae807fb6',1,'FuseeAuthoringTools::EngineProject']]],
+  ['pl_5fpluginid',['PL_PLUGINID',['../dd/dbb/class_game_authoring_1_1source_1_1_fat_project_loader_plugin.html#a8d14d8f22fd6fa06df4f0cf7f965e55a',1,'GameAuthoring::source::FatProjectLoaderPlugin']]],
+  ['pluginreferencehelper',['PluginReferenceHelper',['../d5/da7/struct_game_authoring_1_1source_1_1_plugin_reference_helper.html',1,'GameAuthoring::source']]],
+  ['popindent',['PopIndent',['../d0/d81/class_fusee_authoring_tools_1_1_templates_1_1_simple_class_base.html#abde5c75f132e4ba38961196fcc081b5e',1,'FuseeAuthoringTools::Templates::SimpleClassBase']]],
+  ['projectfolder',['PROJECTFOLDER',['../d5/d3d/class_fusee_authoring_tools_1_1_global_values.html#ae217e46f2a76ca5beeb8792ebdf8ce46',1,'FuseeAuthoringTools::GlobalValues']]],
+  ['projectnametxt',['PROJECTNAMETXT',['../d8/d5e/class_game_authoring_1_1source_1_1_cmd_ui_dialog.html#a445029244dade6b9f5db386e96c974ad',1,'GameAuthoring::source::CmdUiDialog']]],
+  ['projectstate',['ProjectState',['../d6/d97/struct_fusee_authoring_tools_1_1_engine_project.html#a3bf3aa1e36676c1dae7f3d52bb51088d',1,'FuseeAuthoringTools.EngineProject.ProjectState()'],['../d0/df0/namespace_fusee_authoring_tools.html#a609b077959c857d5e704c24a5de5c324',1,'FuseeAuthoringTools.ProjectState()']]],
+  ['pushindent',['PushIndent',['../d0/d81/class_fusee_authoring_tools_1_1_templates_1_1_simple_class_base.html#a283504996d9de2a456e3d2c17c62c11c',1,'FuseeAuthoringTools::Templates::SimpleClassBase']]]
 ];

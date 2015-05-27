@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Fusee Authoring Toolkit
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">0.5</span>
    </div>
    <div id="projectbrief">FuseeAT will be an Authoring Tool Framework for the Fusee Engine.</div>
   </td>
@@ -91,11 +91,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../db/dd2/class_game_authoring_1_1source_1_1_fat_asset_tag_plugin-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">GameAuthoring.source.FatAssetTagPlugin Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This is the asset tag plugin. It can create a tag on different scene objects and do stuff with it. It can also react to different messages calls from the api.  
+ <a href="../../d9/d95/class_game_authoring_1_1source_1_1_fat_asset_tag_plugin.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for GameAuthoring.source.FatAssetTagPlugin:</div>
 <div class="dyncontent">
@@ -110,15 +115,31 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afe1d87d53f5a38eed185ead6d8569900"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_game_authoring_1_1source_1_1_fat_asset_tag_plugin.html#afe1d87d53f5a38eed185ead6d8569900">FatAssetTagPlugin</a> ()</td></tr>
 <tr class="separator:afe1d87d53f5a38eed185ead6d8569900"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5faade8ec8bf5736cfd404ee3d2c9dac"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_game_authoring_1_1source_1_1_fat_asset_tag_plugin.html#a5faade8ec8bf5736cfd404ee3d2c9dac">Init</a> (GeListNode node)</td></tr>
+<tr class="memdesc:a5faade8ec8bf5736cfd404ee3d2c9dac"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is called when the plugin is initialized. So during startup of the application mostly.  <a href="#a5faade8ec8bf5736cfd404ee3d2c9dac">More...</a><br /></td></tr>
 <tr class="separator:a5faade8ec8bf5736cfd404ee3d2c9dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71aae19ff68ccc90e2d3974b18ebef07"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_game_authoring_1_1source_1_1_fat_asset_tag_plugin.html#a71aae19ff68ccc90e2d3974b18ebef07">Draw</a> (BaseTag tag, BaseObject op, BaseDraw bd, BaseDrawHelp bh)</td></tr>
+<tr class="memdesc:a71aae19ff68ccc90e2d3974b18ebef07"><td class="mdescLeft">&#160;</td><td class="mdescRight">This reacts to draw calls from the API.  <a href="#a71aae19ff68ccc90e2d3974b18ebef07">More...</a><br /></td></tr>
 <tr class="separator:a71aae19ff68ccc90e2d3974b18ebef07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06822fe10954bc73f14e53b03f756ca1"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_game_authoring_1_1source_1_1_fat_asset_tag_plugin.html#a06822fe10954bc73f14e53b03f756ca1">MessageDocumentInfo</a> (GeListNode node, DocumentInfoData data)</td></tr>
+<tr class="memdesc:a06822fe10954bc73f14e53b03f756ca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reacts to different messages coming from the API and Application. Can detect if the scene has been saved etc.  <a href="#a06822fe10954bc73f14e53b03f756ca1">More...</a><br /></td></tr>
 <tr class="separator:a06822fe10954bc73f14e53b03f756ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a20e80c048d60571b3de41faaf3fa2464"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_game_authoring_1_1source_1_1_fat_asset_tag_plugin.html#a20e80c048d60571b3de41faaf3fa2464">GetObjectName</a> (GeListNode node)</td></tr>
+<tr class="memdesc:a20e80c048d60571b3de41faaf3fa2464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Little helper function to retrieve the name of a scene object.  <a href="#a20e80c048d60571b3de41faaf3fa2464">More...</a><br /></td></tr>
+<tr class="separator:a20e80c048d60571b3de41faaf3fa2464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7e23d8a55d6584e66ff2e80c30d1ec89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d4c/class_fusee_authoring_tools_1_1c4d_set_1_1_fusee_authoring_tools_c4_d.html">FuseeAuthoringToolsC4D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_game_authoring_1_1source_1_1_fat_asset_tag_plugin.html#a7e23d8a55d6584e66ff2e80c30d1ec89">fat</a></td></tr>
+<tr class="memdesc:a7e23d8a55d6584e66ff2e80c30d1ec89"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the reference to FuseeAT.  <a href="#a7e23d8a55d6584e66ff2e80c30d1ec89">More...</a><br /></td></tr>
+<tr class="separator:a7e23d8a55d6584e66ff2e80c30d1ec89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00106">106</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<div class="textblock"><p>This is the asset tag plugin. It can create a tag on different scene objects and do stuff with it. It can also react to different messages calls from the api. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00153">153</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="afe1d87d53f5a38eed185ead6d8569900"></a>
 <div class="memitem">
@@ -133,7 +154,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00111">111</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00160">160</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 
 </div>
 </div>
@@ -174,7 +195,54 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00131">131</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<p>This reacts to draw calls from the API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tag</td><td></td></tr>
+    <tr><td class="paramname">op</td><td></td></tr>
+    <tr><td class="paramname">bd</td><td></td></tr>
+    <tr><td class="paramname">bh</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00193">193</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a20e80c048d60571b3de41faaf3fa2464"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String GameAuthoring.source.FatAssetTagPlugin.GetObjectName </td>
+          <td>(</td>
+          <td class="paramtype">GeListNode&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Little helper function to retrieve the name of a scene object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00237">237</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 
 </div>
 </div>
@@ -192,7 +260,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00113">113</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<p>This is called when the plugin is initialized. So during startup of the application mostly. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00167">167</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 
 </div>
 </div>
@@ -220,17 +297,52 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00136">136</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<p>Reacts to different messages coming from the API and Application. Can detect if the scene has been saved etc. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td></td></tr>
+    <tr><td class="paramname">data</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00205">205</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a7e23d8a55d6584e66ff2e80c30d1ec89"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d4c/class_fusee_authoring_tools_1_1c4d_set_1_1_fusee_authoring_tools_c4_d.html">FuseeAuthoringToolsC4D</a> GameAuthoring.source.FatAssetTagPlugin.fat</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is the reference to FuseeAT. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00158">158</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Dominik/Development/Fusee/src/Uniplug/Cinema4D/GameAuthoring/source/<a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a></li>
+<li>C:/Users/dominik/Development/Fusee/src/Uniplug/Cinema4D/GameAuthoring/source/<a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed May 27 2015 12:22:30 for Fusee Authoring Toolkit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 27 2015 15:28:57 for Fusee Authoring Toolkit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

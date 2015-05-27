@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['objectid',['objectID',['../d5/d05/struct_fusee_authoring_tools_1_1_asset_object.html#a9042b44fdff80d7ccf6827cf5687ab6e',1,'FuseeAuthoringTools::AssetObject']]],
-  ['objectname',['objectName',['../d5/d05/struct_fusee_authoring_tools_1_1_asset_object.html#ae275a9d1e3c8a1f3be5e3298242cbec4',1,'FuseeAuthoringTools::AssetObject']]]
+  ['endswithnewline',['endsWithNewline',['../d0/d81/class_fusee_authoring_tools_1_1_templates_1_1_simple_class_base.html#afe04437e3128fe6eb70962e9a52b1129',1,'FuseeAuthoringTools::Templates::SimpleClassBase']]],
+  ['errorsfield',['errorsField',['../d0/d81/class_fusee_authoring_tools_1_1_templates_1_1_simple_class_base.html#a03300d8ba75e7e688b966930d146440b',1,'FuseeAuthoringTools::Templates::SimpleClassBase']]]
 ];

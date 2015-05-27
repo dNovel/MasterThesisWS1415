@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pluginreferencehelper',['PluginReferenceHelper',['../d5/da7/struct_game_authoring_1_1source_1_1_plugin_reference_helper.html',1,'GameAuthoring::source']]]
+  ['ifuseeauthoringtools',['IFuseeAuthoringTools',['../de/d75/interface_fusee_authoring_tools_1_1_i_fusee_authoring_tools.html',1,'FuseeAuthoringTools']]]
 ];

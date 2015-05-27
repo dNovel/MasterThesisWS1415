@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Fusee Authoring Toolkit
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">0.5</span>
    </div>
    <div id="projectbrief">FuseeAT will be an Authoring Tool Framework for the Fusee Engine.</div>
   </td>
@@ -91,13 +91,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../d5/df2/class_game_authoring_1_1source_1_1_cmd_ui_dialog-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">GameAuthoring.source.CmdUiDialog Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Handles the GUI functions for the command plugin.  
+<p>Handles the GUI functions for the command plugin. It can display a form but it cannot react for now due to a very hard api bug due to the wrapping.  
  <a href="../../d8/d5e/class_game_authoring_1_1source_1_1_cmd_ui_dialog.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for GameAuthoring.source.CmdUiDialog:</div>
@@ -113,14 +114,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab4399b32059edb0eb2d776d081ed05ee"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d5e/class_game_authoring_1_1source_1_1_cmd_ui_dialog.html#ab4399b32059edb0eb2d776d081ed05ee">InitValues</a> ()</td></tr>
 <tr class="separator:ab4399b32059edb0eb2d776d081ed05ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33e5c024e3bfbe811886d7625081078a"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d5e/class_game_authoring_1_1source_1_1_cmd_ui_dialog.html#a33e5c024e3bfbe811886d7625081078a">CreateLayout</a> ()</td></tr>
+<tr class="memdesc:a33e5c024e3bfbe811886d7625081078a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function creates a layout for a dialog window. For now it is a little opening dialog. It cannot use decorations like buttons for now because of the bug in the api / wrapping.  <a href="#a33e5c024e3bfbe811886d7625081078a">More...</a><br /></td></tr>
 <tr class="separator:a33e5c024e3bfbe811886d7625081078a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2855a8ef09c011237c8ab149bf6bbf46"><td class="memItemLeft" align="right" valign="top">override int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d5e/class_game_authoring_1_1source_1_1_cmd_ui_dialog.html#a2855a8ef09c011237c8ab149bf6bbf46">Message</a> (BaseContainer msg, BaseContainer result)</td></tr>
+<tr class="memdesc:a2855a8ef09c011237c8ab149bf6bbf46"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function receives messages from the api so we can react to changes in the application.  <a href="#a2855a8ef09c011237c8ab149bf6bbf46">More...</a><br /></td></tr>
 <tr class="separator:a2855a8ef09c011237c8ab149bf6bbf46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4c2cf84769a233b08dfee60c29e205a9"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d5e/class_game_authoring_1_1source_1_1_cmd_ui_dialog.html#a4c2cf84769a233b08dfee60c29e205a9">FILEPATHTXT</a> = 3001</td></tr>
+<tr class="separator:a4c2cf84769a233b08dfee60c29e205a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a445029244dade6b9f5db386e96c974ad"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d5e/class_game_authoring_1_1source_1_1_cmd_ui_dialog.html#a445029244dade6b9f5db386e96c974ad">PROJECTNAMETXT</a> = 3002</td></tr>
+<tr class="separator:a445029244dade6b9f5db386e96c974ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Handles the GUI functions for the command plugin. </p>
+<div class="textblock"><p>Handles the GUI functions for the command plugin. It can display a form but it cannot react for now due to a very hard api bug due to the wrapping. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00183">183</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00251">251</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a33e5c024e3bfbe811886d7625081078a"></a>
 <div class="memitem">
@@ -135,7 +145,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00195">195</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<p>This function creates a layout for a dialog window. For now it is a little opening dialog. It cannot use decorations like buttons for now because of the bug in the api / wrapping. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00268">268</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 
 </div>
 </div>
@@ -152,7 +165,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00188">188</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00256">256</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 
 </div>
 </div>
@@ -180,17 +193,72 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00225">225</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<p>This function receives messages from the api so we can react to changes in the application. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td></td></tr>
+    <tr><td class="paramname">result</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00304">304</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a4c2cf84769a233b08dfee60c29e205a9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int GameAuthoring.source.CmdUiDialog.FILEPATHTXT = 3001</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00253">253</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a445029244dade6b9f5db386e96c974ad"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int GameAuthoring.source.CmdUiDialog.PROJECTNAMETXT = 3002</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00254">254</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Dominik/Development/Fusee/src/Uniplug/Cinema4D/GameAuthoring/source/<a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a></li>
+<li>C:/Users/dominik/Development/Fusee/src/Uniplug/Cinema4D/GameAuthoring/source/<a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed May 27 2015 12:22:30 for Fusee Authoring Toolkit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 27 2015 15:28:57 for Fusee Authoring Toolkit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

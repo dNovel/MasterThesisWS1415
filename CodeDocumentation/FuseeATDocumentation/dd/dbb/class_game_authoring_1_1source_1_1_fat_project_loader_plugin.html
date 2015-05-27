@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Fusee Authoring Toolkit
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">0.5</span>
    </div>
    <div id="projectbrief">FuseeAT will be an Authoring Tool Framework for the Fusee Engine.</div>
   </td>
@@ -91,11 +91,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../d9/d15/class_game_authoring_1_1source_1_1_fat_project_loader_plugin-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">GameAuthoring.source.FatProjectLoaderPlugin Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This is the project loader Plugin class. It will load a fus project from a given path. If the project does not exist, it can create a new one.  
+ <a href="../../dd/dbb/class_game_authoring_1_1source_1_1_fat_project_loader_plugin.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for GameAuthoring.source.FatProjectLoaderPlugin:</div>
 <div class="dyncontent">
@@ -110,13 +114,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a125ca1c820b3506733a128a1fc86d559"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dbb/class_game_authoring_1_1source_1_1_fat_project_loader_plugin.html#a125ca1c820b3506733a128a1fc86d559">FatProjectLoaderPlugin</a> ()</td></tr>
 <tr class="separator:a125ca1c820b3506733a128a1fc86d559"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02208c210574e4eab53f83a58ff56cbb"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dbb/class_game_authoring_1_1source_1_1_fat_project_loader_plugin.html#a02208c210574e4eab53f83a58ff56cbb">Execute</a> (BaseDocument doc)</td></tr>
+<tr class="memdesc:a02208c210574e4eab53f83a58ff56cbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is executed when starting the plugin. NOT at initializing.  <a href="#a02208c210574e4eab53f83a58ff56cbb">More...</a><br /></td></tr>
 <tr class="separator:a02208c210574e4eab53f83a58ff56cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0456dd8549c832a56be713f6a579ce4"><td class="memItemLeft" align="right" valign="top">override bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dbb/class_game_authoring_1_1source_1_1_fat_project_loader_plugin.html#ab0456dd8549c832a56be713f6a579ce4">Message</a> (int type, SWIGTYPE_p_void data)</td></tr>
+<tr class="memdesc:ab0456dd8549c832a56be713f6a579ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function receives messages for a plugin. For now it only prints them out as this plugin type does not use messages in FuseeAT for now.  <a href="#ab0456dd8549c832a56be713f6a579ce4">More...</a><br /></td></tr>
 <tr class="separator:ab0456dd8549c832a56be713f6a579ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8d14d8f22fd6fa06df4f0cf7f965e55a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dbb/class_game_authoring_1_1source_1_1_fat_project_loader_plugin.html#a8d14d8f22fd6fa06df4f0cf7f965e55a">PL_PLUGINID</a> = 1035056</td></tr>
+<tr class="separator:a8d14d8f22fd6fa06df4f0cf7f965e55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a927777b68811326907512d8a146aa483"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d4c/class_fusee_authoring_tools_1_1c4d_set_1_1_fusee_authoring_tools_c4_d.html">FuseeAuthoringToolsC4D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dbb/class_game_authoring_1_1source_1_1_fat_project_loader_plugin.html#a927777b68811326907512d8a146aa483">fat</a></td></tr>
+<tr class="separator:a927777b68811326907512d8a146aa483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b82ab252074fa924e2da5be0f29a78f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d5e/class_game_authoring_1_1source_1_1_cmd_ui_dialog.html">CmdUiDialog</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dbb/class_game_authoring_1_1source_1_1_fat_project_loader_plugin.html#a4b82ab252074fa924e2da5be0f29a78f">cmdUi</a></td></tr>
+<tr class="separator:a4b82ab252074fa924e2da5be0f29a78f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00049">49</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<div class="textblock"><p>This is the project loader Plugin class. It will load a fus project from a given path. If the project does not exist, it can create a new one. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00082">82</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a125ca1c820b3506733a128a1fc86d559"></a>
 <div class="memitem">
@@ -131,7 +147,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00057">57</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00089">89</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 
 </div>
 </div>
@@ -150,7 +166,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00059">59</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<p>This function is executed when starting the plugin. NOT at initializing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">doc</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00096">96</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 
 </div>
 </div>
@@ -178,17 +203,94 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00092">92</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+<p>This function receives messages for a plugin. For now it only prints them out as this plugin type does not use messages in FuseeAT for now. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td></td></tr>
+    <tr><td class="paramname">data</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00135">135</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a4b82ab252074fa924e2da5be0f29a78f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/d5e/class_game_authoring_1_1source_1_1_cmd_ui_dialog.html">CmdUiDialog</a> GameAuthoring.source.FatProjectLoaderPlugin.cmdUi</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00087">87</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a927777b68811326907512d8a146aa483"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d4c/class_fusee_authoring_tools_1_1c4d_set_1_1_fusee_authoring_tools_c4_d.html">FuseeAuthoringToolsC4D</a> GameAuthoring.source.FatProjectLoaderPlugin.fat</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00086">86</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8d14d8f22fd6fa06df4f0cf7f965e55a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameAuthoring.source.FatProjectLoaderPlugin.PL_PLUGINID = 1035056</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html#l00084">84</a> of file <a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Dominik/Development/Fusee/src/Uniplug/Cinema4D/GameAuthoring/source/<a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a></li>
+<li>C:/Users/dominik/Development/Fusee/src/Uniplug/Cinema4D/GameAuthoring/source/<a class="el" href="../../d0/d3d/_game_authoring_8cs_source.html">GameAuthoring.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed May 27 2015 12:22:30 for Fusee Authoring Toolkit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 27 2015 15:28:57 for Fusee Authoring Toolkit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
