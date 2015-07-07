@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>260</x>
+      <y>400</y>
+      <w>140</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Partial Class
+--
+Manueller Code</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>470</x>
+      <y>400</y>
+      <w>150</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Partial Class
+--
+Generierter Code</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>470</x>
+      <y>500</y>
+      <w>150</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Daten Container Struct
+--
+- IDs
+- Pfade
+- Hashwerte
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>510</x>
+      <y>430</y>
+      <w>50</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;70</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>670</x>
+      <y>530</y>
+      <w>170</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Deliverable Datei
+--
+- .fbx etc.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>590</x>
+      <y>530</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;80;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>670</x>
+      <y>400</y>
+      <w>170</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>FuseeAT Framework
+--
+Projecthandler Modul</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>590</x>
+      <y>400</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;80;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>260</x>
+      <y>270</y>
+      <w>360</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Tatsächliche Klasse
+--
+Durch Compile Vorgang erzeugt</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>300</x>
+      <y>320</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>510</x>
+      <y>320</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;80</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>270</x>
+      <y>480</y>
+      <w>120</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Programmierer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>670</x>
+      <y>270</y>
+      <w>170</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>FuseeAT Editor
+--
+Cinema 4D</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>720</x>
+      <y>320</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;80;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>810</x>
+      <y>280</y>
+      <w>120</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;280;100;280;100;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>840</x>
+      <y>460</y>
+      <w>80</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Designer</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
